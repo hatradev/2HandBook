@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Links for CSS later ...  -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,500;0,700;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./general.css" /> -->
+    <title>2HandBook - Login</title>
+  </head>
+  <body>
+    <!-- Header  -->
+    <header class="header">
+      <div class="container">
+        <div class="logo">
+          <img src="./logo.png" alt="2HandBook logo" class="logo-img" />
+        </div>
+        <div class="search-bar">
+          <input type="text" class="search-input" />
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <a href="#" class="btn">sign in</a>
+        <a href="#" class="btn">sign up</a>
+        <i class="fa-solid fa-cart-shopping cart-icon"></i>
+      </div>
+    </header>
+
+    <!-- Navigation  -->
+    <nav class="nav">
+      <ul class="nav-links">
+        <li><a href="#" class="nav-link">Home</a></li>
+        <li><a href="#" class="nav-link">About us & Contacts</a></li>
+        <li><a href="#" class="nav-link">Support</a></li>
+        <li><a href="#" class="nav-link">Categories</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main -->
+    <main>
+      <!-- Login section -->
+      <section class="login">
+        <h2>SIGN IN</h2>
+        <form action="#">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" /><br />
+          <label for="pwd">Password:</label>
+          <input type="password" id="pwd" name="pwd" /><br />
+          <input
+            type="checkbox"
+            id="remember-pwd"
+            name="remember-pwd"
+            value="Remember password"
+          />
+          <label for="remember-pwd">Remember password</label><br />
+          <input type="submit" value="Sign in" />
+          <button type="button">Sign up</button>
+          <br />
+          <a href="#" class="forget-pwd">Reset password</a>
+        </form>
+      </section>
+    </main>
+
+    <!-- Footer  -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-col">
+          <p class="footer-title">2HandBook</p>
+          <ul class="footer-list">
+            <li class="footer-item">
+              227 Nguyen Van Cu Str., District 5, Ho Chi Minh City
+            </li>
+            <li class="footer-item">
+              <i class="fa-solid fa-phone"></i>
+              <span>0999.999.999</span>
+            </li>
+            <li class="footer-item">
+              <i class="fa-solid fa-envelope"></i>
+              <span>e2handbook@gmail.com</span>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <p class="footer-title">Policy</p>
+          <ul class="footer-list">
+            <li class="footer-item">
+              <a href="#" class="footer-link">Buying Guide</a>
+            </li>
+            <li class="footer-item">
+              <a href="#" class="footer-link">Forms of Payment</a>
+            </li>
+            <li class="footer-item">
+              <a href="#" class="footer-link">Information Security</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <p class="footer-title">Keywords</p>
+          <ul class="footer-list">
+            <li class="footer-item">
+              <a href="#" class="footer-link">Old Books</a>
+            </li>
+            <li class="footer-item">
+              <a href="#" class="footer-link">Tutorials</a>
+            </li>
+            <li class="footer-item">
+              <a href="#" class="footer-link">Calculators</a>
+            </li>
+            <div class="footer-item">
+              <a href="#" class="footer-link">Magazine</a>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
