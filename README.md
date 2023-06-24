@@ -32,12 +32,57 @@
 - Vision Document [doc]
 - Weekly Report [doc]
 
+#### 26/6 - 09/7: [PA2 (15/7) - Sprint02] +70
+
+- Revised Project Plan [doc]: Update more information form old version.
+- Detailed Vision Document [doc]: Update more information form old version.
+- Use-case Model [doc]: Design Software Developing Model (UML,...)
+- Use-case Specification [doc]
+- Weekly Report [doc]
+
+#### 10/7 - 23/7: [PA3 (29/7) - Sprint03] +60
+
+- Use-case Specification [doc]: Update more information form old version.
+- Software Architecture Document [doc]
+- UML Class Diagram
+- Weekly Report
+
+#### 24/7 - 06/8: [PA4 (12/8) - Sprint04] +35
+
+- Revised Software Architecture Document
+- UI Prototype
+- Weekly Report
+
+#### 07/8 - 20/8: [PA5 (----) - Sprint05] +160
+
+- Test plan
+- Test cases
+- Project Presentation.
+- Final Submission.
+
+## About Project "2HandBook"
+
+#### 29/5 - 11/6: [PA0 (17/6) - Sprint00]
+
+#### 12/6 - 25/6: [PA1 (08/7) - Sprint01]
+
+- Build HTML documents for all screens.
+
 #### 26/6 - 09/7: [PA2 (15/7) - Sprint02]
+
+- Build database (Back-end) and functions. (1-2 meetings)
+- Complete Back-end.
 
 #### 10/7 - 23/7: [PA3 (29/7) - Sprint03]
 
+- Build Layout, CSS, JS... (Front-end) (external CSS).
+- Combine Back-end to Front-end.
+
 #### 24/7 - 06/8: [PA4 (12/8) - Sprint04]
+
+- Test.
+- Repair/Fix.
 
 #### 07/8 - 20/8: [PA5 (----) - Sprint05]
 
-## About Project "2HandBook"
+- Test.
