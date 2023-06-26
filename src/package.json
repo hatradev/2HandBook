@@ -2,10 +2,10 @@
   "name": "2handbook",
   "version": "1.0.0",
   "description": "This project is made by a student group of HCMUS for serving people who want to sell and buy old materials ",
-  "main": "src/app.js",
+  "main": "source/app.js",
   "scripts": {
-    "start": "nodemon src/server.js",
-    "watch": "node-sass --watch src/resources/scss/app.scss src/public/css/app.css"
+    "start": "nodemon source/server.js",
+    "watch": "node-sass --watch source/resources/scss/app.scss source/public/css/app.css"
   },
   "repository": {
     "type": "git",
