@@ -1,0 +1,78 @@
+.header {
+  background-color: rgba(59, 153, 215, 0.2);
+  transition: $primary-trans;
+
+  .logo {
+    padding: 0.5rem 2rem;
+  }
+
+  .cart-icon {
+    font-size: $secondary-fz;
+
+    &::before {
+      color: $grey-2;
+      cursor: pointer;
+    }
+  }
+}
+
+.search-bar {
+  position: relative;
+
+  .search-input {
+    height: 3.4rem;
+    border-radius: 2rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+
+    &::placeholder {
+      color: $grey-2;
+    }
+  }
+
+  .search-icon-link {
+    width: 2rem;
+    font-size: 1.6rem;
+    position: absolute;
+    right: 2rem;
+
+    .search-icon::before {
+      color: #fff;
+    }
+  }
+}
+
+.header.light {
+  background-color: $primary-color;
+
+  .search-input {
+    background-color: $grey-3;
+    color: $grey-1;
+
+    &::placeholder {
+      color: $grey-1;
+    }
+  }
+
+  .search-icon::before {
+    color: $grey-1;
+  }
+}
+
+.btn {
+  font-size: 1.6rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  background-color: $primary-color-tint;
+  padding: 0.5rem 2rem;
+
+  & + & {
+    background-color: $grey-2;
+  }
+
+  &:hover {
+    box-shadow: 0 0 0 0.2rem $grey-2 inset;
+    color: $grey-2;
+    background-color: $primary-color-shade;
+  }
+}
