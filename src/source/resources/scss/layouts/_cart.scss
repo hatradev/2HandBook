@@ -1,0 +1,146 @@
+.cart {
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  display: none;
+  .cart-slider {
+    background-color: #fff;
+    position: absolute;
+    right: 2rem;
+    top: 0;
+    bottom: 0;
+    padding: 0 2rem;
+    transform: translateX(100%);
+    transition: transform 0.5s ease;
+    .cart-empty-text {
+      font-size: $secondary-fz;
+    }
+  }
+
+  .slide {
+    transform: translateX(0);
+  }
+
+  .product-list {
+    min-height: 10rem;
+    li:first-child {
+      margin-top: 3rem;
+    }
+    li:last-child {
+      margin-bottom: 4rem;
+    }
+  }
+
+  .product-list .product-item {
+    margin-top: $tertiary-fz;
+    height: 8.2rem;
+    border: 0.1rem solid $grey-4;
+    border-radius: 0.5rem;
+    .product-img {
+      border-radius: 0.5rem;
+      overflow: hidden;
+      // width: 6rem;
+    }
+    .product-img img {
+      height: 6rem;
+      object-fit: contain;
+    }
+    .col-9 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .product-title {
+      margin-bottom: 1.6rem;
+      font-size: $secondary-fz;
+    }
+    .product-quantity {
+      font-size: $secondary-fz;
+    }
+    .product-price {
+      font-size: $tertiary-fz;
+      font-weight: bold;
+      margin-top: 4rem;
+    }
+    .product-close-btn {
+      font-size: $quaternary-fz;
+    }
+    .product-close-btn:hover {
+      color: red;
+    }
+  }
+
+  .col-3.slide {
+    transform: translateX(0);
+  }
+
+  .cart-heading {
+    position: relative;
+    margin-top: 3rem;
+  }
+  .cart-heading:after {
+    content: '';
+    position: absolute;
+    top: calc(100% + 1rem);
+    background-color: $primary-color;
+    width: 14rem;
+    height: 0.4rem;
+  }
+  .cart-close-btn {
+    font-size: 3rem;
+    position: absolute;
+    top: 1rem;
+    right: $quaternary-fz;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+  .cart-price {
+    // display: none;
+    font-size: $tertiary-fz;
+    color: $grey-4;
+    font-weight: bold;
+    position: relative;
+    margin-bottom: 4rem;
+    span {
+      font-size: $quaternary-fz;
+      color: $grey-1;
+    }
+    &:before {
+      content: '';
+      left: 0;
+      top: -2rem;
+      position: absolute;
+      height: 0.2rem;
+      width: 100%;
+      background-color: $primary-color;
+    }
+    &:after {
+      content: '';
+      left: 0;
+      top: calc(100% + 2rem);
+      position: absolute;
+      height: 0.2rem;
+      width: 100%;
+      background-color: $primary-color;
+    }
+  }
+  a.btn {
+    margin-bottom: 1rem;
+    &:visited,
+    &:link {
+      width: 60%;
+      align-self: center;
+    }
+    & + a.btn {
+      background-color: $primary-color;
+    }
+  }
+}

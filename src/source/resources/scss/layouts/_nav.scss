@@ -4,6 +4,7 @@
   margin-top: 7rem;
   background-color: rgba(59, 153, 215, 0.2);
   padding: 0;
+  z-index: 1;
   .navbar-nav {
     .nav-item:last-child {
       display: flex;
@@ -12,12 +13,12 @@
 
     .nav-item:hover .nav-link,
     .nav-item:hover .nav-link-icon {
-      color: var(--primary-color-shade);
+      color: $primary-color-shade;
     }
 
     .nav-item:not(:last-child) .nav-link::after {
       content: '';
-      background-color: var(--grey-color-2);
+      background-color: $grey-2;
       width: 0.2rem;
       height: 1.4rem;
       position: absolute;
@@ -33,13 +34,13 @@
     .nav-link {
       font-size: 1.6rem;
       padding: 2.7rem 3rem;
-      color: var(--grey-color-2);
+      color: $grey-2;
       position: relative;
       transition: all 0.2s;
     }
 
     .nav-link-icon {
-      color: var(--grey-color-2);
+      color: $grey-2;
       cursor: pointer;
       transition: all 0.2s;
     }
@@ -47,18 +48,18 @@
 }
 
 .light.navbar {
-  background-color: var(--primary-color-tint);
+  background-color: $primary-color-tint;
   .nav-item:not(:last-child) .nav-link::after {
-    background-color: var(--grey-color-1);
+    background-color: $grey-1;
   }
   .navbar-nav .nav-link {
-    color: var(--grey-color-1);
+    color: $grey-1;
     &:hover {
-      color: var(--primary-color-shade);
+      color: $primary-color-shade;
     }
   }
   .nav-link-icon {
-    color: var(--grey-color-1);
+    color: $grey-1;
   }
 }
 
@@ -97,14 +98,14 @@
     &:link,
     &:visited {
       white-space: nowrap;
-      color: var(--grey-color-1);
+      color: $grey-1;
       padding: 0.5em 2rem;
       background-color: #fff;
       display: block;
     }
     &:active,
     &:hover {
-      background-color: var(--primary-color);
+      background-color: $primary-color;
       color: #fff;
     }
   }

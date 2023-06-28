@@ -16,13 +16,29 @@ body {
   font-size: $primary-fz;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  padding: 0;
+  margin: 0;
+}
+
 ul {
   padding: 0;
   list-style: none;
 }
 
+img {
+  width: 100%;
+}
+
 a {
   text-decoration: none;
+  color: $grey-1;
 }
 
 button {

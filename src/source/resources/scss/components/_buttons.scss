@@ -1,0 +1,21 @@
+a.btn {
+  &:link,
+  &:visited {
+    font-size: 1.6rem;
+    font-weight: 500;
+    border-radius: 0.5rem;
+    background-color: $primary-color-tint;
+    padding: 0.5rem 2rem;
+  }
+
+  & + & {
+    background-color: $grey-2;
+  }
+
+  &:hover,
+  &:active {
+    box-shadow: 0 0 0 0.2rem $grey-2 inset !important;
+    color: $grey-2 !important;
+    background-color: $primary-color-shade !important;
+  }
+}

@@ -1,9 +1,13 @@
 .header {
   background-color: rgba(59, 153, 215, 0.2);
   transition: $primary-trans;
+  z-index: 1;
 
   .logo {
     padding: 0.5rem 2rem;
+    img {
+      width: unset;
+    }
   }
 
   .cart-icon {
@@ -12,6 +16,10 @@
     &::before {
       color: $grey-2;
       cursor: pointer;
+    }
+
+    &:hover {
+      opacity: 0.6;
     }
   }
 }
@@ -56,23 +64,5 @@
 
   .search-icon::before {
     color: $grey-1;
-  }
-}
-
-.btn {
-  font-size: 1.6rem;
-  font-weight: 500;
-  border-radius: 0.5rem;
-  background-color: $primary-color-tint;
-  padding: 0.5rem 2rem;
-
-  & + & {
-    background-color: $grey-2;
-  }
-
-  &:hover {
-    box-shadow: 0 0 0 0.2rem $grey-2 inset;
-    color: $grey-2;
-    background-color: $primary-color-shade;
   }
 }
