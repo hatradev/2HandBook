@@ -7,24 +7,20 @@
   z-index: 1;
   .navbar-nav {
     .nav-item:last-child {
-      display: flex;
-      align-items: center;
+      @include flex-center-vert;
     }
 
     .nav-item:hover .nav-link,
     .nav-item:hover .nav-link-icon {
-      color: $primary-color-shade;
+      color: $color-primary-shade;
     }
 
     .nav-item:not(:last-child) .nav-link::after {
       content: '';
-      background-color: $grey-2;
-      width: 0.2rem;
-      height: 1.4rem;
-      position: absolute;
-      top: 50%;
+      background-color: $color-text-light;
+      @include box(0.2rem, 1.4rem);
+      @include abs-pos(50%, 0);
       transform: translateY(-50%);
-      right: 0;
     }
 
     .nav-item:last-child .nav-link {
@@ -32,15 +28,14 @@
     }
 
     .nav-link {
-      font-size: 1.6rem;
+      @include font(1.6rem, false, $color-text-light);
       padding: 2.7rem 3rem;
-      color: $grey-2;
       position: relative;
       transition: all 0.2s;
     }
 
     .nav-link-icon {
-      color: $grey-2;
+      color: $color-text-light;
       cursor: pointer;
       transition: all 0.2s;
     }
@@ -48,18 +43,18 @@
 }
 
 .light.navbar {
-  background-color: $primary-color-tint;
+  background-color: $color-primary-tint;
   .nav-item:not(:last-child) .nav-link::after {
-    background-color: $grey-1;
+    background-color: $color-text-dark;
   }
   .navbar-nav .nav-link {
-    color: $grey-1;
+    color: $color-text-dark;
     &:hover {
-      color: $primary-color-shade;
+      color: $color-primary-shade;
     }
   }
   .nav-link-icon {
-    color: $grey-1;
+    color: $color-text-dark;
   }
 }
 
@@ -68,11 +63,8 @@
   position: relative;
   &::before {
     content: '';
-    position: absolute;
-    top: 100%;
-    width: 120%;
-    left: 0;
-    height: 1rem;
+    @include abs-pos(100%, false, false, 0);
+    @include box(120%, 1rem);
     display: none;
     z-index: 999;
   }
@@ -83,11 +75,8 @@
 }
 
 .subnav {
-  position: absolute;
-  top: calc(100% + 1rem);
-  left: 0;
-  font-weight: normal;
-  font-size: 1.6rem;
+  @include abs-pos(calc(100% + 1rem), false, false, 0);
+  @include font(1.6rem, normal);
   text-transform: capitalize;
   border-radius: 0.5rem;
   box-shadow: 0 0 2rem rgba(0, 0, 0, 0.25);
@@ -98,14 +87,14 @@
     &:link,
     &:visited {
       white-space: nowrap;
-      color: $grey-1;
+      color: $color-text-dark;
       padding: 0.5em 2rem;
       background-color: #fff;
       display: block;
     }
     &:active,
     &:hover {
-      background-color: $primary-color;
+      background-color: $color-primary;
       color: #fff;
     }
   }

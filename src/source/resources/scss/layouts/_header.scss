@@ -1,6 +1,6 @@
 .header {
   background-color: rgba(59, 153, 215, 0.2);
-  transition: $primary-trans;
+  transition: all 0.2s;
   z-index: 1;
 
   .logo {
@@ -11,10 +11,10 @@
   }
 
   .cart-icon {
-    font-size: $secondary-fz;
+    font-size: $font-size-secondary;
 
     &::before {
-      color: $grey-2;
+      color: $color-text-light;
       cursor: pointer;
     }
 
@@ -34,15 +34,14 @@
     color: #fff;
 
     &::placeholder {
-      color: $grey-2;
+      color: $color-text-light;
     }
   }
 
   .search-icon-link {
     width: 2rem;
     font-size: 1.6rem;
-    position: absolute;
-    right: 2rem;
+    @include abs-pos(false, 2rem);
 
     .search-icon::before {
       color: #fff;
@@ -51,18 +50,18 @@
 }
 
 .header.light {
-  background-color: $primary-color;
+  background-color: $color-primary;
 
   .search-input {
-    background-color: $grey-3;
-    color: $grey-1;
+    background-color: $color-white;
+    color: $color-text-dark;
 
     &::placeholder {
-      color: $grey-1;
+      color: $color-text-dark;
     }
   }
 
   .search-icon::before {
-    color: $grey-1;
+    color: $color-text-dark;
   }
 }

@@ -8,10 +8,10 @@ html {
 
 body {
   font-family: "Ubuntu", sans-serif;
-  line-height: 1;
-  font-weight: 400;
+  font-size: 1.5rem;
   color: #31383e;
-  font-size: 1.5rem; }
+  font-weight: 400;
+  line-height: 1; }
 
 h1,
 h2,
@@ -35,7 +35,6 @@ a {
   color: #31383e; }
 
 button {
-  background-color: transparent;
   border: none; }
 
 input {
@@ -101,21 +100,23 @@ a.btn:hover, a.btn:active {
     color: #31383e; }
 
 .cart {
-  background-color: rgba(0, 0, 0, 0.4);
+  width: false;
   height: 100vh;
-  position: fixed;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
   top: 0;
   left: 0;
-  right: 0;
   bottom: 0;
+  right: 0;
+  position: fixed;
   z-index: 2;
   display: none; }
   .cart .cart-slider {
     background-color: #fff;
     position: absolute;
-    right: 2rem;
     top: 0;
     bottom: 0;
+    right: 1.5rem;
     padding: 0 2rem;
     transform: translateX(100%);
     transition: transform 0.5s ease; }
@@ -124,11 +125,13 @@ a.btn:hover, a.btn:active {
   .cart .slide {
     transform: translateX(0); }
   .cart .product-list {
-    min-height: 10rem; }
+    min-height: 10rem;
+    overflow: scroll;
+    margin: 3rem 0; }
     .cart .product-list li:first-child {
-      margin-top: 3rem; }
+      margin-top: 0; }
     .cart .product-list li:last-child {
-      margin-bottom: 4rem; }
+      margin-bottom: 0; }
   .cart .product-list .product-item {
     margin-top: 1.8rem;
     height: 8.2rem;
@@ -142,9 +145,9 @@ a.btn:hover, a.btn:active {
       object-fit: contain; }
     .cart .product-list .product-item .col-9 {
       display: flex;
-      flex-direction: column;
+      align-items: center;
       justify-content: center;
-      align-items: center; }
+      flex-direction: column; }
     .cart .product-list .product-item .product-title {
       margin-bottom: 1.6rem;
       font-size: 1.6rem; }
@@ -167,9 +170,9 @@ a.btn:hover, a.btn:active {
     content: '';
     position: absolute;
     top: calc(100% + 1rem);
-    background-color: #3b99d7;
     width: 14rem;
-    height: 0.4rem; }
+    height: 0.4rem;
+    background-color: #3b99d7; }
   .cart .cart-close-btn {
     font-size: 3rem;
     position: absolute;
@@ -187,22 +190,16 @@ a.btn:hover, a.btn:active {
     .cart .cart-price span {
       font-size: 2rem;
       color: #31383e; }
-    .cart .cart-price:before {
+    .cart .cart-price:before, .cart .cart-price:after {
       content: '';
-      left: 0;
-      top: -2rem;
       position: absolute;
-      height: 0.2rem;
+      top: -2rem;
+      left: 0;
       width: 100%;
+      height: 0.2rem;
       background-color: #3b99d7; }
     .cart .cart-price:after {
-      content: '';
-      left: 0;
-      top: calc(100% + 2rem);
-      position: absolute;
-      height: 0.2rem;
-      width: 100%;
-      background-color: #3b99d7; }
+      top: calc(100% + 2rem); }
   .cart a.btn {
     margin-bottom: 1rem; }
     .cart a.btn:visited, .cart a.btn:link {
@@ -229,16 +226,17 @@ a.btn:hover, a.btn:active {
     background-color: #f6f6f6;
     width: 0.2rem;
     height: 1.4rem;
+    background-color: false;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
-    right: 0; }
+    right: 0;
+    transform: translateY(-50%); }
   .navbar .navbar-nav .nav-item:last-child .nav-link {
     padding-right: 0.5rem; }
   .navbar .navbar-nav .nav-link {
     font-size: 1.6rem;
-    padding: 2.7rem 3rem;
     color: #f6f6f6;
+    padding: 2.7rem 3rem;
     position: relative;
     transition: all 0.2s; }
   .navbar .navbar-nav .nav-link-icon {
@@ -264,9 +262,10 @@ a.btn:hover, a.btn:active {
     content: '';
     position: absolute;
     top: 100%;
-    width: 120%;
     left: 0;
+    width: 120%;
     height: 1rem;
+    background-color: false;
     display: none;
     z-index: 999; }
   .subnav-include:hover .subnav, .subnav-include:hover::before {
@@ -276,8 +275,8 @@ a.btn:hover, a.btn:active {
   position: absolute;
   top: calc(100% + 1rem);
   left: 0;
-  font-weight: normal;
   font-size: 1.6rem;
+  font-weight: normal;
   text-transform: capitalize;
   border-radius: 0.5rem;
   box-shadow: 0 0 2rem rgba(0, 0, 0, 0.25);
@@ -302,12 +301,14 @@ a.btn:hover, a.btn:active {
   .carousel .carousel-indicators {
     margin-bottom: 4rem; }
     .carousel .carousel-indicators [data-bs-target] {
-      height: 2rem;
       width: 2rem;
+      height: 2rem;
+      background-color: false;
       border-radius: 50%; }
   .carousel .carousel-caption {
     bottom: 6rem; }
   .carousel .carousel-control-prev-icon,
   .carousel .carousel-control-next-icon {
     width: 4rem;
-    height: 4rem; }
+    height: 4rem;
+    background-color: false; }
