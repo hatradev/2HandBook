@@ -1,0 +1,235 @@
+/**************************/
+/* HEADER */
+/**************************/
+.header {
+  background-color: rgba(59, 153, 215, 0.2);
+  transition: all 0.2s;
+}
+
+.header.light {
+  background-color: var(--primary-color);
+}
+
+.logo {
+  /* width: 5.6rem; */
+  padding: 0.5rem 2rem;
+  /* margin-right: 5rem; */
+}
+
+.search-bar {
+  position: relative;
+}
+
+.search-input {
+  height: 3.4rem;
+  border-radius: 2rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.light .search-input {
+  background-color: #fff;
+  color: var(--grey-color-1);
+}
+
+.search-input::placeholder {
+  color: var(--grey-color-2);
+}
+
+.light .search-input::placeholder {
+  color: var(--grey-color-1);
+}
+
+.search-icon-link {
+  width: 2rem;
+  font-size: 1.6rem;
+  position: absolute;
+  right: 2rem;
+}
+
+.search-icon::before {
+  color: #fff;
+}
+
+.light .search-icon::before {
+  color: var(--grey-color-1);
+}
+
+.cart-icon {
+  font-size: 2rem;
+}
+
+.cart-icon::before {
+  color: var(--grey-color-2);
+  cursor: pointer;
+}
+
+.btn {
+  font-size: 1.6rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  background-color: var(--primary-color-tint);
+  padding: 0.5rem 2rem;
+}
+
+.btn + .btn {
+  background-color: var(--grey-color-2);
+}
+
+.btn:hover {
+  box-shadow: 0 0 0 0.2rem var(--grey-color-2) inset;
+  color: var(--grey-color-2);
+  /* border-radius: 0; */
+  background-color: var(--primary-color-shade);
+}
+
+/**************************/
+/* NAVIGATION */
+/**************************/
+.navbar {
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-top: 7rem;
+  background-color: rgba(59, 153, 215, 0.2);
+  padding: 0;
+}
+
+.light.navbar {
+  background-color: var(--primary-color-tint);
+}
+
+.navbar .navbar-nav .nav-link {
+  font-size: 1.6rem;
+  padding: 2.7rem 3rem;
+  color: var(--grey-color-2);
+  position: relative;
+  transition: all 0.2s;
+}
+
+.light.navbar-expand-lg .navbar-nav .nav-link {
+  color: var(--grey-color-1);
+}
+
+.light.navbar-expand-lg .navbar-nav .nav-link:hover {
+  color: var(--primary-color-shade);
+}
+
+.navbar-expand-lg .navbar-nav .nav-item:last-child .nav-link {
+  padding-right: 0.5rem;
+}
+
+.nav-link-icon {
+  color: var(--grey-color-2);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.light .nav-link-icon {
+  color: var(--grey-color-1);
+}
+
+.nav-item:last-child {
+  display: flex;
+  align-items: center;
+}
+
+.nav-item:not(:last-child) .nav-link::after {
+  content: '';
+  background-color: var(--grey-color-2);
+  width: 0.2rem;
+  height: 1.4rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+}
+
+.light .nav-item:not(:last-child) .nav-link::after {
+  background-color: var(--grey-color-1);
+}
+
+.subnav-include {
+  display: flex;
+  position: relative;
+}
+
+.subnav-include::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  width: 120%;
+  left: 0;
+  height: 1rem;
+  display: none;
+  z-index: 999;
+}
+
+.subnav-include:hover .subnav,
+.subnav-include:hover::before {
+  display: block;
+}
+
+.subnav {
+  position: absolute;
+  top: calc(100% + 1rem);
+  left: 0;
+  font-weight: normal;
+  font-size: 1.6rem;
+  text-transform: capitalize;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.25);
+  display: none;
+  overflow: hidden;
+  z-index: 999;
+}
+
+.subnav-link:link,
+.subnav-link:visited {
+  white-space: nowrap;
+  color: var(--grey-color-1);
+  padding: 0.5em 2rem;
+  background-color: #fff;
+  display: block;
+}
+
+.subnav-link:active,
+.subnav-link:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.nav-item:hover .nav-link,
+.nav-item:hover .nav-link-icon {
+  color: var(--primary-color-shade);
+}
+
+/**************************/
+/* HERO (CAROUSEL) */
+/**************************/
+.carousel {
+  height: 100vh;
+}
+
+.carousel img {
+  height: 100vh;
+}
+
+.carousel-indicators {
+  margin-bottom: 4rem;
+}
+
+.carousel-indicators [data-bs-target] {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+}
+
+.carousel-caption {
+  bottom: 6rem;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 4rem;
+  height: 4rem;
+}

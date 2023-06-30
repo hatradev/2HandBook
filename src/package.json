@@ -1,0 +1,40 @@
+{
+  "name": "2handbook",
+  "version": "1.0.0",
+  "description": "This project is made by a student group of HCMUS for serving people who want to sell and buy old materials ",
+  "main": "source/app.js",
+  "scripts": {
+    "start": "nodemon source/server.js",
+    "watch": "node-sass --watch source/resources/scss/app.scss source/public/css/app.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IntroSE-21CLC10-Group04/IntroSE-21CLC10-Group04.git"
+  },
+  "keywords": [
+    "2handbook"
+  ],
+  "author": "Code999+Bugs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IntroSE-21CLC10-Group04/IntroSE-21CLC10-Group04/issues"
+  },
+  "homepage": "https://github.com/IntroSE-21CLC10-Group04/IntroSE-21CLC10-Group04#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-handlebars": "^7.0.7",
+    "helmet": "^7.0.0",
+    "mongoose": "^7.3.1",
+    "morgan": "^1.10.0",
+    "slugify": "^1.6.6"
+  },
+  "devDependencies": {
+    "connect-livereload": "^0.6.1",
+    "livereload": "^0.9.3",
+    "node-sass": "^9.0.0",
+    "nodemon": "^2.0.22",
+    "prettier": "^2.8.8"
+  }
+}
