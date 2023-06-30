@@ -82,7 +82,7 @@
   justify-content: center;
 }
 
-@mixin truncate($truncation-boundary) {
+@mixin truncate($truncation-boundary: 100%) {
   max-width: $truncation-boundary;
   white-space: nowrap;
   overflow: hidden;

@@ -5,8 +5,8 @@
   z-index: 2;
   display: none;
   .cart-slider {
-    background-color: #fff;
     @include abs-pos(0, 1.5rem, 0);
+    background-color: #fff;
     padding: 0 2rem;
     transform: translateX(100%);
     transition: transform 0.5s ease;
@@ -20,6 +20,7 @@
   }
 
   .product-list {
+    font-family: 'Inter', sans-serif;
     min-height: 10rem;
     overflow: scroll;
     margin: 3rem 0;
@@ -46,10 +47,12 @@
     }
     .col-9 {
       @include flex-center-col;
+      padding: 0 2rem;
     }
     .product-title {
       margin-bottom: 1.6rem;
       font-size: $font-size-secondary;
+      @include truncate;
     }
     .product-quantity {
       font-size: $font-size-secondary;
@@ -75,13 +78,13 @@
     margin-top: 3rem;
   }
   .cart-heading:after {
-    content: '';
     @include abs-pos(calc(100% + 1rem));
     @include box(14rem, 0.4rem, $color-primary);
+    content: '';
   }
   .cart-close-btn {
-    font-size: 3rem;
     @include abs-pos(1rem, 2rem);
+    font-size: 3rem;
     cursor: pointer;
     &:hover {
       opacity: 0.6;
@@ -95,9 +98,9 @@
       @include font($font-size-quaternary, false, $color-text-dark);
     }
     &:before {
-      content: '';
       @include abs-pos(-2rem, false, false, 0);
       @include box(100%, 0.2rem, $color-primary);
+      content: '';
     }
     &:after {
       @extend .cart-price:before;

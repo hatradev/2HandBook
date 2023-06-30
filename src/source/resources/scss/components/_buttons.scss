@@ -5,16 +5,19 @@ a.btn {
     border-radius: 0.5rem;
     background-color: $color-primary-tint;
     padding: 0.5rem 2rem;
+    transition: all 0.3s;
   }
 
-  & + & {
+  &:nth-child(2) {
     background-color: $color-text-light;
   }
 
   &:hover,
-  &:active {
-    box-shadow: 0 0 0 0.2rem $color-text-light inset !important;
-    color: $color-text-light !important;
-    background-color: $color-primary-shade !important;
+  &:active,
+  &:first-child:active,
+  :not(.btn-check) + &:active {
+    box-shadow: 0 0 0 0.2rem $color-text-light inset;
+    color: $color-text-light;
+    background-color: $color-primary-shade;
   }
 }
