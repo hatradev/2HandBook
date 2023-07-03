@@ -1,0 +1,62 @@
+.edit-product {
+  @extend .manage-product;
+  .edit-product-breadcrumb {
+    @extend .manage-product-breadcrumb;
+  }
+  .edit-product-form {
+    & + .edit-product-form {
+      margin-left: 2rem;
+      height: fit-content;
+    }
+    @extend .manage-product-content;
+    .edit-product-form-item label {
+      margin-bottom: 1rem;
+    }
+  }
+  .edit-product-form-item {
+    margin-bottom: 3rem;
+    input,
+    textarea {
+      border: 0.1rem solid $color-border;
+      width: 100%;
+      padding-left: 1rem;
+    }
+    input {
+      height: 4rem;
+    }
+    textarea {
+      padding-top: 1rem;
+    }
+  }
+  .product-category {
+    @extend .manage-product-select-container;
+    &::after {
+      top: unset;
+      transform: translateY(calc(-50% + 3.4rem));
+      border-top-color: $color-primary-shade;
+    }
+    .product-category-label {
+      position: relative;
+      margin-bottom: 1rem;
+      &::after {
+        content: '';
+        @include box(1rem, 1rem, $color-primary);
+        @include abs-pos(50%, -2rem);
+        transform: translateY(-50%);
+        border-radius: 50%;
+      }
+    }
+    .edit-product-select {
+      @extend .manage-product-select;
+      border-right: 0.1rem solid $color-border;
+    }
+  }
+  .product-image {
+    margin-top: 2rem;
+    border: 0.1rem dashed $color-border;
+    @include box(100%, false);
+    min-height: 50rem;
+    font-size: 2rem;
+    background-color: $color-text-light;
+  }
+}
