@@ -7,7 +7,8 @@
   z-index: 1;
   .navbar-nav {
     .nav-item:last-child {
-      @include flex-center-vert;
+      display: flex;
+      align-items: center;
     }
 
     .nav-item:hover .nav-link,

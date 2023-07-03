@@ -23,7 +23,13 @@
     font-family: 'Inter', sans-serif;
     min-height: 10rem;
     overflow: scroll;
-    margin: 3rem 0;
+    margin: 2rem 0 4rem 0;
+    // hide scrollbar but allow scrolling
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
     li:first-child {
       margin-top: 0;
     }
@@ -46,7 +52,10 @@
       object-fit: contain;
     }
     .col-9 {
-      @include flex-center-col;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
       padding: 0 2rem;
     }
     .product-title {
@@ -116,6 +125,10 @@
     }
     & + a.btn {
       background-color: $color-primary;
+    }
+
+    & + a.btn:hover {
+      background-color: $color-primary-shade;
     }
   }
 }
