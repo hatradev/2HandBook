@@ -1,12 +1,12 @@
 // Set width, height and background-color
 @mixin box($width: false, $height: false, $bgc: false) {
-  @if width {
+  @if $width {
     width: $width;
   }
-  @if height {
+  @if $height {
     height: $height;
   }
-  @if bgc {
+  @if $bgc {
     background-color: $bgc;
   }
 }
@@ -53,36 +53,8 @@
   }
 }
 
-// ****************
-//  Flexbox Toolkit
-// ****************
-@mixin flex-col {
-  display: flex;
-  flex-direction: column;
-}
-
-@mixin flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-@mixin flex-center-col {
-  @include flex-center;
-  flex-direction: column;
-}
-
-@mixin flex-center-vert {
-  display: flex;
-  align-items: center;
-}
-
-@mixin flex-center-horiz {
-  display: flex;
-  justify-content: center;
-}
-
-@mixin truncate($truncation-boundary) {
+// Truncate long strings
+@mixin truncate($truncation-boundary: 100%) {
   max-width: $truncation-boundary;
   white-space: nowrap;
   overflow: hidden;

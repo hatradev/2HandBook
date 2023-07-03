@@ -10,7 +10,7 @@ html {
 
 body {
   font-family: $font-family-primary;
-  @include font($font-size-primary, 400, $color-text-dark, 1);
+  @include font($font-size-primary, 400, $color-text-dark, 1.5);
 }
 
 h1,
@@ -19,13 +19,13 @@ h3,
 h4,
 h5,
 h6,
-p {
+p,
+ul {
   padding: 0;
   margin: 0;
 }
 
 ul {
-  padding: 0;
   list-style: none;
 }
 
@@ -42,7 +42,9 @@ button {
   border: none;
 }
 
-input {
+input,
+textarea,
+select {
   outline: none;
   border: none;
 }

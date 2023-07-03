@@ -31,7 +31,15 @@ app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources/views'));
 
 app.get('/', (req, res) => {
-  res.render('home', { header: true, footer: true });
+  res.render('home');
+});
+
+app.get('/manage-product', (req, res) => {
+  res.render('manage-product');
+});
+
+app.get('/edit-product', (req, res) => {
+  res.render('edit-product');
 });
 
 module.exports = app;
