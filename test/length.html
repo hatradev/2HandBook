@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shop Page</title>
+  <style>
+    .last-online {
+      margin-top: 0;
+      margin-bottom: 0;
+      color: #337ab7;
+      white-space: nowrap;
+    }
+  </style>
+  <script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+      const lastOnline = document.querySelector('.last-online');
+      const length = lastOnline.textContent.length;
+      console.log(`Length of last-online: ${length}`);
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <div class="shop-overview">
+      <img class="shop-logo" src="https://drive.google.com/uc?export=view&id=1q8g7BSHvcIbvlYS3buOCmVTzoISv32s8" alt="Shop Logo">
+      <h1 class="shop-name">Shop's Name</h1>
+      <p class="last-online">Last online: June 30, 2023</p>
+      <section class="follow-chat">
+        <button id="follow-button" onclick="toggleFollow()">Follow</button>
+        <button class="chat-button">Chat</button>
+      </section>
+    </div>
+  </header>
+  <!-- Rest of the content -->
+</body>
+</html>
