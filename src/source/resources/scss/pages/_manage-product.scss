@@ -1,46 +1,70 @@
-.manage-product {
+// ************************
+// Extended classes
+.container-ext {
   background-color: $color-white;
   margin-top: 17rem;
   padding: 0 4rem;
+}
+
+.breadcrumb-ext {
+  font-size: $font-size-quaternary;
+  line-height: 3.6rem;
+}
+
+.content-ext {
+  padding: 2rem;
+  margin: 2rem 0;
+  border: 0.1rem solid $color-border;
+  font-size: $font-size-secondary;
+}
+
+.select-container-ext {
+  position: relative;
+
+  &::after {
+    content: '';
+    @include abs-pos(50%, 2rem);
+    transform: translateY(-50%);
+    border: 0.6rem solid transparent;
+    border-color: $color-text-grey transparent transparent transparent;
+  }
+}
+
+.select-ext {
+  @include box(100%, 6rem);
+  padding-left: 4rem;
+  color: $color-text-grey;
+  border: 0.1rem solid $color-border;
+  border-right: none;
+}
+
+.btn-ext {
+  background-color: $color-primary;
+
+  &:hover {
+    background-color: $color-primary-shade;
+    box-shadow: none;
+  }
+}
+// ************************
+
+.manage-product {
+  @extend .container-ext;
   .manage-product-breadcrumb {
-    font-size: $font-size-quaternary;
-    line-height: 3.6rem;
+    @extend .breadcrumb-ext;
   }
 
   .manage-product-content {
-    padding: 2rem;
-    margin: 2rem 0;
-    border: 0.1rem solid $color-border;
-    font-size: $font-size-secondary;
+    @extend .content-ext;
   }
 
   a.btn {
-    background-color: $color-primary;
-
-    &:hover {
-      background-color: $color-primary-shade;
-      box-shadow: none;
-    }
+    @extend .btn-ext;
   }
 
   .search-input,
   .manage-product-select {
-    @include box(100%, 6rem);
-    padding-left: 4rem;
-    color: $color-text-grey;
-    border: 0.1rem solid $color-border;
-    border-right: none;
-  }
-
-  .manage-product-select-container {
-    position: relative;
-    &::after {
-      content: '';
-      @include abs-pos(50%, 2rem);
-      transform: translateY(-50%);
-      border: 0.6rem solid transparent;
-      border-color: $color-text-grey transparent transparent transparent;
-    }
+    @extend .select-ext;
   }
 
   .manage-product-select {
@@ -50,6 +74,10 @@
 
   .col-4:last-child .manage-product-select {
     border-right: 0.1rem solid $color-border;
+  }
+
+  .manage-product-select-container {
+    @extend .select-container-ext;
   }
 
   .manage-product-search-bar {

@@ -1,12 +1,18 @@
 @import 'abstracts/variables';
 @import 'abstracts/mixins';
 @import 'base/global';
+
+// Import components
 @import 'components/buttons';
 @import 'components/pagination';
+
+// Import layouts
 @import 'layouts/header';
 @import 'layouts/cart';
 @import 'layouts/nav';
-@import 'layouts/footer';
+
+// Import pages
 @import 'pages/home';
 @import 'pages/manage-product';
 @import 'pages/edit-product';
+@import 'pages/dashboard';

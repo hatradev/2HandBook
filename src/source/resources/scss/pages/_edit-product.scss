@@ -1,14 +1,19 @@
 .edit-product {
-  @extend .manage-product;
+  @extend .container-ext;
   .edit-product-breadcrumb {
-    @extend .manage-product-breadcrumb;
+    @extend .breadcrumb-ext;
   }
+
+  a.btn {
+    @extend .btn-ext;
+  }
+
   .edit-product-form {
     & + .edit-product-form {
       margin-left: 2rem;
       height: fit-content;
     }
-    @extend .manage-product-content;
+    @extend .content-ext;
     .edit-product-form-item label {
       margin-bottom: 1rem;
     }
@@ -29,7 +34,7 @@
     }
   }
   .product-category {
-    @extend .manage-product-select-container;
+    @extend .select-container-ext;
     &::after {
       top: unset;
       transform: translateY(calc(-50% + 3.4rem));
@@ -47,7 +52,9 @@
       }
     }
     .edit-product-select {
-      @extend .manage-product-select;
+      @extend .select-ext;
+      padding-left: 3rem;
+      appearance: none;
       border-right: 0.1rem solid $color-border;
     }
   }
