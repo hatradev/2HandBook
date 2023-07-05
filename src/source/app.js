@@ -46,17 +46,17 @@ app.get('/dashboard', (req, res) => {
   res.render('dashboard', { showHeader: true, showFooter: true });
 });
 
-app.get('/product/all-product', (req, res) => {
-  res.render('product/all-product', { showHeader: true, showFooter: true });
+app.get('/all-product', (req, res) => {
+  res.render('all-product', { showHeader: true, showFooter: true });
 });
-app.get('/product/specific-product', (req, res) => {
-  res.render('product/specific-product', {
+app.get('/specific-product', (req, res) => {
+  res.render('specific-product', {
     showHeader: true,
     showFooter: true,
   });
 });
-app.get('/order/manage-order', (req, res) => {
-  res.render('order/manage-order', { showHeader: true, showFooter: true });
+app.get('/manage-order', (req, res) => {
+  res.render('manage-order', { showHeader: true, showFooter: true });
 });
 
 module.exports = app;
