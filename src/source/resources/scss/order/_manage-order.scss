@@ -1,47 +1,6 @@
 .sales-page {
     margin-top: 14rem;
 
-    .vertical-nav {
-        background-color: #f6f6f6;
-        height: 100vh;
-
-        .title {
-            font-size: 2rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .nav-list {
-            .nav-item {
-                display: flex;
-                align-items: center;
-                padding: 0 2rem;
-                // justify-content: center;
-                cursor: pointer;
-
-                a {
-                    display: flex;
-                    align-items: center;
-                    font-size: 1.7rem;
-                    color: $grey-1;
-
-                    h2 {
-                        font-size: 1.7rem;
-                        margin-bottom: 0;
-                        margin-left: 0.5rem;
-                    }
-                }
-
-                &:hover {
-                    opacity: 0.8;
-                }
-
-            }
-        }
-    }
-
     .manage-order {
         .page-title {
             padding: 2rem;
@@ -99,80 +58,81 @@
 
             }
         }
-    }
-}
 
-.modal.product-details {
-    .modal-dialog {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 60vh;
+        .modal.product-details {
+            .modal-dialog {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 60vh;
 
-        .modal-content {
-            .modal-header {
-                .modal-title {
-                    text-transform: uppercase;
-                    font-size: 1.8rem !important;
-                    font-weight: 700 !important;
-                }
-            }
-
-            .modal-body {
-                .manage-order {
-                    max-height: 32rem;
-                    overflow-y: scroll;
-                    .form-check {
-                        display: flex;
-                        justify-content: center;
+                .modal-content {
+                    .modal-header {
+                        .modal-title {
+                            text-transform: uppercase;
+                            font-size: 1.8rem !important;
+                            font-weight: 700 !important;
+                        }
                     }
 
-                    thead tr {
+                    .modal-body {
+                        .manage-order {
+                            max-height: 32rem;
+                            overflow-y: scroll;
+
+                            .form-check {
+                                display: flex;
+                                justify-content: center;
+                            }
+
+                            thead tr {
+                                text-align: center;
+                            }
+
+                            tbody {
+                                tr th {
+                                    text-align: center;
+                                    vertical-align: middle;
+                                    position: sticky;
+                                }
+
+                                tr td {
+                                    vertical-align: middle;
+                                    word-wrap: break-word;
+                                }
+
+                                .img-product {
+                                    object-fit: cover;
+                                    overflow: hidden;
+                                    width: 100%;
+                                    height: 50px;
+                                }
+                            }
+
+                        }
+                    }
+
+                }
+
+                .modal-footer {
+                    button {
+                        width: 10rem;
+                        height: 4rem;
                         text-align: center;
                     }
 
-                    tbody {
-                        tr th {
-                            text-align: center;
-                            vertical-align: middle;
-                            position: sticky;
-                        }
-
-                        tr td {
-                            vertical-align: middle;
-                            word-wrap: break-word;
-                        }
-
-                        .img-product {
-                            object-fit: cover;
-                            overflow: hidden;
-                            width: 100%;
-                            height: 50px;
-                        }
+                    .btn-success {
+                        background-color: #1A9781;
                     }
 
+                    .btn-danger {
+                        background-color: #E05E5E;
+                    }
+
+                    .btn-secondary {
+                        background-color: #0D6BF5;
+                    }
                 }
-            }
-
-        }
-
-        .modal-footer {
-            button {
-                width: 10rem;
-                height: 4rem;
-                text-align: center;
-            }
-
-            .btn-success {
-                background-color: #1A9781;
-            }
-
-            .btn-danger {
-                background-color: #E05E5E;
-            }
-
-            .btn-secondary {
-                background-color: #0D6BF5;
             }
         }
     }
