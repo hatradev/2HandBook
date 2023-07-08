@@ -1,5 +1,8 @@
+// Hero section
 .carousel {
   height: 100vh;
+  z-index: 0;
+
   img {
     height: 100vh;
   }
@@ -7,8 +10,7 @@
   .carousel-indicators {
     margin-bottom: 4rem;
     [data-bs-target] {
-      height: 2rem;
-      width: 2rem;
+      @include box(2rem, 2rem);
       border-radius: 50%;
     }
   }
@@ -19,7 +21,6 @@
 
   .carousel-control-prev-icon,
   .carousel-control-next-icon {
-    width: 4rem;
-    height: 4rem;
+    @include box(4rem, 4rem);
   }
 }

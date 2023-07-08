@@ -1,45 +1,74 @@
-<!-- Main -->
 <main>
-  <!-- Hero section -->
-  <section class='hero'>
-    <div class='hero-content'>
-      <h2 class='main-heading'>Heading</h2>
-      <p class='paragraph'>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere
-        voluptatum cupiditate est? Sunt dignissimos quidem et odit quisquam
-        amet, totam laudantium nihil quam iure! Totam excepturi autem et magnam
-        sequi.
-      </p>
+  {{! Hero (Carousel)  }}
+  <div
+    id='carouselExampleCaptions'
+    class='carousel slide'
+    data-bs-ride='carousel'
+  >
+    <div class='carousel-indicators'>
+      <button
+        type='button'
+        data-bs-target='#carouselExampleCaptions'
+        data-bs-slide-to='0'
+        class='active'
+        aria-current='true'
+        aria-label='Slide 1'
+      ></button>
+      <button
+        type='button'
+        data-bs-target='#carouselExampleCaptions'
+        data-bs-slide-to='1'
+        aria-label='Slide 2'
+      ></button>
+      <button
+        type='button'
+        data-bs-target='#carouselExampleCaptions'
+        data-bs-slide-to='2'
+        aria-label='Slide 3'
+      ></button>
     </div>
-    <button class='hero-btn'>
-      <i class='fa-solid fa-chevron-left'></i>
+    <div class='carousel-inner'>
+      <div class='carousel-item active' data-bs-interval='5000'>
+        <img src='img/hero/hero-image.jpg ' class='d-block w-100' alt='img' />
+        <div class='carousel-caption d-none d-md-block'>
+          <h1>First slide label</h1>
+          <p>Some representative placeholder content for the first slide.</p>
+        </div>
+      </div>
+      <div class='carousel-item' data-bs-interval='5000'>
+        <img src='img/hero/hero-image.jpg' class='d-block w-100' alt='img' />
+        <div class='carousel-caption d-none d-md-block'>
+          <h1>Second slide label</h1>
+          <p>Some representative placeholder content for the second slide.</p>
+        </div>
+      </div>
+      <div class='carousel-item' data-bs-interval='5000'>
+        <img src='img/hero/hero-image.jpg' class='d-block w-100' alt='img' />
+        <div class='carousel-caption d-none d-md-block'>
+          <h1>Third slide label</h1>
+          <p>Some representative placeholder content for the third slide.</p>
+        </div>
+      </div>
+    </div>
+    <button
+      class='carousel-control-prev'
+      type='button'
+      data-bs-target='#carouselExampleCaptions'
+      data-bs-slide='prev'
+    >
+      <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+      <span class='visually-hidden'>Previous</span>
     </button>
-    <button class='hero-btn'>
-      <i class='fa-solid fa-chevron-right'></i>
+    <button
+      class='carousel-control-next'
+      type='button'
+      data-bs-target='#carouselExampleCaptions'
+      data-bs-slide='next'
+    >
+      <span class='carousel-control-next-icon' aria-hidden='true'></span>
+      <span class='visually-hidden'>Next</span>
     </button>
-    <ul class='hero-dots'>
-      <li>
-        <button class='hero-dot'>
-          <i class='fa-solid fa-circle'></i>
-        </button>
-      </li>
-      <li>
-        <button class='hero-dot'>
-          <i class='fa-solid fa-circle'></i>
-        </button>
-      </li>
-      <li>
-        <button class='hero-dot'>
-          <i class='fa-solid fa-circle'></i>
-        </button>
-      </li>
-      <li>
-        <button class='hero-dot'>
-          <i class='fa-solid fa-circle'></i>
-        </button>
-      </li>
-    </ul>
-  </section>
+  </div>
 
   <!-- Banner -->
   <section class='banner container'>
@@ -88,3 +117,4 @@
     </div>
   </section>
 </main>
+<script src='js/home.js'></script>

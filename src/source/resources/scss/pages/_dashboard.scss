@@ -1,0 +1,75 @@
+.dashboard {
+  @extend .container-ext;
+  .dashboard-breadcrumb {
+    @extend .breadcrumb-ext;
+  }
+  .dashboard-general {
+    font-size: $font-size-tertiary;
+    margin: 3rem 0 6rem 0;
+  }
+  .dashboard-general-title {
+    margin-bottom: 2rem;
+    i {
+      @include box(4rem, 4rem);
+      line-height: 4rem;
+      border-radius: 50%;
+      margin-right: 1rem;
+    }
+  }
+  .dashboard-general-content {
+    font-size: 1.2 * $font-size-tertiary;
+  }
+  .dashboard-general-list:first-child .dashboard-general-item {
+    &:first-child i {
+      color: #ffc700;
+      background-color: lighten(#ffc700, $amount: 30);
+    }
+    &:nth-child(2) i {
+      color: #0085ff;
+      background-color: lighten(#0085ff, $amount: 30);
+    }
+    &:nth-child(3) i {
+      color: #aa4701;
+      background-color: lighten(#aa4701, $amount: 30);
+    }
+  }
+
+  .dashboard-general-list:nth-child(2) .dashboard-general-item {
+    &:first-child i {
+      color: #f63233;
+      background-color: lighten(#f63233, $amount: 30);
+    }
+    &:nth-child(2) i {
+      color: #cc01ff;
+      background-color: lighten(#cc01ff, $amount: 30);
+    }
+    &:nth-child(3) i {
+      color: #00ca15;
+      background-color: lighten(#00ca15, $amount: 30);
+    }
+  }
+
+  .dashboard-specific {
+    background-color: $color-text-light;
+    padding: 2rem 0;
+    border-radius: 0.5rem;
+    margin-bottom: 4rem;
+
+    .dashboard-specific-titles {
+      font-weight: bold;
+    }
+
+    .dashboard-specific-item {
+      padding: 1rem 0;
+    }
+
+    .dashboard-specific-img {
+      height: 6rem;
+      object-fit: contain;
+    }
+
+    .dashboard-specific-info {
+      @include truncate;
+    }
+  }
+}
