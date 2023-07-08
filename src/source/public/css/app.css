@@ -154,6 +154,22 @@ input {
   padding: 0rem 1rem;
 }
 
+.banner {
+  margin: 4rem 9rem;
+}
+
+.banner-row {
+  display: flex;
+}
+
+.banner-img {
+  background: linear-gradient(0deg, rgba(49, 56, 62, 0.3) 0%, rgba(49, 56, 62, 0.3) 100%), lightgray 50%/cover no-repeat;
+}
+
+.banner-article {
+  margin: 5rem auto;
+}
+
 .navbar {
   text-transform: uppercase;
   font-weight: 500;
@@ -264,8 +280,8 @@ input {
   margin-bottom: 4rem;
 }
 .carousel .carousel-indicators [data-bs-target] {
-  height: 2rem;
-  width: 2rem;
+  height: 1rem;
+  width: 1rem;
   border-radius: 50%;
 }
 .carousel .carousel-caption {
