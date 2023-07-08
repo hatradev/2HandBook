@@ -29,7 +29,7 @@ input {
   border: none; }
 
 .header {
-  background-color: rgba(59, 153, 215, 0.2);
+  background-color: #3b99d7;
   transition: all 0.2s; }
   .header .logo {
     padding: 0.5rem 2rem; }
@@ -83,7 +83,7 @@ input {
   text-transform: uppercase;
   font-weight: 500;
   margin-top: 7rem;
-  background-color: rgba(59, 153, 215, 0.2);
+  background-color: #d9edf7;
   padding: 0; }
   .navbar .navbar-nav .nav-item:last-child {
     display: flex;
@@ -93,7 +93,7 @@ input {
     color: var(--primary-color-shade); }
   .navbar .navbar-nav .nav-item:not(:last-child) .nav-link::after {
     content: '';
-    background-color: var(--grey-color-2);
+    background-color: black;
     width: 0.2rem;
     height: 1.4rem;
     position: absolute;
@@ -105,18 +105,18 @@ input {
   .navbar .navbar-nav .nav-link {
     font-size: 1.6rem;
     padding: 2.7rem 3rem;
-    color: var(--grey-color-2);
+    color: black;
     position: relative;
     transition: all 0.2s; }
   .navbar .navbar-nav .nav-link-icon {
-    color: var(--grey-color-2);
+    color: black;
     cursor: pointer;
     transition: all 0.2s; }
 
 .light.navbar {
   background-color: var(--primary-color-tint); }
   .light.navbar .nav-item:not(:last-child) .nav-link::after {
-    background-color: var(--grey-color-1); }
+    background-color: black; }
   .light.navbar .navbar-nav .nav-link {
     color: var(--grey-color-1); }
     .light.navbar .navbar-nav .nav-link:hover {
@@ -177,3 +177,192 @@ input {
   .carousel .carousel-control-next-icon {
     width: 4rem;
     height: 4rem; }
+
+.account-profile-header .container-fluid {
+  margin-top: 14rem;
+  height: 8%;
+  background-color: #D9D9D9;
+  display: flex;
+  align-items: center; }
+  .account-profile-header .container-fluid .navbar-brand {
+    padding-left: 13.8rem;
+    font-size: large; }
+
+.account-profile-main .row {
+  padding-left: 14.6rem;
+  height: 100%; }
+  .account-profile-main .row .col-4 {
+    padding-top: 2rem;
+    padding-left: 0%;
+    padding-right: 0%;
+    height: 100%;
+    width: 20%;
+    background-color: #C8DAE4; }
+    .account-profile-main .row .col-4 .avatar {
+      width: 100%;
+      height: 15%;
+      display: flex;
+      padding-left: 1rem;
+      padding-right: 1rem; }
+      .account-profile-main .row .col-4 .avatar .avatar-left {
+        width: 40%;
+        height: 70%;
+        display: flex;
+        justify-content: center; }
+        .account-profile-main .row .col-4 .avatar .avatar-left i {
+          padding: 1rem;
+          font-size: 5.5rem; }
+      .account-profile-main .row .col-4 .avatar .avatar-right {
+        height: 70%; }
+        .account-profile-main .row .col-4 .avatar .avatar-right .info {
+          height: 50%; }
+        .account-profile-main .row .col-4 .avatar .avatar-right .info span {
+          font-size: 1rem; }
+        .account-profile-main .row .col-4 .avatar .avatar-right .info a {
+          font-size: 1.5rem; }
+        .account-profile-main .row .col-4 .avatar .avatar-right .signup-btn {
+          height: 50%; }
+          .account-profile-main .row .col-4 .avatar .avatar-right .signup-btn button {
+            font-size: smaller; }
+    .account-profile-main .row .col-4 .my-account {
+      width: 100%;
+      height: 7%;
+      display: flex; }
+      .account-profile-main .row .col-4 .my-account button {
+        height: 100%;
+        width: 100%;
+        border-left: none;
+        border-right: none;
+        border-radius: 0%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center; }
+        .account-profile-main .row .col-4 .my-account button i {
+          margin-right: 1.5rem; }
+    .account-profile-main .row .col-4 .my-order {
+      width: 100%;
+      height: 7%;
+      display: flex; }
+      .account-profile-main .row .col-4 .my-order button {
+        height: 100%;
+        width: 100%;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+        border-radius: 0%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center; }
+        .account-profile-main .row .col-4 .my-order button i {
+          margin-right: 1.5rem; }
+    .account-profile-main .row .col-4 .become-seller {
+      width: 100%;
+      height: 7%;
+      display: flex; }
+      .account-profile-main .row .col-4 .become-seller button {
+        height: 100%;
+        width: 100%;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+        border-radius: 0%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center; }
+        .account-profile-main .row .col-4 .become-seller button i {
+          margin-left: 0.4rem;
+          margin-right: 1.6rem; }
+    .account-profile-main .row .col-4 .remain {
+      width: 100%;
+      padding-left: 2rem; }
+  .account-profile-main .row .col-8 {
+    padding-top: 2rem; }
+    .account-profile-main .row .col-8 .col-md-6 {
+      height: 10%; }
+    .account-profile-main .row .col-8 .col-12 {
+      height: 10%; }
+      .account-profile-main .row .col-8 .col-12 .form-check {
+        display: flex;
+        justify-content: left;
+        align-items: end; }
+        .account-profile-main .row .col-8 .col-12 .form-check label {
+          margin-left: 2rem; }
+    .account-profile-main .row .col-8 form {
+      align-content: flex-start; }
+    .account-profile-main .row .col-8 .form-label {
+      height: 20%; }
+    .account-profile-main .row .col-8 .form-control {
+      height: 60%;
+      border-style: solid;
+      border-width: 1; }
+    .account-profile-main .row .col-8 .form-select {
+      height: 60%; }
+
+.flex-between {
+  display: flex;
+  justify-content: space-between; }
+
+.bg-blue {
+  background-color: #337ab7; }
+
+.color-white {
+  color: white; }
+
+.part-right-my-order {
+  padding-left: 5rem; }
+
+.turn-to-the-left {
+  display: flex;
+  justify-content: center; }
+
+.background_emphasis {
+  background-color: #a6d7f8e8;
+  color: black;
+  pointer-events: none; }
+
+.text_black {
+  color: black;
+  font-weight: bold; }
+
+.col-8 nav {
+  height: 8%; }
+  .col-8 nav ul {
+    height: 80%; }
+    .col-8 nav ul li {
+      width: 25%;
+      height: 100%; }
+      .col-8 nav ul li a {
+        height: 80%;
+        display: flex;
+        justify-content: center;
+        font-size: 1.2rem; }
+
+.col-8 .card {
+  margin-top: 2rem; }
+  .col-8 .card .card-body .contain {
+    display: flex; }
+    .col-8 .card .card-body .contain .middle {
+      width: fit-content; }
+  .col-8 .card .card-footer {
+    display: flex;
+    justify-content: right; }
+
+.form-group.invalid .form-control {
+  border-style: solid;
+  border-color: #f33a58; }
+
+.form-group.invalid .form-message {
+  color: #f33a58;
+  font-size: 1.2rem; }
+
+.disabled {
+  pointer-events: none; }
+  .disabled ::placeholder {
+    color: #f33a58; }
+
+.display_end {
+  display: flex;
+  justify-content: right; }
+
+.half_height {
+  height: 50%; }

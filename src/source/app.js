@@ -30,8 +30,40 @@ app.engine(
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources/views'));
 
+// Trieu test
+app.get('/profile', (req, res) => {
+  res.render('profile_updating');
+});
+
+app.get('/becomeseller', (req, res) => {
+  res.render('become_seller');
+});
+
+app.get('/myorderdelivery', (req, res) => {
+  res.render('my_order_inDelivery');
+});
+
+app.get('/myorderconfirmation', (req, res) => {
+  res.render('my_order_inConfirmation');
+});
+
+app.get('/myordercanceled', (req, res) => {
+  res.render('my_order_canceled');
+});
+
+app.get('/myorder', (req, res) => {
+  res.render('my_order');
+});
+
+
+app.get('/test', (req, res) => {
+  res.render('test');
+});
+
 app.get('/', (req, res) => {
   res.render('home');
 });
+
+
 
 module.exports = app;

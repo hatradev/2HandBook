@@ -2,7 +2,9 @@
   text-transform: uppercase;
   font-weight: 500;
   margin-top: 7rem;
-  background-color: rgba(59, 153, 215, 0.2);
+  // background-color: rgba(59, 153, 215, 0.2);
+  // background-color: rgb(11, 132, 237);
+  background-color: $primary-color-tint;
   padding: 0;
   .navbar-nav {
     .nav-item:last-child {
@@ -17,7 +19,8 @@
 
     .nav-item:not(:last-child) .nav-link::after {
       content: '';
-      background-color: var(--grey-color-2);
+      // background-color: var(--grey-color-2);
+      background-color: black;
       width: 0.2rem;
       height: 1.4rem;
       position: absolute;
@@ -33,13 +36,15 @@
     .nav-link {
       font-size: 1.6rem;
       padding: 2.7rem 3rem;
-      color: var(--grey-color-2);
+      // color: var(--grey-color-2);
+      color: black;
       position: relative;
       transition: all 0.2s;
     }
 
     .nav-link-icon {
-      color: var(--grey-color-2);
+      // color: var(--grey-color-2);
+      color: black;
       cursor: pointer;
       transition: all 0.2s;
     }
@@ -49,7 +54,8 @@
 .light.navbar {
   background-color: var(--primary-color-tint);
   .nav-item:not(:last-child) .nav-link::after {
-    background-color: var(--grey-color-1);
+    // background-color: var(--grey-color-1);
+    background-color: black;
   }
   .navbar-nav .nav-link {
     color: var(--grey-color-1);

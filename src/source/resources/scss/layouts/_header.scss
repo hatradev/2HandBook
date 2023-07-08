@@ -1,5 +1,7 @@
 .header {
-  background-color: rgba(59, 153, 215, 0.2);
+  // background-color: rgba(59, 153, 215, 0.2);
+  background-color: $primary-color;
+
   transition: $primary-trans;
 
   .logo {
@@ -44,6 +46,7 @@
 
 .header.light {
   background-color: $primary-color;
+  // background-color: aqua;
 
   .search-input {
     background-color: $grey-3;
@@ -64,15 +67,18 @@
   font-weight: 500;
   border-radius: 0.5rem;
   background-color: $primary-color-tint;
+  // background-color: black;
   padding: 0.5rem 2rem;
 
   & + & {
     background-color: $grey-2;
+    // background-color: black;
   }
 
   &:hover {
     box-shadow: 0 0 0 0.2rem $grey-2 inset;
     color: $grey-2;
     background-color: $primary-color-shade;
+    // background-color: aqua;
   }
 }
