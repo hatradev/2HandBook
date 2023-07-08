@@ -11,6 +11,8 @@
     margin-bottom: 4rem;
     [data-bs-target] {
       @include box(2rem, 2rem);
+      height: 1rem;
+      width: 1rem;
       border-radius: 50%;
     }
   }
