@@ -30,6 +30,35 @@ app.engine(
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources/views'));
 
+// Trieu test
+app.get('/profile', (req, res) => {
+  res.render('profile_updating', { showHeader: true, showFooter: true });
+});
+
+app.get('/becomeseller', (req, res) => {
+  res.render('become_seller', { showHeader: true, showFooter: true });
+});
+
+app.get('/myorderdelivery', (req, res) => {
+  res.render('my_order_inDelivery', { showHeader: true, showFooter: true });
+});
+
+app.get('/myorderconfirmation', (req, res) => {
+  res.render('my_order_inConfirmation', { showHeader: true, showFooter: true });
+});
+
+app.get('/myordercanceled', (req, res) => {
+  res.render('my_order_canceled', { showHeader: true, showFooter: true });
+});
+
+app.get('/myorder', (req, res) => {
+  res.render('my_order', { showHeader: true, showFooter: true });
+});
+
+app.get('/test', (req, res) => {
+  res.render('test', { showHeader: true, showFooter: true });
+});
+
 app.get('/', (req, res) => {
   res.render('home', { showHeader: true, showFooter: true });
 });

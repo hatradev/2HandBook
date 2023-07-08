@@ -10,7 +10,6 @@
 @import 'layouts/header';
 @import 'layouts/cart';
 @import 'layouts/footer';
-@import 'layouts/home';
 @import 'layouts/nav';
 
 // Import pages
@@ -18,8 +17,9 @@
 @import 'pages/manage-product';
 @import 'pages/edit-product';
 @import 'pages/dashboard';
-
-// Tuan Ro
 @import 'pages/specific-product';
 @import 'pages/all-product';
 @import 'pages/manage-order';
+@import 'pages/become_seller';
+@import 'pages/my_order';
+@import 'pages/profile_updating';

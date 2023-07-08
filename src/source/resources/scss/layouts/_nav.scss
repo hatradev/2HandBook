@@ -2,7 +2,9 @@
   text-transform: uppercase;
   font-weight: 500;
   margin-top: 7rem;
-  background-color: rgba(59, 153, 215, 0.2);
+  // background-color: rgba(59, 153, 215, 0.2);
+  // background-color: rgb(11, 132, 237);
+  background-color: $color-primary-tint;
   padding: 0;
   z-index: 1;
   height: 7rem;
