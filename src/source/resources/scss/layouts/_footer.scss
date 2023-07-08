@@ -1,0 +1,61 @@
+.footer {
+  background-color: $primary-color;
+  padding: 2rem 9rem;
+
+  .footer-title {
+    color: #fff;
+    font-family: Ubuntu;
+    font-size: 22px;
+    font-weight: 700;
+
+    width: fit-content;
+
+    border-bottom: 0.5rem solid #fff;
+    padding-bottom: 0.75rem;
+  }
+
+  .footer-list {
+    color: #fff;
+    font-family: Ubuntu;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5em;
+  }
+
+  .footer-link {
+    color: #fff;
+    font-family: Ubuntu;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .footer-item {
+    width: max-content;
+    border-bottom: 0.2rem solid #fff;
+    margin-bottom: 0.5rem;
+
+    :hover {
+      color: #337ab7;
+      background: #fff;
+    }
+  }
+
+  .footer-tag {
+    border-radius: 15px;
+    border: 1px solid #fff;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+
+    .footer-link {
+      padding: 3rem 1rem;
+    }
+
+    :hover {
+      color: #337ab7;
+      background-color: #fff;
+      border-radius: 15px;
+      border: 2px solid #fff;
+      padding: 0rem 1rem;
+    }
+  }
+}
