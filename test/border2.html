@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .my-styled-div {
+        position: relative;
+        text-align: center;
+        padding-bottom: 10px;
+        border-right: 1px solid #848484;
+        width: 80px;
+        height: 80px;
+    }
+    .my-styled-div::after {
+        content: '';
+        position: absolute;
+        margin: auto;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 50%;
+        height: 1px;
+        background-color: #000;
+    }
+    </style>
+</head>
+<body>
+    <div class="row col-md-4">
+        <div class="my-styled-div">
+        </div>
+    </div>
+    <div class="row col-md-4">
+        <div class="my-styled-div">
+        </div>
+    </div>
+    <div class="row col-md-4">
+        <div class="my-styled-div">
+        </div>
+    </div>
+</body>
+</html>

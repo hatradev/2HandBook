@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2HandBook-Shop</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .last-online {
+            margin-top: 0;
+            margin-bottom: 0;
+            color: #337ab7;
+            /* white-space: nowrap; */
+        }
+
+        .shop-logo {
+            float: left;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .shop-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0;
+            display: inline-block;
+        }
+
+        .shop-overview {
+            /* width: 300px; */
+            width: 285px; 
+            margin: 0 auto; 
+            border: 1px solid black;
+            padding: 10px;
+            margin: 10px;
+            /* display: inline-block;
+            white-space: nowrap; */
+            /* overflow: hidden; */
+        }
+    </style>
+    <style>
+        .shop-info,
+        .discounts {
+            margin-bottom: 10px;
+        }
+    </style>
+    <style>
+        .followed {
+            background-color: #337ab7;
+            color: white;
+        }
+    </style>
+    <style>
+        .saved {
+            background-color: #337ab7;
+            color: white;
+        }
+    </style>
+    <style>
+        .grid-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 10px;
+        }
+
+        .discount {
+            background-color: #f2f2f2;
+            padding: 10px;
+            min-width: 200px;
+            flex: 0 0 calc(33.33% - 10px);
+        }
+
+        .save-button {
+            background-color: #f6f6f6;
+            color: black;
+            padding: 10px;
+        }
+
+        .save-button.saved {
+            background-color: #337ab7;
+            color: white;
+        }
+    </style>
+    <!-- <style>
+        /* .header {
+            margin-bottom: 20px;
+            overflow: hidden;
+        } */
+
+        /* .shop-overview {
+            position: relative;
+            text-align: center;
+            padding-bottom: 10px;
+            border-right: 1px solid #848484;
+            width: 80px;
+            height: 80px;
+        }
+        .shop-overview::after {
+            content: '';
+            position: absolute;
+            margin: auto;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 50%;
+            height: 1px;
+            background-color: #000;
+        } */
+    </style> -->
+    <!-- <style>
+        .container {
+            /* width: 800px; */
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 200px;
+            padding-right: 200px;
+        }
+    </style> -->
+
+    <script>
+        function toggleFollow() {
+            var followButton = document.getElementById('follow-button');
+
+            if (followButton.textContent === 'Follow') {
+                followButton.textContent = 'Followed';
+                followButton.classList.add('followed');
+            } else {
+                followButton.textContent = 'Follow';
+                followButton.classList.remove('followed');
+            }
+        }
+    </script>
+    <script>
+        function toggleSave(discountId) {
+            var saveButton = document.querySelector('.save-button-' + discountId);
+
+            if (saveButton.textContent === 'Save') {
+                saveButton.textContent = 'Saved';
+                saveButton.classList.add('saved');
+            } else {
+                saveButton.textContent = 'Save';
+                saveButton.classList.remove('saved');
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Header section -->
+    <header>
+        <div class="shop-overview">
+            <!-- <div class="shop-overview-2"> -->
+                <img class="shop-logo" src="https://drive.google.com/uc?export=view&id=1q8g7BSHvcIbvlYS3buOCmVTzoISv32s8" alt="Shop Logo">
+                <h1 class="shop-name">Shop's Name</h1> 
+                <p class="last-online">Last online: September 30, 2023</p>
+                <section class="follow-chat">
+                    <button id="follow-button" onclick="toggleFollow()">Follow</button>
+                    <button class="chat-button">Chat</button>
+                </section>
+            <!-- </div> -->
+        </div>
+
+        <section class="shop-info">
+            <p>Number of products: 50</p>
+            <p>Number of followers: 1000</p>
+            <p>Average rating received: 4.5</p>
+            <p>Number of ratings: 200</p>
+            <p>Chat response rate: 90%</p>
+            <p>Joined since: January 1, 2022</p>
+        </section>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main content section -->
+    <main>
+        <div class="container">
+        <div class="grid-container">
+            <div class="discount">
+                <h3>Discount 1</h3>
+                <p>Discount details here...</p>
+                <div>
+                    <button class="save-button save-button-1" onclick="toggleSave(1)">Save</button>
+                </div>
+            </div>
+            <div class="discount">
+                <h3>Discount 2</h3>
+                <p>Discount details here...</p>
+                <div>
+                    <button class="save-button save-button-2" onclick="toggleSave(2)">Save</button>
+                </div>
+            </div>
+            <div class="discount">
+                <h3>Discount 3</h3>
+                <p>Discount details here...</p>
+                <div>
+                    <button class="save-button save-button-3" onclick="toggleSave(3)">Save</button>
+                </div>
+            </div>
+            <div class="discount">
+                <h3>Discount 4</h3>
+                <p>Discount details here...</p>
+                <div>
+                    <button class="save-button save-button-4" onclick="toggleSave(4)">Save</button>
+                </div>
+            </div>
+            <div class="discount">
+                <h3>Discount 5</h3>
+                <p>Discount details here...</p>
+                <div>
+                    <button class="save-button save-button-5" onclick="toggleSave(5)">Save</button>
+                </div>
+            </div>
+            <!-- Add more discounts and corresponding save buttons as needed -->
+        </div>
+
+        <!-- Product listing -->
+        <section class="product-list">
+            <div class="product">
+                <img src="product1.jpg" alt="Product 1">
+                <h2>Product 1</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>$19.99</p>
+                <button>Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="product2.jpg" alt="Product 2">
+                <h2>Product 2</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>$24.99</p>
+                <button>Add to Cart</button>
+            </div>
+
+            <!-- Add more product listings here -->
+
+        </section>
+        </div>
+    </main>
+
+    <!-- Footer section -->
+    <footer>
+        <p>&copy; 2023 2HandBook. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
