@@ -293,7 +293,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
   text-transform: uppercase;
   font-weight: 500;
   margin-top: 7rem;
-  background-color: #d9edf7;
+  background-color: rgba(59, 153, 215, 0.2);
   padding: 0;
   z-index: 1;
   height: 7rem; }
