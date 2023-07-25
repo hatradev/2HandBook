@@ -1051,3 +1051,75 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
 
 .color-white {
   color: white; }
+
+.last-online {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #337ab7; }
+
+.info {
+  display: flex;
+  margin-bottom: 25px; }
+  .info .info-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #f2f2f2;
+    border: 1px solid #ddd; }
+    .info .info-col .logo-name {
+      display: flex;
+      align-items: center; }
+      .info .info-col .logo-name .shop-logo {
+        width: 65px;
+        height: 65px;
+        border-radius: 50%;
+        display: inline-block; }
+      .info .info-col .logo-name .shop-name {
+        font-size: 24px;
+        font-weight: bold;
+        display: inline-block; }
+
+.shop-overview {
+  width: 285px;
+  margin: 0 auto;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px; }
+
+.followed {
+  background-color: #337ab7;
+  color: white; }
+
+.saved {
+  background-color: #337ab7;
+  color: white; }
+
+.grid-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px; }
+
+.discount {
+  background-color: #f2f2f2;
+  padding: 10px;
+  min-width: 200px;
+  flex: 0 0 calc(33.33% - 10px); }
+
+.save-button {
+  background-color: #f6f6f6;
+  color: black;
+  padding: 10px; }
+
+.save-button.saved {
+  background-color: #337ab7;
+  color: white; }
+
+.shop-info {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 200px;
+  padding-right: 200px;
+  padding-top: 210px; }

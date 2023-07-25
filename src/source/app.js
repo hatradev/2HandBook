@@ -87,5 +87,8 @@ app.get('/specific-product', (req, res) => {
 app.get('/manage-order', (req, res) => {
   res.render('manage-order', { showHeader: true, showFooter: true });
 });
+app.get('/shop-info', (req, res) => {
+  res.render('shop-info', { showHeader: true, showFooter: true });
+});
 
 module.exports = app;
