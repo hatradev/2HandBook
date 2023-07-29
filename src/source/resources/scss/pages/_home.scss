@@ -1,0 +1,88 @@
+// Hero section
+.carousel {
+  height: 100vh;
+  z-index: 0;
+
+  img {
+    height: 100vh;
+  }
+
+  .carousel-indicators {
+    margin-bottom: 4rem;
+    [data-bs-target] {
+      @include box(2rem, 2rem);
+      height: 1rem;
+      width: 1rem;
+      border-radius: 50%;
+    }
+  }
+
+  .carousel-caption {
+    bottom: 6rem;
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    @include box(4rem, 4rem);
+  }
+}
+
+.banner {
+  margin-top: 1.5rem;
+}
+
+.banner-row {
+  display: flex;
+}
+
+.banner-img {
+  background: linear-gradient(
+      0deg,
+      rgba(49, 56, 62, 0.3) 0%,
+      rgba(49, 56, 62, 0.3) 100%
+    ),
+    lightgray 50% / cover no-repeat;
+}
+
+.banner-article {
+  margin: auto auto;
+  padding: 0 4rem;
+  .main-heading {
+    margin-bottom: 1rem;
+  }
+}
+
+.trend {
+  margin-top: 4rem;
+  .main-heading {
+    line-height: 3.5rem;
+    border-radius: 15px;
+    background: #337ab7;
+    color: #fff;
+    text-align: center;
+    height: 3.5rem;
+    width: 24rem;
+  }
+  .h2 {
+    display: inline-block;
+  }
+  .rectangle {
+    background: #337ab7;
+    height: 0.5rem;
+    padding: 0 0;
+    margin: auto 0;
+  }
+
+  .trend-row {
+    margin-top: 2rem;
+  }
+  .trend-card {
+    margin: 0 1rem;
+    border-radius: 0;
+    border: 1px solid #31383e;
+    padding: 0 0;
+  }
+  .trend-card-img {
+    background-color: #31383e;
+  }
+}
