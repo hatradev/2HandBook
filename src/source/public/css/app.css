@@ -958,12 +958,10 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
           font-size: 5.5rem; }
       .account-profile-main .row .col-4 .avatar .avatar-right {
         height: 70%; }
-        .account-profile-main .row .col-4 .avatar .avatar-right .info {
+        .account-profile-main .row .col-4 .avatar .avatar-right .info-avatar {
           height: 50%; }
-        .account-profile-main .row .col-4 .avatar .avatar-right .info span {
-          font-size: 1rem; }
-        .account-profile-main .row .col-4 .avatar .avatar-right .info a {
-          font-size: 1.5rem; }
+          .account-profile-main .row .col-4 .avatar .avatar-right .info-avatar .mail {
+            font-size: 1rem; }
         .account-profile-main .row .col-4 .avatar .avatar-right .signup-btn {
           height: 50%; }
           .account-profile-main .row .col-4 .avatar .avatar-right .signup-btn button {

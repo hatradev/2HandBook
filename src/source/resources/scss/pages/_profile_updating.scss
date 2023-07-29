@@ -47,16 +47,16 @@
             .avatar-right{
                 height: 70%;
                 // padding-left: 1.6rem;
-                .info{
+                .info-avatar{
                     height: 50%;
+                    .mail{
+                        font-size: 1rem;
+                    }
                 }
-                .info span{
-                    font-size: 1rem;
-                }
-                .info a{
-                    font-size: 1.5rem;
-                }
-                
+                // .info span{
+                //     font-size: 1rem;
+                // }
+
                 .signup-btn{
                     // margin-top: 1.5rem;
                     // background-color: white;
