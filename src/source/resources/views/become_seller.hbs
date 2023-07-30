@@ -15,35 +15,48 @@
         </div>
 
         <div class='avatar-right'>
-          <div class='info'>
-            <a href='#' class='avatar-name'>Dinh Quy Trieu</a>
-            <span class='avatar-mail'>dinhquytrieu1010</span>
+          <div class='info-avatar'>
+            <span class='avatar-name'>Dinh Quy Trieu</span>
+            <span class='avatar-mail mail'>trieudinh@gmail.com</span>
           </div>
           <div class='signup-btn'>
-            <button type='button' class='btn btn-outline-primary'>SIGN UP</button>
+            {{!-- <button type='button' class='btn btn-outline-primary'>SIGN OUT</button> --}}
+            <button type="button" class="btn btn-outline-secondary">SIGN OUT</button>
           </div>
         </div>
       </div>
       <div class='my-account'>
-        <button type='button' class='btn btn-outline-secondary'>
-          <i class='fa-solid fa-pen-to-square'></i>
-          <a class='page-link' href='http://localhost:3000/profile'>My account</a>
-        </button>
+        <a href='http://localhost:3000/profile'>
+          <button type='button' class='btn btn-outline-secondary'>
+            <i class='fa-solid fa-pen-to-square'></i>
+            <span class='page-link'>My account</span>
+          </button>
+        </a>
       </div>
       <div class='my-order'>
-        <button type='button' class='btn btn-outline-secondary'>
+        <a href='http://localhost:3000/myorder'>
+          <button type='button' class='btn btn-outline-secondary'>
+            <i class='fa-solid fa-cart-shopping'></i>
+            <span class='page-link'>My order</span>
+          </button>
+        </a>
+        {{!-- <button type='button' class='btn btn-outline-secondary'>
           <i class='fa-solid fa-cart-shopping'></i>
           <a class='page-link' href='http://localhost:3000/myorder'>My order</a>
-        </button>
+        </button> --}}
       </div>
       <div class='become-seller'>
-        <button type='button' class='btn btn-outline-secondary bg-blue'>
-          <i class='fa-solid fa-user color-white'></i>
-          <a
-            class='page-link color-white'
-            href='http://localhost:3000/becomeseller'
-          >Become seller</a>
-        </button>
+        <a href='http://localhost:3000/becomeseller'>
+          <button type='button' class='btn btn-outline-secondary bg-blue'>
+            <i class='fa-solid fa-user color-white'></i>
+            <span class='page-link color-white'>Become seller</span>
+          </button>
+        </a>
+        {{!-- <button type='button' class='btn btn-outline-secondary'>
+          <i class='fa-solid fa-user'></i>
+          <a class='page-link' href='http://localhost:3000/becomeseller'>Become
+            seller</a>
+        </button> --}}
       </div>
       <div class='remain'></div>
     </div>
@@ -130,7 +143,7 @@
             <option>BIDV</option>
           </select>
         </div>
-        <div class='col-12'>
+        {{!-- <div class='col-12'>
           <div class='form-group'>
             <div class='form-check'>
               <input
@@ -145,11 +158,16 @@
             </div>
             <span class='form-message'></span>
           </div>
-        </div>
-        <div class='col-md-6'></div>
+        </div> --}}
+        {{!-- <div class='col-md-6'></div>
         <div class='col-md-6 display_end'>
           <button class='form-submit btn btn-outline-primary half_height'>SIGN
             UP</button>
+
+          
+        </div> --}}
+        <div class='col-12 register'>
+          <button class="form-submit btn btn-outline-secondary">REGISTER</button>
         </div>
       </form>
     </div>

@@ -156,7 +156,7 @@ Validator.isRequired = function (selector, message) {
   return {
     selector: selector,
     test: function (value) {
-      return value ? undefined : message || 'Vui lòng nhập trường này';
+      return value ? undefined : message || 'Please fill this field!';
     },
   };
 };
@@ -168,7 +168,7 @@ Validator.isEmail = function (selector, message) {
       var regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
       return regex.test(value)
         ? undefined
-        : message || 'Trường này phải là email';
+        : message || 'This field must be email!';
     },
   };
 };
@@ -179,7 +179,7 @@ Validator.minLength = function (selector, min, message) {
     test: function (value) {
       return value.length >= min
         ? undefined
-        : message || `Vui lòng nhập tối thiểu ${min} kí tự`;
+        : message || `Please enter at least ${min} character`;
     },
   };
 };
@@ -190,7 +190,7 @@ Validator.isConfirmed = function (selector, getConfirmValue, message) {
     test: function (value) {
       return value === getConfirmValue()
         ? undefined
-        : message || 'Giá trị nhập vào không chính xác';
+        : message || 'Input value was wrong!';
     },
   };
 };
