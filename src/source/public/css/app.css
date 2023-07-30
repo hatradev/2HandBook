@@ -703,13 +703,13 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
       margin-left: 0.7rem; }
     .specific-product .related-product .related-item .img {
       background-color: #f6f6f6;
-      height: 35rem;
+      height: 70%;
       flex-grow: 1; }
       .specific-product .related-product .related-item .img a {
         display: flex;
         justify-content: center; }
         .specific-product .related-product .related-item .img a .img-product {
-          width: 24rem;
+          width: 70%;
           vertical-align: middle;
           object-fit: cover; }
     .specific-product .related-product .related-item .name-vs-price {
@@ -732,6 +732,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
   .all-product .sort-section {
     margin-top: 2.5rem; }
     .all-product .sort-section .form-select {
+      margin-top: 2rem;
       width: 26rem;
       height: 4rem;
       font-size: 1.6rem;
@@ -794,13 +795,36 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
           color: #31383e; }
         .all-product .filter-vs-product .filter-section .filter-type-list .type-item .number {
           color: #31383e; }
-    .all-product .filter-vs-product .product-section .related-item .img {
-      height: 27rem; }
-    .all-product .filter-vs-product .product-section .related-item .name-vs-price .name {
-      font-size: 1.6rem; }
-    .all-product .filter-vs-product .product-section .related-item .name-vs-price .price {
-      font-size: 1.6rem;
-      padding-bottom: 1rem; }
+    .all-product .filter-vs-product .product-section .related-item {
+      height: 35rem; }
+      .all-product .filter-vs-product .product-section .related-item .img {
+        background-color: #f6f6f6;
+        height: 45%; }
+        .all-product .filter-vs-product .product-section .related-item .img a {
+          display: flex;
+          justify-content: center; }
+          .all-product .filter-vs-product .product-section .related-item .img a .img-product {
+            width: 70%;
+            vertical-align: middle;
+            object-fit: cover; }
+      .all-product .filter-vs-product .product-section .related-item .name-vs-price {
+        text-align: center;
+        background-color: #f6f6f6;
+        padding-top: 1rem; }
+        .all-product .filter-vs-product .product-section .related-item .name-vs-price .name {
+          margin-top: 4rem;
+          font-size: 1.6rem;
+          font-weight: 600; }
+        .all-product .filter-vs-product .product-section .related-item .name-vs-price .price {
+          font-size: 1.5rem;
+          font-weight: 400;
+          padding-bottom: 2rem; }
+      .all-product .filter-vs-product .product-section .related-item .buy-item-btn {
+        padding: 1rem 0; }
+    .all-product .filter-vs-product .pagination-container {
+      width: 25rem; }
+      .all-product .filter-vs-product .pagination-container .pagination-description {
+        margin-bottom: 1rem; }
 
 .sales-page {
   margin-top: 14rem; }

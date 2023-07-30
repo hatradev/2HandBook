@@ -199,7 +199,7 @@
     .related-item {
       .img {
         background-color: $color-text-light;
-        height: 35rem;
+        height: 70%;
         // overflow: hidden;
         flex-grow: 1;
 
@@ -208,7 +208,7 @@
           justify-content: center;
 
           .img-product {
-            width: 24rem;
+            width: 70%;
             vertical-align: middle;
             object-fit: cover;
           }
