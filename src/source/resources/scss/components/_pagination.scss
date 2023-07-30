@@ -1,0 +1,31 @@
+.pagination-container {
+  margin: 0 auto;
+}
+.pagination {
+  .pagination-item:not(:first-child):not(:nth-child(2)):not(:last-child):not(
+      :nth-last-child(2)
+    ) {
+    .pagination-link:hover,
+    .pagination-link:active,
+    .pagination-active {
+      background-color: $color-primary;
+      border-radius: 50%;
+      color: $color-white;
+    }
+  }
+  .pagination-link {
+    &:link,
+    &:visited {
+      display: inline-block;
+      width: 3rem;
+      font-size: 2rem;
+      i {
+        line-height: 3rem;
+      }
+    }
+  }
+}
+
+.pagination-description {
+  color: $color-text-grey;
+}

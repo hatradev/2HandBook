@@ -1,0 +1,120 @@
+// ************************
+// Extended classes
+.container-ext {
+  background-color: $color-white;
+  margin-top: 17rem;
+  padding: 0 4rem;
+}
+
+.breadcrumb-ext {
+  font-size: $font-size-quaternary;
+  line-height: 3.6rem;
+}
+
+.content-ext {
+  padding: 2rem;
+  margin: 2rem 0;
+  border: 0.1rem solid $color-border;
+  font-size: $font-size-secondary;
+}
+
+.select-container-ext {
+  position: relative;
+
+  &::after {
+    content: '';
+    @include abs-pos(50%, 2rem);
+    transform: translateY(-50%);
+    border: 0.6rem solid transparent;
+    border-color: $color-text-grey transparent transparent transparent;
+  }
+}
+
+.select-ext {
+  @include box(100%, 6rem);
+  padding-left: 4rem;
+  color: $color-text-grey;
+  border: 0.1rem solid $color-border;
+  border-right: none;
+}
+
+.btn-ext {
+  background-color: $color-primary;
+
+  &:hover {
+    background-color: $color-primary-shade;
+    box-shadow: none;
+  }
+}
+// ************************
+
+.manage-product {
+  @extend .container-ext;
+  .manage-product-breadcrumb {
+    @extend .breadcrumb-ext;
+  }
+
+  .manage-product-content {
+    @extend .content-ext;
+  }
+
+  a.btn {
+    @extend .btn-ext;
+  }
+
+  .search-input,
+  .manage-product-select {
+    @extend .select-ext;
+  }
+
+  .manage-product-select {
+    padding-left: 3rem;
+    appearance: none;
+  }
+
+  .col-4:last-child .manage-product-select {
+    border-right: 0.1rem solid $color-border;
+  }
+
+  .manage-product-select-container {
+    @extend .select-container-ext;
+  }
+
+  .manage-product-search-bar {
+    position: relative;
+  }
+
+  .search-label {
+    @include abs-pos(50%, false, false, 1.4rem);
+    transform: translateY(-50%);
+    color: $color-text-grey;
+    cursor: pointer;
+  }
+
+  .manage-product-titles {
+    .manage-product-title {
+      font-weight: bold;
+    }
+  }
+
+  .manage-product-checkbox {
+    width: fit-content;
+    cursor: pointer;
+    margin-right: 2rem;
+  }
+
+  .manage-product-list {
+    .manage-product-item {
+      height: 8rem;
+      padding: 1rem 0;
+    }
+    .manage-product-img {
+      height: 6rem;
+      object-fit: contain;
+    }
+
+    .manage-product-info {
+      @include truncate;
+    }
+  }
+}

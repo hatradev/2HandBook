@@ -1,7 +1,26 @@
 @import 'abstracts/variables';
+@import 'abstracts/mixins';
 @import 'base/global';
+
+// Import components
+@import 'components/buttons';
+@import 'components/pagination';
+
+// Import layouts
 @import 'layouts/header';
+@import 'layouts/cart';
 @import 'layouts/footer';
-@import 'layouts/home';
 @import 'layouts/nav';
-@import 'layouts/hero';
+
+// Import pages
+@import 'pages/home';
+@import 'pages/manage-product';
+@import 'pages/edit-product';
+@import 'pages/dashboard';
+@import 'pages/specific-product';
+@import 'pages/all-product';
+@import 'pages/manage-order';
+@import 'pages/become_seller';
+@import 'pages/my_order';
+@import 'pages/profile_updating';
+@import 'pages/shop-info';

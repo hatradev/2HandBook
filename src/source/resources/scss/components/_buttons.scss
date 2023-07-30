@@ -1,0 +1,23 @@
+a.btn {
+  &:link,
+  &:visited {
+    @include font(1.6rem, 500);
+    border-radius: 0.5rem;
+    background-color: $color-primary-tint;
+    padding: 0.5rem 2rem;
+    transition: all 0.3s;
+  }
+
+  &:nth-child(2) {
+    background-color: $color-text-light;
+  }
+
+  &:hover,
+  &:active,
+  &:first-child:active,
+  :not(.btn-check) + &:active {
+    box-shadow: 0 0 0 0.2rem $color-text-light inset;
+    color: $color-text-light;
+    background-color: $color-primary-shade;
+  }
+}

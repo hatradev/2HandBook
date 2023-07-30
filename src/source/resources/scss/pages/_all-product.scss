@@ -1,0 +1,124 @@
+.all-product {
+  margin-top: 14rem;
+  max-width: 108rem;
+
+  .sort-section {
+    margin-top: 2.5rem;
+
+    .form-select {
+      width: 26rem;
+      height: 4rem;
+      font-size: 1.6rem;
+      box-shadow: 3px 3px 3px rgba($color: $color-text-dark, $alpha: 0.6);
+    }
+  }
+
+  .filter-vs-product {
+    padding-top: 2.5rem;
+
+    .filter-section {
+      height: 37rem;
+      background-color: $color-primary-tint;
+      .search-bar {
+        position: relative;
+
+        .search-input {
+          height: 3.4rem;
+          width: 100%;
+          border-radius: 2rem;
+          background-color: $color-white;
+          color: $color-text-dark;
+
+          &::placeholder {
+            color: $color-text-dark;
+          }
+        }
+
+        .search-icon-link {
+          width: 2rem;
+          font-size: 1.6rem;
+          position: absolute;
+          right: 1rem;
+          top: 2rem;
+
+          .search-icon::before {
+            color: $color-text-dark;
+          }
+        }
+      }
+
+      .price-filter {
+        .slider {
+          appearance: none;
+          width: 100%;
+          height: 1rem;
+          background: $color-text-dark;
+          outline: none;
+          opacity: 0.7;
+          -webkit-transition: 0.2s;
+          transition: opacity 0.2s;
+          border-radius: 0.5rem;
+        }
+
+        .slider::-webkit-slider-thumb {
+          appearance: none;
+          width: 1.5rem;
+          height: 1.5rem;
+          background: $color-primary;
+          cursor: pointer;
+          border-radius: 50%;
+        }
+
+        .filter-btn {
+          background-color: $color-text-light;
+          &:hover {
+            background-color: $color-primary-shade;
+          }
+        }
+      }
+
+      .filter-type-list {
+        .list-title {
+          font-size: 2rem;
+          font-weight: 700;
+          text-transform: uppercase;
+        }
+        .list-title + hr {
+          width: 42%;
+        }
+
+        .type-item {
+          font-size: 1.6rem;
+          a {
+            display: inline-block;
+          }
+          a .type-name {
+            color: $color-text-dark;
+          }
+          .number {
+            color: $color-text-dark;
+          }
+        }
+      }
+    }
+
+    .product-section {
+      .related-item {
+        .img {
+          height: 27rem; //
+        }
+
+        .name-vs-price {
+          .name {
+            font-size: 1.6rem; //
+          }
+
+          .price {
+            font-size: 1.6rem; //
+            padding-bottom: 1rem; //
+          }
+        }
+      }
+    }
+  }
+}
