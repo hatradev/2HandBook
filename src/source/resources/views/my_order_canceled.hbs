@@ -1,89 +1,110 @@
-<div class="account-profile-header">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            {{!-- <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24"
-                class="d-inline-block align-text-top"> --}}
-            ACCOUNT PROFILE
-        </a>
-    </div>
+<div class='account-profile-header'>
+  <div class='container-fluid'>
+    <a class='navbar-brand' href='#'>
+      {{! <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24"
+                class="d-inline-block align-text-top"> }}
+      ACCOUNT PROFILE
+    </a>
+  </div>
 </div>
 
-
-<div class="account-profile-main">
-    <div class="row">
-        <div class="col-4">
-            <div class="avatar">
-                <div class="avatar-left">
-                    <i class="fa-solid fa-user"></i>
-                    {{!-- <i class="fa-solid fa-camera"></i> --}}
-                    <!-- <i class="fa-thin fa-user"></i> -->
-                </div>
-
-                <div class="avatar-right">
-                    <div class="info">
-                        <a href="#" class="avatar-name">Dinh Quy Trieu</a>
-                        <!-- <a class="avatar-name">Dinh Quy Trieu</a> -->
-                        <span class="avatar-mail">dinhquytrieu1010</span>
-                    </div>
-                    <div class="signup-btn">
-                        {{!-- <button class="sign-up">SIGN UP</button> --}}
-                        <button type="button" class="btn btn-outline-primary">SIGN UP</button>
-                    </div>
-                </div>
-            </div>
-            <div class="my-account">
-                <button type="button" class="btn btn-outline-secondary">
-                    <i class="fa-solid fa-pen-to-square"></i>
-                    <a class="page-link" href="http://localhost:3000/profile">My account</a>
-                </button>
-            </div>
-            <div class="my-order">
-                <button type="button" class="btn btn-outline-secondary bg-blue">
-                    <i class="fa-solid fa-cart-shopping color-white"></i>
-                    <a class="page-link color-white" href="http://localhost:3000/myorder">My order</a>
-                </button>
-            </div>
-            <div class="become-seller">
-                <button type="button" class="btn btn-outline-secondary">
-                    <i class="fa-solid fa-user"></i>
-                    <a class="page-link" href="http://localhost:3000/becomeseller">Become seller</a>
-                </button>
-            </div>
-            <div class="remain"></div>
+<div class='account-profile-main'>
+  <div class='row'>
+    <div class='col-4'>
+      <div class='avatar'>
+        <div class='avatar-left'>
+          <i class='fa-solid fa-user'></i>
+          {{! <i class="fa-solid fa-camera"></i> }}
+          <!-- <i class="fa-thin fa-user"></i> -->
         </div>
-        <div class="col-8 part-right-my-order">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item"><a class="page-link text_black" href="http://localhost:3000/myorder">Success</a></li>
-                    <li class="page-item"><a class="page-link text_black" href="http://localhost:3000/myorderdelivery">Delivery in progress</a></li>
-                    <li class="page-item"><a class="page-link text_black" href="http://localhost:3000/myorderconfirmation">Conformation in progress</a></li>
-                    <li class="page-item"><a class="page-link text_black background_emphasis" href="http://localhost:3000/myordercanceled">Canceled</a></li>
-                </ul>
-            </nav>
-            <div class="card">
-                <div class="card-header">
-                    Delivery in progress
-                </div>
-                <div class="card-body">
-                    <div class="contain">
-                        <div class="left">
-                            <img src="img/MTcasio.jpg" class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="middle">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                                    content. This content is a little bit longer.</p>
-                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="card-footer">
-                    90.000 VND
-                </div>
-            </div>
+        <div class='avatar-right'>
+          <div class='info'>
+            <a href='#' class='avatar-name'>Dinh Quy Trieu</a>
+            <!-- <a class="avatar-name">Dinh Quy Trieu</a> -->
+            <span class='avatar-mail'>dinhquytrieu1010</span>
+          </div>
+          <div class='signup-btn'>
+            {{! <button class="sign-up">SIGN UP</button> }}
+            <button type='button' class='btn btn-outline-primary'>SIGN UP</button>
+          </div>
         </div>
+      </div>
+      <div class='my-account'>
+        <button type='button' class='btn btn-outline-secondary'>
+          <i class='fa-solid fa-pen-to-square'></i>
+          <a class='page-link' href='http://localhost:3000/profile'>My account</a>
+        </button>
+      </div>
+      <div class='my-order'>
+        <button type='button' class='btn btn-outline-secondary bg-blue'>
+          <i class='fa-solid fa-cart-shopping color-white'></i>
+          <a
+            class='page-link color-white'
+            href='http://localhost:3000/myorder'
+          >My order</a>
+        </button>
+      </div>
+      <div class='become-seller'>
+        <button type='button' class='btn btn-outline-secondary'>
+          <i class='fa-solid fa-user'></i>
+          <a class='page-link' href='http://localhost:3000/becomeseller'>Become
+            seller</a>
+        </button>
+      </div>
+      <div class='remain'></div>
     </div>
+    <div class='col-8 part-right-my-order'>
+      <nav aria-label='Page navigation example'>
+        <ul class='pagination justify-content-center'>
+          <li class='page-item'><a
+              class='page-link text_black'
+              href='http://localhost:3000/myorder'
+            >Success</a></li>
+          <li class='page-item'><a
+              class='page-link text_black'
+              href='http://localhost:3000/myorderdelivery'
+            >Delivery in progress</a></li>
+          <li class='page-item'><a
+              class='page-link text_black'
+              href='http://localhost:3000/myorderconfirmation'
+            >Conformation in progress</a></li>
+          <li class='page-item'><a
+              class='page-link text_black background_emphasis'
+              href='http://localhost:3000/myordercanceled'
+            >Canceled</a></li>
+        </ul>
+      </nav>
+      <div class='card'>
+        <div class='card-header'>
+          Delivery in progress
+        </div>
+        <div class='card-body'>
+          <div class='contain'>
+            <div class='left'>
+              <img
+                src='/img/MTcasio.jpg'
+                class='img-fluid rounded-start'
+                alt='...'
+              />
+            </div>
+            <div class='middle'>
+              <div class='card-body'>
+                <h5 class='card-title'>Card title</h5>
+                <p class='card-text'>This is a wider card with supporting text
+                  below as a natural lead-in to additional content. This content
+                  is a little bit longer.</p>
+                <p class='card-text'><small class='text-muted'>Last updated 3
+                    mins ago</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class='card-footer'>
+          90.000 VND
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,13 +1,8 @@
 const Book = require('../models/book.model');
-// const fs = require('fs');
-
-// const books = JSON.parse(
-//   fs.readFileSync(`${__dirname}/../dev-data/data.json`, 'utf-8')
-// );
 
 exports.getAllBooks = async function (req, res) {
-  const books = await Book.find();
   try {
+    const books = await Book.find();
     res.status(200).json({
       status: 'success',
       data: {
