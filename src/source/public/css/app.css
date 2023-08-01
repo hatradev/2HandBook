@@ -883,6 +883,9 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
 .half_height {
   height: 50%; }
 
+.term {
+  height: 10rem; }
+
 .register {
   display: flex;
   justify-content: end; }
@@ -898,8 +901,9 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
   justify-content: center; }
 
 .background_emphasis {
-  background-color: #a6d7f8e8;
-  color: black;
+  background-color: #337ab7;
+  color: white;
+  font-weight: bold;
   pointer-events: none; }
 
 .text_black {
@@ -917,10 +921,11 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
         height: 80%;
         display: flex;
         justify-content: center;
-        font-size: 1.2rem; }
+        align-items: center;
+        font-size: 1.3rem; }
 
 .col-8 .card {
-  margin-top: 1rem; }
+  margin-bottom: 4rem; }
   .col-8 .card .card-body .contain {
     display: flex; }
     .col-8 .card .card-body .contain .middle {
@@ -928,6 +933,21 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
   .col-8 .card .card-footer {
     display: flex;
     justify-content: right; }
+
+.evaluate-product {
+  display: flex;
+  justify-content: end;
+  height: 5rem;
+  border-style: none; }
+  .evaluate-product button {
+    font-size: 1.5rem; }
+
+.evaluate-body {
+  height: 30rem; }
+  .evaluate-body .rating {
+    height: 15%; }
+    .evaluate-body .rating .first-choice {
+      margin-left: 4rem; }
 
 .account-profile-header .container-fluid {
   margin-top: 14rem;
@@ -941,7 +961,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
 
 .account-profile-main .row {
   padding-left: 14.6rem;
-  height: 100%; }
+  height: 100rem; }
   .account-profile-main .row .col-4 {
     padding-top: 2rem;
     padding-left: 0%;
@@ -951,7 +971,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
     background-color: #C8DAE4; }
     .account-profile-main .row .col-4 .avatar {
       width: 100%;
-      height: 15%;
+      height: 10.5%;
       display: flex;
       padding-left: 3.3rem;
       padding-right: 1rem; }
@@ -1051,9 +1071,9 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
   .account-profile-main .row .col-8 {
     padding-top: 2rem; }
     .account-profile-main .row .col-8 .col-md-6 {
-      height: 10%; }
+      height: 8%; }
     .account-profile-main .row .col-8 .col-12 {
-      height: 10%; }
+      height: 8%; }
       .account-profile-main .row .col-8 .col-12 .form-check {
         display: flex;
         justify-content: left;
