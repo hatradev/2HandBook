@@ -67,7 +67,10 @@ route(app);
   });
 
   app.get('/all-product', (req, res) => {
-    res.render('all-product', { showHeader: true, showFooter: true });
+    res.render('all-product', { 
+      // showHeader: true,
+      showFooter: true 
+    });
   });
 
   app.get('/specific-product', (req, res) => {
@@ -78,7 +81,9 @@ route(app);
   });
 
   app.get('/manage-order', (req, res) => {
-    res.render('manage-order', { showHeader: true, showFooter: true });
+    res.render('manage-order', { 
+      // showHeader: true, 
+      showFooter: true });
   });
 
   app.get('/shop-info', (req, res) => {
