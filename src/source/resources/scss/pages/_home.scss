@@ -61,7 +61,7 @@
     color: #fff;
     text-align: center;
     height: 3.5rem;
-    width: 24rem;
+    width: 15vw;
   }
   .h2 {
     display: inline-block;
@@ -83,6 +83,59 @@
     padding: 0 0;
   }
   .trend-card-img {
-    background-color: #31383e;
+    background-color: #fff;
+    height: 100%;
+    .trend-prod-img {
+      float: left;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  .trend-card-title {
+    color: #000;
+    font-family: Inter;
+    font-size: 1.5rem;
+    font-weight: 500;
+
+    padding: 0 0.5rem;
+  }
+  .trend-card-price {
+    text-align: center;
+    color: #000;
+    font-weight: 700;
+  }
+  .trend-card-btn {
+    text-transform: uppercase;
+    border-radius: 0;
+    background: #31383e;
+    font-weight: 700;
+    color: #fff;
+  }
+  figure {
+    a.btn:link,
+    a.btn:visited {
+      border-radius: 0;
+      background: #31383e;
+    }
+  }
+  .see-more-btn {
+    margin-top: 2rem;
+    margin-bottom: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .trend-btn {
+      width: 15vw;
+      text-transform: uppercase;
+      font-weight: 700;
+      border: 3px solid #337ab7;
+      background: #fff;
+      border-radius: 15px;
+      color: #337ab7;
+    }
+    .trend-btn:hover {
+      color: #fff;
+      background-color: #337ab7;
+    }
   }
 }

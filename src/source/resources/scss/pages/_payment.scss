@@ -1,0 +1,130 @@
+.payment {
+  min-height: 100vh;
+
+  .delivery-addr {
+    @extend .container-ext;
+
+    .title {
+      display: flex;
+      align-items: center;
+      svg {
+        display: inline-block;
+        line-height: 3.6rem;
+        margin-right: 1rem;
+      }
+      p {
+        color: #000;
+        text-align: center;
+        font-family: Inter;
+        font-size: 2.4rem;
+        font-weight: 700;
+        display: inline-block;
+      }
+    }
+    .del-info {
+      font-family: Inter;
+      font-size: 1.6rem;
+      .del-first {
+        color: #000;
+
+        font-weight: 700;
+        display: block;
+      }
+      .del-second {
+        line-height: 2.4rem;
+      }
+    }
+  }
+  .delivery-box {
+    background-color: #f6f6f6;
+    padding: 2rem 4rem;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    margin-bottom: 3rem;
+  }
+  .shop-box {
+    display: flex;
+    align-items: center;
+    svg {
+      display: inline-block;
+      line-height: 2.25rem;
+      font-size: 2rem;
+      margin-right: 1rem;
+    }
+    .shopname {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+  }
+  .prod-box {
+    color: #000;
+    font-family: Inter;
+    font-size: 1.6rem;
+    font-weight: 400;
+
+    .product {
+      height: 17rem;
+      margin-bottom: 3rem;
+      .img {
+        border: 0.01rem solid #e3e3e3;
+      }
+      .pay-prod-img {
+        height: 100%;
+        object-fit: contain;
+      }
+      .pay-prod-price {
+        text-align: right;
+      }
+      .row {
+        position: relative;
+      }
+      .pay-prod-info {
+        position: absolute;
+        bottom: 0;
+      }
+    }
+  }
+  .total-price {
+    color: #000;
+    text-align: right;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .message {
+    font-family: Inter;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #000;
+  }
+  .form-control {
+    font-family: Inter;
+    font-size: 1.6rem;
+    font-weight: 400;
+  }
+  .noticePlace {
+    color: #000;
+    font-family: Inter;
+    font-size: 1.5rem;
+    font-weight: 300;
+  }
+  .placeorder {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .btn {
+    color: #fff;
+    text-align: center;
+    font-family: Ubuntu;
+    font-size: 2rem;
+    font-weight: 700;
+    border-radius: 5px;
+    background: #337ab7;
+    border: 3px solid #337ab7;
+  }
+  .btn:hover {
+    background: #fff;
+    border-radius: 5px;
+    color: #337ab7;
+  }
+}

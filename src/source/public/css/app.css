@@ -11,7 +11,8 @@ body {
   font-size: 1.5rem;
   color: #31383e;
   font-weight: 400;
-  line-height: 1.5; }
+  line-height: 1.5;
+  min-height: 100vh; }
 
 h1,
 h2,
@@ -248,21 +249,22 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
 
 .footer {
   background-color: #3b99d7;
-  padding: 2rem 9rem; }
+  padding: 2rem 0;
+  width: 100%; }
   .footer .footer-title {
     color: #fff;
     font-family: Ubuntu;
     font-size: 22px;
     font-weight: 700;
     width: fit-content;
-    border-bottom: 0.5rem solid #fff;
-    padding-bottom: 0.75rem; }
+    border-bottom: 0.5rem solid #fff; }
   .footer .footer-list {
     color: #fff;
     font-family: Ubuntu;
     font-size: 14px;
     font-weight: 500;
-    line-height: 1.5em; }
+    line-height: 1.5em;
+    margin-top: 1rem; }
   .footer .footer-link {
     color: #fff;
     font-family: Ubuntu;
@@ -394,7 +396,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
     height: 4rem; }
 
 .banner {
-  margin: 4rem 9rem; }
+  margin-top: 1.5rem; }
 
 .banner-row {
   display: flex; }
@@ -403,9 +405,81 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
   background: linear-gradient(0deg, rgba(49, 56, 62, 0.3) 0%, rgba(49, 56, 62, 0.3) 100%), lightgray 50%/cover no-repeat; }
 
 .banner-article {
-  margin: 5rem auto; }
+  margin: auto auto;
+  padding: 0 4rem; }
+  .banner-article .main-heading {
+    margin-bottom: 1rem; }
 
-.container-ext, .manage-product, .edit-product, .dashboard {
+.trend {
+  margin-top: 4rem; }
+  .trend .main-heading {
+    line-height: 3.5rem;
+    border-radius: 15px;
+    background: #337ab7;
+    color: #fff;
+    text-align: center;
+    height: 3.5rem;
+    width: 15vw; }
+  .trend .h2 {
+    display: inline-block; }
+  .trend .rectangle {
+    background: #337ab7;
+    height: 0.5rem;
+    padding: 0 0;
+    margin: auto 0; }
+  .trend .trend-row {
+    margin-top: 2rem; }
+  .trend .trend-card {
+    margin: 0 1rem;
+    border-radius: 0;
+    border: 1px solid #31383e;
+    padding: 0 0; }
+  .trend .trend-card-img {
+    background-color: #fff;
+    height: 100%; }
+    .trend .trend-card-img .trend-prod-img {
+      float: left;
+      height: 100%;
+      object-fit: contain; }
+  .trend .trend-card-title {
+    color: #000;
+    font-family: Inter;
+    font-size: 1.5rem;
+    font-weight: 500;
+    padding: 0 0.5rem; }
+  .trend .trend-card-price {
+    text-align: center;
+    color: #000;
+    font-weight: 700; }
+  .trend .trend-card-btn {
+    text-transform: uppercase;
+    border-radius: 0;
+    background: #31383e;
+    font-weight: 700;
+    color: #fff; }
+  .trend figure a.btn:link,
+  .trend figure a.btn:visited {
+    border-radius: 0;
+    background: #31383e; }
+  .trend .see-more-btn {
+    margin-top: 2rem;
+    margin-bottom: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    .trend .see-more-btn .trend-btn {
+      width: 15vw;
+      text-transform: uppercase;
+      font-weight: 700;
+      border: 3px solid #337ab7;
+      background: #fff;
+      border-radius: 15px;
+      color: #337ab7; }
+    .trend .see-more-btn .trend-btn:hover {
+      color: #fff;
+      background-color: #337ab7; }
+
+.container-ext, .manage-product, .edit-product, .dashboard, .payment .delivery-addr {
   background-color: #fff;
   margin-top: 17rem;
   padding: 0 4rem; }
@@ -1123,3 +1197,205 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
   padding-left: 200px;
   padding-right: 200px;
   padding-top: 210px; }
+
+.payment {
+  min-height: 100vh; }
+  .payment .delivery-addr .title {
+    display: flex;
+    align-items: center; }
+    .payment .delivery-addr .title svg {
+      display: inline-block;
+      line-height: 3.6rem;
+      margin-right: 1rem; }
+    .payment .delivery-addr .title p {
+      color: #000;
+      text-align: center;
+      font-family: Inter;
+      font-size: 2.4rem;
+      font-weight: 700;
+      display: inline-block; }
+  .payment .delivery-addr .del-info {
+    font-family: Inter;
+    font-size: 1.6rem; }
+    .payment .delivery-addr .del-info .del-first {
+      color: #000;
+      font-weight: 700;
+      display: block; }
+    .payment .delivery-addr .del-info .del-second {
+      line-height: 2.4rem; }
+  .payment .delivery-box {
+    background-color: #f6f6f6;
+    padding: 2rem 4rem;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    margin-bottom: 3rem; }
+  .payment .shop-box {
+    display: flex;
+    align-items: center; }
+    .payment .shop-box svg {
+      display: inline-block;
+      line-height: 2.25rem;
+      font-size: 2rem;
+      margin-right: 1rem; }
+    .payment .shop-box .shopname {
+      font-size: 2rem;
+      font-weight: 700; }
+  .payment .prod-box {
+    color: #000;
+    font-family: Inter;
+    font-size: 1.6rem;
+    font-weight: 400; }
+    .payment .prod-box .product {
+      height: 17rem;
+      margin-bottom: 3rem; }
+      .payment .prod-box .product .img {
+        border: 0.01rem solid #e3e3e3; }
+      .payment .prod-box .product .pay-prod-img {
+        height: 100%;
+        object-fit: contain; }
+      .payment .prod-box .product .pay-prod-price {
+        text-align: right; }
+      .payment .prod-box .product .row {
+        position: relative; }
+      .payment .prod-box .product .pay-prod-info {
+        position: absolute;
+        bottom: 0; }
+  .payment .total-price {
+    color: #000;
+    text-align: right;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 700; }
+  .payment .message {
+    font-family: Inter;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #000; }
+  .payment .form-control {
+    font-family: Inter;
+    font-size: 1.6rem;
+    font-weight: 400; }
+  .payment .noticePlace {
+    color: #000;
+    font-family: Inter;
+    font-size: 1.5rem;
+    font-weight: 300; }
+  .payment .placeorder {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+  .payment .btn {
+    color: #fff;
+    text-align: center;
+    font-family: Ubuntu;
+    font-size: 2rem;
+    font-weight: 700;
+    border-radius: 5px;
+    background: #337ab7;
+    border: 3px solid #337ab7; }
+  .payment .btn:hover {
+    background: #fff;
+    border-radius: 5px;
+    color: #337ab7; }
+
+.admin {
+  color: #fff;
+  font-family: Ubuntu;
+  font-size: 16px;
+  font-weight: 300;
+  min-height: 100vh;
+  margin-top: 14rem; }
+  .admin .admin-sidebar {
+    font-weight: 700;
+    padding: 2rem 2rem;
+    background: #e7e7e7;
+    min-height: 100vh; }
+    .admin .admin-sidebar .nav {
+      align-items: center; }
+    .admin .admin-sidebar .nav-item {
+      margin-bottom: 2rem;
+      background-color: rgba(76, 171, 253, 0.3);
+      border-radius: 5px;
+      text-align: start;
+      width: 18rem; }
+      .admin .admin-sidebar .nav-item .active {
+        background-color: #3b99d7;
+        color: #fff; }
+    .admin .admin-sidebar .nav-link {
+      color: #000; }
+    .admin .admin-sidebar .nav-icon {
+      margin-right: 0.5rem; }
+    .admin .admin-sidebar .nav-title {
+      display: inline-block;
+      line-height: 3.6rem; }
+  .admin .admin-article {
+    padding: 2rem 2rem; }
+    .admin .admin-article .nav-link {
+      padding: 0.5rem 2rem;
+      color: #000; }
+    .admin .admin-article .nav-item .active {
+      font-weight: 700; }
+    .admin .admin-article .admin-content {
+      margin: 2rem 2rem;
+      color: #000;
+      font-family: Inter;
+      font-size: 1.6rem;
+      font-weight: 500; }
+    .admin .admin-article .form-control {
+      border-radius: 5px;
+      border: 1px solid #000;
+      background: #fff;
+      color: #000;
+      font-family: Inter;
+      width: max;
+      font-size: 1.4rem; }
+    .admin .admin-article .form-check-input {
+      border: 1px solid #000; }
+    .admin .admin-article .title {
+      margin-right: 2rem;
+      font-weight: 700;
+      text-align: left; }
+    .admin .admin-article .form-check-inline {
+      margin-right: 3rem; }
+    .admin .admin-article .line-form {
+      margin-bottom: 1rem;
+      text-align: left; }
+    .admin .admin-article .btn-submit {
+      border-radius: 5px;
+      background: #337ab7;
+      color: #fff;
+      text-align: center;
+      font-family: Ubuntu;
+      font-size: 16px;
+      font-weight: 700;
+      width: 16rem;
+      height: 4rem;
+      margin-top: 3rem; }
+  .admin .admin-announce {
+    min-height: 102rem;
+    margin-bottom: 3rem; }
+  .admin .admin-announce-box {
+    margin-bottom: 2rem; }
+    .admin .admin-announce-box .content {
+      max-width: 80rem; }
+    .admin .admin-announce-box .view-more-announcement {
+      text-decoration-line: underline; }
+  .admin .list-accounts {
+    margin-bottom: 3rem; }
+  .admin .account-item {
+    border-radius: 20px;
+    background: rgba(217, 237, 247, 0.5); }
+    .admin .account-item .btn {
+      border-radius: 90px;
+      padding: 0 0;
+      border: 2px solid #000; }
+    .admin .account-item .dropdown-menu {
+      --bs-dropdown-link-active-color: #fff;
+      --bs-dropdown-link-active-bg: #3b99d7; }
+    .admin .account-item .dropdown-item {
+      color: #000;
+      font-family: Inter;
+      font-size: 1.4rem; }
+  .admin .account-icon {
+    margin: 1rem 1rem;
+    height: 5rem;
+    width: 5rem; }
