@@ -118,7 +118,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
       height: 1rem;
       background-color: #ff7971;
       border-radius: 50%; }
-  .header .announce-icon.noti-active + .announce-list {
+  .header .announce-icon.noti-open + .announce-list {
     display: flex; }
   .header .announce-list {
     display: none;
@@ -133,12 +133,14 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
     padding: 0.5rem; }
     .header .announce-list .announce-link {
       display: inline-block;
-      background-color: #f6f6f6;
       padding: 0.4rem;
       position: relative;
       border: 0.4rem solid #fff;
+      border-bottom: 0.1rem solid #ccc;
       padding: 1rem; }
-      .header .announce-list .announce-link::before {
+    .header .announce-list .announce-link.unread {
+      background-color: #f6f6f6; }
+      .header .announce-list .announce-link.unread::before {
         content: '';
         width: 1.5rem;
         height: 1.5rem;
@@ -147,7 +149,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
         top: 1rem;
         right: 1rem;
         border-radius: 50%; }
-      .header .announce-list .announce-link:hover {
+      .header .announce-list .announce-link.unread:hover {
         background-color: #e9e9e9; }
     .header .announce-list .announce-title {
       font-size: 2rem;
