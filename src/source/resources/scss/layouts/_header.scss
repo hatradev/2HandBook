@@ -25,7 +25,6 @@
   }
 
   .announce-container {
-    // background-color: $color-white;
     position: relative;
   }
 
@@ -42,8 +41,12 @@
     }
   }
 
-  .announce-list {
+  .announce-icon.noti-active + .announce-list {
     display: flex;
+  }
+
+  .announce-list {
+    display: none;
     flex-direction: column;
     @include abs-pos(calc(100% + 2rem), -100%);
     background-color: $color-white;
@@ -61,7 +64,7 @@
       padding: 1rem;
       &::before {
         content: '';
-        @include box(2rem, 2rem, $color-primary);
+        @include box(1.5rem, 1.5rem, $color-primary);
         @include abs-pos(1rem, 1rem);
         border-radius: 50%;
       }
