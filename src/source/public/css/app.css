@@ -472,7 +472,8 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
     height: 4rem; }
 
 .banner {
-  margin-top: 1.5rem; }
+  margin-top: 10rem;
+  margin-bottom: 10rem; }
 
 .banner-row {
   display: flex; }
@@ -484,10 +485,19 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
   margin: auto auto;
   padding: 0 4rem; }
   .banner-article .main-heading {
-    margin-bottom: 1rem; }
+    margin-bottom: 3rem;
+    font-size: 5rem;
+    font-weight: 700;
+    text-transform: uppercase; }
+  .banner-article .paragraph {
+    color: #31383e;
+    text-align: justify;
+    font-family: Ubuntu;
+    font-size: 2rem;
+    font-weight: 400; }
 
 .trend {
-  margin-top: 4rem; }
+  margin-bottom: 10rem; }
   .trend .main-heading {
     line-height: 3.5rem;
     border-radius: 15px;
@@ -504,7 +514,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
     padding: 0 0;
     margin: auto 0; }
   .trend .trend-row {
-    margin-top: 2rem; }
+    margin-top: 4rem; }
   .trend .trend-card {
     margin: 0 1rem;
     border-radius: 0;
@@ -538,7 +548,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
     border-radius: 0;
     background: #31383e; }
   .trend .see-more-btn {
-    margin-top: 2rem;
+    margin-top: 4rem;
     margin-bottom: 8rem;
     display: flex;
     align-items: center;
