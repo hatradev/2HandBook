@@ -33,9 +33,22 @@
 .register{
     display: flex;
     justify-content: end;
+    // button{
+    //     height: 60%;
+    //     width: 10rem;
+    // }
     button{
-        height: 60%;
-        width: 10rem;
+        // height: 70%;
+        background-color: $color-primary;
+        height: 50%;
+        color: black;
+        font-weight: bold;
+        font-size: 1.5rem;
+            &:hover {
+                background-color: $color-primary-shade;
+                box-shadow: none;
+                color: white;
+            }
     }
 }
 
