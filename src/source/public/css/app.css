@@ -1052,74 +1052,238 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
 .color-white {
   color: white; }
 
-.last-online {
-  margin-top: 0;
-  margin-bottom: 0;
-  color: #337ab7; }
+:root {
+  --grey: #F6F6F6;
+  --dark-blue: #337ab7;
+  --light-blue: #D9EDF7; }
 
-.info {
-  display: flex;
-  margin-bottom: 25px; }
-  .info .info-col {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 10px;
-    box-sizing: border-box;
-    background-color: #f2f2f2;
-    border: 1px solid #ddd; }
-    .info .info-col .logo-name {
-      display: flex;
-      align-items: center; }
-      .info .info-col .logo-name .shop-logo {
-        width: 65px;
-        height: 65px;
-        border-radius: 50%;
-        display: inline-block; }
-      .info .info-col .logo-name .shop-name {
-        font-size: 24px;
-        font-weight: bold;
-        display: inline-block; }
-
-.shop-overview {
-  width: 285px;
-  margin: 0 auto;
-  border: 1px solid black;
-  padding: 10px;
-  margin: 10px; }
-
-.followed {
-  background-color: #337ab7;
-  color: white; }
-
-.saved {
-  background-color: #337ab7;
-  color: white; }
-
-.grid-container {
-  display: flex;
-  overflow-x: auto;
-  gap: 10px; }
-
-.discount {
-  background-color: #f2f2f2;
-  padding: 10px;
-  min-width: 200px;
-  flex: 0 0 calc(33.33% - 10px); }
-
-.save-button {
-  background-color: #f6f6f6;
+.button {
+  font-size: 1.6rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0rem;
+  transition: all 0.3s;
+  text-align: center;
+  width: calc(50% - 3rem);
+  background-color: var(--light-blue);
   color: black;
-  padding: 10px; }
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin-right: 3rem; }
+  .button:hover {
+    background-color: var(--dark-blue);
+    color: white; }
 
-.save-button.saved {
-  background-color: #337ab7;
+.button:last-child {
+  margin-right: 0; }
+
+.button.clicked {
+  background-color: var(--dark-blue);
   color: white; }
+  .button.clicked:hover {
+    background-color: var(--light-blue);
+    color: black; }
 
 .shop-info {
   margin-left: auto;
   margin-right: auto;
-  padding-left: 200px;
-  padding-right: 200px;
-  padding-top: 210px; }
+  padding-left: 320px;
+  padding-right: 320px;
+  padding-top: 210px;
+  padding-bottom: 210px;
+  /* Style the scrollbar thumb (the draggable part) */ }
+  .shop-info .info {
+    display: flex;
+    margin-bottom: 25px;
+    height: 15rem; }
+    .shop-info .info .info-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 10px;
+      box-sizing: border-box;
+      background-color: var(--grey); }
+      .shop-info .info .info-col .logo-section {
+        display: flex;
+        align-items: center;
+        margin-left: 1.5rem; }
+        .shop-info .info .info-col .logo-section .shop-logo {
+          width: 65px;
+          height: 65px;
+          border-radius: 50%;
+          margin-right: 17px;
+          display: inline-block; }
+        .shop-info .info .info-col .logo-section .name-online {
+          display: inline-block; }
+          .shop-info .info .info-col .logo-section .name-online .shop-name {
+            font-size: 24px;
+            font-weight: bold; }
+          .shop-info .info .info-col .logo-section .name-online .last-online {
+            margin-top: 0;
+            margin-bottom: 0;
+            color: #337ab7; }
+      .shop-info .info .info-col .follow-chat {
+        display: flex;
+        justify-content: center;
+        margin-top: 1.5rem; }
+        .shop-info .info .info-col .follow-chat .follow-button.followed {
+          background-color: #337ab7;
+          color: white; }
+      .shop-info .info .info-col .info-text {
+        margin-left: 1.5rem;
+        font-size: 1.7rem; }
+        .shop-info .info .info-col .info-text p:not(:last-child) {
+          padding-bottom: 0.9rem; }
+    .shop-info .info .info-col:not(:last-child) {
+      margin-right: 20px; }
+  .shop-info .discounts {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px; }
+    .shop-info .discounts .discount {
+      background-color: var(--grey);
+      padding: 2.5rem;
+      min-width: 200px;
+      flex: 0 0 calc(33.33% - 13px); }
+      .shop-info .discounts .discount h3, .shop-info .discounts .discount p {
+        padding-bottom: 0.9rem; }
+  .shop-info .discounts::-webkit-scrollbar {
+    height: 10px;
+    /* Width of the scrollbar */ }
+  .shop-info .discounts::-webkit-scrollbar-thumb {
+    background-color: #c0c0c0;
+    /* Color of the scrollbar thumb */
+    border-radius: 8px;
+    /* Rounded corners for the thumb */ }
+
+:root {
+  --grey: #F6F6F6;
+  --dark-grey: #dedede;
+  --input-text: #6b6b6b;
+  --dark-blue: #337ab7;
+  --light-blue: #D9EDF7; }
+
+.error-message {
+  color: red; }
+
+.sign-up {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 320px;
+  padding-right: 320px;
+  padding-top: 210px;
+  padding-bottom: 210px; }
+  .sign-up .su-header {
+    font-weight: 600;
+    font-size: 5rem; }
+  .sign-up .horizontal-line {
+    border: 1px solid #ccc;
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 3rem; }
+  .sign-up .su-form {
+    border: 0.1rem solid var(--dark-grey);
+    padding: 3.5rem;
+    background-color: var(--grey); }
+    .sign-up .su-form .su-checkbox {
+      margin-right: 0.5rem; }
+  .sign-up .su-info-input {
+    margin-bottom: 2rem; }
+    .sign-up .su-info-input .su-info {
+      font-weight: 500;
+      font-size: 1.8rem;
+      margin-bottom: 1rem; }
+    .sign-up .su-info-input .su-input {
+      border: 0.1rem solid var(--dark-grey);
+      width: 100%;
+      height: 3.5rem;
+      font-size: 2rem;
+      color: var(--input-text);
+      padding-left: 0.7rem;
+      border-radius: 0.4rem; }
+  .sign-up .su-text {
+    font-size: 1.8rem; }
+  .sign-up .su-button {
+    font-size: 2rem;
+    font-weight: 500;
+    border-radius: 0.5rem;
+    padding: 1rem 0rem;
+    transition: all 0.3s;
+    text-align: center;
+    margin-top: 2rem;
+    margin-right: 1rem;
+    background-color: var(--dark-blue);
+    width: calc(33.33%);
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 0.1rem solid black; }
+    .sign-up .su-button:hover {
+      background-color: var(--light-blue);
+      color: black; }
+
+.si-button {
+  font-size: 1.8rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  background-color: var(--dark-blue);
+  padding: 0.5rem 0rem;
+  transition: all 0.3s;
+  text-align: center;
+  width: calc(50%);
+  color: white;
+  margin-right: 3rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border: 0.1rem solid black; }
+  .si-button:hover {
+    background-color: var(--light-blue);
+    color: black; }
+
+.si-button:last-child {
+  margin-right: 0; }
+
+.sign-in {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 21rem;
+  margin-bottom: 7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem; }
+  .sign-in .si-header {
+    text-align: center;
+    font-weight: 600;
+    font-size: 5rem;
+    padding-bottom: 3rem; }
+  .sign-in .si-form {
+    background-color: var(--grey);
+    width: calc(35%);
+    padding-left: 6rem;
+    padding-right: 6rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem; }
+    .sign-in .si-form .si-info-input .si-info {
+      font-weight: 500;
+      font-size: 2rem; }
+    .sign-in .si-form .si-info-input .si-input {
+      width: calc(100%);
+      height: 3.5rem;
+      font-size: 2rem;
+      color: var(--input-text);
+      padding-left: 0.7rem;
+      border: 0.1rem solid black;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      border-radius: 0.4rem; }
+    .sign-in .si-form .si-info-input .si-remem-pass .si-rmpass-checkbox {
+      margin-right: 0.5rem; }
+    .sign-in .si-form .si-info-input > *:not(:last-child) {
+      margin-bottom: 0.75rem; }
+    .sign-in .si-form .si-buttons {
+      display: flex;
+      justify-content: center; }
+    .sign-in .si-form .si-forget-pass {
+      color: var(--dark-blue);
+      text-decoration: underline; }
+  .sign-in .si-form > *:not(:last-child) {
+    margin-bottom: 2.5rem; }

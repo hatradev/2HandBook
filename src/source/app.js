@@ -90,5 +90,11 @@ app.get('/manage-order', (req, res) => {
 app.get('/shop-info', (req, res) => {
   res.render('shop-info', { showHeader: true, showFooter: true });
 });
+app.get('/sign-up', (req, res) => {
+  res.render('sign-up', { showHeader: true, showFooter: true });
+});
+app.get('/sign-in', (req, res) => {
+  res.render('sign-in', { showHeader: true, showFooter: true });
+});
 
 module.exports = app;
