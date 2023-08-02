@@ -1,29 +1,71 @@
+const hbs = require('express-handlebars');
 const Product = require('../models/product.model');
-const { mutipleMongooseToObject } = require('../utils/mongoose');
+const {
+  mutipleMongooseToObject,
+  mongooseToObject,
+} = require('../utils/mongoose');
 class productController {
   // [GET] product/dashboard
-  getDashboard = async (req, res) => {
-    const products = await Product.find();
-    res.render('dashboard', {
-      showHeader: true,
-      showFooter: true,
-      products: mutipleMongooseToObject(products),
-    });
+  getDashboard = async (req, res, next) => {
+    try {
+      const products = await Product.find();
+      res.render('dashboard', {
+        showHeader: true,
+        showFooter: true,
+        products: mutipleMongooseToObject(products),
+      });
+    } catch (err) {
+      res.status(404).json(err);
+    }
   };
 
   // [GET] product/manage
   getManage = async (req, res) => {
-    const products = await Product.find();
-    res.render('manage-product', {
+    try {
+      const products = await Product.find();
+      res.render('manage-product', {
+        showHeader: true,
+        showFooter: true,
+        products: mutipleMongooseToObject(products),
+      });
+    } catch (err) {
+      res.status(404).json(err);
+    }
+  };
+
+  // [GET] product/edit/
+  getEditForCreate = async (req, res) => {
+    res.render('edit-product', {
       showHeader: true,
       showFooter: true,
-      products: mutipleMongooseToObject(products),
+      helpers: {
+        isCategory(c1, c2) {
+          return c1 == 'Document';
+        },
+      },
     });
   };
 
-  // [GET] product/edit
-  getEdit = (req, res) => {
-    res.render('edit-product', { showHeader: true, showFooter: true });
+  // [POST] product/edit/save
+  createNewProduct = async (req, res) => {};
+
+  // [GET] product/edit/:id
+  getEditForUpdate = async (req, res) => {
+    try {
+      const product = await Product.findById(req.params.id);
+      res.render('edit-product', {
+        showHeader: true,
+        showFooter: true,
+        product: mongooseToObject(product),
+        helpers: {
+          isCategory(c1, c2) {
+            return c1 == c2;
+          },
+        },
+      });
+    } catch (err) {
+      res.status(404).json(err);
+    }
   };
 
   getAllProducts = async (req, res) => {

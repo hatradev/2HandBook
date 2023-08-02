@@ -5,7 +5,8 @@ const router = express.Router();
 
 router.get('/dashboard', productController.getDashboard);
 router.get('/manage', productController.getManage);
-router.get('/edit', productController.getEdit);
-router.get('/', productController.getAllProducts);
+router.get('/edit', productController.getEditForCreate);
+router.post('/edit/save', productController.createNewProduct);
+router.get('/edit/:id', productController.getEditForUpdate);
 
 module.exports = router;

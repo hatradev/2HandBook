@@ -1,7 +1,6 @@
 // Hero section
 .carousel {
   height: 100vh;
-  z-index: 0;
 
   img {
     height: 100vh;
@@ -15,6 +14,7 @@
       width: 1rem;
       border-radius: 50%;
     }
+    z-index: 1;
   }
 
   .carousel-caption {

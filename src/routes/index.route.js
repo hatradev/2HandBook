@@ -2,6 +2,8 @@ const siteRouter = require('./site.route');
 const productRouter = require('./product.route');
 
 function route(app) {
+  app.use('/', siteRouter);
+  app.use('/product', productRouter);
   // app.get('/profile', (req, res) => {
   //   res.render('profile_updating', { showHeader: true, showFooter: true });
   // });
@@ -63,9 +65,6 @@ function route(app) {
   // app.get('/dashboard', (req, res) => {
   //   res.render('dashboard', { showHeader: true, showFooter: true });
   // });
-
-  app.use('/', siteRouter);
-  app.use('/product', productRouter);
 }
 
 module.exports = route;

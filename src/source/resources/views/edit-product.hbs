@@ -2,10 +2,7 @@
   <aside class='sidebar col-2'></aside>
   <section class='edit-product col-10'>
     <div class='d-flex'>
-      <a
-        class='edit-product-breadcrumb'
-        href='http://localhost:3000/manage-product'
-      >
+      <a class='edit-product-breadcrumb' href='/product/manage'>
         <i class='fa-regular fa-chevron-left'></i>
         <span>Products</span>
       </a>
@@ -15,7 +12,7 @@
       <ul class='edit-product-form col-7'>
         <li class='edit-product-form-item'>
           <label for='product-name'>Name</label>
-          <input id='product-name' type='text' />
+          <input id='product-name' type='text' value='{{product.name}}' />
         </li>
         <li class='edit-product-form-item'>
           <label for='product-description'>Description</label>
@@ -24,16 +21,16 @@
             id='product-description'
             cols='30'
             rows='10'
-          ></textarea>
+          >{{product.description}}</textarea>
         </li>
         <li class='edit-product-form-item row'>
           <div class='col'>
             <label for='product-price'>Price</label>
-            <input id='product-price' type='text' />
+            <input id='product-price' type='text' value='{{product.price}}' />
           </div>
           <div class='col'>
             <label for='product-stock'>Stock</label>
-            <input id='product-stock' type='text' />
+            <input id='product-stock' type='text' value='{{product.stock}}' />
           </div>
         </li>
       </ul>
@@ -41,10 +38,10 @@
         <div class='product-category'>
           <label class='product-category-label'>Category</label>
           <select class='edit-product-select'>
-            <option value='document' selected>Document</option>
-            <option value='uniform'>Uniform</option>
-            <option value='calculator'>Calculator</option>
-            <option value='other'>Other</option>
+            <option value='Document' {{#if (isCategory product.category 'Document')}}selected{{/if}}>Document</option>
+            <option value='Uniform' {{#if (isCategory product.category 'Uniform')}}selected{{/if}}>Uniform</option>
+            <option value='Calculator' {{#if (isCategory product.category 'Calculator')}}selected{{/if}}>Calculator</option>
+            <option value='Other' {{#if (isCategory product.category 'Other')}}selected{{/if}}>Other</option>
           </select>
         </div>
         <button class='product-image'>Click to Add an Image</button>
@@ -52,3 +49,4 @@
     </section>
   </section>
 </section>
+{{!-- <script src='/js/edit-product.js'></script> --}}
