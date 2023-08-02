@@ -3,7 +3,7 @@
   <section class='manage-product col-10'>
     <div class='d-flex'>
       <p class='manage-product-breadcrumb'>Products</p>
-      <a class='btn text-uppercase ms-auto' href='http://localhost:3000/edit-product' role='button'>Add product</a>
+      <a class='btn text-uppercase ms-auto' href='http://localhost:3000/product/edit' role='button'>Add product</a>
     </div>
     <section class='manage-product-content'>
       <div class='manage-product-controll row gx-0 mb-5'>
@@ -45,116 +45,30 @@
         <li class='manage-product-title text-center col-2'>Price</li>
       </ul>
       <ul class='manage-product-list'>
+        {{#each products}}
         <li class='manage-product-item row gx-0'>
           <input
             class='manage-product-checkbox col-1'
             type='checkbox'
             value=''
           />
-          <a href='http://localhost:3000/edit-product' class='manage-product-item-link col'>
+          <a href='/product/edit/{{this._id}}' class='manage-product-item-link col'>
             <ul class='manage-product-item-infos row gx-0 align-items-center'>
               <li class='manage-product-info text-center col-1'>
                 <img
-                  src='img/products/vi-sinh-vat-hoc.jpeg'
+                  src='/img/products/vi-sinh-vat-hoc.jpeg'
                   alt='ky thuat lap trinh'
                   class='manage-product-img'
                 />
               </li>
-              <li class='manage-product-info text-center col'>Vi sinh vat hoc</li>
-              <li class='manage-product-info text-center col-2'>Document</li>
-              <li class='manage-product-info text-center col-2'>2</li>
-              <li class='manage-product-info text-center col-2'>250.000VND</li>
+              <li class='manage-product-info text-center col'>{{this.name}}</li>
+              <li class='manage-product-info text-center col-2'>{{this.category}}</li>
+              <li class='manage-product-info text-center col-2'>{{this.stock}}</li>
+              <li class='manage-product-info text-center col-2'>{{this.price}}VND</li>
             </ul>
           </a>
         </li>
-        <li class='manage-product-item row gx-0'>
-          <input
-            class='manage-product-checkbox col-1'
-            type='checkbox'
-            value=''
-          />
-          <a href='#' class='manage-product-item-link col'>
-            <ul class='manage-product-item-infos row gx-0 align-items-center'>
-              <li class='manage-product-info text-center col-1'>
-                <img
-                  src='img/products/ky-thuat-lap-trinh.png'
-                  alt='ky thuat lap trinh'
-                  class='manage-product-img'
-                />
-              </li>
-              <li class='manage-product-info text-center col'>Ky thuat lap trinh</li>
-              <li class='manage-product-info text-center col-2'>Document</li>
-              <li class='manage-product-info text-center col-2'>2</li>
-              <li class='manage-product-info text-center col-2'>250.000VND</li>
-            </ul>
-          </a>
-        </li>
-        <li class='manage-product-item row gx-0'>
-          <input
-            class='manage-product-checkbox col-1'
-            type='checkbox'
-            value=''
-          />
-          <a href='#' class='manage-product-item-link col'>
-            <ul class='manage-product-item-infos row gx-0 align-items-center'>
-              <li class='manage-product-info text-center col-1'>
-                <img
-                  src='img/products/ky-thuat-lap-trinh.png'
-                  alt='ky thuat lap trinh'
-                  class='manage-product-img'
-                />
-              </li>
-              <li class='manage-product-info text-center col'>Ky thuat lap trinh</li>
-              <li class='manage-product-info text-center col-2'>Document</li>
-              <li class='manage-product-info text-center col-2'>2</li>
-              <li class='manage-product-info text-center col-2'>250.000VND</li>
-            </ul>
-          </a>
-        </li>
-        <li class='manage-product-item row gx-0'>
-          <input
-            class='manage-product-checkbox col-1'
-            type='checkbox'
-            value=''
-          />
-          <a href='#' class='manage-product-item-link col'>
-            <ul class='manage-product-item-infos row gx-0 align-items-center'>
-              <li class='manage-product-info text-center col-1'>
-                <img
-                  src='img/products/ky-thuat-lap-trinh.png'
-                  alt='ky thuat lap trinh'
-                  class='manage-product-img'
-                />
-              </li>
-              <li class='manage-product-info text-center col'>Ky thuat lap trinh</li>
-              <li class='manage-product-info text-center col-2'>Document</li>
-              <li class='manage-product-info text-center col-2'>2</li>
-              <li class='manage-product-info text-center col-2'>250.000VND</li>
-            </ul>
-          </a>
-        </li>
-        <li class='manage-product-item row gx-0'>
-          <input
-            class='manage-product-checkbox col-1'
-            type='checkbox'
-            value=''
-          />
-          <a href='#' class='manage-product-item-link col'>
-            <ul class='manage-product-item-infos row gx-0 align-items-center'>
-              <li class='manage-product-info text-center col-1'>
-                <img
-                  src='img/products/ky-thuat-lap-trinh.png'
-                  alt='ky thuat lap trinh'
-                  class='manage-product-img'
-                />
-              </li>
-              <li class='manage-product-info text-center col'>Ky thuat lap trinh</li>
-              <li class='manage-product-info text-center col-2'>Document</li>
-              <li class='manage-product-info text-center col-2'>2</li>
-              <li class='manage-product-info text-center col-2'>250.000VND</li>
-            </ul>
-          </a>
-        </li>
+        {{/each}}
       </ul>
     </section>
     <a
@@ -165,4 +79,4 @@
     {{>pagination}}
   </section>
 </section>
-<script src='js/manage-product.js'></script>
+<script src='/js/manage-product.js'></script>

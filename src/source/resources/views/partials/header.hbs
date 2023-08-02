@@ -6,7 +6,7 @@
         <div class='logo col-2'>
           <a href='http://localhost:3000/#'>
             <img
-              src='img/logo/logo-dark.png'
+              src='/img/logo/logo-dark.png'
               alt='2HandBook logo'
               class='logo-img'
             /></a>
@@ -23,104 +23,51 @@
         </div>
       </div>
       <div class='col-4 d-flex align-items-center'>
-        <a class='btn text-uppercase ms-auto me-3' href='#' role='button'>sign
-          in</a>
-        <a class='btn text-uppercase me-5' href='#' role='button'>sign up</a>
+        <a
+          class='btn btn-log-in text-uppercase ms-auto me-3'
+          href='#'
+          role='button'
+        >sign in</a>
+        <a
+          class='btn btn-sign-up text-uppercase me-5'
+          href='#'
+          role='button'
+        >sign up</a>
+        <div class='announce-container ms-auto'>
+          <i class='fa-solid fa-bell announce-icon'></i>
+          <ul class='announce-list'>
+            <li class='announce-item'>
+              <a href='#' class='announce-link'>
+                <p class='announce-title text-capitalize'>Special Events</p>
+                <p class='announce-description'>On the next month, we have some
+                  exciting events for loyal customers as a big thank !!!</p>
+                <p class='announce-date'>Date: 20/07/2023 - 19:30:19</p>
+              </a>
+            </li>
+            <li class='announce-item'>
+              <a href='#' class='announce-link'>
+                <p class='announce-title text-capitalize'>Special Events</p>
+                <p class='announce-description'>On the next month, we have some
+                  exciting events for loyal customers as a big thank !!!</p>
+                <p class='announce-date'>Date: 20/07/2023 - 19:30:19</p>
+              </a>
+            </li>
+            <li class='announce-item'>
+              <a href='#' class='announce-link'>
+                <p class='announce-title text-capitalize'>Special Events</p>
+                <p class='announce-description'>On the next month, we have some
+                  exciting events for loyal customers as a big thank !!!</p>
+                <p class='announce-date'>Date: 20/07/2023 - 19:30:19</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <a class='text-capitalize me-5 user-profile-btn' href='#'><i
+            class='fa-solid fa-circle-user user-avatar'
+          ></i><span>Hi, user !</span></a>
         <i class='fa-solid fa-cart-shopping cart-icon'></i>
       </div>
     </div>
   </div>
 </header>
-<script src='js/header.js'></script>
-{{!
-<!-- Navigation  -->
-<nav class='navbar navbar-expand-lg fixed-top' >
-  <div class='container'>
-    <button
-      class='navbar-toggler ms-auto'
-      type='button'
-      data-bs-toggle='collapse'
-      data-bs-target='#navbarSupportedContent'
-      aria-controls='navbarSupportedContent'
-      aria-expanded='false'
-      aria-label='Toggle navigation'
-    >
-      <span class='navbar-toggler-icon'></span>
-    </button>
-    <div class='collapse navbar-collapse' id='navbarSupportedContent'>
-      <ul class='navbar-nav me-auto mb-2 mb-lg-0'>
-        <li class='nav-item'>
-          <a class='nav-link' aria-current='page' href='#'>Home</a>
-        </li>
-        <li class='nav-item'>
-          <a class='nav-link' href='#'>About us & Contacts</a>
-        </li>
-        <li class='nav-item'>
-          <a class='nav-link' href='#'>Support</a>
-        </li>
-        <li class='nav-item subnav-include'>
-          <a class='nav-link' href='#'>Categories</a>
-          <i class="fa-solid fa-caret-down nav-link-icon"></i>
-          <ul class="subnav">
-            <li class="subnav-item">
-              <a href="#" class="subnav-link">Documents & Books</a>
-            </li>
-            <li class="subnav-item">
-              <a href="#" class="subnav-link">Uniforms</a>
-            </li>
-            <li class="subnav-item">
-              <a href="#" class="subnav-link">Learning tools</a>
-            </li>
-            <li class="subnav-item">
-              <a href="#" class="subnav-link">Others</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-      </form>
-    </div>
-  </div>
-</nav>
-
-}}
-{{! Hero (Carousel)  }}
-{{!
-<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active" data-bs-interval="5000">
-      <img src="img/hero-image.jpg " class="d-block w-100" alt="img">
-      <div class="carousel-caption d-none d-md-block">
-        <h1>First slide label</h1>
-        <p>Some representative placeholder content for the first slide.</p>
-      </div>
-    </div>
-    <div class="carousel-item" data-bs-interval="5000">
-      <img src="img/hero-image.jpg" class="d-block w-100" alt="img">
-      <div class="carousel-caption d-none d-md-block">
-        <h1>Second slide label</h1>
-        <p>Some representative placeholder content for the second slide.</p>
-      </div>
-    </div>
-    <div class="carousel-item" data-bs-interval="5000">
-      <img src="img/hero-image.jpg" class="d-block w-100" alt="img">
-      <div class="carousel-caption d-none d-md-block">
-        <h1>Third slide label</h1>
-        <p>Some representative placeholder content for the third slide.</p>
-      </div>
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-}}
+<script src='/js/header.js'></script>

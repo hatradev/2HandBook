@@ -1,7 +1,7 @@
 .header {
   background-color: rgba(59, 153, 215, 0.2);
   transition: all 0.2s;
-  z-index: 1;
+  z-index: 2;
 
   .logo {
     padding: 0.5rem 2rem;
@@ -10,8 +10,9 @@
     }
   }
 
-  .cart-icon {
-    font-size: $font-size-secondary;
+  .cart-icon,
+  .announce-icon {
+    font-size: $font-size-quaternary;
 
     &::before {
       color: $color-text-light;
@@ -20,6 +21,89 @@
 
     &:hover {
       opacity: 0.6;
+    }
+  }
+
+  .announce-container {
+    // background-color: $color-white;
+    position: relative;
+  }
+
+  .announce-icon {
+    font-size: 2.4rem;
+    display: none;
+    margin-right: 4rem;
+    position: relative;
+    &.has-noti::after {
+      content: '';
+      @include abs-pos(0, 0);
+      @include box(1rem, 1rem, #ff7971);
+      border-radius: 50%;
+    }
+  }
+
+  .announce-list {
+    display: flex;
+    flex-direction: column;
+    @include abs-pos(calc(100% + 2rem), -100%);
+    background-color: $color-white;
+    min-width: 50rem;
+    min-height: 40rem;
+    box-shadow: 0 0 1rem 0 $color-text-grey;
+    padding: 0.5rem;
+
+    .announce-link {
+      display: inline-block;
+      background-color: $color-text-light;
+      padding: 0.4rem;
+      position: relative;
+      border: 0.4rem solid $color-white;
+      padding: 1rem;
+      &::before {
+        content: '';
+        @include box(2rem, 2rem, $color-primary);
+        @include abs-pos(1rem, 1rem);
+        border-radius: 50%;
+      }
+      &:hover {
+        background-color: darken($color: $color-text-light, $amount: 5);
+      }
+    }
+    .announce-title {
+      @include font($font-size-quaternary, 600);
+      margin-bottom: 0.5rem;
+    }
+    .announce-description {
+      // @include font($font-size-secondary);
+      font-size: $font-size-secondary;
+      margin-bottom: 2.4rem;
+    }
+    .announce-date {
+      font-size: 1.4rem;
+      text-align: end;
+    }
+  }
+
+  .user-profile-btn {
+    display: none;
+    align-items: center;
+    @include font(2rem, 600, $color-white);
+    .user-avatar {
+      font-size: 3rem;
+      margin-right: 1rem;
+    }
+  }
+
+  .logged-in {
+    .btn-log-in,
+    .btn-sign-up {
+      display: none;
+    }
+    .announce-icon {
+      display: block;
+    }
+    .user-profile-btn {
+      display: flex;
     }
   }
 }

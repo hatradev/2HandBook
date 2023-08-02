@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Sach ky thuat lap trinh",
+    "price": 65000,
+    "description”": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat corrupti quis tempore nesciunt! Necessitatibus non deserunt facere dicta rerum dignissimos aspernatur quod tenetur, maxime deleniti quidem nobis, eos et fugit?",
+    "stock": 4,
+    "category”": "Book",
+    "image": "link/img",
+    "views": 120,
+    "status”": "",
+    "isTrend": 0,
+    "keyword": ""
+  }
+]

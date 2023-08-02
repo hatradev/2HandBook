@@ -1,0 +1,47 @@
+[
+  {
+    "role": 1,
+    "fname": "Nguyen Thanh Binh",
+    "lname": "Binh",
+    "email": "ntbinh243@gmail.com",
+    "password": "12345",
+    "phone": "0365077857",
+    "avatar": null,
+    "occupation": "student",
+    "shop_name": null,
+    "shop_viewer": 123,
+    "request_status": null,
+    "account_status": null,
+    "cart": []
+  },
+  {
+    "role": 2,
+    "fname": "Hoang Anh Tra",
+    "lname": "Tra",
+    "email": "demo@gmail.com",
+    "password": "12345",
+    "phone": "0312313234",
+    "avatar": null,
+    "occupation": "student",
+    "shop_name": null,
+    "shop_viewer": 123,
+    "request_status": null,
+    "account_status": null,
+    "cart": []
+  },
+  {
+    "role": 3,
+    "fname": "Dinh Quy Trieu",
+    "lname": "Trieu",
+    "email": "trieu@gmail.com",
+    "password": "12345",
+    "phone": "0265072357",
+    "avatar": null,
+    "occupation": "student",
+    "shop_name": null,
+    "shop_viewer": 123,
+    "request_status": null,
+    "account_status": null,
+    "cart": []
+  }
+]
