@@ -1,5 +1,5 @@
 .specific-product {
-  margin-top: 18rem;
+  margin-top: 17rem;
   max-width: 108rem;
 
   // global
@@ -35,11 +35,13 @@
         .product-link {
           font-size: 1.5rem;
           font-weight: 300;
+          margin-bottom: 0.5rem;
         }
 
         .product-name {
           font-size: 3rem;
           font-weight: 700;
+          margin-bottom: 1rem;
         }
 
         .product-price {
@@ -88,7 +90,11 @@
           // text-align: justify;
         }
 
-        .adjust-icon button {}
+        .adjust-icon{
+          .btn:nth-child(2){
+            margin-left: 0.5rem;
+          }
+        }
 
         .available-product {
           // text-align: justify;
@@ -97,17 +103,26 @@
       }
 
       .payment-btn-section {
-        margin-top: 4rem;
-
-        a:nth-child(1) {
-          width: 15rem;
+        margin-top: 2.4rem;
+        .add-cart-btn {
+          width: 16rem;
           padding: 1rem 0;
+          text-transform: uppercase;
+          background: #D2E6EF;
+          color: #000;
+          &:hover {
+            border-radius: 0.5rem;
+            box-shadow: 0 0 0 0.2rem $color-primary-shade inset;
+            transition: all 0.3s;
+          }
         }
 
-        a:nth-child(2) {
-          width: 20rem;
+        .payment-btn {
+          width: 22rem;
           margin-left: 2rem;
           padding: 1rem 0;
+          background: $color-primary-shade;
+          color: #fff;
         }
       }
     }
@@ -115,52 +130,42 @@
 
   //comment section
   .comment-section {
-    margin-top: 2rem;
     .comment-item {
+      .trend{
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+      }
       .comment-title {
-        background-color: $color-primary-tint;
-        padding: 1.6rem 0;
+        background-color: $color-primary-shade;
+        padding: 1.4rem 0;
         font-size: 2rem;
         font-weight: 700;
         text-align: center;
-      }
-
-      .information {
-        .avatar {
-          .img-avatar {
-            width: 4rem;
-            height: 4rem;
-            vertical-align: middle;
-            object-fit: cover;
-            border-radius: 50%;
-          }
-        }
-
-        .infor-span {
-          font-size: 1.5rem;
-
-          .name {
-            font-weight: 600;
-          }
-
-          .date {}
-        }
+        margin-bottom: 2rem;
+        color: #fff;
       }
 
       .write-cmt {
+        position: relative;
         textarea {
           outline: none;
           border: solid 0.2rem $color-primary-shade;
           background-color: $color-primary-tint;
-          border-radius: 0.4rem;
+          border-radius: 1rem;
+          padding: 1rem;
+          width: 100%;
+          font-family: Inter;
         }
 
         .send-btn {
-          margin-left: 1rem;
+          position: absolute;
           font-size: 1.5rem;
+          right: 0.5%;
+          top: 41%;
+          padding: 1rem;
 
           &:hover i {
-            color: $color-primary-tint;
+            opacity: 0.6;
           }
         }
       }
@@ -168,14 +173,47 @@
       .comment-details {
         background-color: $color-text-light;
         border-radius: 1rem;
-        padding: 1.5rem 1rem;
+        padding: 1.5rem 2rem;
+        .information {
+          .avatar {
+            .img-avatar {
+              width: 4rem;
+              height: 4rem;
+              vertical-align: middle;
+              object-fit: cover;
+              border-radius: 50%;
+            }
+          }
+  
+          .infor-span {
+            font-size: 1.5rem;
+  
+            .name {
+              font-weight: 600;
+            }
+  
+            .date {}
+          }
+        }
+
+        .comment-info{
+          margin-top: 1rem;
+          font-family: Inter;
+        }
       }
 
       .reply-from-seller {
         background-color: $color-primary-tint;
         border-radius: 1rem;
-        padding: 1.5rem 1rem;
+        padding: 1.5rem 2rem;
         margin-left: 6rem;
+        font-family: Inter;
+      }
+
+      .extra-view-btn{
+          margin-top: 3rem;
+          width: 13rem;
+          padding: 1rem;
       }
     }
   }
@@ -237,6 +275,18 @@
       .buy-item-btn {
         padding: 1rem 0;
       }
+    }
+  }
+
+  .trend{
+    // margin-bottom: 6rem;
+    margin-top: 2rem;
+    margin-bottom: 6rem;
+    .main-heading{
+      width: 18vw;
+    }
+    .trend-row{
+      margin-top: 3rem;
     }
   }
 }
