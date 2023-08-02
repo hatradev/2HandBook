@@ -744,7 +744,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
     text-overflow: ellipsis; }
 
 .specific-product {
-  margin-top: 18rem;
+  margin-top: 17rem;
   max-width: 108rem; }
   .specific-product hr {
     width: calc(100% - 1.5rem);
@@ -763,10 +763,12 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
           width: 35rem; }
     .specific-product .payment-section .details-item .intro .product-link {
       font-size: 1.5rem;
-      font-weight: 300; }
+      font-weight: 300;
+      margin-bottom: 0.5rem; }
     .specific-product .payment-section .details-item .intro .product-name {
       font-size: 3rem;
-      font-weight: 700; }
+      font-weight: 700;
+      margin-bottom: 1rem; }
     .specific-product .payment-section .details-item .intro .product-price {
       font-size: 2.5rem; }
     .specific-product .payment-section .details-item .intro .rating .score {
@@ -790,54 +792,84 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
       margin-top: 10rem; }
       .specific-product .payment-section .details-item .adjust-quantity .quantity {
         line-height: 2.5rem; }
+      .specific-product .payment-section .details-item .adjust-quantity .adjust-icon .btn:nth-child(2) {
+        margin-left: 0.5rem; }
       .specific-product .payment-section .details-item .adjust-quantity .available-product {
         line-height: 2.5rem; }
     .specific-product .payment-section .details-item .payment-btn-section {
-      margin-top: 4rem; }
-      .specific-product .payment-section .details-item .payment-btn-section a:nth-child(1) {
-        width: 15rem;
-        padding: 1rem 0; }
-      .specific-product .payment-section .details-item .payment-btn-section a:nth-child(2) {
-        width: 20rem;
+      margin-top: 2.4rem; }
+      .specific-product .payment-section .details-item .payment-btn-section .add-cart-btn {
+        width: 16rem;
+        padding: 1rem 0;
+        text-transform: uppercase;
+        background: #D2E6EF;
+        color: #000; }
+        .specific-product .payment-section .details-item .payment-btn-section .add-cart-btn:hover {
+          border-radius: 0.5rem;
+          box-shadow: 0 0 0 0.2rem #337ab7 inset;
+          transition: all 0.3s; }
+      .specific-product .payment-section .details-item .payment-btn-section .payment-btn {
+        width: 22rem;
         margin-left: 2rem;
-        padding: 1rem 0; }
-  .specific-product .comment-section {
-    margin-top: 2rem; }
-    .specific-product .comment-section .comment-item .comment-title {
+        padding: 1rem 0;
+        background: #337ab7;
+        color: #fff; }
+  .specific-product .comment-section .comment-item .trend {
+    margin-top: 2rem;
+    margin-bottom: 3rem; }
+  .specific-product .comment-section .comment-item .comment-title {
+    background-color: #337ab7;
+    padding: 1.4rem 0;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #fff; }
+  .specific-product .comment-section .comment-item .write-cmt {
+    position: relative; }
+    .specific-product .comment-section .comment-item .write-cmt textarea {
+      outline: none;
+      border: solid 0.2rem #337ab7;
       background-color: #d9edf7;
-      padding: 1.6rem 0;
-      font-size: 2rem;
-      font-weight: 700;
-      text-align: center; }
-    .specific-product .comment-section .comment-item .information .avatar .img-avatar {
+      border-radius: 1rem;
+      padding: 1rem;
+      width: 100%;
+      font-family: Inter; }
+    .specific-product .comment-section .comment-item .write-cmt .send-btn {
+      position: absolute;
+      font-size: 1.5rem;
+      right: 0.5%;
+      top: 41%;
+      padding: 1rem; }
+      .specific-product .comment-section .comment-item .write-cmt .send-btn:hover i {
+        opacity: 0.6; }
+  .specific-product .comment-section .comment-item .comment-details {
+    background-color: #f6f6f6;
+    border-radius: 1rem;
+    padding: 1.5rem 2rem; }
+    .specific-product .comment-section .comment-item .comment-details .information .avatar .img-avatar {
       width: 4rem;
       height: 4rem;
       vertical-align: middle;
       object-fit: cover;
       border-radius: 50%; }
-    .specific-product .comment-section .comment-item .information .infor-span {
+    .specific-product .comment-section .comment-item .comment-details .information .infor-span {
       font-size: 1.5rem; }
-      .specific-product .comment-section .comment-item .information .infor-span .name {
+      .specific-product .comment-section .comment-item .comment-details .information .infor-span .name {
         font-weight: 600; }
-    .specific-product .comment-section .comment-item .write-cmt textarea {
-      outline: none;
-      border: solid 0.2rem #337ab7;
-      background-color: #d9edf7;
-      border-radius: 0.4rem; }
-    .specific-product .comment-section .comment-item .write-cmt .send-btn {
-      margin-left: 1rem;
-      font-size: 1.5rem; }
-      .specific-product .comment-section .comment-item .write-cmt .send-btn:hover i {
-        color: #d9edf7; }
-    .specific-product .comment-section .comment-item .comment-details {
-      background-color: #f6f6f6;
-      border-radius: 1rem;
-      padding: 1.5rem 1rem; }
-    .specific-product .comment-section .comment-item .reply-from-seller {
-      background-color: #d9edf7;
-      border-radius: 1rem;
-      padding: 1.5rem 1rem;
-      margin-left: 6rem; }
+    .specific-product .comment-section .comment-item .comment-details .comment-info {
+      margin-top: 1rem;
+      font-family: Inter; }
+  .specific-product .comment-section .comment-item .reply-from-seller {
+    background-color: #d9edf7;
+    border-radius: 1rem;
+    padding: 1.5rem 2rem;
+    margin-left: 6rem;
+    font-family: Inter; }
+  .specific-product .comment-section .comment-item .extra-view-btn {
+    margin-top: 3rem;
+    width: 13rem;
+    padding: 1rem; }
   .specific-product .related-product {
     margin-top: 2rem;
     margin-bottom: 6rem; }
@@ -873,6 +905,13 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
         padding-bottom: 2rem; }
     .specific-product .related-product .related-item .buy-item-btn {
       padding: 1rem 0; }
+  .specific-product .trend {
+    margin-top: 2rem;
+    margin-bottom: 6rem; }
+    .specific-product .trend .main-heading {
+      width: 18vw; }
+    .specific-product .trend .trend-row {
+      margin-top: 3rem; }
 
 .all-product {
   margin-top: 14rem;
