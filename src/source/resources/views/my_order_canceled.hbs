@@ -11,45 +11,57 @@
 
 <div class="account-profile-main">
     <div class="row">
-        <div class="col-4">
-            <div class="avatar">
-                <div class="avatar-left">
-                    <i class="fa-solid fa-user"></i>
-                    {{!-- <i class="fa-solid fa-camera"></i> --}}
-                    <!-- <i class="fa-thin fa-user"></i> -->
+        <div class='col-4'>
+            <div class='avatar'>
+                <div class='avatar-left'>
+                    <i class='fa-solid fa-user'></i>
                 </div>
-
-                <div class="avatar-right">
-                    <div class="info">
-                        <a href="#" class="avatar-name">Dinh Quy Trieu</a>
-                        <!-- <a class="avatar-name">Dinh Quy Trieu</a> -->
-                        <span class="avatar-mail">dinhquytrieu1010</span>
+        
+                <div class='avatar-right'>
+                    <div class='info-avatar'>
+                        <span class='avatar-name'>Dinh Quy Trieu</span>
+                        <span class='avatar-mail mail'>trieudinh@gmail.com</span>
                     </div>
-                    <div class="signup-btn">
-                        {{!-- <button class="sign-up">SIGN UP</button> --}}
-                        <button type="button" class="btn btn-outline-primary">SIGN UP</button>
+                    <div class='signup-btn'>
+                        {{!-- <button type='button' class='btn btn-outline-primary'>SIGN OUT</button> --}}
+                        <button type="button" class="btn btn-outline-secondary">SIGN OUT</button>
                     </div>
                 </div>
             </div>
-            <div class="my-account">
-                <button type="button" class="btn btn-outline-secondary">
-                    <i class="fa-solid fa-pen-to-square"></i>
-                    <a class="page-link" href="http://localhost:3000/profile">My account</a>
-                </button>
+            <div class='my-account'>
+                <a href='http://localhost:3000/profile'>
+                    <button type='button' class='btn btn-outline-secondary'>
+                        <i class='fa-solid fa-pen-to-square'></i>
+                        <span class='page-link'>My account</span>
+                    </button>
+                </a>
             </div>
-            <div class="my-order">
-                <button type="button" class="btn btn-outline-secondary bg-blue">
-                    <i class="fa-solid fa-cart-shopping color-white"></i>
-                    <a class="page-link color-white" href="http://localhost:3000/myorder">My order</a>
-                </button>
+            <div class='my-order'>
+                <a href='http://localhost:3000/myordercanceled'>
+                    <button type='button' class='btn btn-outline-secondary bg-blue'>
+                        <i class='fa-solid fa-cart-shopping color-white'></i>
+                        <span class='page-link color-white'>My order</span>
+                    </button>
+                </a>
+                {{!-- <button type='button' class='btn btn-outline-secondary'>
+                    <i class='fa-solid fa-cart-shopping'></i>
+                    <a class='page-link' href='http://localhost:3000/myorder'>My order</a>
+                </button> --}}
             </div>
-            <div class="become-seller">
-                <button type="button" class="btn btn-outline-secondary">
-                    <i class="fa-solid fa-user"></i>
-                    <a class="page-link" href="http://localhost:3000/becomeseller">Become seller</a>
-                </button>
+            <div class='become-seller'>
+                <a href='http://localhost:3000/becomeseller'>
+                    <button type='button' class='btn btn-outline-secondary'>
+                        <i class='fa-solid fa-user'></i>
+                        <span class='page-link'>Become seller</span>
+                    </button>
+                </a>
+                {{!-- <button type='button' class='btn btn-outline-secondary'>
+                    <i class='fa-solid fa-user'></i>
+                    <a class='page-link' href='http://localhost:3000/becomeseller'>Become
+                        seller</a>
+                </button> --}}
             </div>
-            <div class="remain"></div>
+            <div class='remain'></div>
         </div>
         <div class="col-8 part-right-my-order">
             <nav aria-label="Page navigation example">
@@ -57,7 +69,7 @@
                     <li class="page-item"><a class="page-link text_black" href="http://localhost:3000/myorder">Success</a></li>
                     <li class="page-item"><a class="page-link text_black" href="http://localhost:3000/myorderdelivery">Delivery in progress</a></li>
                     <li class="page-item"><a class="page-link text_black" href="http://localhost:3000/myorderconfirmation">Conformation in progress</a></li>
-                    <li class="page-item"><a class="page-link text_black background_emphasis" href="http://localhost:3000/myordercanceled">Canceled</a></li>
+                    <li class="page-item"><a class="page-link background_emphasis" href="http://localhost:3000/myordercanceled">Canceled</a></li>
                 </ul>
             </nav>
             <div class="card">

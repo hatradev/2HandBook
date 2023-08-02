@@ -1,5 +1,5 @@
 .part-right-my-order{
-    padding-left: 5rem;
+    padding-left: 15.4rem;
 }
 
 .turn-to-the-left{
@@ -8,8 +8,9 @@
 }
 
 .background_emphasis{
-    background-color: #a6d7f8e8;
-    color: black;
+    background-color: #337ab7;
+    color: white;
+    font-weight: bold;
     pointer-events: none;
 }
 
@@ -32,14 +33,16 @@
                     height: 80%;
                     display: flex;
                     justify-content: center;
-                    font-size: 1.2rem;
+                    align-items: center;
+                    font-size: 1.3rem;
                 }
             }
         }
     }
 
     .card{
-        margin-top: 2rem;
+        // margin-top: 1rem;
+        margin-bottom: 4rem;
         .card-body{
             .contain{
                 display: flex;
@@ -52,8 +55,33 @@
         .card-footer{
             display: flex;
             justify-content: right;
+
         }
     }
 }
+
+.evaluate-product{
+    display: flex;
+    justify-content: end;
+    // background-color: white;
+    height: 5rem;
+    border-style: none;
+    button{
+        font-size: 1.5rem;
+
+    }
+}
+
+.evaluate-body{
+    height: 30rem;
+    .rating{
+        height: 15%;
+        .first-choice{
+            margin-left: 4rem;
+        }
+    }
+}
+
+
 
 

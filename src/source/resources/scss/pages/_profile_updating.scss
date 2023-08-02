@@ -15,29 +15,36 @@
 .account-profile-main .row{
     padding-left: 14.6rem;
     // padding-right: 12rem;
-    height: 100%;
+    // height: 100%;
+    
+    // padding-bottom: -100rem;
+    height: 100rem;
+    // margin-bottom: -100rem;
 
     .col-4{
         padding-top: 2rem;
         padding-left: 0%;
         padding-right: 0%;
         height: 100%;
-        width: 20%;
+        width: 18%;
         // background-color: rgba(187, 223, 253, 0.96);
         background-color: #C8DAE4;
 
         .avatar{
             width: 100%;
-            height: 15%;
+            height: 10.5%;
             display: flex;
-            padding-left: 1rem;
+            padding-left: 3.3rem;
             padding-right: 1rem;
             .avatar-left{
                 width: 40%;
-                height: 70%;
+                height: 90%;
+                // padding-bottom: 2rem;
                 i{
-                    padding: 1rem;
-                    font-size: 5.5rem;
+                    // padding: 1rem;
+                    padding-top: 0.5rem;
+                    font-size: 7rem;
+                    padding-bottom: 0.6rem;
                     // background-color: white;
                 }
                 display: flex;
@@ -45,24 +52,28 @@
                 justify-content: center;
             }
             .avatar-right{
-                height: 70%;
-                // padding-left: 1.6rem;
-                .info{
+                height: 90%;
+                padding-left: 1.8rem;
+                align-items: flex-start;
+                justify-content: space-between;
+                .info-avatar{
                     height: 50%;
+                    .mail{
+                        font-size: 1rem;
+                    }
                 }
-                .info span{
-                    font-size: 1rem;
-                }
-                .info a{
-                    font-size: 1.5rem;
-                }
-                
+                // .info span{
+                //     font-size: 1rem;
+                // }
+
                 .signup-btn{
                     // margin-top: 1.5rem;
                     // background-color: white;
-                    height: 50%;
+                    height: 80%;
+                    width: 100%;
                     button{
                         font-size: smaller;
+                        width: 70%;
                     }
                     
                 }
@@ -73,6 +84,9 @@
             height: 7%;
             // padding-left: 2rem;
             display: flex;
+            a{
+                width: 100%;
+            }
             button{
                 height: 100%;
                 width: 100%;
@@ -83,9 +97,13 @@
                 justify-content: flex-start;
                 align-items: center;
                 // justify-content:left;
-                // padding-left: 0%;
+                padding-left: 3.5rem;
                 i{
                     margin-right: 1.5rem;
+                    font-size: 2rem;
+                }
+                span{
+                    font-size: 1.5rem;
                 }
             }
 
@@ -95,6 +113,9 @@
             height: 7%;
             // padding-left: 2rem;
             display: flex;
+            a{
+                width: 100%;
+            }
             button{
                 height: 100%;
                 width: 100%;
@@ -105,8 +126,13 @@
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
+                padding-left: 3.2rem;
                 i{
                     margin-right: 1.5rem;
+                    font-size: 2rem;
+                }
+                span{
+                    font-size: 1.5rem;
                 }
             }
         }
@@ -115,6 +141,9 @@
             height: 7%;
             // padding-left: 2rem;
             display: flex;
+            a{
+                width: 100%;
+            }
             button{
                 height: 100%;
                 width: 100%;
@@ -125,9 +154,14 @@
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
+                padding-left: 3.2rem;
                 i{
                     margin-left: 0.4rem;
                     margin-right: 1.6rem;
+                    font-size: 2rem;
+                }
+                span{
+                    font-size: 1.5rem;
                 }
             }
         }
@@ -145,10 +179,10 @@
         // padding-right: 0rem;
         .col-md-6{
             // margin:0rem;
-            height: 10%;
+            height: 8%;
         }
         .col-12{
-            height: 10%;
+            height: 8%;
             // button{
             //     background-color: rgba(175, 188, 199, 0.956);
             //     border: none;
@@ -185,6 +219,19 @@
         }
         .form-select{
             height: 60%;
+        }
+
+        .change-password{
+            display: flex;
+            align-items: center;
+        }
+
+        .save-changes{
+            display: flex;
+            justify-content: end;
+            button{
+                height: 70%;
+            }
         }
     }
 }

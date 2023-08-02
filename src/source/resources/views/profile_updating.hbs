@@ -15,36 +15,48 @@
         </div>
 
         <div class='avatar-right'>
-          <div class='info'>
-            <a href='#' class='avatar-name'>Dinh Quy Trieu</a>
-            <span class='avatar-mail'>dinhquytrieu1010</span>
+          <div class='info-avatar'>
+            <span class='avatar-name'>Dinh Quy Trieu</span>
+            <span class='avatar-mail mail'>trieudinh@gmail.com</span>
           </div>
           <div class='signup-btn'>
-            <button type='button' class='btn btn-outline-primary'>SIGN UP</button>
+            {{!-- <button type='button' class='btn btn-outline-primary'>SIGN OUT</button> --}}
+            <button type="button" class="btn btn-outline-secondary">SIGN OUT</button>
           </div>
         </div>
       </div>
       <div class='my-account'>
-        <button type='button' class='btn btn-outline-secondary bg-blue'>
-          <i class='fa-solid fa-pen-to-square color-white'></i>
-          <a
-            class='page-link color-white'
-            href='http://localhost:3000/profile'
-          >My account</a>
-        </button>
+        <a href='http://localhost:3000/profile'>
+          <button type='button' class='btn btn-outline-secondary bg-blue'>
+            <i class='fa-solid fa-pen-to-square color-white'></i>
+            <span class='page-link color-white'>My account</span>
+          </button>
+        </a>
       </div>
       <div class='my-order'>
-        <button type='button' class='btn btn-outline-secondary'>
+        <a href='http://localhost:3000/myorder'>
+          <button type='button' class='btn btn-outline-secondary'>
+            <i class='fa-solid fa-cart-shopping'></i>
+            <span class='page-link'>My order</span>
+          </button>
+        </a>
+        {{!-- <button type='button' class='btn btn-outline-secondary'>
           <i class='fa-solid fa-cart-shopping'></i>
           <a class='page-link' href='http://localhost:3000/myorder'>My order</a>
-        </button>
+        </button> --}}
       </div>
       <div class='become-seller'>
-        <button type='button' class='btn btn-outline-secondary'>
+        <a href='http://localhost:3000/becomeseller'>
+          <button type='button' class='btn btn-outline-secondary'>
+            <i class='fa-solid fa-user'></i>
+            <span class='page-link'>Become seller</span>
+          </button>
+        </a>
+        {{!-- <button type='button' class='btn btn-outline-secondary'>
           <i class='fa-solid fa-user'></i>
           <a class='page-link' href='http://localhost:3000/becomeseller'>Become
             seller</a>
-        </button>
+        </button> --}}
       </div>
       <div class='remain'></div>
     </div>
@@ -101,84 +113,37 @@
             <option>...</option>
           </select>
         </div>
-        <div class='col-12 flex-between'>
-          <button
-            type='button'
-            class='btn btn-outline-secondary half_height'
-            data-bs-toggle='modal'
-            data-bs-target='#exampleModal'
-            data-bs-whatever='@mdo'
-          >CHANGE PASSWORD</button>
-
-          <button type='button' class='btn btn-outline-primary half_height'>SAVE
-            CHANGE</button>
-
-          <div
-            class='modal fade'
-            id='exampleModal'
-            tabindex='-1'
-            aria-labelledby='exampleModalLabel'
-            aria-hidden='true'
-          >
-            <div
-              class='modal-dialog modal-dialog-centered modal-dialog-scrollable'
-            >
-              <div class='modal-content'>
-                <div class='modal-header'>
-                  <h5 class='modal-title' id='exampleModalLabel'>CHANGE PASSWORD</h5>
-                  <button
-                    type='button'
-                    class='btn-close'
-                    data-bs-dismiss='modal'
-                    aria-label='Close'
-                  ></button>
-                </div>
-                <div class='modal-body'>
-                  <form>
-                    <div class='mb-3'>
-
-                      <label for='inputPassword5' class='form-label'>Present
-                        password</label>
-                      <input
-                        type='password'
-                        id='inputPassword5'
-                        class='form-control'
-                        aria-describedby='passwordHelpBlock'
-                      />
-                    </div>
-                    <div class='mb-3'>
-
-                      <label for='inputPassword5' class='form-label'>New
-                        password</label>
-                      <input
-                        type='password'
-                        id='inputPassword5'
-                        class='form-control'
-                        aria-describedby='passwordHelpBlock'
-                      />
-                      <div id='passwordHelpBlock' class='form-text'>
-                        Your password must be 8-20 characters long, contain
-                        letters and numbers, and must not contain spaces,
-                        special characters, or emoji.
-                      </div>
-                    </div>
-                  </form>
-                </div>
-                <div class='modal-footer'>
-                  <button
-                    type='button'
-                    class='btn btn-outline-secondary'
-                    data-bs-dismiss='modal'
-                  >Close</button>
-                  <button
-                    type='button'
-                    class='btn btn-outline-secondary'
-                    data-bs-dismiss='modal'
-                  >OK</button>
-                </div>
-              </div>
-            </div>
+        <div class='col-12 change-password'>
+          <h3>CHANGE PASSWORD</h3>
+        </div>
+        <div class='col-12'>
+          <div class='form-group'>
+            <label class='form-label'>Present password*</label>
+            <input
+              id='display_name'
+              type='text'
+              class='form-control'
+              placeholder=''
+            />
+            <span class='form-message'></span>
           </div>
+        </div>
+
+        <div class='col-12'>
+          <div class='form-group'>
+            <label class='form-label'>New password*</label>
+            <input
+              id='display_name'
+              type='text'
+              class='form-control'
+              placeholder=''
+            />
+            <span class='form-message'></span>
+          </div>
+        </div>
+
+        <div class='col-12 save-changes'>
+          <button type="button" class="btn btn-outline-secondary">SAVE CHANGES</button>
         </div>
       </form>
     </div>

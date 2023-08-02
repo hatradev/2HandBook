@@ -1004,16 +1004,27 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
 .half_height {
   height: 50%; }
 
+.term {
+  height: 10rem; }
+
+.register {
+  display: flex;
+  justify-content: end; }
+  .register button {
+    height: 60%;
+    width: 10rem; }
+
 .part-right-my-order {
-  padding-left: 5rem; }
+  padding-left: 15.4rem; }
 
 .turn-to-the-left {
   display: flex;
   justify-content: center; }
 
 .background_emphasis {
-  background-color: #a6d7f8e8;
-  color: black;
+  background-color: #337ab7;
+  color: white;
+  font-weight: bold;
   pointer-events: none; }
 
 .text_black {
@@ -1031,10 +1042,11 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
         height: 80%;
         display: flex;
         justify-content: center;
-        font-size: 1.2rem; }
+        align-items: center;
+        font-size: 1.3rem; }
 
 .col-8 .card {
-  margin-top: 2rem; }
+  margin-bottom: 4rem; }
   .col-8 .card .card-body .contain {
     display: flex; }
     .col-8 .card .card-body .contain .middle {
@@ -1042,6 +1054,21 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
   .col-8 .card .card-footer {
     display: flex;
     justify-content: right; }
+
+.evaluate-product {
+  display: flex;
+  justify-content: end;
+  height: 5rem;
+  border-style: none; }
+  .evaluate-product button {
+    font-size: 1.5rem; }
+
+.evaluate-body {
+  height: 30rem; }
+  .evaluate-body .rating {
+    height: 15%; }
+    .evaluate-body .rating .first-choice {
+      margin-left: 4rem; }
 
 .account-profile-header .container-fluid {
   margin-top: 14rem;
@@ -1055,44 +1082,50 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
 
 .account-profile-main .row {
   padding-left: 14.6rem;
-  height: 100%; }
+  height: 100rem; }
   .account-profile-main .row .col-4 {
     padding-top: 2rem;
     padding-left: 0%;
     padding-right: 0%;
     height: 100%;
-    width: 20%;
+    width: 18%;
     background-color: #C8DAE4; }
     .account-profile-main .row .col-4 .avatar {
       width: 100%;
-      height: 15%;
+      height: 10.5%;
       display: flex;
-      padding-left: 1rem;
+      padding-left: 3.3rem;
       padding-right: 1rem; }
       .account-profile-main .row .col-4 .avatar .avatar-left {
         width: 40%;
-        height: 70%;
+        height: 90%;
         display: flex;
         justify-content: center; }
         .account-profile-main .row .col-4 .avatar .avatar-left i {
-          padding: 1rem;
-          font-size: 5.5rem; }
+          padding-top: 0.5rem;
+          font-size: 7rem;
+          padding-bottom: 0.6rem; }
       .account-profile-main .row .col-4 .avatar .avatar-right {
-        height: 70%; }
-        .account-profile-main .row .col-4 .avatar .avatar-right .info {
+        height: 90%;
+        padding-left: 1.8rem;
+        align-items: flex-start;
+        justify-content: space-between; }
+        .account-profile-main .row .col-4 .avatar .avatar-right .info-avatar {
           height: 50%; }
-        .account-profile-main .row .col-4 .avatar .avatar-right .info span {
-          font-size: 1rem; }
-        .account-profile-main .row .col-4 .avatar .avatar-right .info a {
-          font-size: 1.5rem; }
+          .account-profile-main .row .col-4 .avatar .avatar-right .info-avatar .mail {
+            font-size: 1rem; }
         .account-profile-main .row .col-4 .avatar .avatar-right .signup-btn {
-          height: 50%; }
+          height: 80%;
+          width: 100%; }
           .account-profile-main .row .col-4 .avatar .avatar-right .signup-btn button {
-            font-size: smaller; }
+            font-size: smaller;
+            width: 70%; }
     .account-profile-main .row .col-4 .my-account {
       width: 100%;
       height: 7%;
       display: flex; }
+      .account-profile-main .row .col-4 .my-account a {
+        width: 100%; }
       .account-profile-main .row .col-4 .my-account button {
         height: 100%;
         width: 100%;
@@ -1101,13 +1134,19 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
         border-radius: 0%;
         display: flex;
         justify-content: flex-start;
-        align-items: center; }
+        align-items: center;
+        padding-left: 3.5rem; }
         .account-profile-main .row .col-4 .my-account button i {
-          margin-right: 1.5rem; }
+          margin-right: 1.5rem;
+          font-size: 2rem; }
+        .account-profile-main .row .col-4 .my-account button span {
+          font-size: 1.5rem; }
     .account-profile-main .row .col-4 .my-order {
       width: 100%;
       height: 7%;
       display: flex; }
+      .account-profile-main .row .col-4 .my-order a {
+        width: 100%; }
       .account-profile-main .row .col-4 .my-order button {
         height: 100%;
         width: 100%;
@@ -1117,13 +1156,19 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
         border-radius: 0%;
         display: flex;
         justify-content: flex-start;
-        align-items: center; }
+        align-items: center;
+        padding-left: 3.2rem; }
         .account-profile-main .row .col-4 .my-order button i {
-          margin-right: 1.5rem; }
+          margin-right: 1.5rem;
+          font-size: 2rem; }
+        .account-profile-main .row .col-4 .my-order button span {
+          font-size: 1.5rem; }
     .account-profile-main .row .col-4 .become-seller {
       width: 100%;
       height: 7%;
       display: flex; }
+      .account-profile-main .row .col-4 .become-seller a {
+        width: 100%; }
       .account-profile-main .row .col-4 .become-seller button {
         height: 100%;
         width: 100%;
@@ -1133,19 +1178,23 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
         border-radius: 0%;
         display: flex;
         justify-content: flex-start;
-        align-items: center; }
+        align-items: center;
+        padding-left: 3.2rem; }
         .account-profile-main .row .col-4 .become-seller button i {
           margin-left: 0.4rem;
-          margin-right: 1.6rem; }
+          margin-right: 1.6rem;
+          font-size: 2rem; }
+        .account-profile-main .row .col-4 .become-seller button span {
+          font-size: 1.5rem; }
     .account-profile-main .row .col-4 .remain {
       width: 100%;
       padding-left: 2rem; }
   .account-profile-main .row .col-8 {
     padding-top: 2rem; }
     .account-profile-main .row .col-8 .col-md-6 {
-      height: 10%; }
+      height: 8%; }
     .account-profile-main .row .col-8 .col-12 {
-      height: 10%; }
+      height: 8%; }
       .account-profile-main .row .col-8 .col-12 .form-check {
         display: flex;
         justify-content: left;
@@ -1162,6 +1211,14 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
       border-width: 1; }
     .account-profile-main .row .col-8 .form-select {
       height: 60%; }
+    .account-profile-main .row .col-8 .change-password {
+      display: flex;
+      align-items: center; }
+    .account-profile-main .row .col-8 .save-changes {
+      display: flex;
+      justify-content: end; }
+      .account-profile-main .row .col-8 .save-changes button {
+        height: 70%; }
 
 .flex-between {
   display: flex;
