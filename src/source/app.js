@@ -158,5 +158,11 @@ app.get('/admin_comment_all', (req, res) => {
 app.get('/admin_comment_reported', (req, res) => {
   res.render('admin_comment_reported', { showHeader: true, showFooter: true });
 });
+app.get('/sign-up', (req, res) => {
+  res.render('sign-up', { showHeader: true, showFooter: true });
+});
+app.get('/sign-in', (req, res) => {
+  res.render('sign-in', { showHeader: true, showFooter: true });
+});
 
 module.exports = app;

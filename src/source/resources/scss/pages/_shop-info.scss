@@ -1,93 +1,144 @@
-.last-online {
-    margin-top: 0;
-    margin-bottom: 0;
-    color: #337ab7;
+:root {
+    --grey: #F6F6F6;
+    --dark-blue: #337ab7;
+    --light-blue: #D9EDF7;
 }
 
-.info {
-    display: flex;
-    margin-bottom: 25px;
-    
-    .info-col {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 10px;
-        box-sizing: border-box;
-        background-color: #f2f2f2;
-        border: 1px solid #ddd;
+.button {
+    font-size: 1.6rem;
+    font-weight: 500;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0rem;
+    transition: all 0.3s;
+    text-align: center;
+    width: calc(50% - 3rem);
 
-        .logo-name {
-            display: flex;
-            // justify-content: space-between;
-            align-items: center;
+    background-color: var(--light-blue);
+    color: black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-right: 3rem;
 
-            .shop-logo {
-                width: 65px;
-                height: 65px;
-                border-radius: 50%;
-                // margin-right: 10px;
-                display: inline-block;
-            }
-
-            .shop-name {
-                font-size: 24px;
-                font-weight: bold;
-                // margin: 0;
-                display: inline-block;
-            }
-        }
+    &:hover {
+        background-color: var(--dark-blue);
+        color: white;
     }
 }
-
-.shop-overview {
-    width: 285px; 
-    margin: 0 auto; 
-    border: 1px solid black;
-    padding: 10px;
-    margin: 10px;
+.button:last-child {
+    margin-right: 0;
 }
-
-.followed {
-    background-color: #337ab7;
+.button.clicked {
+    background-color: var(--dark-blue);
     color: white;
-}
-
-.saved {
-    background-color: #337ab7;
-    color: white;
-}
-
-.grid-container {
-    display: flex;
-    overflow-x: auto;
-    gap: 10px;
-}
-
-.discount {
-    background-color: #f2f2f2;
-    padding: 10px;
-    min-width: 200px;
-    flex: 0 0 calc(33.33% - 10px);
-}
-
-.save-button {
-    background-color: #f6f6f6;
-    color: black;
-    padding: 10px;
-}
-
-.save-button.saved {
-    background-color: #337ab7;
-    color: white;
+    &:hover {
+        background-color: var(--light-blue);
+        color: black;
+    }
 }
 
 .shop-info {
     margin-left: auto;
     margin-right: auto;
-    padding-left: 200px;
-    padding-right: 200px;
+    padding-left: 320px;
+    padding-right: 320px;
     padding-top: 210px;
-}
+    padding-bottom: 210px;
 
+    .info {
+        display: flex;
+        margin-bottom: 25px;
+        height: 15rem;
+
+        .info-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 10px;
+            box-sizing: border-box;
+            background-color: var(--grey);
+
+            .logo-section {
+                display: flex;
+                align-items: center;
+                margin-left: 1.5rem;
+
+                .shop-logo {
+                    width: 65px;
+                    height: 65px;
+                    border-radius: 50%;
+                    margin-right: 17px;
+                    display: inline-block;
+                }
+
+                .name-online {
+                    display: inline-block;
+
+                    .shop-name {
+                        font-size: 24px;
+                        font-weight: bold;
+                    }
+
+                    .last-online {
+                        margin-top: 0;
+                        margin-bottom: 0;
+                        color: #337ab7;
+                    }
+                }
+            }
+
+            .follow-chat {
+                display: flex;
+                justify-content: center;
+                margin-top: 1.5rem;
+    
+                .follow-button.followed {
+                    background-color: #337ab7;
+                    color: white;
+                }
+            }
+
+            .info-text {
+                margin-left: 1.5rem;
+                font-size: 1.7rem;
+                
+                p:not(:last-child) {
+                    padding-bottom: 0.9rem;
+                }
+            }
+        }
+
+        .info-col:not(:last-child) {
+            margin-right: 20px;
+        }
+    }
+
+    .discounts {
+        display: flex;
+        overflow-x: auto;
+        gap: 20px;
+
+        .discount {
+            background-color: var(--grey);
+            padding: 2.5rem;
+            min-width: 200px;
+            flex: 0 0 calc(33.33% - 13px);
+
+            h3, p {
+                padding-bottom: 0.9rem;
+            }
+        }
+    }
+
+    .discounts::-webkit-scrollbar {
+        height: 10px;
+        /* Width of the scrollbar */
+    }
+
+    /* Style the scrollbar thumb (the draggable part) */
+    .discounts::-webkit-scrollbar-thumb {
+        background-color: #c0c0c0;
+        /* Color of the scrollbar thumb */
+        border-radius: 8px;
+        /* Rounded corners for the thumb */
+    }
+}
