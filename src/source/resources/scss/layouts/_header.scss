@@ -43,7 +43,8 @@
   }
 
   .announce-list {
-    display: flex;
+    // display: flex;
+    display: none;
     flex-direction: column;
     @include abs-pos(calc(100% + 2rem), -100%);
     background-color: $color-white;
