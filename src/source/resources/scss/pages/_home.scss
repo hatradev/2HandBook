@@ -28,7 +28,8 @@
 }
 
 .banner {
-  margin-top: 1.5rem;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
 }
 
 .banner-row {
@@ -48,12 +49,22 @@
   margin: auto auto;
   padding: 0 4rem;
   .main-heading {
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
+    font-size: 5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .paragraph {
+    color: #31383e;
+    text-align: justify;
+    font-family: Ubuntu;
+    font-size: 2rem;
+    font-weight: 400;
   }
 }
 
 .trend {
-  margin-top: 4rem;
+  margin-bottom: 10rem;
   .main-heading {
     line-height: 3.5rem;
     border-radius: 15px;
@@ -74,7 +85,7 @@
   }
 
   .trend-row {
-    margin-top: 2rem;
+    margin-top: 4rem;
   }
   .trend-card {
     margin: 0 1rem;
@@ -119,7 +130,7 @@
     }
   }
   .see-more-btn {
-    margin-top: 2rem;
+    margin-top: 4rem;
     margin-bottom: 8rem;
     display: flex;
     align-items: center;

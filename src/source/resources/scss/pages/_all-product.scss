@@ -10,7 +10,7 @@
       width: 26rem;
       height: 4rem;
       font-size: 1.6rem;
-      box-shadow: 3px 3px 3px rgba($color: $color-text-dark, $alpha: 0.6);
+      box-shadow: 2px 2px 3px rgba($color: $color-text-dark, $alpha: 0.3);
     }
   }
 
@@ -18,7 +18,7 @@
     padding-top: 2.5rem;
 
     .filter-section {
-      height: 37rem;
+      // height: 37rem;
       background-color: $color-primary-tint;
 
       .search-bar {
@@ -110,52 +110,117 @@
     }
 
     .product-section {
-      .related-item {
-        height: 35rem;
-        .img {
-          background-color: $color-text-light;
-          height: 45%;
-          // flex-grow: 1;
-          a {
-            display: flex;
-            justify-content: center;
-
-            .img-product {
-              width: 70%;
-              vertical-align: middle;
-              object-fit: cover;
-            }
-          }
-        }
-
-        .name-vs-price {
+      .trend {
+        margin-top: 0;
+        .main-heading {
+          line-height: 3.5rem;
+          border-radius: 15px;
+          background: #337ab7;
+          color: #fff;
           text-align: center;
-          background-color: $color-text-light;
-          padding-top: 1rem;
-
-          .name {
-            margin-top: 4rem;
-            font-size: 1.6rem;
-            font-weight: 600;
-          }
-
-          .price {
-            font-size: 1.5rem;
-            font-weight: 400;
-            padding-bottom: 2rem;
+          height: 3.5rem;
+          width: 15vw;
+        }
+  
+        .h2 {
+          display: inline-block;
+        }
+  
+        .rectangle {
+          background: #337ab7;
+          height: 0.5rem;
+          padding: 0 0;
+          margin: auto 0;
+        }
+  
+        .trend-row {
+          margin-top: 0;
+        }
+  
+        .trend-card {
+          margin: 0;
+          border-radius: 0;
+          border: 1px solid #31383e;
+          // padding: 0 0.75rem;
+          margin-bottom: 1rem;
+        }
+  
+        .trend-card-img {
+          background-color: #fff;
+          height: 100%;
+  
+          .trend-prod-img {
+            float: left;
+            height: 100%;
+            object-fit: contain;
           }
         }
-
-        .buy-item-btn {
-          padding: 1rem 0;
+  
+        .trend-card-title {
+          color: #000;
+          font-family: Inter;
+          font-size: 1.5rem;
+          font-weight: 500;
+  
+          padding: 0 0.5rem;
+        }
+  
+        .trend-card-price {
+          text-align: center;
+          color: #000;
+          font-weight: 700;
+        }
+  
+        .trend-card-btn {
+          text-transform: uppercase;
+          border-radius: 0;
+          background: #31383e;
+          font-weight: 700;
+          color: #fff;
+        }
+  
+        figure {
+  
+          a.btn:link,
+          a.btn:visited {
+            border-radius: 0;
+            background: #31383e;
+          }
+        }
+  
+        .see-more-btn {
+          margin-top: 2rem;
+          margin-bottom: 8rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+  
+          .trend-btn {
+            width: 15vw;
+            text-transform: uppercase;
+            font-weight: 700;
+            border: 3px solid #337ab7;
+            background: #fff;
+            border-radius: 15px;
+            color: #337ab7;
+          }
+  
+          .trend-btn:hover {
+            color: #fff;
+            background-color: #337ab7;
+          }
         }
       }
     }
-    .pagination-container{
+
+    .pagination-container {
       width: 25rem;
-      .pagination-description{
-        margin-bottom: 1rem;
+      margin: 2rem auto;
+      .pagination {
+        margin-bottom: 0.6rem;
       }
     }
   }
+
+  
 }

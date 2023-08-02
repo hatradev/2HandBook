@@ -142,30 +142,6 @@
                 for='recipient-sellers'
               >Sellers</label>
             </span>
-            <span class='form-check form-check-inline'>
-
-              <input
-                class='form-check-input'
-                type='radio'
-                name='inlineRadioOptions'
-                value='others'
-                id='recipient-others'
-                aria-label='Radio button for following text input'
-              />
-
-              <label
-                class='form-check-label'
-                for='recipient-others'
-              >Others:</label>
-            </span>
-            <span class='flex-fill'>
-              <input
-                type='text'
-                class='form-control'
-                aria-label='Text input with radio button for others'
-                id='recipient-others-text'
-              />
-            </span>
           </div>
           <div class='line-form d-flex align-items-center'>
             <label class='title' for='announce-title'>Title:
@@ -175,6 +151,7 @@
               class='form-control'
               aria-label='Text input for title'
               id='announce-title'
+              required
             />
           </div>
           <div class='line-form'>
@@ -186,16 +163,8 @@
               class='form-control'
               id='announce-content'
               rows='10'
+              required
             ></textarea>
-          </div>
-          <div class='line-form'>
-            <label for='announce-img' class='form-label title'>Images:</label>
-            <input
-              class='form-control'
-              type='file'
-              id='announce-img'
-              multiple
-            />
           </div>
           <button type='submit' class='btn btn-submit'>Submit</button>
         </form>

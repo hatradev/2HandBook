@@ -1,0 +1,74 @@
+<div class='sign-up'>
+  <h2 class='su-header'>SIGN UP</h2>
+  <div class='horizontal-line'></div>
+
+  <form class='su-form' action='#'>
+    <div class='su-info-input'>
+      <label class='su-info' for='fname'>First Name</label><br />
+      <input class='su-input' type='fname' id='fname' name='fname' /><br />
+    </div>
+
+    <div class='su-info-input'>
+      <label class='su-info' for='lname'>Last Name</label><br />
+      <input class='su-input' type='lname' id='lname' name='lname' /><br />
+    </div>
+
+    <div class='su-info-input'>
+      <label class='su-info' for='dob'>Date of Birth</label><br />
+      <input class='su-input' type='date' id='dob' name='dateofbirth' /><br />
+      <p id='dob-error-msg' class='error-message'></p>
+    </div>
+
+    <div class='su-info-input'>
+      <label class='su-info' for='phone'>Phone Number</label><br />
+      <input class='su-input' type='text' id='phone' name='phone' /><br /></div>
+
+    <div class='su-info-input'><label
+        class='su-info'
+        for='addr'
+      >Address</label><br />
+      <input class='su-input' type='addr' id='addr' name='Address' /><br
+      /></div>
+
+    <div class='su-info-input'>
+      <label class='su-info' for='email'>Email</label><br />
+      <input class='su-input' type='email' id='email' name='email' /><br />
+      <p id='email-error-msg' class='error-message'></p>
+    </div>
+
+    <div class='su-info-input'>
+      <label class='su-info' for='pwd'>Password</label><br />
+      <input
+        class='su-input'
+        type='password'
+        id='password'
+        name='password'
+      /><br />
+    </div>
+
+    <div class='su-info-input'>
+      <label class='su-info' for='confirm-pwd'>Confirm Password</label><br />
+      <input
+        class='su-input'
+        type='password'
+        id='confirm-pwd'
+        name='confirm-pwd'
+      /><br />
+      <p id='password-match-msg'></p>
+    </div>
+
+    <input
+      class='su-checkbox'
+      type='checkbox'
+      id='accept-sign-up-form'
+      name='accept-sign-up-form'
+      value='Accept with sign up form'
+    />
+    <label class='su-text' for='accept-sign-up-form'>I have read and agreed to
+      Terms and Conditions</label><br />
+    <input class='su-button' type='submit' value='Sign up' />
+    <p id='accept-error-msg' class='error-message'></p>
+  </form>
+</div>
+
+<script src='js/sign-up.js'></script>

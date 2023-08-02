@@ -3,7 +3,7 @@
 
   .manage-order {
     .page-title {
-      padding: 2rem;
+      padding: 2rem 0;
       text-transform: uppercase;
       font-size: 2rem;
       font-weight: 700;
@@ -57,7 +57,7 @@
     }
 
     .pagination-container {
-      margin: 1rem auto;
+      margin: 3rem auto;
     }
 
     .modal.product-details {
@@ -144,7 +144,7 @@
           }
 
           .btn-secondary {
-            background-color: #0d6bf5;
+            background-color: $color-primary;
           }
         }
       }
