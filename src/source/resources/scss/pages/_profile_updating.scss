@@ -74,8 +74,10 @@
         }
 
         .change-password{
+            height: 5%;
             display: flex;
-            align-items: center;
+            align-items:end;
+            font-size: larger;
         }
 
         .save-changes{
@@ -85,7 +87,7 @@
                 // height: 70%;
                 background-color: $color-primary;
                 height: 50%;
-                color: black;
+                color: rgba(0, 0, 0, 0.437);
                 font-weight: bold;
                 font-size: 1.5rem;
                     &:hover {
@@ -111,6 +113,11 @@
     color: white;
 }
 
+.input-size{
+    font-size: 1.5rem;
+    // font-weight:100;
+    color: rgba(0, 0, 0, 0.598);
+}
 
 
 

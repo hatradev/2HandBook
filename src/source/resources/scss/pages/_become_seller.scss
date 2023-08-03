@@ -33,6 +33,7 @@
 .register{
     display: flex;
     justify-content: end;
+    margin-top: 5rem;
     // button{
     //     height: 60%;
     //     width: 10rem;
@@ -41,7 +42,7 @@
         // height: 70%;
         background-color: $color-primary;
         height: 50%;
-        color: black;
+        color: rgba(0, 0, 0, 0.426);
         font-weight: bold;
         font-size: 1.5rem;
             &:hover {
@@ -50,5 +51,30 @@
                 color: white;
             }
     }
+}
+
+.contract-container {
+    // margin: 2rem 2rem 0.5rem 1rem;
+    margin-left: 0.5rem;
+    margin-top: 3rem;
+    width: 99%;
+    // height: 60rem;
+    max-height: 20rem; /* Chiều cao tối đa của khung chứa */
+    overflow-y: auto; /* Hiển thị thanh cuộn nếu nội dung vượt quá chiều cao */
+    border: 0.000001rem solid #ccc;
+    border-radius: 0.4rem;
+    // border-width: 1rem;
+    // padding: 10px;
+}
+
+/* Định dạng cho nội dung điều khoản hợp đồng */
+.contract-content {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.agree-term{
+    padding-left: 2.2rem;
+    padding-top: 2rem;
 }
 

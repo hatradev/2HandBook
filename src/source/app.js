@@ -54,7 +54,7 @@ app.get('/myorderconfirmation', (req, res) => {
   });
 });
 
-app.get('/myordercanceled', (req, res) => {
+app.get('/myordercancelled', (req, res) => {
   res.render('my_order_canceled', { showHeader: true, showFooter: true });
 });
 

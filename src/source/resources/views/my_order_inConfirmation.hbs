@@ -1,11 +1,73 @@
-
-
 <div class="container">
     <div class="account-profile-main container-fluid">
         <div class="row">
-            {{>sidebar-profile}}
+            {{!-- {{>sidebar-profile}} --}}
+            <div class='col-3'>
+                <div class='avatar'>
+                    <div class='avatar-left'>
+                        <i class='fa-solid fa-user'></i>
+                    </div>
+            
+                    <div class='avatar-right'>
+                        <div class='info-avatar'>
+                            <span class='avatar-name'>Dinh Quy Trieu</span>
+                            <span class='avatar-mail mail'>trieudinh@gmail.com</span>
+                        </div>
+                        <div class='signup-btn'>
+                            {{!-- <button type='button' class='btn btn-outline-primary'>SIGN OUT</button> --}}
+                            <button type="button" class="btn btn-outline-secondary">SIGN OUT</button>
+                        </div>
+                    </div>
+                </div>
+                <div class='my-account'>
+                    <a href='http://localhost:3000/profile'>
+                        <button type='button' class='btn btn-outline-secondary'>
+                            <i class='fa-solid fa-pen-to-square'></i>
+                            <span class='page-link'>My account</span>
+                        </button>
+                    </a>
+                </div>
+                <div class='my-order'>
+                    <a href='http://localhost:3000/myorderconfirmation'>
+                        <button type='button' class='btn btn-outline-secondary bg-blue'>
+                            <i class='fa-solid fa-cart-shopping color-white'></i>
+                            <span class='page-link color-white'>My order</span>
+                        </button>
+                    </a>
+                    {{!-- <button type='button' class='btn btn-outline-secondary'>
+                        <i class='fa-solid fa-cart-shopping'></i>
+                        <a class='page-link' href='http://localhost:3000/myorder'>My order</a>
+                    </button> --}}
+                </div>
+                <div class='become-seller'>
+                    <a href='http://localhost:3000/becomeseller'>
+                        <button type='button' class='btn btn-outline-secondary'>
+                            <i class='fa-solid fa-user'></i>
+                            <span class='page-link'>Become seller</span>
+                        </button>
+                    </a>
+                    {{!-- <button type='button' class='btn btn-outline-secondary'>
+                        <i class='fa-solid fa-user'></i>
+                        <a class='page-link' href='http://localhost:3000/becomeseller'>Become
+                            seller</a>
+                    </button> --}}
+                </div>
+                <div class='remain'></div>
+            </div>
             <div class="col-9 part-right-my-order">
-                {{>statusbar-myorder}}
+                {{!-- {{>statusbar-myorder}} --}}
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item"><a class="page-link text_black" href="http://localhost:3000/myorder">Success</a>
+                        </li>
+                        {{!-- <li class="page-item"><a class="page-link text_black"
+                                href="http://localhost:3000/myorderdelivery">Delivering</a></li> --}}
+                        <li class="page-item"><a class="page-link background_emphasis text-white"
+                                href="http://localhost:3000/myorderconfirmation">Pending</a></li>
+                        <li class="page-item"><a class="page-link text_black" href="http://localhost:3000/myordercancelled">Cancelled</a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>
