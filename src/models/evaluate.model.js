@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const commentSchema = new mongoose.Schema(
+const evaluateSchema = new mongoose.Schema(
   {
     idAccount: {
         type: String,
@@ -31,4 +31,4 @@ const commentSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model('comment', commentSchema);
+module.exports = mongoose.model('evaluate', evaluateSchema);
