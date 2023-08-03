@@ -20,7 +20,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(connectLiveReload());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
-// app.use('/api/books', bookRouter);
 
 // Template engines handlebars
 app.engine(

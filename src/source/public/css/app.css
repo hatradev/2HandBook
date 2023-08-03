@@ -1724,11 +1724,11 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
     width: 5rem; }
 
 :root {
-  --grey: #F6F6F6;
+  --grey: #f6f6f6;
   --dark-grey: #dedede;
   --input-text: #6b6b6b;
   --dark-blue: #337ab7;
-  --light-blue: #D9EDF7; }
+  --light-blue: #d9edf7; }
 
 .error-message {
   color: red; }
@@ -1736,10 +1736,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
 .sign-up {
   margin-left: auto;
   margin-right: auto;
-  padding-left: 320px;
-  padding-right: 320px;
-  padding-top: 210px;
-  padding-bottom: 210px; }
+  padding: 20rem 32rem 10rem 32rem; }
   .sign-up .su-header {
     font-weight: 600;
     font-size: 5rem; }
@@ -1811,7 +1808,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
 .sign-in {
   margin-left: auto;
   margin-right: auto;
-  margin-top: 21rem;
+  padding-top: 18.5rem;
   margin-bottom: 7rem;
   display: flex;
   flex-direction: column;

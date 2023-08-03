@@ -1,11 +1,14 @@
 const siteRouter = require('./site.route');
 const productRouter = require('./product.route');
-// const accountRouter = require('./account.route');
+const accountRouter = require('./account.route');
 
 function route(app) {
   app.use('/', siteRouter);
   app.use('/product', productRouter);
-  // app.use('/account', accountRouter);
+  app.use('/account', accountRouter);
+  app.get('/test', (req, res) => {
+    res.render('test', { showHeader: true, showFooter: true });
+  });
 
   app.get('/profile', (req, res) => {
     res.render('profile_updating', { showHeader: true, showFooter: true });
@@ -34,10 +37,6 @@ function route(app) {
     res.render('my_order', { showHeader: true, showFooter: true });
   });
 
-  app.get('/test', (req, res) => {
-    res.render('test', { showHeader: true, showFooter: true });
-  });
-
   app.get('/all-product', (req, res) => {
     res.render('all-product', {
       showHeader: true,
@@ -61,18 +60,6 @@ function route(app) {
 
   app.get('/shop-info', (req, res) => {
     res.render('shop-info', { showHeader: true, showFooter: true });
-  });
-
-  app.get('/manage-product', (req, res) => {
-    res.render('manage-product', { showHeader: true, showFooter: true });
-  });
-
-  app.get('/edit-product', (req, res) => {
-    res.render('edit-product', { showHeader: true, showFooter: true });
-  });
-
-  app.get('/dashboard', (req, res) => {
-    res.render('dashboard', { showHeader: true, showFooter: true });
   });
 
   app.get('/payment', (req, res) => {

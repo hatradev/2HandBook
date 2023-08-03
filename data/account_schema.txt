@@ -1,0 +1,18 @@
+Account {
+	“_id”: default
+	“role”: *(admin | buyer | seller) String
+  “firstname”: String
+	“lastname”: String
+	“email”: String
+	“password”: String
+	“phone”: String
+	“avatar”: String
+	“job”: String
+	“shopName”: String
+	“requestStatus”: *(becomeSeller | None) String
+	“accountStatus”: String (None | Pending | Reported | Banned)
+	“cart”: {
+		“id_product”: id (id of product | None)
+		“quantity”: number
+  }
+}
