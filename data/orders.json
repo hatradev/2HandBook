@@ -1,0 +1,36 @@
+[
+    {
+      "idAccount": "user123",
+      "detail": {
+        "idProduct": "prod456",
+        "quantity": 2,
+        "isEvaluated": true
+      },
+      "status": "successful",
+      "date": "2023-08-03T12:34:56.789Z",
+      "message": "Order processed successfully"
+    },
+    {
+      "idAccount": "user789",
+      "detail": {
+        "idProduct": "prod789",
+        "quantity": 1,
+        "isEvaluated": false
+      },
+      "status": "pending",
+      "date": "2023-08-03T15:45:23.456Z",
+      "message": "Waiting for payment"
+    },
+    {
+      "idAccount": "user123",
+      "detail": {
+        "idProduct": "prod101",
+        "quantity": 3,
+        "isEvaluated": true
+      },
+      "status": "canceled",
+      "date": "2023-08-03T18:09:17.123Z",
+      "message": "Customer changed their mind"
+    }
+  ]
+  
