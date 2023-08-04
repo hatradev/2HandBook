@@ -10,7 +10,6 @@
 <div class="container">
   <div class='account-profile-main container-fluid'>
     <div class='row'>
-<<<<<<< HEAD
       {{!-- {{>sidebar-profile}} --}}
       <div class='col-3'>
         <div class='avatar'>
@@ -30,7 +29,7 @@
           </div>
         </div>
         <div class='my-account'>
-          <a href='http://localhost:3000/profile'>
+          <a href='http://localhost:3000/account/my-profile'>
             <button type='button' class='btn btn-outline-secondary'>
               <i class='fa-solid fa-pen-to-square'></i>
               <span class='page-link'>My account</span>
@@ -38,7 +37,7 @@
           </a>
         </div>
         <div class='my-order'>
-          <a href='http://localhost:3000/myorder'>
+          <a href='http://localhost:3000/account/my-order'>
             <button type='button' class='btn btn-outline-secondary'>
               <i class='fa-solid fa-cart-shopping'></i>
               <span class='page-link'>My order</span>
@@ -46,11 +45,11 @@
           </a>
           {{!-- <button type='button' class='btn btn-outline-secondary'>
             <i class='fa-solid fa-cart-shopping'></i>
-            <a class='page-link' href='http://localhost:3000/myorder'>My order</a>
+            <a class='page-link' href='http://localhost:3000/account/my-order'>My order</a>
           </button> --}}
         </div>
         <div class='become-seller'>
-          <a href='http://localhost:3000/becomeseller'>
+          <a href='http://localhost:3000/account/become-seller'>
             <button type='button' class='btn btn-outline-secondary bg-blue'>
               <i class='fa-solid fa-user color-white'></i>
               <span class='page-link color-white'>Become seller</span>
@@ -58,20 +57,16 @@
           </a>
           {{!-- <button type='button' class='btn btn-outline-secondary'>
             <i class='fa-solid fa-user'></i>
-            <a class='page-link' href='http://localhost:3000/becomeseller'>Become
+            <a class='page-link' href='http://localhost:3000/account/become-seller'>Become
               seller</a>
           </button> --}}
         </div>
         <div class='remain'></div>
       </div>
-=======
-      {{>sidebar-profile}}
->>>>>>> binh
       <div class='col-9'>
         <form class='row g-3' id='form-1'>
           <div class='col-md-6'>
             <div class='form-group'>
-<<<<<<< HEAD
               <label class='form-label fw-bold'>Name of your shop *</label>
               <input id='shop-name' type='text' class='form-control input-size shadow' />
               <span class='form-message'></span>
@@ -79,23 +74,22 @@
           </div>
           <div class='col-md-6'>
             <div class='form-group'>
-              <label class='form-label fw-bold'>Type of your product *</label>
-              <select id='type-product' class='form-select input-size shadow'>
-                <option selected>Textbook</option>
-                <option>Text document</option>
-                <option>Calculator</option>
-                <option>Uniform</option>
+              <label class='form-label fw-bold'>Job</label>
+              <select id='job' class='form-select input-size shadow'>
+                <option selected>Student</option>
+                <option>Alumni</option>
+                <option>Lecturer</option>
               </select>
               <span class='form-message'></span>
             </div>
           </div>
-          <div class='col-12'>
+          {{!-- <div class='col-12'>
             <div class='form-group'>
               <label class='form-label fw-bold'>Job *</label>
               <input id='job' type='text' class='form-control input-size shadow' placeholder='' />
               <span class='form-message'></span>
             </div>
-          </div>
+          </div> --}}
           <div class='col-12'>
             <div class='form-group'>
               <label class='form-label fw-bold'>Address *</label>
@@ -134,7 +128,7 @@
 
             </div>
           </div>
-          <div class='col-md-6'>
+          {{!-- <div class='col-md-6'>
             <div class='form-group'>
               <label class='form-label fw-bold'>Payments</label>
               <select id='payments' class='form-select input-size shadow'>
@@ -152,7 +146,7 @@
               <option>Vietcombank</option>
               <option>BIDV</option>
             </select>
-          </div>
+          </div> --}}
           {{!-- <div class='col-12'>
             <div class='form-group'>
               <div class='form-check'>
@@ -194,123 +188,16 @@
 
           <div class='form-group'>
             <div class="form-check agree-term">
-              <input id="flexCheckDefault" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <input id="flexCheckDefault" class="form-check-input" type="checkbox" value="">
               <label class="form-check-label fw-bold" for="flexCheckDefault">
                 I agree to the terms and conditions.
               </label>
-=======
-              <label class='form-label'>Name of your shop *</label>
-              <input id='shop-name' type='text' class='form-control' />
-              <span class='form-message'></span>
->>>>>>> binh
             </div>
+            <span class='form-message'></span>
           </div>
-<<<<<<< HEAD
           
           <div class='col-12 register'>
             <button class="form-submit btn btn-outline-secondary shadow">REGISTER</button>
-=======
-          <div class='col-md-6'>
-            <div class='form-group'>
-              <label class='form-label'>Type of your product *</label>
-              <select id='type-product' class='form-select'>
-                <option selected>Textbook</option>
-                <option>Text document</option>
-                <option>Calculator</option>
-                <option>Uniform</option>
-              </select>
-              <span class='form-message'></span>
-            </div>
-          </div>
-          <div class='col-12'>
-            <div class='form-group'>
-              <label class='form-label'>Job *</label>
-              <input id='job' type='text' class='form-control' placeholder='' />
-              <span class='form-message'></span>
-            </div>
-          </div>
-          <div class='col-12'>
-            <div class='form-group'>
-              <label class='form-label'>Address *</label>
-              <input
-                id='address'
-                type='text'
-                class='form-control'
-                placeholder=''
-              />
-              <span class='form-message'></span>
-            </div>
-          </div>
-          <div class='col-12'>
-            <div class='form-group'>
-              <label class='form-label'>Email * (Can be edited in profile)</label>
-              <input
-                id='email'
-                type='text'
-                class='form-control disabled'
-                placeholder='dinhquytrieu1010@gmail.com'
-              />
-
-            </div>
-          </div>
-          <div class='col-12'>
-            <div class='form-group'>
-              <label class='form-label'>Phone number * (Can be edited in profile)</label>
-              <input
-                id='phone'
-                type='text'
-                class='form-control disabled'
-                placeholder='090 1234 567'
-              />
-
-            </div>
-          </div>
-          <div class='col-md-6'>
-            <div class='form-group'>
-              <label class='form-label'>Payments</label>
-              <select id='payments' class='form-select'>
-                <option selected>Cash On Delivery (COD)</option>
-                <option>Internet Banking</option>
-                <option>E-wallet</option>
-              </select>
-              <span class='form-message'></span>
-            </div>
-          </div>
-          <div class='col-md-6'>
-            <label class='form-label'>Bank *</label>
-            <select id='inputState' class='form-select'>
-              <option selected>Agribank</option>
-              <option>Vietcombank</option>
-              <option>BIDV</option>
-            </select>
-          </div>
-          {{!-- <div class='col-12'>
-            <div class='form-group'>
-              <div class='form-check'>
-                <input
-                  class='form-check-input'
-                  type='checkbox'
-                  value=''
-                  id='flexCheckDefault'
-                />
-                <label class='form-check-label' for='flexCheckDefault'>
-                  Committed to the terms
-                </label>
-              </div>
-              <span class='form-message'></span>
-            </div>
-          </div> --}}
-          {{!-- <div class='col-md-6'></div>
-          <div class='col-md-6 display_end'>
-            <button class='form-submit btn btn-outline-primary half_height'>SIGN
-              UP</button>
-
-            
-          </div> --}}
-          
-          <div class='col-12 register'>
-            <button class="form-submit btn btn-outline-secondary">REGISTER</button>
->>>>>>> binh
           </div>
         </form>
       </div>

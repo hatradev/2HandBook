@@ -11,32 +11,32 @@ function route(app) {
     res.render('test', { showHeader: true, showFooter: true });
   });
 
-  app.get('/profile', (req, res) => {
-    res.render('profile_updating', { showHeader: true, showFooter: true });
-  });
+  // app.get('/profile', (req, res) => {
+  //   res.render('profile_updating', { showHeader: true, showFooter: true });
+  // });
 
-  app.get('/becomeseller', (req, res) => {
-    res.render('become_seller', { showHeader: true, showFooter: true });
-  });
+  // app.get('/becomeseller', (req, res) => {
+  //   res.render('become_seller', { showHeader: true, showFooter: true });
+  // });
 
-  app.get('/myorderdelivery', (req, res) => {
-    res.render('my_order_inDelivery', { showHeader: true, showFooter: true });
-  });
+  // app.get('/myorderdelivery', (req, res) => {
+  //   res.render('my_order_inDelivery', { showHeader: true, showFooter: true });
+  // });
 
-  app.get('/myorderconfirmation', (req, res) => {
-    res.render('my_order_inConfirmation', {
-      showHeader: true,
-      showFooter: true,
-    });
-  });
+  // app.get('/myorderconfirmation', (req, res) => {
+  //   res.render('my_order_inConfirmation', {
+  //     showHeader: true,
+  //     showFooter: true,
+  //   });
+  // });
 
-  app.get('/myordercanceled', (req, res) => {
-    res.render('my_order_canceled', { showHeader: true, showFooter: true });
-  });
+  // app.get('/myordercancelled', (req, res) => {
+  //   res.render('my_order_canceled', { showHeader: true, showFooter: true });
+  // });
 
-  app.get('/myorder', (req, res) => {
-    res.render('my_order', { showHeader: true, showFooter: true });
-  });
+  // app.get('/myorder', (req, res) => {
+  //   res.render('my_order', { showHeader: true, showFooter: true });
+  // });
 
   app.get('/all-product', (req, res) => {
     res.render('all-product', {
