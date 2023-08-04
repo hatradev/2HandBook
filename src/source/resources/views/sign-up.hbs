@@ -95,6 +95,11 @@
     <input class='su-button' type='submit' />
     <p id='accept-error-msg' class='error-message'></p>
   </form>
+  {{#if registerMessage}}
+    <p class='alert alert-warning'>
+      {{{registerMessage}}}
+    </p>
+  {{/if}}
 </div>
 
 <script src='/js/sign-up.js'></script>

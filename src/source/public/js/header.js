@@ -12,9 +12,6 @@ searchInput.addEventListener('blur', function () {
   searchInput.placeholder = 'Search...';
 });
 
-// User logged in
-// btnLogin.parentElement.classList.add('logged-in');
-
 // User has some new notifications
 announceBtn.classList.add('has-noti');
 

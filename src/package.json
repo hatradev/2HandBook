@@ -21,9 +21,6 @@
   },
   "homepage": "https://github.com/IntroSE-21CLC10-Group04/IntroSE-21CLC10-Group04#readme",
   "dependencies": {
-    "@babel/core": "7.15.5",
-    "@babel/node": "7.15.4",
-    "@babel/preset-env": "7.15.6",
     "bcrypt": "^5.1.0",
     "body-parser": "1.19.0",
     "connect-flash": "^0.1.1",

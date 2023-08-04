@@ -28,13 +28,15 @@ passport.use(
       passReqToCallback: true, // Cho phep truyen req vao call
     },
     async (req, email, password, done) => {
+      console.log(req.user, email, password, done);
       if (email) {
         email = email.toLowerCase(); // Chuyen email thanh ki tu thuong
       }
       try {
         if (!req.user) {
           // User chua dang nhap
-          let user = await Account.findOne({ email });
+          let user = await Account.findOne({ email: email }).exec();
+          console.log(user);
           if (!user) {
             // Neu email chua ton tai
             return done(
@@ -43,7 +45,8 @@ passport.use(
               req.flash('loginMessage', 'Email does not exist!')
             );
           }
-          if (bcrypt.compareSync(password, user.password)) {
+          // if (bcrypt.compareSync(password, user.password)) {
+          if (password != user.password) {
             // Sai mat khau
             return done(
               null,
@@ -51,16 +54,64 @@ passport.use(
               req.flash('loginMessage', 'Invalid username or password')
             );
           }
+          console.log('Mat khau OK');
           // Cho phep dang nhap
           return done(null, user);
         }
         // Bo qua dang nhap
-        done(null, req.user);
+        return done(null, req.user);
       } catch (error) {
-        done(error);
+        console.log('Something goes wrong!!');
+        return done(error);
       }
     }
   )
 );
+
+// Hàm đăng kí tài khoản
+// passport.use(
+//   'local-register',
+//   new LocalStrategy(
+//     {
+//       usernameField: 'email',
+//       passwordField: 'password',
+//       passReqToCallback: true,
+//     },
+//     async (req, email, password, done) => {
+//       if (email) {
+//         email = email.toLowerCase();
+//       }
+//       if (req.user) {
+//         // Nếu người dùng đã đăng nhập, bỏ qua
+//         return done(null, req.user);
+//       }
+//       try {
+//         let user = await Account.findOne({ email });
+//         if (user) {
+//           // Nếu email đã tồn tại
+//           return done(
+//             null,
+//             false,
+//             req.flash('registerMessage', 'Email is already taken!')
+//           );
+//         }
+//         let formData = req.body;
+//         formData.password = bcrypt.hashSync(password, bcrypt.genSaltSync(8));
+//         user = await Account(formData);
+//         user.save();
+//         done(
+//           null,
+//           false,
+//           req.flash(
+//             'registerMessage',
+//             'You have registered successfully. Please login'
+//           )
+//         );
+//       } catch (error) {
+//         done(error);
+//       }
+//     }
+//   )
+// );
 
 module.exports = passport;

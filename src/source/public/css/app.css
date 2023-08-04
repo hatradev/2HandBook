@@ -106,7 +106,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
     position: relative; }
   .header .announce-icon {
     font-size: 2.4rem;
-    display: none;
+    display: block;
     margin-right: 4rem;
     position: relative; }
     .header .announce-icon.has-noti::after {
@@ -118,8 +118,6 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
       height: 1rem;
       background-color: #ff7971;
       border-radius: 50%; }
-  .header .announce-icon.noti-open + .announce-list {
-    display: flex; }
   .header .announce-list {
     display: none;
     flex-direction: column;
@@ -161,8 +159,10 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
     .header .announce-list .announce-date {
       font-size: 1.4rem;
       text-align: end; }
+  .header .announce-icon.noti-open + .announce-list {
+    display: flex; }
   .header .user-profile-btn {
-    display: none;
+    display: flex;
     align-items: center;
     font-size: 2rem;
     color: #fff;
@@ -170,13 +170,6 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
     .header .user-profile-btn .user-avatar {
       font-size: 3rem;
       margin-right: 1rem; }
-  .header .logged-in .btn-log-in,
-  .header .logged-in .btn-sign-up {
-    display: none; }
-  .header .logged-in .announce-icon {
-    display: block; }
-  .header .logged-in .user-profile-btn {
-    display: flex; }
 
 .search-bar {
   position: relative; }

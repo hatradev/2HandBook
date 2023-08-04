@@ -6,11 +6,15 @@ const connectLiveReload = require('connect-livereload');
 const bodyParser = require('body-parser');
 const route = require('../routes/index.route');
 const session = require('express-session');
-const passport = require('../middleware/passport');
 const flash = require('connect-flash');
+const passport = require('../middleware/passport');
 const redisStore = require('connect-redis').default;
-const createClient = require('redis');
-const redisClient = new Redis();
+const { createClient } = require('redis');
+const redisClient = createClient({
+  url: 'redis://127.0.0.1:6379',
+});
+
+redisClient.connect().catch(console.error);
 
 const liveReloadServer = livereload.createServer();
 const app = express();
@@ -40,11 +44,12 @@ app.set('views', path.join(__dirname, 'resources/views'));
 app.use(
   session({
     secret: 'S3cret',
+    store: new redisStore({ client: redisClient }),
     resave: false,
     saveUninitialized: false,
     cookie: {
       httpOnly: true,
-      maxAge: 20 * 60 * 1000, // 20phut
+      maxAge: 1 * 60 * 1000, // 1phut
     },
   })
 );
@@ -58,7 +63,8 @@ app.use(flash());
 
 // Middleware khoi tao
 app.use((req, res, next) => {
-  res.locals.isLoggedIn = req.isAuthenticated();
+  res.locals.isLoggedIn = req.isAuthenticated(); // Check nguoi dung dang nhap hay chua
+  next();
 });
 
 // ROUTES INIT

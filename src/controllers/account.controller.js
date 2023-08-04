@@ -1,4 +1,5 @@
 const Account = require('../models/account.model');
+const passport = require('passport');
 const {
   mutipleMongooseToObject,
   mongooseToObject,
@@ -7,10 +8,7 @@ class productController {
   // [GET] account/sign-up
   showSignUp = async (req, res, next) => {
     try {
-      res.render('sign-up', {
-        showHeader: true,
-        showFooter: true,
-      });
+      res.render('sign-up');
     } catch (err) {
       next(err);
     }
@@ -20,11 +18,9 @@ class productController {
   signUp = async (req, res, next) => {
     try {
       const formData = req.body;
-      const account = Account(formData);
+      const account = await Account(formData);
       account.save();
       res.render('sign-in', {
-        showHeader: true,
-        showFooter: true,
         successMessage: true,
       });
     } catch (err) {
@@ -36,8 +32,7 @@ class productController {
   showSignIn = async (req, res, next) => {
     try {
       res.render('sign-in', {
-        showHeader: true,
-        showFooter: true,
+        loginMessage: req.flash('loginMessage'),
       });
     } catch (err) {
       next(err);
@@ -46,14 +41,23 @@ class productController {
 
   // [GET] account/sign-in
   signIn = async (req, res, next) => {
-    try {
-      res.render('sign-in', {
-        showHeader: true,
-        showFooter: true,
+    let keepSignedIn = req.body.keepSignedIn;
+    // console.log(req.body.email);
+    passport.authenticate('local-login', (error, user) => {
+      if (error) {
+        return next(error);
+      }
+      if (!user) {
+        return res.redirect('/account/sign-in');
+      }
+      req.logIn(user, (error) => {
+        if (error) {
+          return next(error);
+        }
+        req.session.cookie.maxAge = keepSignedIn ? 24 * 60 * 60 * 1000 : null;
+        return res.redirect('/');
       });
-    } catch (err) {
-      next(err);
-    }
+    })(req, res, next);
   };
 }
 
