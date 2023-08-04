@@ -13,11 +13,12 @@ searchInput.addEventListener('blur', function () {
 });
 
 // User logged in
-btnLogin.parentElement.classList.add('logged-in');
+// btnLogin.parentElement.classList.add('logged-in');
 
 // User has some new notifications
 announceBtn.classList.add('has-noti');
-console.log(announceList);
+
+// Open and close notification button
 announceBtn.addEventListener('click', () => {
-  announceBtn.classList.toggle('noti-active');
+  announceBtn.classList.toggle('noti-open');
 });
