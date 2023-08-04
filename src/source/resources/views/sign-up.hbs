@@ -69,6 +69,7 @@
         name='password'
         required
       /><br />
+      <p id='password-valid'></p>
     </div>
 
     <div class='su-info-input'>
@@ -96,7 +97,7 @@
     <p id='accept-error-msg' class='error-message'></p>
   </form>
   {{#if registerMessage}}
-    <p class='alert alert-warning'>
+    <p class='alert alert-warning mt-5 text-center'>
       {{{registerMessage}}}
     </p>
   {{/if}}

@@ -11,6 +11,7 @@ const acceptErrorMsg = document.getElementById('accept-error-msg');
 const emailInput = document.getElementById('email');
 const emailErrorMsg = document.getElementById('email-error-msg');
 const requiredFields = document.querySelectorAll('input[required]');
+const pwdValid = document.querySelector('#password-valid');
 
 function removeRequiredMessage() {
   requiredFields.forEach((field) => {
@@ -65,6 +66,19 @@ function checkDateOfBirth() {
   }
 }
 
+function checkPassword() {
+  var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+  if (!re.test(passwordInput.value)) {
+    pwdValid.textContent =
+      'Password must have at least 6 letter password, with at least a symbol, upper and lower case letters and a number';
+    passwordMatchMsg.style.color = 'red';
+    return false;
+  } else {
+    pwdValid.textContent = '';
+    return true;
+  }
+}
+
 function checkPasswordMatch() {
   const passwordValue = passwordInput.value;
   const confirmPwdValue = confirmPwdInput.value;
@@ -72,15 +86,17 @@ function checkPasswordMatch() {
   if (passwordValue === confirmPwdValue) {
     passwordMatchMsg.textContent = 'Passwords match.';
     passwordMatchMsg.style.color = 'green';
+    return true;
   } else {
     passwordMatchMsg.textContent = 'Passwords do not match.';
     passwordMatchMsg.style.color = 'red';
+    return false;
   }
 }
 
 function checkAcceptCheckbox(event) {
   event.preventDefault();
-  if (validateRequiredForm()) {
+  if (validateRequiredForm() && checkPassword() && checkPasswordMatch()) {
     if (!acceptCheckbox.checked) {
       acceptErrorMsg.textContent =
         'Please read and agree to the Terms and Conditions.';
@@ -100,6 +116,7 @@ phoneInput.addEventListener('input', () => {
 
 dobInput.addEventListener('input', checkDateOfBirth);
 emailInput.addEventListener('input', checkEmailValidity);
+passwordInput.addEventListener('input', checkPassword);
 confirmPwdInput.addEventListener('input', checkPasswordMatch);
 signUpButton.addEventListener('click', checkAcceptCheckbox);
 removeRequiredMessage();

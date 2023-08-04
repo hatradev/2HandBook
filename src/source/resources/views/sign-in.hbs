@@ -40,15 +40,15 @@
       </div>
 
       <div class='si-buttons'>
-        {{! <button class='si-button' type='submit'>Sign in</button> }}
-        <input class='si-button' type='submit' />
+        <button class='si-button' type='submit'>Sign in</button>
         <a class='si-button' href='/account/sign-up'>Sign up</a>
       </div>
 
       <a class='si-forget-pass' href='#'>Reset password</a>
+      {{!-- <input type="hidden" name="reqUrl" value="{{reqUrl}}"> --}}
     </form>
     {{#if loginMessage}}
-      <p class='alert alert-warning mt-5'>{{loginMessage}}</p>
+      <p class='alert alert-warning mt-5'>{{{loginMessage}}}</p>
     {{/if}}
   </section>
 </section>
