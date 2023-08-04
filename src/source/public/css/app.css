@@ -1262,6 +1262,8 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
             width: 70%;
             vertical-align: middle;
             object-fit: cover; }
+      .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order .message {
+        font-family: Inter; }
     .sales-page .manage-order .modal.product-details .modal-dialog .modal-footer button {
       width: 10rem;
       height: 4rem;
