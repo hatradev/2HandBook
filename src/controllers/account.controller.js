@@ -5,7 +5,7 @@ const {
 } = require('../utils/mongoose');
 class productController {
   // [GET] account/sign-up
-  getSignUp = async (req, res, next) => {
+  showSignUp = async (req, res, next) => {
     try {
       res.render('sign-up', {
         showHeader: true,
@@ -16,8 +16,24 @@ class productController {
     }
   };
 
+  // [POST] account/sign-up
+  signUp = async (req, res, next) => {
+    try {
+      const formData = req.body;
+      const account = Account(formData);
+      account.save();
+      res.render('sign-in', {
+        showHeader: true,
+        showFooter: true,
+        successMessage: true,
+      });
+    } catch (err) {
+      next(err);
+    }
+  };
+
   // [GET] account/sign-in
-  getSignIn = async (req, res, next) => {
+  showSignIn = async (req, res, next) => {
     try {
       res.render('sign-in', {
         showHeader: true,
@@ -28,16 +44,12 @@ class productController {
     }
   };
 
-  // [POST] account/sign-in
-  saveAccount = async (req, res, next) => {
+  // [GET] account/sign-in
+  signIn = async (req, res, next) => {
     try {
-      const formData = req.body;
-      const account = Account(formData);
-      account.save();
       res.render('sign-in', {
         showHeader: true,
         showFooter: true,
-        successMessage: true,
       });
     } catch (err) {
       next(err);

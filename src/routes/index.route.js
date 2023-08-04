@@ -4,11 +4,20 @@ const accountRouter = require('./account.route');
 
 function route(app) {
   app.use('/', siteRouter);
-  app.use('/product', productRouter);
   app.use('/account', accountRouter);
-  app.get('/test', (req, res) => {
-    res.render('test', { showHeader: true, showFooter: true });
+  app.use('/product', productRouter);
+  app.use((req, res, next) => {
+    res.status(404).render('error', {
+      showHeader: true,
+      showFooter: true,
+      message: 'File not Found!',
+    });
   });
+  app.use((error, req, res, next) => {
+    console.error(error);
+    res.status(500).render('error', 'Internal Server Error!');
+  });
+  // ======================
 
   app.get('/profile', (req, res) => {
     res.render('profile_updating', { showHeader: true, showFooter: true });
