@@ -1,3 +1,4 @@
+const createError = require('http-errors');
 const Account = require('../models/account.model');
 const {
   mutipleMongooseToObject,
@@ -28,17 +29,30 @@ class productController {
     }
   };
 
-  // [POST] account/sign-in
-  saveAccount = async (req, res, next) => {
+  // [POST] account/sign-up
+  signUp = async (req, res, next) => {
     try {
       const formData = req.body;
+      const isExists = await Account.findOne({ email: formData.email });
+      if (isExists) {
+        throw createError.Conflict(`This email already exists`);
+      }
       const account = Account(formData);
       account.save();
-      res.render('sign-in', {
-        showHeader: true,
-        showFooter: true,
-        successMessage: true,
-      });
+      res.redirect('/account/sign-in');
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  // [POST] account/sign-in
+  signIn = async (req, res, next) => {
+    try {
+      // res.render('sign-in', {
+      //   showHeader: true,
+      //   showFooter: true,
+      //   successMessage: true,
+      // });
     } catch (err) {
       next(err);
     }
