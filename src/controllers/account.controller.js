@@ -10,6 +10,9 @@ class productController {
   // [GET] account/sign-up
   showSignUp = async (req, res, next) => {
     try {
+      if (req.isAuthenticated()) {
+        return res.redirect('/account/profile');
+      }
       res.render('sign-up', {
         registerMessage: req.flash('registerMessage'),
         reqUrl: req.query.reqUrl,
