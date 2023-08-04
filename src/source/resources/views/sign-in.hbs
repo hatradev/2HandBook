@@ -2,27 +2,39 @@
   <section class='sign-in'>
     <h2 class='si-header'>SIGN IN</h2>
 
-    <form method='GET' class='si-form' action='#'>
+    <form method='POST' class='si-form' action='/account/sign-in'>
       <div class='si-info-input'>
         <label class='si-info' for='email'>Email</label>
         <br />
-        <input class='si-input' type='email' id='email' name='email' /><br />
+        <input
+          class='si-input'
+          type='email'
+          id='email'
+          name='email'
+          required
+        /><br />
       </div>
       <div class='si-info-input'>
-        <label class='si-info' for='pwd'>Password</label>
+        <label class='si-info' for='password'>Password</label>
         <br />
 
-        <input class='si-input' type='password' id='pwd' name='pwd' /><br />
+        <input
+          class='si-input'
+          type='password'
+          id='password'
+          name='password'
+          required
+        /><br />
 
         <div class='si-remem-pass'>
           <input
             class='si-rmpass-checkbox'
             type='checkbox'
-            id='remem-pass'
-            name='remem-pass'
+            id='keepSignedIn'
+            name='keepSignedIn'
             value='Remember password'
           />
-          <label class='si-rmpass-text' for='remem-pass'>Remember password</label><br
+          <label class='si-rmpass-text' for='keepSignedIn'>Remember password</label><br
           />
         </div>
       </div>
@@ -33,10 +45,10 @@
       </div>
 
       <a class='si-forget-pass' href='#'>Reset password</a>
+      {{!-- <input type="hidden" name="reqUrl" value="{{reqUrl}}"> --}}
     </form>
-    {{#if successMessage}}
-      <p style='color: green; margin-top: 2rem'>You have successfully signed up,
-        please log in.</p>
+    {{#if loginMessage}}
+      <p class='alert alert-warning mt-5'>{{{loginMessage}}}</p>
     {{/if}}
   </section>
 </section>

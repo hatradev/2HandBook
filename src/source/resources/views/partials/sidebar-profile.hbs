@@ -1,54 +1,61 @@
 <div class='col-3'>
-    <div class='avatar'>
-        <div class='avatar-left'>
-            <i class='fa-solid fa-user'></i>
-        </div>
+  <div class='avatar'>
+    <div class='avatar-left'>
+      <i class='fa-solid fa-user'></i>
+    </div>
 
-        <div class='avatar-right'>
-            <div class='info-avatar'>
-                <span class='avatar-name'>Dinh Quy Trieu</span>
-                <span class='avatar-mail mail'>trieudinh@gmail.com</span>
-            </div>
-            <div class='signup-btn'>
-                {{!-- <button type='button' class='btn btn-outline-primary'>SIGN OUT</button> --}}
-                <button type="button" class="btn btn-outline-secondary">SIGN OUT</button>
-            </div>
-        </div>
+    <div class='avatar-right'>
+      <div class='info-avatar'>
+        <span class='avatar-name'>Dinh Quy Trieu</span>
+        <span class='avatar-mail mail'>trieudinh@gmail.com</span>
+      </div>
+      <div class='signup-btn'>
+        {{! <button type='button' class='btn btn-outline-primary'>SIGN OUT</button> }}
+        <button
+          type='button'
+          class='btn btn-outline-secondary'
+          onclick="window.location.href='/account/sign-out';"
+        >SIGN OUT</button>
+      </div>
     </div>
-    <div class='my-account'>
-        <a href='http://localhost:3000/profile'>
-            <button type='button' class='btn btn-outline-secondary js-sidebar-btn bg-blue'>
-                <i class='fa-solid fa-pen-to-square color-white'></i>
-                <span class='page-link color-white'>My account</span>
-            </button>
-        </a>
-    </div>
-    <div class='my-order'>
-        <a href='http://localhost:3000/myorder'>
-            <button type='button' class='btn btn-outline-secondary js-sidebar-btn'>
-                <i class='fa-solid fa-cart-shopping'></i>
-                <span class='page-link'>My order</span>
-            </button>
-        </a>
-        {{!-- <button type='button' class='btn btn-outline-secondary'>
+  </div>
+  <div class='my-account'>
+    <a href='http://localhost:3000/profile'>
+      <button
+        type='button'
+        class='btn btn-outline-secondary js-sidebar-btn bg-blue'
+      >
+        <i class='fa-solid fa-pen-to-square color-white'></i>
+        <span class='page-link color-white'>My account</span>
+      </button>
+    </a>
+  </div>
+  <div class='my-order'>
+    <a href='http://localhost:3000/myorder'>
+      <button type='button' class='btn btn-outline-secondary js-sidebar-btn'>
+        <i class='fa-solid fa-cart-shopping'></i>
+        <span class='page-link'>My order</span>
+      </button>
+    </a>
+    {{! <button type='button' class='btn btn-outline-secondary'>
             <i class='fa-solid fa-cart-shopping'></i>
             <a class='page-link' href='http://localhost:3000/myorder'>My order</a>
-        </button> --}}
-    </div>
-    <div class='become-seller'>
-        <a href='http://localhost:3000/becomeseller'>
-            <button type='button' class='btn btn-outline-secondary js-sidebar-btn'>
-                <i class='fa-solid fa-user'></i>
-                <span class='page-link'>Become seller</span>
-            </button>
-        </a>
-        {{!-- <button type='button' class='btn btn-outline-secondary'>
+        </button> }}
+  </div>
+  <div class='become-seller'>
+    <a href='http://localhost:3000/becomeseller'>
+      <button type='button' class='btn btn-outline-secondary js-sidebar-btn'>
+        <i class='fa-solid fa-user'></i>
+        <span class='page-link'>Become seller</span>
+      </button>
+    </a>
+    {{! <button type='button' class='btn btn-outline-secondary'>
             <i class='fa-solid fa-user'></i>
             <a class='page-link' href='http://localhost:3000/becomeseller'>Become
                 seller</a>
-        </button> --}}
-    </div>
-    <div class='remain'></div>
+        </button> }}
+  </div>
+  <div class='remain'></div>
 </div>
 
-<script src="/js/sidebar-profile.js"></script>
+<script src='/js/sidebar-profile.js'></script>

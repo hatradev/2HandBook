@@ -30,7 +30,7 @@
 
   .announce-icon {
     font-size: 2.4rem;
-    display: none;
+    display: block;
     margin-right: 4rem;
     position: relative;
     &.has-noti::after {
@@ -39,10 +39,6 @@
       @include box(1rem, 1rem, #ff7971);
       border-radius: 50%;
     }
-  }
-
-  .announce-icon.noti-open + .announce-list {
-    display: flex;
   }
 
   .announce-list {
@@ -91,26 +87,17 @@
     }
   }
 
+  .announce-icon.noti-open + .announce-list {
+    display: flex;
+  }
+
   .user-profile-btn {
-    display: none;
+    display: flex;
     align-items: center;
     @include font(2rem, 600, $color-white);
     .user-avatar {
       font-size: 3rem;
       margin-right: 1rem;
-    }
-  }
-
-  .logged-in {
-    .btn-log-in,
-    .btn-sign-up {
-      display: none;
-    }
-    .announce-icon {
-      display: block;
-    }
-    .user-profile-btn {
-      display: flex;
     }
   }
 }
