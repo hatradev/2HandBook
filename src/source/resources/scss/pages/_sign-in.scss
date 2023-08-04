@@ -1,0 +1,94 @@
+.si-button {
+    font-size: 1.8rem;
+    font-weight: 500;
+    border-radius: 0.5rem;
+    background-color: var(--dark-blue);
+    padding: 0.5rem 0rem;
+    transition: all 0.3s;
+    text-align: center;
+    width: calc(50%);
+    color: white;
+    margin-right: 3rem;
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 0.1rem solid black;
+
+    &:hover {
+        background-color: var(--light-blue);
+        color: black;
+    }
+}
+.si-button:last-child {
+    margin-right: 0;
+}
+
+.sign-in {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 21rem;
+    margin-bottom: 7rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1.8rem;
+
+    .si-header {
+        text-align: center;
+        font-weight: 600;
+        font-size: 5rem;
+        padding-bottom: 3rem;
+    }
+
+    .si-form {
+        background-color: var(--grey);
+        width: calc(35%);
+        padding-left: 6rem;
+        padding-right: 6rem;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+
+        .si-info-input {
+            .si-info {
+                font-weight: 500;
+                font-size: 2rem;
+            }
+        
+            .si-input {
+                width: calc(100%);
+                height: 3.5rem;
+                font-size: 2rem;
+                color: var(--input-text);
+                padding-left: 0.7rem;
+
+                border: 0.1rem solid black;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                border-radius: 0.4rem;
+            }
+
+            .si-remem-pass {
+                .si-rmpass-checkbox {
+                    margin-right: 0.5rem;
+                }
+            }
+        }
+        .si-info-input > *:not(:last-child) {
+            margin-bottom: 0.75rem;
+        }
+
+        .si-buttons {
+            display: flex;
+            justify-content: center;
+        }
+
+        .si-forget-pass {
+            color: var(--dark-blue);
+            text-decoration: underline;
+        }
+    }
+    .si-form > *:not(:last-child) {
+        margin-bottom: 2.5rem;
+    }
+}

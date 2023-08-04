@@ -1,154 +1,157 @@
-<div class='account-profile-header'>
-  <div class='container-fluid'>
-    <a class='navbar-brand' href='#'>
-      ACCOUNT PROFILE
-    </a>
-  </div>
-</div>
+<div class="container">
 
-<div class='account-profile-main'>
-  <div class='row'>
-    <div class='col-4'>
-      <div class='avatar'>
-        <div class='avatar-left'>
-          <i class='fa-solid fa-user'></i>
-        </div>
+  {{!-- <div class='account-profile-header'>
+    <div class='container-fluid'>
+      <a class='navbar-brand' href='#'>
+        ACCOUNT PROFILE
+      </a>
+    </div>
+  </div> --}}
 
-        <div class='avatar-right'>
-          <div class='info-avatar'>
-            <span class='avatar-name'>Dinh Quy Trieu</span>
-            <span class='avatar-mail mail'>trieudinh@gmail.com</span>
-          </div>
-          <div class='signup-btn'>
-            {{!-- <button type='button' class='btn btn-outline-primary'>SIGN OUT</button> --}}
-            <button type="button" class="btn btn-outline-secondary">SIGN OUT</button>
-          </div>
-        </div>
-      </div>
-      <div class='my-account'>
-        <a href='http://localhost:3000/profile'>
-          <button type='button' class='btn btn-outline-secondary bg-blue'>
-            <i class='fa-solid fa-pen-to-square color-white'></i>
-            <span class='page-link color-white'>My account</span>
-          </button>
-        </a>
-      </div>
-      <div class='my-order'>
-        <a href='http://localhost:3000/myorder'>
-          <button type='button' class='btn btn-outline-secondary'>
-            <i class='fa-solid fa-cart-shopping'></i>
-            <span class='page-link'>My order</span>
-          </button>
-        </a>
-        {{!-- <button type='button' class='btn btn-outline-secondary'>
-          <i class='fa-solid fa-cart-shopping'></i>
-          <a class='page-link' href='http://localhost:3000/myorder'>My order</a>
-        </button> --}}
-      </div>
-      <div class='become-seller'>
-        <a href='http://localhost:3000/becomeseller'>
-          <button type='button' class='btn btn-outline-secondary'>
+  <div class='account-profile-main container-fluid'>
+    <div class='row'>
+      {{!-- {{>sidebar-profile}} --}}
+      <div class='col-3'>
+        <div class='avatar'>
+          <div class='avatar-left'>
             <i class='fa-solid fa-user'></i>
-            <span class='page-link'>Become seller</span>
-          </button>
-        </a>
-        {{!-- <button type='button' class='btn btn-outline-secondary'>
-          <i class='fa-solid fa-user'></i>
-          <a class='page-link' href='http://localhost:3000/becomeseller'>Become
-            seller</a>
-        </button> --}}
+          </div>
+      
+          <div class='avatar-right'>
+            <div class='info-avatar'>
+              <span class='avatar-name'>Dinh Quy Trieu</span>
+              <span class='avatar-mail mail'>trieudinh@gmail.com</span>
+            </div>
+            <div class='signup-btn'>
+              {{!-- <button type='button' class='btn btn-outline-primary'>SIGN OUT</button> --}}
+              <button type="button" class="btn btn-outline-secondary">SIGN OUT</button>
+            </div>
+          </div>
+        </div>
+        <div class='my-account'>
+          <a href='http://localhost:3000/profile'>
+            <button type='button' class='btn btn-outline-secondary bg-blue'>
+              <i class='fa-solid fa-pen-to-square color-white'></i>
+              <span class='page-link color-white'>My account</span>
+            </button>
+          </a>
+        </div>
+        <div class='my-order'>
+          <a href='http://localhost:3000/myorder'>
+            <button type='button' class='btn btn-outline-secondary'>
+              <i class='fa-solid fa-cart-shopping'></i>
+              <span class='page-link'>My order</span>
+            </button>
+          </a>
+          {{!-- <button type='button' class='btn btn-outline-secondary'>
+            <i class='fa-solid fa-cart-shopping'></i>
+            <a class='page-link' href='http://localhost:3000/myorder'>My order</a>
+          </button> --}}
+        </div>
+        <div class='become-seller'>
+          <a href='http://localhost:3000/becomeseller'>
+            <button type='button' class='btn btn-outline-secondary'>
+              <i class='fa-solid fa-user'></i>
+              <span class='page-link'>Become seller</span>
+            </button>
+          </a>
+          {{!-- <button type='button' class='btn btn-outline-secondary'>
+            <i class='fa-solid fa-user'></i>
+            <a class='page-link' href='http://localhost:3000/becomeseller'>Become
+              seller</a>
+          </button> --}}
+        </div>
+        <div class='remain'></div>
       </div>
-      <div class='remain'></div>
-    </div>
-    <div class='col-8'>
-      <form class='row g-3' id='form-1'>
-        <div class='col-md-6'>
-          <div class='form-group'>
-            <label class='form-label'>First name*</label>
-            <input id='first_name' type='text' class='form-control' />
-            <span class='form-message'></span>
+      <div class='col-9'>
+        <form class='row g-3' id='form-1'>
+          <div class='col-md-6'>
+            <div class='form-group'>
+              <label class='form-label fw-bold'>First name*</label>
+              <input id='first_name' type='text' class='form-control input-size shadow' />
+              <span class='form-message'></span>
+            </div>
           </div>
-        </div>
-        <div class='col-md-6'>
+          <div class='col-md-6'>
 
-          <div class='form-group'>
-            <label class='form-label'>Last name*</label>
-            <input id='last_name' type='text' class='form-control' />
-            <span class='form-message'></span>
+            <div class='form-group'>
+              <label class='form-label fw-bold'>Last name*</label>
+              <input id='last_name' type='text' class='form-control input-size shadow' />
+              <span class='form-message'></span>
+            </div>
           </div>
-        </div>
-        <div class='col-12'>
-          <div class='form-group'>
-            <label class='form-label'>Display name*</label>
-            <input
-              id='display_name'
-              type='text'
-              class='form-control'
-              placeholder=''
-            />
-            <span class='form-message'></span>
+          <div class='col-12'>
+            <div class='form-group'>
+              <label class='form-label fw-bold'>Display name*</label>
+              <input
+                id='display_name'
+                type='text'
+                class='form-control input-size shadow'
+                placeholder=''
+              />
+              <span class='form-message'></span>
+            </div>
           </div>
-        </div>
-        <div class='col-12'>
-          <div class='form-group'>
-            <label class='form-label'>Email*</label>
-            <input id='email' type='text' class='form-control' placeholder='' />
-            <span class='form-message'></span>
+          <div class='col-12'>
+            <div class='form-group'>
+              <label class='form-label fw-bold'>Email*</label>
+              <input id='email' type='text' class='form-control input-size shadow' placeholder='' />
+              <span class='form-message'></span>
+            </div>
           </div>
-        </div>
-        <div class='col-md-6'>
-          <div class='form-group'>
-            <label class='form-label'>Phone number*</label>
-            <input id='phone_number' type='text' class='form-control' />
-            <span class='form-message'></span>
+          <div class='col-md-6'>
+            <div class='form-group'>
+              <label class='form-label fw-bold'>Phone number*</label>
+              <input id='phone_number' type='text' class='form-control input-size shadow' />
+              <span class='form-message'></span>
+            </div>
           </div>
-        </div>
-        <div class='col-md-6'>
-          <label class='form-label'>City/Province</label>
-          <select id='inputState' class='form-select'>
-            <option selected>Choose</option>
-            <option>TP HCM</option>
-            <option>HA NOI</option>
-            <option>DA NANG</option>
-            <option>...</option>
-          </select>
-        </div>
-        <div class='col-12 change-password'>
-          <h3>CHANGE PASSWORD</h3>
-        </div>
-        <div class='col-12'>
-          <div class='form-group'>
-            <label class='form-label'>Present password*</label>
-            <input
-              id='display_name'
-              type='text'
-              class='form-control'
-              placeholder=''
-            />
-            <span class='form-message'></span>
+          <div class='col-md-6'>
+            <label class='form-label fw-bold'>City/Province</label>
+            <select id='inputState' class='form-select input-size shadow'>
+              <option selected>-- Choose --</option>
+              <option>TP HCM</option>
+              <option>HA NOI</option>
+              <option>DA NANG</option>
+              <option>...</option>
+            </select>
           </div>
-        </div>
+          <div class='col-12 change-password fw-bold'>
+            CHANGE PASSWORD
+          </div>
+          <div class='col-12'>
+            <div class='form-group'>
+              <label class='form-label fw-bold'>Present password*</label>
+              <input
+                id='display_name'
+                type='password'
+                class='form-control input-size shadow'
+                placeholder=''
+              />
+              <span class='form-message'></span>
+            </div>
+          </div>
 
-        <div class='col-12'>
-          <div class='form-group'>
-            <label class='form-label'>New password*</label>
-            <input
-              id='display_name'
-              type='text'
-              class='form-control'
-              placeholder=''
-            />
-            <span class='form-message'></span>
+          <div class='col-12'>
+            <div class='form-group'>
+              <label class='form-label fw-bold'>New password*</label>
+              <input
+                id='display_name'
+                type='password'
+                class='form-control input-size shadow'
+                placeholder=''
+              />
+              <span class='form-message'></span>
+            </div>
           </div>
-        </div>
 
-        <div class='col-12 save-changes'>
-          <button type="button" class="btn btn-outline-secondary">SAVE CHANGES</button>
-        </div>
-      </form>
+          <div class='col-12 save-changes'>
+            <button type="button" class="btn btn-outline-secondary shadow">SAVE CHANGES</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>
-
 <script src='/js/profile.js'></script>
 <script src='/js/validation.js'></script>
