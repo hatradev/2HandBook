@@ -1,95 +1,86 @@
 :root {
-    --grey: #F6F6F6;
-    --dark-grey: #dedede;
-    --input-text: #6b6b6b;
-    --dark-blue: #337ab7;
-    --light-blue: #D9EDF7;
+  --grey: #f6f6f6;
+  --dark-grey: #dedede;
+  --input-text: #6b6b6b;
+  --dark-blue: #337ab7;
+  --light-blue: #d9edf7;
 }
 
 .error-message {
-    color: red;
+  color: red;
 }
 
 .sign-up {
-    margin-left: auto;
-    margin-right: auto;
-    // padding-left: 20rem;
-    // padding-right: 20rem;
-    // padding-top: 13.125rem;
-    // padding-bottom: 13.125rem;
-    padding-left: 320px;
-    padding-right: 320px;
-    padding-top: 210px;
-    padding-bottom: 210px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20rem 32rem 10rem 32rem;
 
-    .su-header {
-        font-weight: 600;
-        font-size: 5rem;
+  .su-header {
+    font-weight: 600;
+    font-size: 5rem;
+  }
+
+  .horizontal-line {
+    border: 1px solid #ccc;
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .su-form {
+    border: 0.1rem solid var(--dark-grey);
+    padding: 3.5rem;
+    background-color: var(--grey);
+
+    .su-checkbox {
+      margin-right: 0.5rem;
+    }
+  }
+
+  .su-info-input {
+    margin-bottom: 2rem;
+
+    .su-info {
+      font-weight: 500;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
     }
 
-    .horizontal-line {
-        border: 1px solid #ccc;
-        width: 100%;
-        margin-top: 1rem;
-        margin-bottom: 3rem;
+    .su-input {
+      border: 0.1rem solid var(--dark-grey);
+      width: 100%;
+      height: 3.5rem;
+      font-size: 2rem;
+      color: var(--input-text);
+      padding-left: 0.7rem;
+
+      border-radius: 0.4rem;
     }
+  }
 
-    .su-form {
-        border: 0.1rem solid var(--dark-grey);
-        padding: 3.5rem;
-        background-color: var(--grey);
+  .su-text {
+    font-size: 1.8rem;
+  }
 
-        .su-checkbox {
-            margin-right: 0.5rem;
-        }
+  .su-button {
+    font-size: 2rem;
+    font-weight: 500;
+    border-radius: 0.5rem;
+    padding: 1rem 0rem;
+    transition: all 0.3s;
+    text-align: center;
+    margin-top: 2rem;
+    margin-right: 1rem;
+    background-color: var(--dark-blue);
+    width: calc(33.33%);
+    color: white;
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 0.1rem solid black;
+
+    &:hover {
+      background-color: var(--light-blue);
+      color: black;
     }
-
-    .su-info-input {
-        margin-bottom: 2rem;
-
-        .su-info {
-            font-weight: 500;
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-    
-        .su-input {
-            border: 0.1rem solid var(--dark-grey);
-            width: 100%;
-            height: 3.5rem;
-            font-size: 2rem;
-            color: var(--input-text);
-            padding-left: 0.7rem;
-
-            border-radius: 0.4rem;
-            // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            // border: 0.1rem solid black;
-        }
-    }
-
-    .su-text {
-        font-size: 1.8rem;
-    }
-
-    .su-button {
-        font-size: 2rem;
-        font-weight: 500;
-        border-radius: 0.5rem;
-        padding: 1rem 0rem;
-        transition: all 0.3s;
-        text-align: center;
-        margin-top: 2rem;
-        margin-right: 1rem;
-        background-color: var(--dark-blue);
-        width: calc(33.33%);
-        color: white;
-
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        border: 0.1rem solid black;
-    
-        &:hover {
-            background-color: var(--light-blue);
-            color: black;
-        }
-    }
+  }
 }

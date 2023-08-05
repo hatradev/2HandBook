@@ -1,14 +1,35 @@
 [
   {
-    "name": "Sach ky thuat lap trinh",
+    "name": "Sách kỹ thuật lập trình",
     "price": 65000,
-    "description”": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat corrupti quis tempore nesciunt! Necessitatibus non deserunt facere dicta rerum dignissimos aspernatur quod tenetur, maxime deleniti quidem nobis, eos et fugit?",
+    "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat corrupti quis tempore nesciunt! Necessitatibus non deserunt facere dicta rerum dignissimos aspernatur quod tenetur, maxime deleniti quidem nobis, eos et fugit?",
     "stock": 4,
-    "category”": "Book",
+    "category": "Document",
     "image": "link/img",
-    "views": 120,
-    "status”": "",
+    "status": "Available",
     "isTrend": 0,
-    "keyword": ""
+    "keyword": ["Sách công nghệ thông tin", "Sách lập trình"]
+  },
+  {
+    "name": "Đồng phục thể dục",
+    "price": 55000,
+    "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat corrupti quis tempore nesciunt! Necessitatibus non deserunt facere dicta rerum dignissimos aspernatur quod tenetur, maxime deleniti quidem nobis, eos et fugit?",
+    "stock": 12,
+    "category": "Uniform",
+    "image": "link/img",
+    "status": "Available",
+    "isTrend": 0,
+    "keyword": ["Áo", "Đồng phục"]
+  },
+  {
+    "name": "Máy tính casio 580fx",
+    "price": 700000,
+    "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat corrupti quis tempore nesciunt! Necessitatibus non deserunt facere dicta rerum dignissimos aspernatur quod tenetur, maxime deleniti quidem nobis, eos et fugit?",
+    "stock": 4,
+    "category": "Calculator",
+    "image": "link/img",
+    "status": "Available",
+    "isTrend": 0,
+    "keyword": ["Máy tính", "Casio"]
   }
 ]

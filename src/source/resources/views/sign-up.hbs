@@ -2,47 +2,72 @@
   <h2 class='su-header'>SIGN UP</h2>
   <div class='horizontal-line'></div>
 
-  <form class='su-form' action='#'>
+  <form method='POST' class='su-form' action='/account/sign-up'>
     <div class='su-info-input'>
-      <label class='su-info' for='fname'>First Name</label><br />
-      <input class='su-input' type='fname' id='fname' name='fname' /><br />
+      <label class='su-info' for='firstName'>First Name</label><br />
+      <input
+        class='su-input'
+        type='text'
+        id='firstName'
+        name='firstName'
+        required
+      />
+      <br />
     </div>
 
     <div class='su-info-input'>
-      <label class='su-info' for='lname'>Last Name</label><br />
-      <input class='su-input' type='lname' id='lname' name='lname' /><br />
+      <label class='su-info' for='lastName'>Last Name</label><br />
+      <input
+        class='su-input'
+        type='text'
+        id='lastName'
+        name='lastName'
+        required
+      /><br />
     </div>
 
     <div class='su-info-input'>
       <label class='su-info' for='dob'>Date of Birth</label><br />
-      <input class='su-input' type='date' id='dob' name='dateofbirth' /><br />
+      <input class='su-input' type='date' id='dob' name='dob' required /><br />
       <p id='dob-error-msg' class='error-message'></p>
     </div>
 
     <div class='su-info-input'>
       <label class='su-info' for='phone'>Phone Number</label><br />
-      <input class='su-input' type='text' id='phone' name='phone' /><br /></div>
+      <input class='su-input' type='text' id='phone' name='phone' required /><br
+      /></div>
 
     <div class='su-info-input'><label
         class='su-info'
-        for='addr'
+        for='address'
       >Address</label><br />
-      <input class='su-input' type='addr' id='addr' name='Address' /><br
+      <input class='su-input' type='text' id='address' name='address' /><br
       /></div>
+
+    <div class='su-info-input'><label class='su-info' for='job'>Job</label><br
+      />
+      <input class='su-input' type='text' id='job' name='job' /><br /></div>
 
     <div class='su-info-input'>
       <label class='su-info' for='email'>Email</label><br />
-      <input class='su-input' type='email' id='email' name='email' /><br />
+      <input
+        class='su-input'
+        type='email'
+        id='email'
+        name='email'
+        required
+      /><br />
       <p id='email-error-msg' class='error-message'></p>
     </div>
 
     <div class='su-info-input'>
-      <label class='su-info' for='pwd'>Password</label><br />
+      <label class='su-info' for='password'>Password</label><br />
       <input
         class='su-input'
         type='password'
         id='password'
         name='password'
+        required
       /><br />
     </div>
 
@@ -53,6 +78,7 @@
         type='password'
         id='confirm-pwd'
         name='confirm-pwd'
+        required
       /><br />
       <p id='password-match-msg'></p>
     </div>
@@ -66,9 +92,9 @@
     />
     <label class='su-text' for='accept-sign-up-form'>I have read and agreed to
       Terms and Conditions</label><br />
-    <input class='su-button' type='submit' value='Sign up' />
+    <input class='su-button' type='submit' />
     <p id='accept-error-msg' class='error-message'></p>
   </form>
 </div>
 
-<script src='js/sign-up.js'></script>
+<script src='/js/sign-up.js'></script>

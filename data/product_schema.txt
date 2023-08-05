@@ -1,0 +1,10 @@
+“_id”: default
+“name”: string
+“price”: number
+“description”: string 
+“stock”: number
+“category”: string
+“image”: list of string
+“status”: string (pending | reported | banned)
+“isTrend”: boolean
+“keyword”: list of string

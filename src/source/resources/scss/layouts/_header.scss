@@ -41,7 +41,7 @@
     }
   }
 
-  .announce-icon.noti-active + .announce-list {
+  .announce-icon.noti-open + .announce-list {
     display: flex;
   }
 
@@ -57,11 +57,14 @@
 
     .announce-link {
       display: inline-block;
-      background-color: $color-text-light;
       padding: 0.4rem;
       position: relative;
       border: 0.4rem solid $color-white;
+      border-bottom: 0.1rem solid $color-border;
       padding: 1rem;
+    }
+
+    .announce-link.unread {
       &::before {
         content: '';
         @include box(1.5rem, 1.5rem, $color-primary);
@@ -71,13 +74,14 @@
       &:hover {
         background-color: darken($color: $color-text-light, $amount: 5);
       }
+      background-color: $color-text-light;
     }
+
     .announce-title {
       @include font($font-size-quaternary, 600);
       margin-bottom: 0.5rem;
     }
     .announce-description {
-      // @include font($font-size-secondary);
       font-size: $font-size-secondary;
       margin-bottom: 2.4rem;
     }
@@ -152,3 +156,16 @@
     color: $color-text-dark;
   }
 }
+
+// .header-empty {
+//   .header-empty-item {
+//     &:first-child {
+//       background-color: $color-primary;
+//       height: 7rem;
+//     }
+//     &:nth-child(2) {
+//       background-color: $color-primary-tint;
+//       height: 7rem;
+//     }
+//   }
+// }

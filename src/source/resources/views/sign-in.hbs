@@ -2,7 +2,7 @@
   <section class='sign-in'>
     <h2 class='si-header'>SIGN IN</h2>
 
-    <form class='si-form' action='#'>
+    <form method='GET' class='si-form' action='#'>
       <div class='si-info-input'>
         <label class='si-info' for='email'>Email</label>
         <br />
@@ -28,12 +28,15 @@
       </div>
 
       <div class='si-buttons'>
-        <button class='si-button' type='button'>Sign in</button>
-        <button class='si-button' type='button'>Sign up</button>
+        <button class='si-button' type='submit'>Sign in</button>
+        <a class='si-button' href='/account/sign-up'>Sign up</a>
       </div>
 
       <a class='si-forget-pass' href='#'>Reset password</a>
-
     </form>
+    {{#if successMessage}}
+      <p style='color: green; margin-top: 2rem'>You have successfully signed up,
+        please log in.</p>
+    {{/if}}
   </section>
 </section>
