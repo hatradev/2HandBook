@@ -71,7 +71,7 @@ function checkPassword() {
   if (!re.test(passwordInput.value)) {
     pwdValid.textContent =
       'Password must have at least 6 letter password, with at least a symbol, upper and lower case letters and a number';
-    passwordMatchMsg.style.color = 'red';
+    pwdValid.style.color = 'red';
     return false;
   } else {
     pwdValid.textContent = '';

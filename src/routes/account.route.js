@@ -4,9 +4,9 @@ const { body, getErrorMessage } = require('../middleware/validation');
 
 const router = express.Router();
 
-router.get('/sign-up', accountController.showSignUp);
+router.get('/sign-up', accountController.getSignUp);
 router.post('/sign-up', accountController.signUp);
-router.get('/sign-in', accountController.showSignIn);
+router.get('/sign-in', accountController.getSignIn);
 router.post(
   '/sign-in',
   body('email')
@@ -29,8 +29,8 @@ router.get('/forgot', accountController.showForgotPassword);
 router.post('/forgot', accountController.forgotPassword);
 router.get('/reset', accountController.showResetPassword);
 router.post('/reset', accountController.resetPassword);
+// Middleware dùng để check user login hay chưa, các route cần login phải nằm dưới middleware này
 router.use(accountController.isLoggedIn);
-router.get('/profile', accountController.showProfile);
 router.get('/sign-out', accountController.signOut);
 router.get('/my-profile', accountController.getMyProfile);
 router.get('/my-order-pending', accountController.getMyOrderPending);
