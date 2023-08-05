@@ -6,7 +6,7 @@
           <a
             class='nav-link active'
             aria-current='page'
-            href='./admin_announcement'
+            href='./announcement'
           >
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -27,7 +27,7 @@
           </a>
         </div>
         <div class='nav-item'>
-          <a class='nav-link' href='./admin_account_all'>
+          <a class='nav-link' href='./account/all'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='32'
@@ -47,7 +47,7 @@
           </a>
         </div>
         <div class='nav-item'>
-          <a class='nav-link' href='./admin_product_all'>
+          <a class='nav-link' href='./product/all'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='32'
@@ -64,7 +64,7 @@
           </a>
         </div>
         <div class='nav-item'>
-          <a class='nav-link' href='./admin_comment_all'>
+          <a class='nav-link' href='./comment/all'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='32'
@@ -85,31 +85,27 @@
     <div class='admin-article col-10'>
       <div class='nav nav-tabs'>
         <div class='nav-item'>
-          <a class='nav-link' href='./admin_announcement'>Post an announcement</a>
+          <a class='nav-link' href='./'>Post an announcement</a>
         </div>
         <div class='nav-item'>
           <a
             class='nav-link active'
             aria-current='page'
-            href='./admin_all_announcement'
+            href='./view'
           >All announcements</a>
         </div>
       </div>
       <div class='admin-content'>
         <div class='admin-announce'>
-
+          {{#each announcements}}
           <div class='admin-announce-box'>
-            <div class='title'>Announcement Title</div>
+            <div class='title'>{{this.title}}</div>
             <div class='d-flex justify-content-between'>
-              <p>To: Everyone</p>
-              <p>Time: thời gian các thứ</p>
+              <p>To: {{this.recipient}}</p>
+              <p>Time: {{this.time}} </p>
             </div>
             <div class='d-flex justify-content-between'>
-              <p class='text-truncate content'>Content: Lorem, ipsum dolor sit
-                amet consectetur adipisicing elit. Accusantium dicta ipsam
-                laboriosam facilis, voluptatem porro eveniet esse ab natus quam
-                officiis veniam quis accusamus in doloribus saepe cupiditate
-                animi voluptates?</p>
+              <p class='text-truncate content'>Content: {{this.content}}</p>
               <a
                 class='view-more-announcement link-primary'
                 href='#'
@@ -118,134 +114,8 @@
               >View more</a>
             </div>
           </div>
-
-          <div class='admin-announce-box'>
-            <div class='title'>Announcement Title</div>
-            <div class='d-flex justify-content-between'>
-              <p>To: Everyone</p>
-              <p>Time: thời gian các thứ</p>
-            </div>
-            <div class='d-flex justify-content-between'>
-              <p class='text-truncate content'>Content: Lorem, ipsum dolor sit
-                amet consectetur adipisicing elit. Accusantium dicta ipsam
-                laboriosam facilis, voluptatem porro eveniet esse ab natus quam
-                officiis veniam quis accusamus in doloribus saepe cupiditate
-                animi voluptates?</p>
-              <a class='view-more-announcement link-primary' href='#'>View more</a>
-            </div>
-          </div>
-
-          <div class='admin-announce-box'>
-            <div class='title'>Announcement Title</div>
-            <div class='d-flex justify-content-between'>
-              <p>To: Everyone</p>
-              <p>Time: thời gian các thứ</p>
-            </div>
-            <div class='d-flex justify-content-between'>
-              <p class='text-truncate content'>Content: Lorem, ipsum dolor sit
-                amet consectetur adipisicing elit. Accusantium dicta ipsam
-                laboriosam facilis, voluptatem porro eveniet esse ab natus quam
-                officiis veniam quis accusamus in doloribus saepe cupiditate
-                animi voluptates?</p>
-              <a class='view-more-announcement link-primary' href='#'>View more</a>
-            </div>
-          </div>
-
-          <div class='admin-announce-box'>
-            <div class='title'>Announcement Title</div>
-            <div class='d-flex justify-content-between'>
-              <p>To: Everyone</p>
-              <p>Time: thời gian các thứ</p>
-            </div>
-            <div class='d-flex justify-content-between'>
-              <p class='text-truncate content'>Content: Lorem, ipsum dolor sit
-                amet consectetur adipisicing elit. Accusantium dicta ipsam
-                laboriosam facilis, voluptatem porro eveniet esse ab natus quam
-                officiis veniam quis accusamus in doloribus saepe cupiditate
-                animi voluptates?</p>
-              <a class='view-more-announcement link-primary' href='#'>View more</a>
-            </div>
-          </div>
-
-          <div class='admin-announce-box'>
-            <div class='title'>Announcement Title</div>
-            <div class='d-flex justify-content-between'>
-              <p>To: Everyone</p>
-              <p>Time: thời gian các thứ</p>
-            </div>
-            <div class='d-flex justify-content-between'>
-              <p class='text-truncate content'>Content: Lorem, ipsum dolor sit
-                amet consectetur adipisicing elit. Accusantium dicta ipsam
-                laboriosam facilis, voluptatem porro eveniet esse ab natus quam
-                officiis veniam quis accusamus in doloribus saepe cupiditate
-                animi voluptates?</p>
-              <a class='view-more-announcement link-primary' href='#'>View more</a>
-            </div>
-          </div>
-
-          <div class='admin-announce-box'>
-            <div class='title'>Announcement Title</div>
-            <div class='d-flex justify-content-between'>
-              <p>To: Everyone</p>
-              <p>Time: thời gian các thứ</p>
-            </div>
-            <div class='d-flex justify-content-between'>
-              <p class='text-truncate content'>Content: Lorem, ipsum dolor sit
-                amet consectetur adipisicing elit. Accusantium dicta ipsam
-                laboriosam facilis, voluptatem porro eveniet esse ab natus quam
-                officiis veniam quis accusamus in doloribus saepe cupiditate
-                animi voluptates?</p>
-              <a class='view-more-announcement link-primary' href='#'>View more</a>
-            </div>
-          </div>
-
-          <div class='admin-announce-box'>
-            <div class='title'>Announcement Title</div>
-            <div class='d-flex justify-content-between'>
-              <p>To: Everyone</p>
-              <p>Time: thời gian các thứ</p>
-            </div>
-            <div class='d-flex justify-content-between'>
-              <p class='text-truncate content'>Content: Lorem, ipsum dolor sit
-                amet consectetur adipisicing elit. Accusantium dicta ipsam
-                laboriosam facilis, voluptatem porro eveniet esse ab natus quam
-                officiis veniam quis accusamus in doloribus saepe cupiditate
-                animi voluptates?</p>
-              <a class='view-more-announcement link-primary' href='#'>View more</a>
-            </div>
-          </div>
-
-          <div class='admin-announce-box'>
-            <div class='title'>Announcement Title</div>
-            <div class='d-flex justify-content-between'>
-              <p>To: Everyone</p>
-              <p>Time: thời gian các thứ</p>
-            </div>
-            <div class='d-flex justify-content-between'>
-              <p class='text-truncate content'>Content: Lorem, ipsum dolor sit
-                amet consectetur adipisicing elit. Accusantium dicta ipsam
-                laboriosam facilis, voluptatem porro eveniet esse ab natus quam
-                officiis veniam quis accusamus in doloribus saepe cupiditate
-                animi voluptates?</p>
-              <a class='view-more-announcement link-primary' href='#'>View more</a>
-            </div>
-          </div>
-
-          <div class='admin-announce-box'>
-            <div class='title'>Announcement Title</div>
-            <div class='d-flex justify-content-between'>
-              <p>To: Everyone</p>
-              <p>Time: thời gian các thứ</p>
-            </div>
-            <div class='d-flex justify-content-between'>
-              <p class='text-truncate content'>Content: Lorem, ipsum dolor sit
-                amet consectetur adipisicing elit. Accusantium dicta ipsam
-                laboriosam facilis, voluptatem porro eveniet esse ab natus quam
-                officiis veniam quis accusamus in doloribus saepe cupiditate
-                animi voluptates?</p>
-              <a class='view-more-announcement link-primary' href='#'>View more</a>
-            </div>
-          </div>
+          {{/each}}
+          
         </div>
 
         {{>pagination}}
@@ -261,8 +131,7 @@
           <div class='modal-dialog'>
             <div class='modal-content'>
               <div class='modal-header'>
-                <div class='modal-title title' id='staticBackdropLabel'>Modal
-                  title</div>
+                <div class='modal-title title' id='staticBackdropLabel'> {{this.title}} </div>
                 <button
                   type='button'
                   class='btn-close'
@@ -271,13 +140,9 @@
                 ></button>
               </div>
               <div class='modal-body'>
-                <p><strong>To:</strong> Everyone</p>
-                <p><strong>Time:</strong> thời gian các thứ</p>
-                <p><strong>Content:</strong>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Accusantium dicta ipsam laboriosam facilis, voluptatem porro
-                  eveniet esse ab natus quam officiis veniam quis accusamus in
-                  doloribus saepe cupiditate animi voluptates?</p>
+                <p><strong>To:</strong> {{this.recipient}}</p>
+                <p><strong>Time:</strong> {{this.time}}</p>
+                <p><strong>Content:</strong> {{this.content}}</p>
               </div>
 
             </div>

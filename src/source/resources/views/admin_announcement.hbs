@@ -3,11 +3,7 @@
     <div class='admin-sidebar col-2'>
       <div class='nav flex-column nav-pills nav-fill'>
         <div class='nav-item'>
-          <a
-            class='nav-link active'
-            aria-current='page'
-            href='./admin_announcement'
-          >
+          <a class='nav-link active' aria-current='page' href='./announcement'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='32'
@@ -27,7 +23,7 @@
           </a>
         </div>
         <div class='nav-item'>
-          <a class='nav-link' href='./admin_account_all'>
+          <a class='nav-link' href='./account/all'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='32'
@@ -47,7 +43,7 @@
           </a>
         </div>
         <div class='nav-item'>
-          <a class='nav-link' href='./admin_product_all'>
+          <a class='nav-link' href='./product/all'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='32'
@@ -64,7 +60,7 @@
           </a>
         </div>
         <div class='nav-item'>
-          <a class='nav-link' href='./admin_comment_all'>
+          <a class='nav-link' href='./comment/all'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='32'
@@ -86,27 +82,29 @@
 
       <div class='nav nav-tabs'>
         <div class='nav-item'>
-          <a
-            class='nav-link active'
-            aria-current='page'
-            href='./admin_announcement'
-          >Post an announcement</a>
+          <a class='nav-link active' aria-current='page' href='./'>Post an
+            announcement</a>
         </div>
         <div class='nav-item'>
-          <a class='nav-link' href='./admin_all_announcement'>All announcements</a>
+          <a class='nav-link' href='./view'>All announcements</a>
         </div>
       </div>
       <div class='admin-content'>
-        <form class='need-validation'>
+        <form
+          class='need-validation'
+          id='announceform'
+          action='/announcement/post'
+          method='POST'
+        >
           <div class='line-form d-flex align-items-center'>
             <label for='recipient' class='title'>Recipient: </label>
             <span class='form-check form-check-inline'>
               <input
                 class='form-check-input'
                 type='radio'
-                name='inlineRadioOptions'
+                name='recipient'
                 id='recipient-all'
-                value='everyone'
+                value='Everyone'
                 checked
               />
               <label
@@ -119,9 +117,9 @@
               <input
                 class='form-check-input'
                 type='radio'
-                name='inlineRadioOptions'
+                name='recipient'
                 id='recipient-buyers'
-                value='buyers'
+                value='Buyers'
               />
               <label
                 class='form-check-label'
@@ -133,9 +131,9 @@
               <input
                 class='form-check-input'
                 type='radio'
-                name='inlineRadioOptions'
+                name='recipient'
                 id='recipient-sellers'
-                value='sellers'
+                value='Sellers'
               />
               <label
                 class='form-check-label'
@@ -149,6 +147,7 @@
             <input
               type='text'
               class='form-control'
+              name='title'
               aria-label='Text input for title'
               id='announce-title'
               required
@@ -160,8 +159,11 @@
               class='form-label title'
             >Content:</label>
             <textarea
+              type='text'
               class='form-control'
               id='announce-content'
+              form='announceform'
+              name='content'
               rows='10'
               required
             ></textarea>
