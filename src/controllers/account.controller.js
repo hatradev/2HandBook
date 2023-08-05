@@ -1,7 +1,7 @@
-const createError = require('http-errors');
 const Account = require('../models/account.model');
 const passport = require('passport');
 const { render } = require('../utils/renderPage');
+const { sendForgotPasswordMail } = require('../utils/mail');
 const {
   mutipleMongooseToObject,
   mongooseToObject,
@@ -105,6 +105,66 @@ class productController {
       }
       res.redirect('/');
     });
+  };
+
+  // [GET] account/forgot
+  showForgotPassword = (req, res, next) => {
+    res.render('forgot-password');
+  };
+
+  // [POST] acccount/forgot
+  forgotPassword = async (req, res, next) => {
+    let email = req.body.email;
+    // Check email tồn tại
+    let user = await Account.findOne({ email: email });
+    if (user) {
+      // Tạo link
+      const { sign } = require('../utils/jwt');
+      const host = req.header('host');
+      const resetLink = `${req.protocol}://${host}/account/reset?token=${sign(
+        email
+      )}&email=${email}`;
+      // Gửi mail
+      sendForgotPasswordMail(user, host, resetLink)
+        .then((result) => {
+          console.log('Email has been sent');
+          return res.render('forgot-password', { done: true });
+        })
+        .catch((error) => {
+          console.log(error.statusCode);
+          return res.render('forgot-password', {
+            message:
+              'An error has occured when sending to your email address. Please check your email address!',
+          });
+        });
+      // Thông báo thành công
+      return res.render('forgot-password', { done: true });
+    } else {
+      // Ngược lại, thông báo email k tồn tại
+      return res.render('forgot-password', {
+        message: 'Email does not exist!',
+      });
+    }
+  };
+
+  showResetPassword = (req, res) => {
+    let email = req.query.email;
+    let token = req.query.token;
+    let { verify } = require('../utils/jwt');
+    if (!token || !verify(token)) {
+      return res.render('reset-password', { expired: true });
+    } else {
+      return res.render('reset-password', { email, token });
+    }
+  };
+
+  resetPassword = async (req, res) => {
+    let email = req.body.email;
+    let token = req.body.token;
+    let bcrypt = require('bcrypt');
+    let password = bcrypt.hashSync(req.body.password, bcrypt.genSalt(8));
+    await Account.updateOne({ email: email }, { password: password });
+    res.render('reset-password', { done: true });
   };
 }
 

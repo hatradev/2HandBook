@@ -25,8 +25,11 @@ router.post(
   },
   accountController.signIn
 );
+router.get('/forgot', accountController.showForgotPassword);
+router.post('/forgot', accountController.forgotPassword);
+router.get('/reset', accountController.showResetPassword);
+router.post('/reset', accountController.resetPassword);
 router.use(accountController.isLoggedIn);
 router.get('/profile', accountController.showProfile);
 router.get('/sign-out', accountController.signOut);
-
 module.exports = router;

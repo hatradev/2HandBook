@@ -32,9 +32,9 @@
             type='checkbox'
             id='keepSignedIn'
             name='keepSignedIn'
-            value='Remember password'
+            value='Remember me'
           />
-          <label class='si-rmpass-text' for='keepSignedIn'>Remember password</label><br
+          <label class='si-rmpass-text' for='keepSignedIn'>Remember me</label><br
           />
         </div>
       </div>
@@ -44,8 +44,8 @@
         <a class='si-button' href='/account/sign-up'>Sign up</a>
       </div>
 
-      <a class='si-forget-pass' href='#'>Reset password</a>
-      {{!-- <input type="hidden" name="reqUrl" value="{{reqUrl}}"> --}}
+      <a class='si-forget-pass' href='/account/forgot'>Forgot password</a>
+      <input type='hidden' name='reqUrl' value='{{reqUrl}}' />
     </form>
     {{#if loginMessage}}
       <p class='alert alert-warning mt-5'>{{{loginMessage}}}</p>
