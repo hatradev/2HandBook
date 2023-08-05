@@ -70,8 +70,8 @@ function checkPassword() {
   var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
   if (!re.test(passwordInput.value)) {
     pwdValid.textContent =
-      'Password must have at least 6 letter password, with at least a symbol, upper and lower case letters and a number';
-    passwordMatchMsg.style.color = 'red';
+      'Password must have at least 8 letter password, with at least a symbol, upper and lower case letters and a number';
+    pwdValid.style.color = 'red';
     return false;
   } else {
     pwdValid.textContent = '';
