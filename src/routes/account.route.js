@@ -27,8 +27,6 @@ router.post(
 );
 router.get('/forgot', accountController.showForgotPassword);
 router.post('/forgot', accountController.forgotPassword);
-router.get('/reset', accountController.showResetPassword);
-router.post('/reset', accountController.resetPassword);
 // Middleware dùng để check user login hay chưa, các route cần login phải nằm dưới middleware này
 router.use(accountController.isLoggedIn);
 router.get('/sign-out', accountController.signOut);
