@@ -23,8 +23,8 @@
               <span class='avatar-mail mail'>trieudinh@gmail.com</span>
             </div>
             <div class='signup-btn'>
-              {{! <button type='button' class='btn btn-outline-primary'>SIGN OUT</button> }}
-              <button type='button' class='btn btn-outline-secondary'>SIGN OUT</button>
+              {{!-- <button type='button' class='btn btn-outline-primary'>SIGN OUT</button> --}}
+              <button type="button" class="btn btn-outline-secondary">SIGN OUT</button>
             </div>
           </div>
 
@@ -41,7 +41,7 @@
           </div> --}}
         </div>
         <div class='my-account'>
-          <a href='http://localhost:3000/profile'>
+          <a href='http://localhost:3000/account/my-profile'>
             <button type='button' class='btn btn-outline-secondary'>
               <i class='fa-solid fa-pen-to-square'></i>
               <span class='page-link'>My account</span>
@@ -49,7 +49,7 @@
           </a>
         </div>
         <div class='my-order'>
-          <a href='http://localhost:3000/myordercancelled'>
+          <a href='http://localhost:3000/account/my-order-cancelled'>
             <button type='button' class='btn btn-outline-secondary bg-blue'>
               <i class='fa-solid fa-cart-shopping color-white'></i>
               <span class='page-link color-white'>My order</span>
@@ -61,7 +61,7 @@
           </button> }}
         </div>
         <div class='become-seller'>
-          <a href='http://localhost:3000/becomeseller'>
+          <a href='http://localhost:3000/account/become-seller'>
             <button type='button' class='btn btn-outline-secondary'>
               <i class='fa-solid fa-user'></i>
               <span class='page-link'>Become seller</span>
@@ -69,7 +69,7 @@
           </a>
           {{! <button type='button' class='btn btn-outline-secondary'>
             <i class='fa-solid fa-user'></i>
-            <a class='page-link' href='http://localhost:3000/becomeseller'>Become
+            <a class='page-link' href='http://localhost:3000/account/become-seller'>Become
               seller</a>
           </button> }}
         </div>
@@ -77,26 +77,18 @@
       </div>
       <div class='col-9 part-right-my-order'>
         {{!-- {{>statusbar-myorder}} --}}
-        <nav aria-label='Page navigation example'>
-          <ul class='pagination justify-content-center'>
-            <li class='page-item'><a
-                class='page-link text_black'
-                href='http://localhost:3000/myorder'
-              >Success</a>
-            </li>
-            {{! <li class="page-item"><a class="page-link text_black"
-                                href="http://localhost:3000/myorderdelivery">Delivering</a></li> }}
-            <li class='page-item'><a
-                class='page-link text_black'
-                href='http://localhost:3000/myorderconfirmation'
-              >Pending</a></li>
-            <li class='page-item'><a
-                class='page-link background_emphasis text-white'
-                href='http://localhost:3000/myordercancelled'
-              >Cancelled</a>
-            </li>
-          </ul>
-        </nav>
+        <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item"><a class="page-link text_black" href="http://localhost:3000/account/my-order">Success</a>
+                        </li>
+                        {{!-- <li class="page-item"><a class="page-link text_black"
+                                href="http://localhost:3000/myorderdelivery">Delivering</a></li> --}}
+                        <li class="page-item"><a class="page-link text_black"
+                                href="http://localhost:3000/account/my-order-pending">Pending</a></li>
+                        <li class="page-item"><a class="page-link background_emphasis text-white" href="http://localhost:3000/account/my-order-cancelled">Cancelled</a>
+                        </li>
+                    </ul>
+                </nav>
         <div class='card'>
           <div class='card-header'>
             Delivery in progress
@@ -105,7 +97,7 @@
             <div class='contain'>
               <div class='left'>
                 <img
-                  src='img/MTcasio.jpg'
+                  src='../img/SachKTLT.jpg'
                   class='img-fluid rounded-start'
                   alt='...'
                 />
@@ -135,7 +127,7 @@
             </div>
           </div> --}}
         </div>
-        {{! <div class='my-account'>
+        {{!-- <div class='my-account'>
           <button type='button' class='btn btn-outline-secondary'>
             <i class='fa-solid fa-pen-to-square'></i>
             <a class='page-link' href='http://localhost:3000/profile'>My account</a>
@@ -153,7 +145,7 @@
         <div class='become-seller'>
           <button type='button' class='btn btn-outline-secondary'>
             <i class='fa-solid fa-user'></i>
-            <a class='page-link' href='http://localhost:3000/becomeseller'>Become
+            <a class='page-link' href='http://localhost:3000/account/become-seller'>Become
               seller</a>
           </button>
         </div>
@@ -188,7 +180,7 @@
             <div class='contain'>
               <div class='left'>
                 <img
-                  src='/img/MTcasio.jpg'
+                  src='/../img/SachKTLT.jpg'
                   class='img-fluid rounded-start'
                   alt='...'
                 />

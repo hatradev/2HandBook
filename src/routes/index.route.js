@@ -15,39 +15,12 @@ function route(app) {
   });
   app.use((error, req, res, next) => {
     console.error(error);
-    res
-      .status(500)
-      .render('error', {
-        message: 'Internal Server Error!',
-        lastName: req.user ? req.user.lastName : '',
-      });
+    res.status(500).render('error', {
+      message: 'Internal Server Error!',
+      lastName: req.user ? req.user.lastName : '',
+    });
   });
   // ======================
-
-  app.get('/profile', (req, res) => {
-    res.render('profile_updating');
-  });
-
-  app.get('/becomeseller', (req, res) => {
-    res.render('become_seller');
-  });
-
-  app.get('/myorderdelivery', (req, res) => {
-    res.render('my_order_inDelivery');
-  });
-
-  app.get('/myorderconfirmation', (req, res) => {
-    res.render('my_order_inConfirmation');
-  });
-
-  app.get('/myordercanceled', (req, res) => {
-    res.render('my_order_canceled');
-  });
-
-  app.get('/myorder', (req, res) => {
-    res.render('my_order');
-  });
-
   app.get('/all-product', (req, res) => {
     res.render('all-product');
   });

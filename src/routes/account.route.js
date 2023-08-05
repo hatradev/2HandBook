@@ -32,4 +32,10 @@ router.post('/reset', accountController.resetPassword);
 router.use(accountController.isLoggedIn);
 router.get('/profile', accountController.showProfile);
 router.get('/sign-out', accountController.signOut);
+router.get('/my-profile', accountController.getMyProfile);
+router.get('/my-order-pending', accountController.getMyOrderPending);
+router.get('/my-order-cancelled', accountController.getMyOrderCancelled);
+router.get('/my-order', accountController.getMyOrder);
+router.get('/become-seller', accountController.getBecomeSeller);
+
 module.exports = router;

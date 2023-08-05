@@ -13,10 +13,61 @@ class productController {
       if (req.isAuthenticated()) {
         return res.redirect('/account/profile');
       }
-      res.render('sign-up', {
-        registerMessage: req.flash('registerMessage'),
-        reqUrl: req.query.reqUrl,
-      });
+      res.render('sign-up');
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  // [GET] account/my-profile
+  getMyProfile = async (req, res, next) => {
+    try {
+      res.render('profile_updating');
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  // [GET] account/my-order-pending
+  getMyOrderPending = async (req, res, next) => {
+    try {
+      res.render('my_order_inConfirmation');
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  // [GET] account/my-order-cancelled
+  getMyOrderCancelled = async (req, res, next) => {
+    try {
+      res.render('my_order_canceled');
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  // [GET] account/my-order
+  getMyOrder = async (req, res, next) => {
+    try {
+      res.render('my_order');
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  // [GET] account/become-seller
+  getBecomeSeller = async (req, res, next) => {
+    try {
+      res.render('become_seller');
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  // [GET] account/sign-in
+  getSignIn = async (req, res, next) => {
+    try {
+      res.render('sign-in');
     } catch (err) {
       next(err);
     }

@@ -28,7 +28,7 @@
           </div>
         </div>
         <div class='my-account'>
-          <a href='http://localhost:3000/profile'>
+          <a href='http://localhost:3000/account/my-profile'>
             <button type='button' class='btn btn-outline-secondary'>
               <i class='fa-solid fa-pen-to-square'></i>
               <span class='page-link'>My account</span>
@@ -36,7 +36,7 @@
           </a>
         </div>
         <div class='my-order'>
-          <a href='http://localhost:3000/myorder'>
+          <a href='http://localhost:3000/account/my-order'>
             <button type='button' class='btn btn-outline-secondary'>
               <i class='fa-solid fa-cart-shopping'></i>
               <span class='page-link'>My order</span>
@@ -44,11 +44,11 @@
           </a>
           {{! <button type='button' class='btn btn-outline-secondary'>
             <i class='fa-solid fa-cart-shopping'></i>
-            <a class='page-link' href='http://localhost:3000/myorder'>My order</a>
-          </button> }}
+            <a class='page-link' href='http://localhost:3000/account/my-order'>My order</a>
+          </button> --}}
         </div>
         <div class='become-seller'>
-          <a href='http://localhost:3000/becomeseller'>
+          <a href='http://localhost:3000/account/become-seller'>
             <button type='button' class='btn btn-outline-secondary bg-blue'>
               <i class='fa-solid fa-user color-white'></i>
               <span class='page-link color-white'>Become seller</span>
@@ -56,7 +56,7 @@
           </a>
           {{! <button type='button' class='btn btn-outline-secondary'>
             <i class='fa-solid fa-user'></i>
-            <a class='page-link' href='http://localhost:3000/becomeseller'>Become
+            <a class='page-link' href='http://localhost:3000/account/become-seller'>Become
               seller</a>
           </button> }}
         </div>
@@ -77,17 +77,16 @@
           </div>
           <div class='col-md-6'>
             <div class='form-group'>
-              <label class='form-label fw-bold'>Type of your product *</label>
-              <select id='type-product' class='form-select input-size shadow'>
-                <option selected>Textbook</option>
-                <option>Text document</option>
-                <option>Calculator</option>
-                <option>Uniform</option>
+              <label class='form-label fw-bold'>Job</label>
+              <select id='job' class='form-select input-size shadow'>
+                <option selected>Student</option>
+                <option>Alumni</option>
+                <option>Lecturer</option>
               </select>
               <span class='form-message'></span>
             </div>
           </div>
-          <div class='col-12'>
+          {{!-- <div class='col-12'>
             <div class='form-group'>
               <label class='form-label fw-bold'>Job *</label>
               <input
@@ -98,7 +97,7 @@
               />
               <span class='form-message'></span>
             </div>
-          </div>
+          </div> --}}
           <div class='col-12'>
             <div class='form-group'>
               <label class='form-label fw-bold'>Address *</label>
@@ -137,7 +136,7 @@
 
             </div>
           </div>
-          <div class='col-md-6'>
+          {{!-- <div class='col-md-6'>
             <div class='form-group'>
               <label class='form-label fw-bold'>Payments</label>
               <select id='payments' class='form-select input-size shadow'>
@@ -155,8 +154,8 @@
               <option>Vietcombank</option>
               <option>BIDV</option>
             </select>
-          </div>
-          {{! <div class='col-12'>
+          </div> --}}
+          {{!-- <div class='col-12'>
             <div class='form-group'>
               <div class='form-check'>
                 <input
@@ -216,24 +215,17 @@
           </div>
 
           <div class='form-group'>
-            <div class='form-check agree-term'>
-              <input
-                id='flexCheckDefault'
-                class='form-check-input'
-                type='checkbox'
-                value=''
-                id='flexCheckDefault'
-              />
-              <label class='form-check-label fw-bold' for='flexCheckDefault'>
+            <div class="form-check agree-term">
+              <input id="flexCheckDefault" class="form-check-input" type="checkbox" value="">
+              <label class="form-check-label fw-bold" for="flexCheckDefault">
                 I agree to the terms and conditions.
               </label>
             </div>
+            <span class='form-message'></span>
           </div>
-
+          
           <div class='col-12 register'>
-            <button
-              class='form-submit btn btn-outline-secondary shadow'
-            >REGISTER</button>
+            <button class="form-submit btn btn-outline-secondary shadow">REGISTER</button>
           </div>
         </form>
       </div>
