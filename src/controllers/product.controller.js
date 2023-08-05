@@ -66,23 +66,6 @@ class productController {
       next(err);
     }
   };
-
-  getAllProducts = async (req, res) => {
-    try {
-      const products = await Product.find();
-      res.status(200).json({
-        status: 'success',
-        data: {
-          products,
-        },
-      });
-    } catch (err) {
-      res.status(404).json({
-        status: 'fail',
-        message: err,
-      });
-    }
-  };
 }
 
 module.exports = new productController();

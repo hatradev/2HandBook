@@ -4,6 +4,12 @@
   border-color: #f33a58;
 }
 
+.form-group.invalid .form-check-input {
+  border-style: solid;
+  // border-width: 2rem;
+  border-color: #f33a58;
+}
+
 .form-group.invalid .form-message {
   color: #f33a58;
   font-size: 1.2rem;

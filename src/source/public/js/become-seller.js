@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     rules: [
       //Validator.isRequired('#fullname', 'Vui lòng nhập tên đầy đủ của bạn'),
       Validator.isRequired('#shop-name', 'Please enter your name of your shop'),
-      Validator.isRequired('#job', 'Please enter your job'),
+      // Validator.isRequired('#job', 'Choose your job'),
       Validator.isRequired('#address', 'Please enter address'),
       Validator.isRequired(
         '#flexCheckDefault',
