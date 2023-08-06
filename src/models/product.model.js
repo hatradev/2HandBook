@@ -7,45 +7,45 @@ const productSchema = new mongoose.Schema(
       required: [true, 'A product must have a name'],
       unique: true,
       trim: true,
-      maxlength: 40,
+      maxlength: 50,
       minlength: 10,
     },
     price: {
       type: Number,
-      required: [true, 'A tour must have a price'],
+      required: [true, 'A price must have a price'],
     },
     description: {
       type: String,
       trim: true,
-      required: [true, 'A tour must have a description'],
+      required: [true, 'A product must have a description'],
     },
     stock: {
       type: Number,
-      default: 0,
+      required: [true, 'A product mus have a stock'],
     },
     category: {
       type: String,
       default: 'Document',
+      enum: ['Document', 'Calculator', 'Uniform', 'Other'],
     },
     image: {
       type: String,
-      required: [true, 'A tour must have a cover image'],
-    },
-    views: {
-      type: Number,
-      default: 0,
+      required: [true, 'A product must have a cover image'],
     },
     status: {
       type: String,
       default: 'Pending',
+      enum: ['Available', 'Pending', 'Reported', 'Banned'],
     },
     isTrend: {
-      type: Number,
-      default: 0,
+      type: Boolean,
+      default: false,
     },
-    keyword: {
-      type: String,
-    },
+    keyword: [
+      {
+        type: String,
+      },
+    ],
   },
   {
     timestamps: true,

@@ -4,86 +4,90 @@ const {
   mutipleMongooseToObject,
   mongooseToObject,
 } = require('../utils/mongoose');
+
+var allProducts;
+
 class productController {
-  // [GET] product/dashboard
-  getDashboard = async (req, res, next) => {
+  // [GET] product/all-product
+  getAllProduct(req, res, next) {
+    Product.find({})
+      .then((products) => {
+        allProducts = mutipleMongooseToObject(products)
+        res.render('all-product', {
+          products: mutipleMongooseToObject(products),
+          // showHeader: true,
+          // showFooter: true,
+        });
+      })
+      .catch(next);
+  }
+  // [GET] product/all-product/sort
+  // sortProduct(req, res, next) {
+  //   // const selectedItems = allProducts.filter(item => {
+  //   //   // console.log(item._id.toString())
+  //   //   return req.body.productsId.includes(item._id.toString())
+  //   // })
+
+  //   // selectedItems.sort((a,b) => a.price - b.price)
+  //   // res.render('all-product', {
+  //   //   selectedItems: mutipleMongooseToObject(selectedItems),
+  //   // });
+  //   // res.render('all-product', selectedItems);
+  //   // res.json(req.body)
+  //   var order = req.body.type[1] == 'asc' ? 1 : -1
+
+  //   Product.find({ _id: { $in: req.body.productsId } })
+  //     .sort({[req.body.type[0]]: order})
+  //     .then((products) => {
+  //       res.render('all-product', {
+  //         products: mutipleMongooseToObject(products),
+  //       });
+  //     })
+  //     .catch(next);
+
+  //   // console.log(allProducts)
+  //   // console.log(req.body.productsId)
+
+
+  //   // res.json(filter)
+  // }
+
+  sortProduct = async (req, res, next) => {
     try {
-      const products = await Product.find();
-      res.render('dashboard', {
-        showHeader: true,
-        showFooter: true,
+      var order = req.body.type[1] == 'asc' ? 1 : -1;
+
+      const products = await Product.find({ _id: { $in: req.body.productsId } })
+        .sort({ [req.body.type[0]]: order });
+      console.log(req.body.type[0], order, { [req.body.type[0]]: order })
+      products.forEach(it => console.log(it.price))
+
+      res.render('all-product', {
         products: mutipleMongooseToObject(products),
       });
     } catch (err) {
-      res.status(404).json(err);
+      next(err);
     }
-  };
-
-  // [GET] product/manage
-  getManage = async (req, res) => {
-    try {
-      const products = await Product.find();
-      res.render('manage-product', {
-        showHeader: true,
-        showFooter: true,
-        products: mutipleMongooseToObject(products),
-      });
-    } catch (err) {
-      res.status(404).json(err);
-    }
-  };
-
-  // [GET] product/edit/
-  getEditForCreate = async (req, res) => {
-    res.render('edit-product', {
-      showHeader: true,
-      showFooter: true,
-      helpers: {
-        isCategory(c1, c2) {
-          return c1 == 'Document';
-        },
-      },
-    });
-  };
-
-  // [POST] product/edit/save
-  createNewProduct = async (req, res) => {};
-
-  // [GET] product/edit/:id
-  getEditForUpdate = async (req, res) => {
-    try {
-      const product = await Product.findById(req.params.id);
-      res.render('edit-product', {
-        showHeader: true,
-        showFooter: true,
-        product: mongooseToObject(product),
-        helpers: {
-          isCategory(c1, c2) {
-            return c1 == c2;
-          },
-        },
-      });
-    } catch (err) {
-      res.status(404).json(err);
-    }
-  };
-
-  getAllProducts = async (req, res) => {
-    try {
-      const products = await Product.find();
-      res.status(200).json({
-        status: 'success',
-        data: {
-          products,
-        },
-      });
-    } catch (err) {
-      res.status(404).json({
-        status: 'fail',
-        message: err,
-      });
-    }
-  };
+  }
 }
 
 module.exports = new productController();
+
+// sortProduct(req, res, next) {
+//   const filter = allProducts.filter(item => {
+//     return req.body.productsId.includes(item._id.toString())
+//   })
+
+// }
+
+// sortProduct(req, res, next) {
+//   var order = req.body.type[1] == 'asc' ? 1 : -1
+
+//   Product.find({ _id: { $in: req.body.productsId } })
+//     .sort({[req.body.type[0]]: order})
+//     .then((products) => {
+//       res.render('all-product', {
+//         products: mutipleMongooseToObject(products),
+//       });
+//     })
+//     .catch(next);
+// }

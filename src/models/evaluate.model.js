@@ -4,9 +4,13 @@ const evaluateSchema = new mongoose.Schema(
   {
     idAccount: {
         type: String,
+        unique: true,
+        required: [true, 'A evaluate must have a idAccount'],
     },
     idProduct: {
         type: String,
+        unique: true,
+        required: [true, 'A evaluate must have a idProduct'],
     },
     content: {
         type: String,
