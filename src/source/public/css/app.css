@@ -1051,13 +1051,15 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
   margin-top: 14rem;
   max-width: 108rem; }
   .all-product .sort-section {
-    margin-top: 2.5rem; }
-    .all-product .sort-section .form-select {
-      margin-top: 2rem;
-      width: 26rem;
-      height: 4rem;
-      font-size: 1.6rem;
-      box-shadow: 2px 2px 3px rgba(49, 56, 62, 0.3); }
+    margin-top: 2.5rem;
+    margin-right: 0.75rem;
+    background-color: #fff; }
+    .all-product .sort-section .dropdown {
+      background-color: #fff; }
+      .all-product .sort-section .dropdown button, .all-product .sort-section .dropdown ul li {
+        height: 4rem;
+        width: 20rem;
+        font-size: 1.6rem; }
   .all-product .filter-vs-product {
     position: relative;
     padding-top: 2.5rem;
@@ -1079,7 +1081,8 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
           font-size: 1.6rem;
           position: absolute;
           right: 1rem;
-          top: 2rem; }
+          top: 2rem;
+          background-color: #fff; }
           .all-product .filter-vs-product .filter-section .search-bar .search-icon-link .search-icon::before {
             color: #31383e; }
       .all-product .filter-vs-product .filter-section .price-filter .slider {
@@ -1114,7 +1117,8 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
         .all-product .filter-vs-product .filter-section .filter-type-list .type-item a {
           display: inline-block; }
         .all-product .filter-vs-product .filter-section .filter-type-list .type-item a .type-name {
-          color: #31383e; }
+          color: #31383e;
+          text-transform: capitalize; }
         .all-product .filter-vs-product .filter-section .filter-type-list .type-item .number {
           color: #31383e; }
     .all-product .filter-vs-product .product-section .trend {

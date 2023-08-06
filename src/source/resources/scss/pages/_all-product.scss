@@ -4,13 +4,16 @@
 
   .sort-section {
     margin-top: 2.5rem;
+    margin-right: 0.75rem;
+    background-color: #fff;
 
-    .form-select {
-      margin-top: 2rem;
-      width: 26rem;
-      height: 4rem;
-      font-size: 1.6rem;
-      box-shadow: 2px 2px 3px rgba($color: $color-text-dark, $alpha: 0.3);
+    .dropdown{
+      background-color: #fff;
+      button, ul li{
+        height: 4rem;
+        width: 20rem;
+        font-size: 1.6rem;
+      }
     }
   }
 
@@ -44,6 +47,7 @@
           position: absolute;
           right: 1rem;
           top: 2rem;
+          background-color: #fff;
 
           .search-icon::before {
             color: $color-text-dark;
@@ -102,6 +106,7 @@
 
           a .type-name {
             color: $color-text-dark;
+            text-transform: capitalize;
           }
 
           .number {

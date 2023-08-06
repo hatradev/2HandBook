@@ -5,6 +5,7 @@ const livereload = require('livereload');
 const connectLiveReload = require('connect-livereload');
 const bodyParser = require('body-parser');
 const route = require('../routes/index.route');
+const hbs = require('express-handlebars');
 
 const liveReloadServer = livereload.createServer();
 const app = express();
@@ -25,8 +26,9 @@ app.use(express.json());
 // Template engines handlebars
 app.engine(
   'hbs',
-  handlebars.engine({
+  hbs.engine({
     extname: '.hbs',
+    helpers: require('../helpers/handlebars'),
   })
 );
 app.set('view engine', 'hbs');
