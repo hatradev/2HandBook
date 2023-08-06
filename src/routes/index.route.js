@@ -5,6 +5,9 @@ const accountRouter = require('./account.route');
 const announceRouter = require('./announcement.route');
 
 function route(app) {
+  app.get('/upload', (req, res) => {
+    res.render('upload-file');
+  });
   // Định nghĩa các route theo tài nguyên
   app.use('/', siteRouter);
   app.use('/account', accountRouter);

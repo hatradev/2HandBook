@@ -6,47 +6,66 @@
         <i class='fa-regular fa-chevron-left'></i>
         <span>Products</span>
       </a>
-      <a class='btn text-uppercase ms-auto' href='#' role='button'>Save</a>
+      <button type="submit" class='btn text-uppercase ms-auto' role='button' onclick="document.getElementById('edit-form').submit() ">Save</button>
     </div>
-    <section class='edit-product-forms row gx-0'>
-      <ul class='edit-product-form col-7'>
-        <li class='edit-product-form-item'>
-          <label for='product-name'>Name</label>
-          <input id='product-name' type='text' value='{{product.name}}' />
-        </li>
-        <li class='edit-product-form-item'>
-          <label for='product-description'>Description</label>
-          <textarea
-            name=''
-            id='product-description'
-            cols='30'
-            rows='10'
-          >{{product.description}}</textarea>
-        </li>
-        <li class='edit-product-form-item row'>
-          <div class='col'>
-            <label for='product-price'>Price</label>
-            <input id='product-price' type='text' value='{{product.price}}' />
-          </div>
-          <div class='col'>
-            <label for='product-stock'>Stock</label>
-            <input id='product-stock' type='text' value='{{product.stock}}' />
-          </div>
-        </li>
-      </ul>
-      <div class='edit-product-form col'>
-        <div class='product-category'>
-          <label class='product-category-label'>Category</label>
-          <select class='edit-product-select'>
-            <option value='Document' {{#if (isCategory product.category 'Document')}}selected{{/if}}>Document</option>
-            <option value='Uniform' {{#if (isCategory product.category 'Uniform')}}selected{{/if}}>Uniform</option>
-            <option value='Calculator' {{#if (isCategory product.category 'Calculator')}}selected{{/if}}>Calculator</option>
-            <option value='Other' {{#if (isCategory product.category 'Other')}}selected{{/if}}>Other</option>
-          </select>
+      <form action="/product/edit/save" method="POST" class='edit-product-forms row gx-0' id="edit-form">
+        <ul class='edit-product-form col-7'>
+          <li class='edit-product-form-item'>
+            <label for='product-name'>Name</label>
+            <input id='product-name' type='text' value='{{product.name}}' name="name"/>
+          </li>
+          <li class='edit-product-form-item'>
+            <label for='product-description'>Description</label>
+            <textarea
+              name="description"
+              id='product-description'
+              cols='30'
+              rows='10'
+            >{{product.description}}</textarea>
+          </li>
+          <li class='edit-product-form-item row'>
+            <div class='col'>
+              <label for='product-price'>Price</label>
+              <input id='product-price' type='text' value='{{product.price}}' name="price" />
+            </div>
+            <div class='col'>
+              <label for='product-stock'>Stock</label>
+              <input id='product-stock' type='text' value='{{product.stock}}' name="stock" />
+            </div>
+          </li>
+          <li class='edit-product-form-item row'>
+            <div class='col'>
+              <label for='product-keyword'>Keywords</label>
+              <input id='product-keyword' type='text' value='{{product.keyword}}' name="keyword" />
+            </div>
+          </li> 
+          <li class='edit-product-form-item row'>
+            <div class='d-flex col-4 align-items-center'>
+                <div class="d-flex align-items-center">
+                  <input id='product-trend' type='radio' value="1" name="trend" style="height: 2.4rem; width: 2.4rem;"/>
+                  <label for='product-trend' class="m-0 px-4">Trend</label>
+                </div>
+                <div class="d-flex align-items-center px-5">
+                  <input id='product-not-trend' type='radio' value="0" name="trend" style="height: 2.4rem; width: 2.4rem;"class="me-4"/>
+                  <label for='product-not-trend' class="m-0 text-nowrap" >Not trend</label>
+                </div>
+              </div>
+          </li> 
+        </ul>
+      
+        <div class='edit-product-form col'>
+          <div class='product-category'>
+            <label class='product-category-label'>Category</label>
+            <select class='edit-product-select' name="category">
+              <option value='Document' {{#if (isCategory product.category 'Document')}}selected{{/if}}>Document</option>
+              <option value='Uniform' {{#if (isCategory product.category 'Uniform')}}selected{{/if}}>Uniform</option>
+              <option value='Calculator' {{#if (isCategory product.category 'Calculator')}}selected{{/if}}>Calculator</option>
+              <option value='Other' {{#if (isCategory product.category 'Other')}}selected{{/if}}>Other</option>
+            </select>
+          </div>  
+          {{>upload-file}}
         </div>
-        <button class='product-image'>Click to Add an Image</button>
-      </div>
-    </section>
+      </form>
   </section>
 </section>
 {{!-- <script src='/js/edit-product.js'></script> --}}

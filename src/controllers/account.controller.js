@@ -118,6 +118,7 @@ class acccountController {
       sendForgotPasswordMail(user, host, newPassword)
         .then((result) => {
           console.log('Email has been sent');
+          // Thông báo thành công
           return res.render('forgot-password', { done: true });
         })
         .catch((error) => {
@@ -127,8 +128,6 @@ class acccountController {
               'An error has occured when sending to your email address. Please check your email address!',
           });
         });
-      // Thông báo thành công
-      return res.render('forgot-password', { done: true });
     } else {
       // Ngược lại, thông báo email k tồn tại
       return res.render('forgot-password', {

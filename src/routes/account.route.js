@@ -27,8 +27,9 @@ router.post(
 );
 router.get('/forgot', accountController.showForgotPassword);
 router.post('/forgot', accountController.forgotPassword);
-// Middleware dùng để check user login hay chưa, các route cần login phải nằm dưới middleware này
+// Middleware dùng để check login, các route cần login phải nằm dưới nó
 router.use(accountController.isLoggedIn);
+// ################################################
 router.get('/sign-out', accountController.signOut);
 router.get('/my-profile', accountController.getMyProfile);
 router.get('/my-order-pending', accountController.getMyOrderPending);
