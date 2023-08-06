@@ -23,12 +23,16 @@
             </div>
             <div class='signup-btn'>
               {{! <button type='button' class='btn btn-outline-primary'>SIGN OUT</button> }}
-              <button type='button' class='btn btn-outline-secondary'>SIGN OUT</button>
+              <button
+                type='button'
+                class='btn btn-outline-secondary'
+                onclick="window.location.href='/account/sign-out';"
+              >SIGN OUT</button>
             </div>
           </div>
         </div>
         <div class='my-account'>
-          <a href='http://localhost:3000/account/my-profile'>
+          <a href='http://localhost:3000/account/my-profile/{{user._id}}'>
             <button type='button' class='btn btn-outline-secondary'>
               <i class='fa-solid fa-pen-to-square'></i>
               <span class='page-link'>My account</span>
@@ -36,7 +40,7 @@
           </a>
         </div>
         <div class='my-order'>
-          <a href='http://localhost:3000/account/my-order'>
+          <a href='http://localhost:3000/account/my-order/{{user._id}}'>
             <button type='button' class='btn btn-outline-secondary'>
               <i class='fa-solid fa-cart-shopping'></i>
               <span class='page-link'>My order</span>
@@ -48,7 +52,7 @@
           </button> }}
         </div>
         <div class='become-seller'>
-          <a href='http://localhost:3000/account/become-seller'>
+          <a href='http://localhost:3000/account/become-seller/{{user._id}}'>
             <button type='button' class='btn btn-outline-secondary bg-blue'>
               <i class='fa-solid fa-user color-white'></i>
               <span class='page-link color-white'>Become seller</span>
@@ -177,31 +181,31 @@
           <div class='contract-container'>
             <div class='contract-content'>
               <h2>Terms and conditions</h2>
-              <p>1. Business registration: Before starting an online business,
+              <p> 1. Business registration: Before starting an online business,
                 you should register your business or go through the necessary
                 business establishment procedures if required by the regulations
                 of your country or region.</p>
-              <p>2. Compliance with laws: Ensure compliance with business laws,
+              <p> 2. Compliance with laws: Ensure compliance with business laws,
                 consumer protection, and the safeguarding of customers' personal
                 information. This is particularly important when collecting and
                 processing customers' personal information.</p>
-              <p>3. Compliance with laws: Ensure compliance with business laws,
+              <p> 3. Compliance with laws: Ensure compliance with business laws,
                 consumer protection, and the safeguarding of customers' personal
                 information. This is particularly important when collecting and
                 processing customers' personal information.</p>
-              <p>4. Compliance with laws: Ensure compliance with business laws,
+              <p> 4. Compliance with laws: Ensure compliance with business laws,
                 consumer protection, and the safeguarding of customers' personal
                 information. This is particularly important when collecting and
                 processing customers' personal information.</p>
-              <p>5. Compliance with laws: Ensure compliance with business laws,
+              <p> 5. Compliance with laws: Ensure compliance with business laws,
                 consumer protection, and the safeguarding of customers' personal
                 information. This is particularly important when collecting and
                 processing customers' personal information.</p>
-              <p>6. Compliance with laws: Ensure compliance with business laws,
+              <p> 6. Compliance with laws: Ensure compliance with business laws,
                 consumer protection, and the safeguarding of customers' personal
                 information. This is particularly important when collecting and
                 processing customers' personal information.</p>
-              <p>7. Compliance with laws: Ensure compliance with business laws,
+              <p> 7. Compliance with laws: Ensure compliance with business laws,
                 consumer protection, and the safeguarding of customers' personal
                 information. This is particularly important when collecting and
                 processing customers' personal information.</p>

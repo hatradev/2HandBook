@@ -72,8 +72,13 @@ class acccountController {
           return next(error);
         }
         // Đăng nhập thành công
+        // Get the account ID from the logged-in user
+        const accountId = user._id; // Adjust this to match your account model field name
+
+        // Append the account ID as a slug to the "reqUrl"
+        const redirectUrl = `${reqUrl}/${accountId}`;
         req.session.cookie.maxAge = keepSignedIn ? 24 * 60 * 60 * 1000 : null;
-        return res.redirect(reqUrl);
+        return res.redirect(redirectUrl);
       });
     })(req, res, next);
   };
@@ -138,21 +143,80 @@ class acccountController {
   };
 
   // [GET] account/my-profile
-  getMyProfile = async (req, res, next) => {
+  getMyProfile(req, res, next) {
+    // res.send('my account');
+    Account.findOne({_id: req.params._id})
+      .then(user => {
+        res.render('profile_updating', {
+          user: mongooseToObject(user)
+        });
+        
+      })
+      .catch(next);
+  };
+
+  updateMyProfile= async (req, res, next) =>{
+    // res.json(req.body);
+    // Account.updateOne({_id: req.params._id}, req.body);
+    console.log(req.body);
+    const accountId = req.params._id;
     try {
-      res.render('profile_updating');
+      const user = await Account.findById(accountId);
+  
+      // Check if the present password matches the one in the database
+      const isPasswordValid = await bcrypt.compare(req.body.presentPassword, user.password);
+      if (!isPasswordValid) {
+        req.flash('changePasswordMessage', 'Incorrect present password.');
+        return res.redirect(`/account/my-profile/${req.params._id}`);
+      }
+  
+      // Hash the new password and update it in the database
+      const hashedNewPassword = await bcrypt.hash(req.body.newPassword, 10);
+      user.password = hashedNewPassword;
+      // console.log(user);
+      user.firstName = req.body.firstName;
+      user.lastName = req.body.lastName;
+      user.address = req.body.address;
+      user.email = req.body.email;
+      user.phone = req.body.phone;
+      user.job = req.body.job;
+  
+      // Save the updated user data to the database
+      await user.save();
+  
+      req.flash('changePasswordMessage', 'Password updated successfully.');
+      res.redirect(`/account/my-profile/${req.params._id}`);
+    } catch (err) {
+      next(err);
+    }
+    // Account.updateOne({_id: req.params._id}, req.body)
+    //   .then(() => res.redirect(`/account/my-profile/${req.params._id}`))
+    //   .catch(next);
+  }
+
+
+  getTestPost = async (req, res, next) => {
+    try {
+      res.render('test-profile');
     } catch (err) {
       next(err);
     }
   };
 
+  postData(req, res, next){
+    res.json(req.body);
+    // Account.updateOne({_id: req.params._id}, req.body)
+    //   .then(() => res.redirect(`/account/my-profile/${req.params._id}`))
+    //   .catch(next);
+  }
+
   // [GET] account/my-order-pending
-  getMyOrderPending = async (req, res, next) => {
-    try {
-      res.render('my_order_inConfirmation');
-    } catch (err) {
-      next(err);
-    }
+  getMyOrderPending(req, res, next) {
+    // Account.find({})
+    //   .then((accounts) => {
+    //     // accounts = accounts
+    //     console.log(accounts);
+    //   })
   };
 
   // [GET] account/my-order-cancelled
@@ -165,22 +229,34 @@ class acccountController {
   };
 
   // [GET] account/my-order
-  getMyOrder = async (req, res, next) => {
-    try {
-      res.render('my_order');
-    } catch (err) {
-      next(err);
-    }
+  getMyOrder(req, res, next) {
+    // res.send('my account');
+    Account.findOne({_id: req.params._id})
+      .then(user => {
+        res.render('my_order', {
+          user: mongooseToObject(user)
+        });
+        
+      })
+      .catch(next);
   };
 
   // [GET] account/become-seller
-  getBecomeSeller = async (req, res, next) => {
-    try {
-      res.render('become_seller');
-    } catch (err) {
-      next(err);
-    }
+  getBecomeSeller(req, res, next) {
+    // res.send('my account');
+    Account.findOne({_id: req.params._id})
+      .then(user => {
+        res.render('become_seller', {
+          user: mongooseToObject(user)
+        });
+        
+      })
+      .catch(next);
   };
+
+
 }
+
+
 
 module.exports = new acccountController();

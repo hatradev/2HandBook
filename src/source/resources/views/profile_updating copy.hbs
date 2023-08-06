@@ -1,0 +1,196 @@
+<div class='container'>
+
+  {{! <div class='account-profile-header'>
+    <div class='container-fluid'>
+      <a class='navbar-brand' href='#'>
+        ACCOUNT PROFILE
+      </a>
+    </div>
+  </div> }}
+
+  <div class='account-profile-main container-fluid'>
+    <div class='row'>
+      {{!-- {{>sidebar-profile}} --}}
+      <div class='col-3'>
+        <div class='avatar'>
+          <div class='avatar-left'>
+            <i class='fa-solid fa-user'></i>
+          </div>
+
+          <div class='avatar-right'>
+            <div class='info-avatar'>
+              <span class='avatar-name'>{{user.firstName}} {{user.lastName}}</span>
+              <span class='avatar-mail mail'>{{user.email}}</span>
+            </div>
+            <div class='signup-btn'>
+              <button
+                type='button'
+                class='btn btn-outline-secondary'
+                onclick="window.location.href='/account/sign-out';"
+              >SIGN OUT</button>
+            </div>
+          </div>
+        </div>
+        <div class='my-account'>
+          <a href='http://localhost:3000/account/my-profile/{{user._id}}'>
+            <button type='button' class='btn btn-outline-secondary bg-blue'>
+              <i class='fa-solid fa-pen-to-square color-white'></i>
+              <span class='page-link color-white'>My account</span>
+            </button>
+          </a>
+        </div>
+        <div class='my-order'>
+          <a href='http://localhost:3000/account/my-order/{{user._id}}'>
+            <button type='button' class='btn btn-outline-secondary'>
+              <i class='fa-solid fa-cart-shopping'></i>
+              <span class='page-link'>My order</span>
+            </button>
+          </a>
+          {{! <button type='button' class='btn btn-outline-secondary'>
+            <i class='fa-solid fa-cart-shopping'></i>
+            <a class='page-link' href='http://localhost:3000/myorder'>My order</a>
+          </button> }}
+        </div>
+        <div class='become-seller'>
+          <a href='http://localhost:3000/account/become-seller/{{user._id}}'>
+            <button type='button' class='btn btn-outline-secondary'>
+              <i class='fa-solid fa-user'></i>
+              <span class='page-link'>Become seller</span>
+            </button>
+          </a>
+          {{! <button type='button' class='btn btn-outline-secondary'>
+            <i class='fa-solid fa-user'></i>
+            <a class='page-link' href='http://localhost:3000/becomeseller'>Become
+              seller</a>
+          </button> }}
+        </div>
+        <div class='remain'></div>
+      </div>
+      <div class='col-9'>
+        <form class='row g-3' id='form-1' method="POST" action="/account/my-profile/{{user._id}}/update">
+          <div class='col-md-6'>
+            <div class='form-group'>
+              <label class='form-label fw-bold'>First name*</label>
+              <input
+                id='firstName'
+                type='text'
+                class='form-control input-size shadow'
+                name="firstName"
+                value="{{user.firstName}}"
+                required
+              />
+              <span class='form-message'></span>
+            </div>
+          </div>
+          <div class='col-md-6'>
+
+            <div class='form-group'>
+              <label class='form-label fw-bold'>Last name*</label>
+              <input
+                id='lastName'
+                type='text'
+                class='form-control input-size shadow'
+                name="lastName"
+                value="{{user.lastName}}"
+                required
+              />
+              <span class='form-message'></span>
+            </div>
+          </div>
+          <div class='col-12'>
+            <div class='form-group'>
+              <label class='form-label fw-bold'>Address*</label>
+              <input
+                id='address'
+                type='text'
+                class='form-control input-size shadow'
+                placeholder=''
+                name="address"
+                value="{{user.address}}"
+                required
+              />
+              <span class='form-message'></span>
+            </div>
+          </div>
+          <div class='col-12'>
+            <div class='form-group'>
+              <label class='form-label fw-bold'>Email*</label>
+              <input
+                id='email'
+                type='text'
+                class='form-control input-size shadow'
+                placeholder=''
+                name="email"
+                value="{{user.email}}"
+                required
+              />
+              <span class='form-message'></span>
+            </div>
+          </div>
+          <div class='col-md-6'>
+            <div class='form-group'>
+              <label class='form-label fw-bold'>Phone number*</label>
+              <input
+                id='phone'
+                type='text'
+                class='form-control input-size shadow'
+                name="phone"
+                value="{{user.phone}}"
+                required
+              />
+              <span class='form-message'></span>
+            </div>
+          </div>
+          <div class='col-md-6'>
+            <div class='form-group'>
+              <label class='form-label fw-bold'>Job</label>
+              <select id='job' class='form-select input-size shadow'>
+                <option selected>{{user.job}}</option>
+                <option>Student</option>
+                <option>Alumni</option>
+                <option>Lecturer</option>
+              </select>
+              <span class='form-message'></span>
+            </div>
+          </div>
+          <div class='col-12 change-password fw-bold'>
+            CHANGE PASSWORD
+          </div>
+          <div class='col-12'>
+            <div class='form-group'>
+              <label class='form-label fw-bold'>Present password*</label>
+              <input
+                id='display_name'
+                type='password'
+                class='form-control input-size shadow'
+                placeholder=''
+              />
+              <span class='form-message'></span>
+            </div>
+          </div>
+
+          <div class='col-12'>
+            <div class='form-group'>
+              <label class='form-label fw-bold'>New password*</label>
+              <input
+                id='display_name'
+                type='password'
+                class='form-control input-size shadow'
+                placeholder=''
+              />
+              <span class='form-message'></span>
+            </div>
+          </div>
+
+          <div class='col-12 save-changes'>
+            <button type="submit" class='form-submit btn btn-outline-secondary shadow'>SAVE
+              CHANGES</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{{!-- <script src='/js/profile.js'></script>
+<script src='/js/validation.js'></script> --}}
+<script src='/js/sign-up.js'></script>

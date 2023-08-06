@@ -1,6 +1,7 @@
 const express = require('express');
 const handlebars = require('express-handlebars');
 const path = require('path');
+const methodOverride = require('method-override');
 const livereload = require('livereload');
 const connectLiveReload = require('connect-livereload');
 const bodyParser = require('body-parser');
@@ -29,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(connectLiveReload());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(methodOverride('_method'));
 
 // Template engines handlebars
 app.engine(

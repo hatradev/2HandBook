@@ -30,10 +30,14 @@ router.post('/forgot', accountController.forgotPassword);
 // Middleware dùng để check user login hay chưa, các route cần login phải nằm dưới middleware này
 router.use(accountController.isLoggedIn);
 router.get('/sign-out', accountController.signOut);
-router.get('/my-profile', accountController.getMyProfile);
+router.post('/my-profile/:_id/update', accountController.updateMyProfile);
+router.get('/my-profile/:_id', accountController.getMyProfile);
+router.get('/test-profile', accountController.getTestPost);
+router.post('/test-post', accountController.postData);
+// router.get('/my-profile', accountController.getMyProfile);
 router.get('/my-order-pending', accountController.getMyOrderPending);
 router.get('/my-order-cancelled', accountController.getMyOrderCancelled);
-router.get('/my-order', accountController.getMyOrder);
-router.get('/become-seller', accountController.getBecomeSeller);
+router.get('/my-order/:_id', accountController.getMyOrder);
+router.get('/become-seller/:_id', accountController.getBecomeSeller);
 
 module.exports = router;
