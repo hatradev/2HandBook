@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const productSchema = require('./product.model');
 
 const accountSchema = new mongoose.Schema(
   {
@@ -25,7 +26,15 @@ const accountSchema = new mongoose.Schema(
       type: String,
       enum: ['None', 'Pending', 'Reported', 'Banned'],
     },
-    cart: [{ id_product: String, quantity: Number }],
+    cart: [
+      {
+        id_product: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'productSchema',
+        },
+        quantity: Number,
+      },
+    ],
   },
   {
     timestamps: true,
