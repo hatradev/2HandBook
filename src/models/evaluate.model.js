@@ -29,6 +29,10 @@ const evaluateSchema = new mongoose.Schema(
       enum: ['reported', 'none'],
       default: 'none',
     },
+    date: {
+      type: Date,
+      default: Date.now,
+    },
   },
   {
     timestamps: true,

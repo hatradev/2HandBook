@@ -8,6 +8,11 @@ const orderSchema = new mongoose.Schema({
     ref: 'account',
     required: true,
   },
+  idSeller: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'account',
+    required: true,
+  },
   detail: [
     {
       idProduct: {

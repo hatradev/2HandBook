@@ -1066,16 +1066,17 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
         margin-left: 12px;
         font-size: 1.5rem; }
     .specific-product .payment-section .details-item .details-product {
-      margin-top: 4rem; }
+      margin-top: 2rem; }
       .specific-product .payment-section .details-item .details-product span {
         font-size: 1.8rem; }
       .specific-product .payment-section .details-item .details-product .details-list {
         font-size: 1.5rem;
-        margin-left: 2rem; }
+        margin-left: 2rem;
+        margin-top: 0 !important; }
         .specific-product .payment-section .details-item .details-product .details-list li {
-          margin-bottom: 0.4rem; }
+          margin-bottom: 0.2rem; }
     .specific-product .payment-section .details-item .adjust-quantity {
-      margin-top: 7.8rem; }
+      margin-top: 4.8rem; }
       .specific-product .payment-section .details-item .adjust-quantity .quantity {
         line-height: 2.5rem; }
       .specific-product .payment-section .details-item .adjust-quantity .adjust-icon .btn:nth-child(2) {
@@ -1129,33 +1130,37 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
       padding: 1rem; }
       .specific-product .comment-section .comment-item .write-cmt .send-btn:hover i {
         opacity: 0.6; }
-  .specific-product .comment-section .comment-item .comment-details {
+  .specific-product .comment-section .comment-item .comment-main .comment-user {
     background-color: #f6f6f6;
     border-radius: 1rem;
     padding: 1.5rem 2rem; }
-    .specific-product .comment-section .comment-item .comment-details .information .avatar .img-avatar {
+    .specific-product .comment-section .comment-item .comment-main .comment-user .information .avatar .img-avatar {
       width: 4rem;
       height: 4rem;
       vertical-align: middle;
       object-fit: cover;
       border-radius: 50%; }
-    .specific-product .comment-section .comment-item .comment-details .information .infor-span {
+    .specific-product .comment-section .comment-item .comment-main .comment-user .information .infor-span {
       font-size: 1.5rem; }
-      .specific-product .comment-section .comment-item .comment-details .information .infor-span .name {
+      .specific-product .comment-section .comment-item .comment-main .comment-user .information .infor-span .name {
         font-weight: 600; }
-    .specific-product .comment-section .comment-item .comment-details .comment-info {
+    .specific-product .comment-section .comment-item .comment-main .comment-user .comment-info {
       margin-top: 1rem;
       font-family: Inter; }
-  .specific-product .comment-section .comment-item .reply-from-seller {
+  .specific-product .comment-section .comment-item .comment-main .reply-from-seller {
     background-color: #d9edf7;
     border-radius: 1rem;
     padding: 1.5rem 2rem;
     margin-left: 6rem;
     font-family: Inter; }
-  .specific-product .comment-section .comment-item .extra-view-btn {
+  .specific-product .comment-section .comment-item .pagination-container {
+    margin-top: 4rem; }
+  .specific-product .comment-section .extra-view-btn {
     margin-top: 3rem;
     width: 13rem;
-    padding: 1rem; }
+    padding: 1rem;
+    font-size: 1.8rem;
+    text-transform: uppercase; }
   .specific-product .related-product {
     margin-top: 2rem;
     margin-bottom: 6rem; }
@@ -1211,7 +1216,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
           margin-bottom: 0.5rem; }
 
 .all-product {
-  margin-top: 14rem;
+  margin-top: 17rem;
   max-width: 108rem; }
   .all-product .sort-section {
     margin-top: 2.5rem;

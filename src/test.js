@@ -1,18 +1,16 @@
-function removeVietnameseDiacriticsAndLowercase(str) {
-  // Normalize the string to NFD form (decomposed form)
-  const normalizedStr = str.normalize('NFD');
+// dateField = new Date("Sat Jan 01 2000 21:30:00 GMT+0700 (Indochina Time)")
 
-  // Use a regex to remove diacritics (accents)
-  const regex = /[\u0300-\u036f]/g;
-  const removedDiacriticsStr = normalizedStr.replace(regex, '');
+// // Lấy ngày tháng năm từ đối tượng Date
+// const originalDate = dateField;
+// const day = originalDate.getDate();
+// const month = originalDate.getMonth() + 1; // Tháng bắt đầu từ 0 nên cộng thêm 1
+// const year = originalDate.getFullYear();
+// const hours = originalDate.getHours();
+// const minutes = originalDate.getMinutes();
 
-  // Convert the string to lowercase
-  const lowercaseStr = removedDiacriticsStr.toLowerCase();
+// console.log(day,month,year,hours,minutes)
 
-  return lowercaseStr;
-}
-
-// Test the function
-const inputString = 'Chào các bạn, Đây là một tôi là 1 người việt Ví dụ Tiếng Việt';
-const result = removeVietnameseDiacriticsAndLowercase(inputString);
-console.log(result); // Output: "chao cac ban, day la mot vi du tieng viet"
+const a = []
+const b = [{'d':1},{'e':2},{'f':3}]
+const c = a.concat(b)
+console.log(c)

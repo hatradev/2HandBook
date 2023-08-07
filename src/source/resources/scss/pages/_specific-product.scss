@@ -86,7 +86,7 @@
       }
 
       .details-product {
-        margin-top: 4rem;
+        margin-top: 2rem;
 
         span {
           font-size: 1.8rem;
@@ -95,15 +95,16 @@
         .details-list {
           font-size: 1.5rem;
           margin-left: 2rem;
+          margin-top: 0 !important;
 
           li {
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.2rem;
           }
         }
       }
 
       .adjust-quantity {
-        margin-top: 7.8rem;
+        margin-top: 4.8rem;
 
         .quantity {
           line-height: 2.5rem;
@@ -194,52 +195,61 @@
         }
       }
 
-      .comment-details {
-        background-color: $color-text-light;
-        border-radius: 1rem;
-        padding: 1.5rem 2rem;
+      .comment-main {
+        .comment-user {
+          background-color: $color-text-light;
+          border-radius: 1rem;
+          padding: 1.5rem 2rem;
 
-        .information {
-          .avatar {
-            .img-avatar {
-              width: 4rem;
-              height: 4rem;
-              vertical-align: middle;
-              object-fit: cover;
-              border-radius: 50%;
+          .information {
+            .avatar {
+              .img-avatar {
+                width: 4rem;
+                height: 4rem;
+                vertical-align: middle;
+                object-fit: cover;
+                border-radius: 50%;
+              }
+            }
+
+            .infor-span {
+              font-size: 1.5rem;
+
+              .name {
+                font-weight: 600;
+              }
+
+              .date {}
             }
           }
 
-          .infor-span {
-            font-size: 1.5rem;
-
-            .name {
-              font-weight: 600;
-            }
-
-            .date {}
+          .comment-info {
+            margin-top: 1rem;
+            font-family: Inter;
           }
         }
 
-        .comment-info {
-          margin-top: 1rem;
+        .reply-from-seller {
+          background-color: $color-primary-tint;
+          border-radius: 1rem;
+          padding: 1.5rem 2rem;
+          margin-left: 6rem;
           font-family: Inter;
         }
       }
 
-      .reply-from-seller {
-        background-color: $color-primary-tint;
-        border-radius: 1rem;
-        padding: 1.5rem 2rem;
-        margin-left: 6rem;
-        font-family: Inter;
+      .pagination-container{
+        margin-top: 4rem;
       }
 
-      .extra-view-btn {
-        margin-top: 3rem;
-        width: 13rem;
-        padding: 1rem;
-      }
+    }
+
+    .extra-view-btn {
+      margin-top: 3rem;
+      width: 13rem;
+      padding: 1rem;
+      font-size: 1.8rem;
+      text-transform: uppercase;
     }
   }
 

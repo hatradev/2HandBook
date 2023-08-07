@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 
 const productSchema = new mongoose.Schema(
   {
+    idAccount: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'account',
+    },
     name: {
       type: String,
       required: [true, 'A product must have a name'],
