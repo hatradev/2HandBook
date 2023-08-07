@@ -131,23 +131,32 @@
     <div class='trend-row row'>
       {{#each products}}
         <figure class='trend-card col-2 card'>
-          <a href='#' class='trend-card-img'>
+          <a
+            href='/product/specific-product/{{this._id}}'
+            class='trend-card-img'
+          >
             <img
               src='{{this.image}}'
               class='trend-prod-img'
               alt='Something ...'
             />
           </a>
-          <a class='trend-card-title text-truncate'>{{this.name}}</a>
+          <a
+            href='/product/specific-product/{{this._id}}'
+            class='trend-card-title text-truncate'
+          >{{this.name}}</a>
           <p class='trend-card-price'>{{this.price}} VND</p>
-          <a href='#' class='btn trend-card-btn'>Buy now</a>
+          <a
+            href='/product/specific-product/{{this._id}}'
+            class='btn trend-card-btn'
+          >Buy now</a>
 
         </figure>
       {{/each}}
 
     </div>
     <div class='see-more-btn'>
-      <a href='#' class='btn trend-btn'>
+      <a href='./product/all-product' class='btn trend-btn'>
         <span>See more</span>
         <i class='fa-solid fa-cart-shopping cart-icon'></i>
       </a>
