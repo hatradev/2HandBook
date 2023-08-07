@@ -159,8 +159,16 @@ class acccountController {
     // Account.updateOne({_id: req.params._id}, req.body);
     console.log(req.body);
     const accountId = req.params._id;
+    const user = await Account.findById(accountId);
+
+    user.firstName = req.body.firstName;
+    user.lastName = req.body.lastName;
+    user.address = req.body.address;
+    user.email = req.body.email;
+    user.phone = req.body.phone;
+    user.job = req.body.job;
+    await user.save();
     try {
-      const user = await Account.findById(accountId);
   
       // Check if the present password matches the one in the database
       const isPasswordValid = await bcrypt.compare(req.body.presentPassword, user.password);
@@ -173,12 +181,7 @@ class acccountController {
       const hashedNewPassword = await bcrypt.hash(req.body.newPassword, 10);
       user.password = hashedNewPassword;
       // console.log(user);
-      user.firstName = req.body.firstName;
-      user.lastName = req.body.lastName;
-      user.address = req.body.address;
-      user.email = req.body.email;
-      user.phone = req.body.phone;
-      user.job = req.body.job;
+      
   
       // Save the updated user data to the database
       await user.save();
