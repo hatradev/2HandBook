@@ -6,16 +6,12 @@ function validateForm(event) {
   event.preventDefault(); // Prevent form submission for now
 
   // Get input field values
-  const firstName = document.getElementById('firstName');
-  const lastName = document.getElementById('lastName');
+  const shopName = document.getElementById('shopName');
+  const job = document.getElementById('job');
   const address = document.getElementById('address');
   const email = document.getElementById('email');
   const phone = document.getElementById('phone');
-  const job = document.getElementById('job');
-  const presentPassword = document.getElementById('presentPassword');
-  const newPassword = document.getElementById('newPassword');
-
-  
+  const flexCheckDefault = document.getElementById('flexCheckDefault');
   
   // Function to display an error message and add red border to a field
   function showErrorField(field) {
@@ -42,12 +38,12 @@ function validateForm(event) {
   }
 
   // Clear error messages and red borders as the user types
-  firstName.addEventListener('input', function () {
-    clearErrorField(firstName);
+  shopName.addEventListener('input', function () {
+    clearErrorField(shopName);
   });
 
-  lastName.addEventListener('input', function () {
-    clearErrorField(lastName);
+  job.addEventListener('input', function () {
+    clearErrorField(job);
   });
 
   // address.addEventListener('input', function () {
@@ -61,29 +57,35 @@ function validateForm(event) {
   phone.addEventListener('input', function () {
     clearErrorField(phone);
   });
+  address.addEventListener('input', function () {
+    clearErrorField(address);
+  });
+  flexCheckDefault.addEventListener('input', function () {
+    clearErrorField(flexCheckDefault);
+  });
 
   // job.addEventListener('input', function () {
   //   clearErrorField(job);
   // });
 
   // Perform validation checks
-  if (firstName.value.trim() === '') {
-    showErrorField(firstName);
-    firstName.focus();
+  if (shopName.value.trim() === '') {
+    showErrorField(shopName);
+    shopName.focus();
     return;
   }
 
-  if (lastName.value.trim() === '') {
-    showErrorField(lastName);
-    lastName.focus();
+  if (job.value.trim() === '') {
+    showErrorField(job);
+    job.focus();
     return;
   }
 
-  // if (address.value.trim() === '') {
-  //   showErrorField(address);
-  //   address.focus();
-  //   return;
-  // }
+  if (address.value.trim() === '') {
+    showErrorField(address);
+    address.focus();
+    return;
+  }
 
   if (email.value.trim() === '') {
     showErrorField(email);
@@ -97,11 +99,11 @@ function validateForm(event) {
     return;
   }
 
-  // if (job.value.trim() === '') {
-  //   showErrorField(job);
-  //   job.focus();
-  //   return;
-  // }
+  if (!flexCheckDefault.checked) {
+    showErrorField(flexCheckDefault);
+    flexCheckDefault.focus();
+    return;
+  }
 
   // You can add more specific validation checks for each field if needed,
   // e.g., check if the email is in a valid format or the phone number is numeric.

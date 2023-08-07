@@ -1450,6 +1450,18 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
     .sales-page .manage-order .modal.product-details .modal-dialog .modal-footer .btn-secondary {
       background-color: #3b99d7; }
 
+.form-group.invalid .form-control {
+  border-style: solid;
+  border-color: #f33a58; }
+
+.form-group.invalid .form-check-input {
+  border-style: solid;
+  border-color: #f33a58; }
+
+.form-group.invalid .form-message {
+  color: #f33a58;
+  font-size: 1.2rem; }
+
 .disabled {
   pointer-events: none; }
   .disabled ::placeholder {
