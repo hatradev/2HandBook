@@ -1,5 +1,7 @@
 const hbs = require('express-handlebars');
 const Product = require('../models/product.model');
+const Evaluate = require('../models/evaluate.model');
+
 const sequelize = require('sequelize')
 const Op = sequelize.Op
 
@@ -11,8 +13,8 @@ const {
 var allProducts;
 
 class productController {
-  // [GET] product/all-product
-  getAllProduct = async (req, res, next) => {
+   // [GET] product/all-product
+  showAllProduct = async (req, res, next) => {
     try {
       const products = await Product.find({});
       const categories = await Product.aggregate([
@@ -119,6 +121,87 @@ class productController {
       res.status(500).json({ error: 'Lỗi khi lấy tất cả sản phẩm 2' });
     }
   }
+
+   // [GET] product/specific-product
+   showSpecificProduct = async (req, res, next) => {
+    try {
+      const productId = req.params.id
+
+      const product = await Product.findOne({_id: productId});
+      const details = product.description.split(';')
+      const stars = await Evaluate.aggregate([
+        {
+          $match: {
+            idProduct: productId,
+          },
+        },
+        {
+          $group: {
+            _id: null,
+            avgRating: { $avg: "$rating" }
+          }
+        }
+      ]);
+      const related = await Product.aggregate([
+        {
+          $match: {
+            keyword: product.keyword,
+          },
+        },
+        { $limit : 6 }
+      ]);
+      const evaluates = await Evaluate.aggregate([
+        {
+          $match: {
+            idProduct: productId,
+          },
+        },
+      ]);
+
+      res.json(evaluates)
+
+      // res.locals.details = details
+      // res.locals.product = mongooseToObject(product)
+      // res.locals.stars = stars[0]
+      // res.locals.related = related
+
+      // res.render('specific-product')
+      // console.log(stars, product)
+
+      // var a = mongooseToObject(details)
+      // res.json({product, a})
+    } catch (error) {
+      res.status(500).json({ error: 'Lỗi khi lấy tất cả sản phẩm 3' });
+    }
+  }
+
+  // [PUT] product/specific-product/:id/report
+  // reportProduct = async (req, res, next) => {
+  //   try {
+  //     Course.updateOne({ _id: req.params.id }, {})
+  //       .then(() => {
+  //           res.redirect('back');
+  //       })
+  //       .catch(next);
+      
+  //     // res.json({related, related})
+
+  //     // res.locals.details = details
+  //     // res.locals.product = mongooseToObject(product)
+  //     // res.locals.stars = stars[0]
+  //     // res.locals.related = related
+
+  //     res.render('specific-product')
+  //     // console.log(stars, product)
+
+  //     // var a = mongooseToObject(details)
+  //     // res.json({product, a})
+  //   } catch (error) {
+  //     res.status(500).json({ error: 'Lỗi khi lấy tất cả sản phẩm 3' });
+  //   }
+  // }
+
+
 }
 
 // Auxiliary

@@ -895,24 +895,42 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
         justify-content: center; }
         .specific-product .payment-section .img-item a .img-product {
           width: 35rem; }
-    .specific-product .payment-section .details-item .intro .product-link {
-      font-size: 1.5rem;
-      font-weight: 300;
-      margin-bottom: 0.5rem; }
-    .specific-product .payment-section .details-item .intro .product-name {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 1rem; }
-    .specific-product .payment-section .details-item .intro .product-price {
-      font-size: 2.5rem; }
-    .specific-product .payment-section .details-item .intro .rating .score {
-      font-size: 1.5rem; }
-    .specific-product .payment-section .details-item .intro .rating .rating-star i {
-      font-size: 1.5rem;
-      color: #f1e909; }
-    .specific-product .payment-section .details-item .intro .rating .number {
-      margin-left: 12px;
-      font-size: 1.5rem; }
+    .specific-product .payment-section .details-item .intro {
+      position: relative; }
+      .specific-product .payment-section .details-item .intro .report-section {
+        position: absolute;
+        font-size: 2.6rem;
+        font-weight: 400;
+        padding: 1rem;
+        top: -4%;
+        right: 21%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        cursor: pointer; }
+        .specific-product .payment-section .details-item .intro .report-section button {
+          width: 5rem;
+          height: 3rem;
+          background-color: #f1e909;
+          font-size: 1.5rem; }
+      .specific-product .payment-section .details-item .intro .product-name {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        max-width: 35rem;
+        max-height: 7.2rem;
+        overflow: hidden;
+        text-overflow: ellipsis; }
+      .specific-product .payment-section .details-item .intro .product-price {
+        font-size: 2.5rem; }
+      .specific-product .payment-section .details-item .intro .rating .score {
+        font-size: 1.5rem; }
+      .specific-product .payment-section .details-item .intro .rating .rating-star i {
+        font-size: 1.5rem;
+        color: #f1e909; }
+      .specific-product .payment-section .details-item .intro .rating .number {
+        margin-left: 12px;
+        font-size: 1.5rem; }
     .specific-product .payment-section .details-item .details-product {
       margin-top: 4rem; }
       .specific-product .payment-section .details-item .details-product span {
@@ -923,7 +941,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
         .specific-product .payment-section .details-item .details-product .details-list li {
           margin-bottom: 0.4rem; }
     .specific-product .payment-section .details-item .adjust-quantity {
-      margin-top: 10rem; }
+      margin-top: 7.8rem; }
       .specific-product .payment-section .details-item .adjust-quantity .quantity {
         line-height: 2.5rem; }
       .specific-product .payment-section .details-item .adjust-quantity .adjust-icon .btn:nth-child(2) {
@@ -1023,7 +1041,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
         display: flex;
         justify-content: center; }
         .specific-product .related-product .related-item .img a .img-product {
-          width: 70%;
+          width: 75%;
           vertical-align: middle;
           object-fit: cover; }
     .specific-product .related-product .related-item .name-vs-price {
@@ -1046,6 +1064,17 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
       width: 18vw; }
     .specific-product .trend .trend-row {
       margin-top: 3rem; }
+      .specific-product .trend .trend-row .trend-card {
+        margin-right: 0;
+        margin-left: 0; }
+        .specific-product .trend .trend-row .trend-card .trend-card-title {
+          height: 4.5rem;
+          overflow: hidden;
+          text-overflow: ellipsis; }
+        .specific-product .trend .trend-row .trend-card .trend-prod-img {
+          height: 22rem; }
+        .specific-product .trend .trend-row .trend-card .trend-card-price {
+          margin-bottom: 0.5rem; }
 
 .all-product {
   margin-top: 14rem;

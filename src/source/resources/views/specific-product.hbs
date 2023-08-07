@@ -2,20 +2,19 @@
   <div class='row payment-section'>
     <div class='col-6 img-item'>
       <a href='#'>
-        <img class='img-product' src='img/product-2.jpg' alt='error' />
+        <img class='img-product' src='{{product.image}}' alt='error' />
       </a>
     </div>
     <div class='col-6 details-item'>
       <div class='intro'>
-        <h2 class='product-link'>
-          Book > Information technology
-        </h2>
-        <h1 class='product-name'>
-          Kỹ thuật lập trình
-        </h1>
-        <h2 class='product-price'>250.000đ</h2>
+        <form class="report-section" method="POST" action="/product/specific-product/{{product._id}}/report?_method=PUT">
+          <i class="fa-solid fa-ellipsis"></i>
+          <button>Report</button>
+        </form>
+        <h1 class='product-name'>{{product.name}} ksa dasl dals dlas kdlas dlaksdl</h1>
+        <h2 class='product-price'>{{product.price}}đ</h2>
         <div class='rating d-flex align-items-center mt-4'>
-          <h3 class='score m-0'>5.0</h3>
+          <h3 class='score m-0'>{{showStar stars.avgRating}}</h3>
           <div class='rating-star ms-3'>
             <i class='fa-solid fa-star'></i>
             <i class='fa-solid fa-star'></i>
@@ -29,10 +28,10 @@
       <div class='details-product'>
         <span>Details:</span>
         <ul class='details-list mt-3'>
-          <li>Name: Kỷ thuật lập trình</li>
-          <li>Author: Trần Đan Thư, Nguyễn Phương</li>
-          <li>Publisher: Nhà xuất bản Khoa học và Kĩ thuật</li>
-          <li>Version: 2021</li>
+          <li>Name: {{accessArr details 0}}</li>
+          <li>Author: {{accessArr details 1}}</li>
+          <li>Publisher: {{accessArr details 2}}</li>
+          <li>Version: {{accessArr details 3}}</li>
         </ul>
       </div>
 
@@ -46,7 +45,7 @@
             <i class='fa-solid fa-minus'></i>
           </a>
         </div>
-        <div class='available-product ms-5'>12 available products</div>
+        <div class='available-product ms-5'>{{product.stock}} available products</div>
       </div>
 
       <div class='payment-btn-section'>
@@ -113,125 +112,26 @@
     </div>
     <hr />
   </div>
-  {{!--
-  <div class='row related-product'>
-    <div class='row'>
-      <div class='related-title col-12 gx-2'>Related products</div>
-    </div>
-    <div class='col-4 related-item mt-4'>
-      <div class='img'>
-        <a href='#'>
-          <img class='img-product' src='img/product-2.jpg' alt='error' />
-        </a>
-      </div>
-      <div class='name-vs-price'>
-        <div class='name'>
-          Sách nhập môn lập trình
-        </div>
-        <div class='price mt-2'>250.000 đ</div>
-        <a href='#' class='buy-item-btn w-100 btn'>
-          BUY NOW
-        </a>
-      </div>
-    </div>
 
-    <div class='col-4 related-item mt-4'>
-      <div class='img'>
-        <a href='#'>
-          <img class='img-product' src='img/product-2.jpg' alt='error' />
-        </a>
-      </div>
-      <div class='name-vs-price'>
-        <div class='name'>
-          Sách nhập môn lập trình
-        </div>
-        <div class='price mt-2'>250.000 đ</div>
-        <a href='#' class='buy-item-btn w-100 btn'>
-          BUY NOW
-        </a>
-      </div>
-    </div>
-
-    <div class='col-4 related-item mt-4'>
-      <div class='img'>
-        <a href='#'>
-          <img class='img-product' src='img/product-2.jpg' alt='error' />
-        </a>
-      </div>
-      <div class='name-vs-price'>
-        <div class='name'>
-          Sách nhập môn lập trình
-        </div>
-        <div class='price mt-2'>250.000 đ</div>
-        <a href='#' class='buy-item-btn w-100 btn'>
-          BUY NOW
-        </a>
-      </div>
-    </div>
-
-  </div> --}}
-
-  <section class='trend container'>
+  <section class='trend row'>
     <div class='row'>
       <div class='rectangle col'></div>
       <h2 class='main-heading col-md-auto'>RELATED PRODUCT</h2>
       <div class='rectangle col'></div>
     </div>
     <div class='trend-row row'>
-      <figure class='trend-card col card'>
-        <a href='#' class='trend-card-img'>
-          <img src='../img/SachCSDL.jpg' class='trend-prod-img' alt='Something ...' />
-        </a>
-        <p class='trend-card-title'>Title</p>
-        <p class='trend-card-price'>200 000 VND</p>
-        <a href='#' class='btn trend-card-btn'>Buy now</a>
-
-      </figure>
-
-      <figure class='trend-card col card'>
-        <a href='#' class='card-img-top trend-card-img'>
-          <img src='../img/SachCSDL.jpg' class='trend-prod-img' alt='Something ...' />
-        </a>
-        <p class='trend-card-title'>Title</p>
-        <p class='trend-card-price'>200 000 VND</p>
-        <a href='#' class='btn trend-card-btn'>Buy now</a>
-      </figure>
-
-      <figure class='trend-card col card'>
-        <a href='#' class='trend-card-img'>
-          <img src='../img/SachKTLT.jpg' class='trend-prod-img' alt='Something ...' />
-        </a>
-        <p class='trend-card-title'>Title</p>
-        <p class='trend-card-price'>200 000 VND</p>
-        <a href='#' class='btn trend-card-btn'>Buy now</a>
-      </figure>
-
-      <figure class='trend-card col card'>
-        <a href='#' class='trend-card-img'>
-          <img src='../img/SachLSD.jpg' class='trend-prod-img' alt='Something ...' />
-        </a>
-        <p class='trend-card-title'>Title</p>
-        <p class='trend-card-price'>200 000 VND</p>
-        <a href='#' class='btn trend-card-btn'>Buy now</a>
-      </figure>
-
-      <figure class='trend-card col card'>
-        <a href='#' class='trend-card-img'>
-          <img src='../img/MTcasio.jpg' class='trend-prod-img' alt='Something ...' />
-        </a>
-        <p class='trend-card-title'>Title</p>
-        <p class='trend-card-price'>200 000 VND</p>
-        <a href='#' class='btn trend-card-btn'>Buy now</a>
-      </figure>
-
-      <figure class='trend-card col card'>
-        <a href='#' class='trend-card-img'>
-          <img src='../img/MTcasio.jpg' class='trend-prod-img' alt='Something ...' />
-        </a>
-        <p class='trend-card-title'>Title</p>
-        <p class='trend-card-price'>200 000 VND</p>
-        <a href='#' class='btn trend-card-btn'>Buy now</a>
-      </figure>
+      {{#each related}}
+      <div class="col-2">
+        <figure class='trend-card card'>
+          <a href='/product/specific-product/{{this._id}}' class='trend-card-img'>
+            <img src='{{this.image}}' class='trend-prod-img' alt='Something ...' />
+          </a>
+          <p class='trend-card-title'>{{this.name}}</p>
+          <p class='trend-card-price'>{{this.price}} VND</p>
+          <a href='#' class='btn trend-card-btn'>Buy now</a>
+        </figure>
+      </div>
+      {{/each}}
     </div>
   </section>
 </div>

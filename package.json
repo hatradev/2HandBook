@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "mongoose-currency": "^0.2.0",
     "sequelize": "^6.32.1"
   }
 }
