@@ -1,16 +1,16 @@
 const mongoose = require('mongoose');
-const productSchema = require('./product.model');
-const accountSchema = require('./account.model');
+const product = require('./product.model');
+const account = require('./account.model');
 
 const evaluateSchema = new mongoose.Schema(
   {
     idAccount: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'accountSchema',
+      ref: 'account',
     },
     idProduct: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'productSchema',
+      ref: 'product',
     },
     content: {
       type: String,

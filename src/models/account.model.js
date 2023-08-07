@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const productSchema = require('./product.model');
+const product = require('./product.model');
 
 const accountSchema = new mongoose.Schema(
   {
@@ -30,7 +30,7 @@ const accountSchema = new mongoose.Schema(
       {
         id_product: {
           type: mongoose.Schema.Types.ObjectId,
-          ref: 'productSchema',
+          ref: 'product',
         },
         quantity: Number,
       },

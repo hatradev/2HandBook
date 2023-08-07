@@ -1,18 +1,18 @@
 const mongoose = require('mongoose');
-const productSchema = require('./product.model');
-const accountSchema = require('./account.model');
+const product = require('./product.model');
+const account = require('./account.model');
 
 const orderSchema = new mongoose.Schema({
   idAccount: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'accountSchema',
+    ref: 'account',
     required: true,
   },
   detail: [
     {
       idProduct: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'productSchema',
+        ref: 'product',
         required: true,
       },
       quantity: {
@@ -39,4 +39,4 @@ const orderSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model('Order', orderSchema);
+module.exports = mongoose.model('order', orderSchema);
