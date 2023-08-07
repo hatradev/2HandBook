@@ -1,8 +1,8 @@
 const hbs = require('express-handlebars');
 const Order = require('../models/order.model');
 
-const sequelize = require('sequelize')
-const Op = sequelize.Op
+const sequelize = require('sequelize');
+const Op = sequelize.Op;
 
 const {
   mutipleMongooseToObject,
@@ -11,9 +11,9 @@ const {
 
 var allProducts;
 
-class productController {
-   // [GET] product/all-product
-  showAllProduct = async (req, res, next) => {
+class orderController {
+  // [GET] product/all-product
+  showAllOrder = async (req, res, next) => {
     try {
       const products = await Product.find({});
       const categories = await Product.aggregate([
@@ -28,14 +28,14 @@ class productController {
         },
       ]);
 
-      res.locals.categories = categories
-      res.locals.products = mutipleMongooseToObject(products)
+      res.locals.categories = categories;
+      res.locals.products = mutipleMongooseToObject(products);
 
-      res.render('all-product')
+      res.render('all-product');
     } catch (error) {
       res.status(500).json({ error: 'Lỗi khi lấy tất cả sản phẩm 1' });
     }
-  }
+  };
 }
 
-module.exports = new productController();
+module.exports = new orderController();

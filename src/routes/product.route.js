@@ -5,8 +5,8 @@ const acccountController = require('../controllers/account.controller');
 
 const router = express.Router();
 // ######################## BUYER #########################
-router.get('/all-product', productController.getAllProduct);
-router.get('/all-product/:id', productController.getAProduct);
+// router.get('/all-product', productController.getAllProduct);
+// router.get('/all-product/:id', productController.getAProduct);
 router.post('/cart', productController.add2Cart);
 // #########################################################
 // router.use(acccountController.isLoggedIn);

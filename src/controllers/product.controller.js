@@ -269,11 +269,48 @@ class productController {
         },
       ]);
 
-      res.json(evaluates);
+      // res.json(evaluates)
+
+      res.locals.details = details;
+      res.locals.product = mongooseToObject(product);
+      res.locals.stars = stars[0];
+      res.locals.related = related;
+
+      res.render('specific-product');
+      // console.log(stars, product)
+
+      // var a = mongooseToObject(details)
+      // res.json({product, a})
     } catch (error) {
       res.status(500).json({ error: 'Lỗi khi lấy tất cả sản phẩm 3' });
     }
   };
+
+  // [PUT] product/specific-product/:id/report
+  // reportProduct = async (req, res, next) => {
+  //   try {
+  //     Course.updateOne({ _id: req.params.id }, {})
+  //       .then(() => {
+  //           res.redirect('back');
+  //       })
+  //       .catch(next);
+
+  //     // res.json({related, related})
+
+  //     // res.locals.details = details
+  //     // res.locals.product = mongooseToObject(product)
+  //     // res.locals.stars = stars[0]
+  //     // res.locals.related = related
+
+  //     res.render('specific-product')
+  //     // console.log(stars, product)
+
+  //     // var a = mongooseToObject(details)
+  //     // res.json({product, a})
+  //   } catch (error) {
+  //     res.status(500).json({ error: 'Lỗi khi lấy tất cả sản phẩm 3' });
+  //   }
+  // }
 }
 
 // Auxiliary
