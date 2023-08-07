@@ -1,5 +1,5 @@
 const express = require('express');
-const handlebars = require('express-handlebars');
+const hbs = require('express-handlebars');
 const path = require('path');
 const methodOverride = require('method-override');
 const livereload = require('livereload');
@@ -36,8 +36,9 @@ app.use(methodOverride('_method'));
 // Template engines handlebars
 app.engine(
   'hbs',
-  handlebars.engine({
+  hbs.engine({
     extname: '.hbs',
+    helpers: require('../helpers/handlebars'),
   })
 );
 app.set('view engine', 'hbs');

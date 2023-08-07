@@ -1,0 +1,33 @@
+[{
+    "rating": 3,
+    "reply": "64cb6a31cb7c58bf30271414",
+    "content": "Tôi rất thích sản phẩm này",
+    "date": {
+      "$date": "1999-12-31T17:00:00.000Z"
+    },
+    "idAccount": "1",
+    "idProduct": "1",
+    "status": "reported"
+  },
+  {
+    "rating": 3,
+    "reply": "",
+    "content": "Cảm ơn",
+    "date": {
+      "$date": "1999-12-31T17:00:00.000Z"
+    },
+    "idAccount": "1",
+    "idProduct": "2",
+    "status": "None"
+  },
+  {
+    "rating": 3,
+    "reply": "",
+    "content": "Tôi rất thích sản phẩm này",
+    "date": {
+      "$date": "1999-12-31T17:00:00.000Z"
+    },
+    "idAccount": "2",
+    "idProduct": "1",
+    "status": "None"
+  }]
