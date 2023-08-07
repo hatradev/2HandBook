@@ -18,4 +18,11 @@ router.get('/edit/:id', productController.getEditForUpdate);
 router.post('/edit/save', upload, productController.createNewProduct);
 router.post('/edit/save/:id', upload, productController.updateProduct);
 // #########################################################
+
+router.get('/all-product', productController.showAllProduct);
+router.get('/all-product/category', productController.filterProduct);
+router.get('/all-product/sort', productController.sortProduct);
+router.get('/all-product/search', productController.searchProduct);
+router.get('/specific-product/:id', productController.showSpecificProduct);
+
 module.exports = router;

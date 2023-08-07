@@ -32,16 +32,36 @@
 
     .details-item {
       .intro {
-        .product-link {
-          font-size: 1.5rem;
-          font-weight: 300;
-          margin-bottom: 0.5rem;
+        position: relative;
+
+        .report-section {
+          position: absolute;
+          font-size: 2.6rem;
+          font-weight: 400;
+          padding: 1rem;
+          top: -4%;
+          right: 21%;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          cursor: pointer;
+
+          button {
+            width: 5rem;
+            height: 3rem;
+            background-color: #f1e909;
+            font-size: 1.5rem;
+          }
         }
 
         .product-name {
           font-size: 3rem;
           font-weight: 700;
           margin-bottom: 1rem;
+          max-width: 35rem;
+          max-height: 7.2rem;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
 
         .product-price {
@@ -83,15 +103,15 @@
       }
 
       .adjust-quantity {
-        margin-top: 10rem;
+        margin-top: 7.8rem;
 
         .quantity {
           line-height: 2.5rem;
           // text-align: justify;
         }
 
-        .adjust-icon{
-          .btn:nth-child(2){
+        .adjust-icon {
+          .btn:nth-child(2) {
             margin-left: 0.5rem;
           }
         }
@@ -104,12 +124,14 @@
 
       .payment-btn-section {
         margin-top: 2.4rem;
+
         .add-cart-btn {
           width: 16rem;
           padding: 1rem 0;
           text-transform: uppercase;
           background: #D2E6EF;
           color: #000;
+
           &:hover {
             border-radius: 0.5rem;
             box-shadow: 0 0 0 0.2rem $color-primary-shade inset;
@@ -131,10 +153,11 @@
   //comment section
   .comment-section {
     .comment-item {
-      .trend{
+      .trend {
         margin-top: 2rem;
         margin-bottom: 3rem;
       }
+
       .comment-title {
         background-color: $color-primary-shade;
         padding: 1.4rem 0;
@@ -147,6 +170,7 @@
 
       .write-cmt {
         position: relative;
+
         textarea {
           outline: none;
           border: solid 0.2rem $color-primary-shade;
@@ -174,6 +198,7 @@
         background-color: $color-text-light;
         border-radius: 1rem;
         padding: 1.5rem 2rem;
+
         .information {
           .avatar {
             .img-avatar {
@@ -184,19 +209,19 @@
               border-radius: 50%;
             }
           }
-  
+
           .infor-span {
             font-size: 1.5rem;
-  
+
             .name {
               font-weight: 600;
             }
-  
+
             .date {}
           }
         }
 
-        .comment-info{
+        .comment-info {
           margin-top: 1rem;
           font-family: Inter;
         }
@@ -210,10 +235,10 @@
         font-family: Inter;
       }
 
-      .extra-view-btn{
-          margin-top: 3rem;
-          width: 13rem;
-          padding: 1rem;
+      .extra-view-btn {
+        margin-top: 3rem;
+        width: 13rem;
+        padding: 1rem;
       }
     }
   }
@@ -222,6 +247,7 @@
   .related-product {
     margin-top: 2rem;
     margin-bottom: 6rem;
+
     .related-title {
       background-color: $color-primary-tint;
       padding: 1.6rem 0;
@@ -246,7 +272,7 @@
           justify-content: center;
 
           .img-product {
-            width: 70%;
+            width: 75%;
             vertical-align: middle;
             object-fit: cover;
           }
@@ -278,15 +304,36 @@
     }
   }
 
-  .trend{
+  .trend {
     // margin-bottom: 6rem;
     margin-top: 2rem;
     margin-bottom: 6rem;
-    .main-heading{
+
+    .main-heading {
       width: 18vw;
     }
-    .trend-row{
+
+    .trend-row {
       margin-top: 3rem;
+
+      .trend-card {
+        margin-right: 0;
+        margin-left: 0;
+
+        .trend-card-title {
+          height: 4.5rem;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .trend-prod-img {
+          height: 22rem;
+        }
+
+        .trend-card-price {
+          margin-bottom: 0.5rem;
+        }
+      }
     }
   }
 }

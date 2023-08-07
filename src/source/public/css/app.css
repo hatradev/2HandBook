@@ -1029,24 +1029,42 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
         justify-content: center; }
         .specific-product .payment-section .img-item a .img-product {
           width: 35rem; }
-    .specific-product .payment-section .details-item .intro .product-link {
-      font-size: 1.5rem;
-      font-weight: 300;
-      margin-bottom: 0.5rem; }
-    .specific-product .payment-section .details-item .intro .product-name {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 1rem; }
-    .specific-product .payment-section .details-item .intro .product-price {
-      font-size: 2.5rem; }
-    .specific-product .payment-section .details-item .intro .rating .score {
-      font-size: 1.5rem; }
-    .specific-product .payment-section .details-item .intro .rating .rating-star i {
-      font-size: 1.5rem;
-      color: #f1e909; }
-    .specific-product .payment-section .details-item .intro .rating .number {
-      margin-left: 12px;
-      font-size: 1.5rem; }
+    .specific-product .payment-section .details-item .intro {
+      position: relative; }
+      .specific-product .payment-section .details-item .intro .report-section {
+        position: absolute;
+        font-size: 2.6rem;
+        font-weight: 400;
+        padding: 1rem;
+        top: -4%;
+        right: 21%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        cursor: pointer; }
+        .specific-product .payment-section .details-item .intro .report-section button {
+          width: 5rem;
+          height: 3rem;
+          background-color: #f1e909;
+          font-size: 1.5rem; }
+      .specific-product .payment-section .details-item .intro .product-name {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        max-width: 35rem;
+        max-height: 7.2rem;
+        overflow: hidden;
+        text-overflow: ellipsis; }
+      .specific-product .payment-section .details-item .intro .product-price {
+        font-size: 2.5rem; }
+      .specific-product .payment-section .details-item .intro .rating .score {
+        font-size: 1.5rem; }
+      .specific-product .payment-section .details-item .intro .rating .rating-star i {
+        font-size: 1.5rem;
+        color: #f1e909; }
+      .specific-product .payment-section .details-item .intro .rating .number {
+        margin-left: 12px;
+        font-size: 1.5rem; }
     .specific-product .payment-section .details-item .details-product {
       margin-top: 4rem; }
       .specific-product .payment-section .details-item .details-product span {
@@ -1057,7 +1075,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
         .specific-product .payment-section .details-item .details-product .details-list li {
           margin-bottom: 0.4rem; }
     .specific-product .payment-section .details-item .adjust-quantity {
-      margin-top: 10rem; }
+      margin-top: 7.8rem; }
       .specific-product .payment-section .details-item .adjust-quantity .quantity {
         line-height: 2.5rem; }
       .specific-product .payment-section .details-item .adjust-quantity .adjust-icon .btn:nth-child(2) {
@@ -1157,7 +1175,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
         display: flex;
         justify-content: center; }
         .specific-product .related-product .related-item .img a .img-product {
-          width: 70%;
+          width: 75%;
           vertical-align: middle;
           object-fit: cover; }
     .specific-product .related-product .related-item .name-vs-price {
@@ -1180,20 +1198,35 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
       width: 18vw; }
     .specific-product .trend .trend-row {
       margin-top: 3rem; }
+      .specific-product .trend .trend-row .trend-card {
+        margin-right: 0;
+        margin-left: 0; }
+        .specific-product .trend .trend-row .trend-card .trend-card-title {
+          height: 4.5rem;
+          overflow: hidden;
+          text-overflow: ellipsis; }
+        .specific-product .trend .trend-row .trend-card .trend-prod-img {
+          height: 22rem; }
+        .specific-product .trend .trend-row .trend-card .trend-card-price {
+          margin-bottom: 0.5rem; }
 
 .all-product {
   margin-top: 14rem;
   max-width: 108rem; }
   .all-product .sort-section {
-    margin-top: 2.5rem; }
-    .all-product .sort-section .form-select {
-      margin-top: 2rem;
-      width: 26rem;
-      height: 4rem;
-      font-size: 1.6rem;
-      box-shadow: 2px 2px 3px rgba(49, 56, 62, 0.3); }
+    margin-top: 2.5rem;
+    margin-right: 0.75rem;
+    background-color: #fff; }
+    .all-product .sort-section .dropdown {
+      background-color: #fff; }
+      .all-product .sort-section .dropdown button, .all-product .sort-section .dropdown ul li {
+        height: 4rem;
+        width: 20rem;
+        font-size: 1.6rem; }
   .all-product .filter-vs-product {
-    padding-top: 2.5rem; }
+    position: relative;
+    padding-top: 2.5rem;
+    height: 85rem; }
     .all-product .filter-vs-product .filter-section {
       background-color: #d9edf7; }
       .all-product .filter-vs-product .filter-section .search-bar {
@@ -1211,7 +1244,8 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
           font-size: 1.6rem;
           position: absolute;
           right: 1rem;
-          top: 2rem; }
+          top: 2rem;
+          background-color: #fff; }
           .all-product .filter-vs-product .filter-section .search-bar .search-icon-link .search-icon::before {
             color: #31383e; }
       .all-product .filter-vs-product .filter-section .price-filter .slider {
@@ -1246,7 +1280,8 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
         .all-product .filter-vs-product .filter-section .filter-type-list .type-item a {
           display: inline-block; }
         .all-product .filter-vs-product .filter-section .filter-type-list .type-item a .type-name {
-          color: #31383e; }
+          color: #31383e;
+          text-transform: capitalize; }
         .all-product .filter-vs-product .filter-section .filter-type-list .type-item .number {
           color: #31383e; }
     .all-product .filter-vs-product .product-section .trend {
@@ -1275,7 +1310,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
         margin-bottom: 1rem; }
       .all-product .filter-vs-product .product-section .trend .trend-card-img {
         background-color: #fff;
-        height: 100%; }
+        height: 24.3rem; }
         .all-product .filter-vs-product .product-section .trend .trend-card-img .trend-prod-img {
           float: left;
           height: 100%;
@@ -1285,7 +1320,10 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
         font-family: Inter;
         font-size: 1.5rem;
         font-weight: 500;
-        padding: 0 0.5rem; }
+        padding: 0 0.5rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 4.5rem; }
       .all-product .filter-vs-product .product-section .trend .trend-card-price {
         text-align: center;
         color: #000;
@@ -1318,8 +1356,11 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
           color: #fff;
           background-color: #337ab7; }
     .all-product .filter-vs-product .pagination-container {
+      position: absolute;
       width: 25rem;
-      margin: 2rem auto; }
+      margin: 2rem auto;
+      bottom: 0%;
+      right: 26%; }
       .all-product .filter-vs-product .pagination-container .pagination {
         margin-bottom: 0.6rem; }
 
