@@ -1409,18 +1409,6 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
     .sales-page .manage-order .modal.product-details .modal-dialog .modal-footer .btn-secondary {
       background-color: #3b99d7; }
 
-.form-group.invalid .form-control {
-  border-style: solid;
-  border-color: #f33a58; }
-
-.form-group.invalid .form-check-input {
-  border-style: solid;
-  border-color: #f33a58; }
-
-.form-group.invalid .form-message {
-  color: #f33a58;
-  font-size: 1.2rem; }
-
 .disabled {
   pointer-events: none; }
   .disabled ::placeholder {
@@ -1441,15 +1429,22 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
   justify-content: end;
   margin-top: 5rem; }
   .register button {
-    background-color: #3b99d7;
-    height: 50%;
-    color: rgba(0, 0, 0, 0.426);
-    font-weight: bold;
-    font-size: 1.5rem; }
+    width: 15rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    border-radius: 0.5rem;
+    padding: 1rem 0rem;
+    transition: all 0.3s;
+    text-align: center;
+    margin-top: 2rem;
+    margin-right: 1rem;
+    background-color: var(--dark-blue);
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 0.1rem solid black; }
     .register button:hover {
-      background-color: #337ab7;
-      box-shadow: none;
-      color: white; }
+      background-color: var(--light-blue);
+      color: black; }
 
 .contract-container {
   margin-left: 0.5rem;
@@ -1571,15 +1566,22 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
       display: flex;
       justify-content: end; }
       .account-profile-main .row .col-9 .save-changes button {
-        background-color: #3b99d7;
-        height: 50%;
-        color: rgba(0, 0, 0, 0.437);
-        font-weight: bold;
-        font-size: 1.5rem; }
+        width: 15rem;
+        font-size: 1.5rem;
+        font-weight: 500;
+        border-radius: 0.5rem;
+        padding: 1rem 0rem;
+        transition: all 0.3s;
+        text-align: center;
+        margin-top: 2rem;
+        margin-right: 1rem;
+        background-color: var(--dark-blue);
+        color: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        border: 0.1rem solid black; }
         .account-profile-main .row .col-9 .save-changes button:hover {
-          background-color: #337ab7;
-          box-shadow: none;
-          color: white; }
+          background-color: var(--light-blue);
+          color: black; }
 
 .flex-between {
   display: flex;

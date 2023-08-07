@@ -83,16 +83,25 @@
       display: flex;
       justify-content: end;
       button {
-        // height: 70%;
-        background-color: $color-primary;
-        height: 50%;
-        color: rgba(0, 0, 0, 0.437);
-        font-weight: bold;
+        width: 15rem;
         font-size: 1.5rem;
+        font-weight: 500;
+        border-radius: 0.5rem;
+        padding: 1rem 0rem;
+        transition: all 0.3s;
+        text-align: center;
+        margin-top: 2rem;
+        margin-right: 1rem;
+        background-color: var(--dark-blue);
+        // width: calc(33.33%);
+        color: white;
+
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        border: 0.1rem solid black;
+
         &:hover {
-          background-color: $color-primary-shade;
-          box-shadow: none;
-          color: white;
+          background-color: var(--light-blue);
+          color: black;
         }
       }
     }
