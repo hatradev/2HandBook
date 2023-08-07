@@ -29,24 +29,42 @@
     </div>
     <div class='carousel-inner'>
       <div class='carousel-item active' data-bs-interval='5000'>
-        <img src='/img/hero/hero-image.jpg ' class='d-block w-100' alt='img' />
+        <img
+          src='/img/hero/hero-1.jpg '
+          style='filter:brightness(50%);'
+          class='d-block w-100'
+          alt='img'
+        />
         <div class='carousel-caption d-none d-md-block'>
-          <h1>First slide label</h1>
-          <p>Some representative placeholder content for the first slide.</p>
+          <h1>2HandBook - A treasure trove of learning materials.</h1>
+          <p>A platform that connects buyers and sellers of used books and other
+            school materials.</p>
         </div>
       </div>
       <div class='carousel-item' data-bs-interval='5000'>
-        <img src='/img/hero/hero-image.jpg' class='d-block w-100' alt='img' />
+        <img
+          src='/img/hero/hero-2.jpg'
+          style='filter:brightness(50%);'
+          class='d-block w-100'
+          alt='img'
+        />
         <div class='carousel-caption d-none d-md-block'>
-          <h1>Second slide label</h1>
-          <p>Some representative placeholder content for the second slide.</p>
+          <h1>2HandBook - A diverse information technology bookcase.</h1>
+          <p>A collection of information technology resources that are inclusive
+            of different perspectives and experiences.</p>
         </div>
       </div>
       <div class='carousel-item' data-bs-interval='5000'>
-        <img src='/img/hero/hero-image.jpg' class='d-block w-100' alt='img' />
+        <img
+          src='/img/hero/hero-3.jpg'
+          style='filter:brightness(50%);'
+          class='d-block w-100'
+          alt='img'
+        />
         <div class='carousel-caption d-none d-md-block'>
-          <h1>Third slide label</h1>
-          <p>Some representative placeholder content for the third slide.</p>
+          <h1>2HandBook - Quick sharing of essential learning tools.</h1>
+          <p>A place with all the necessary learning tools for you to go to the
+            university.</p>
         </div>
       </div>
     </div>
@@ -77,24 +95,24 @@
         <img src='/img/banner-1.png' class='banner-img' alt='Something ...' />
       </div>
       <div class='banner-article col-6'>
-        <h1 class='main-heading'>Heading</h1>
+        <h1 class='main-heading'>Introduction</h1>
         <p class='paragraph'>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis
-          consectetur quibusdam hic et tenetur voluptatibus quae nobis labore
-          odio delectus. Quasi eius minus officiis amet culpa facere
-          consequuntur nemo esse!
+          2Handbook serves as a marketplace for students to sell old study
+          materials they no longer need to other students. The products can be
+          old books, old documents, old calculators, etc. In addition, this
+          website also welcomes other sellers like bookstores, stationery
+          stores, printing shops.
         </p>
       </div>
     </div>
     <div class='banner-row'>
       <div class='banner-article col-6'>
 
-        <h1 class='main-heading'>Heading</h1>
+        <h1 class='main-heading'>Handy &amp; versatile</h1>
         <p class='paragraph'>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum atque
-          minus itaque exercitationem et omnis est illo iste vel! Dolore ducimus
-          laudantium voluptatem repudiandae natus quidem aspernatur numquam
-          accusantium totam.
+          As a place to exchange learning materials on a variety of subjects and
+          disciplines with each other, 2HandBook aims at convenience, ease of
+          use for students as well as rich, quality resources at cheap prices.
         </p>
       </div>
       <div class='col-6'>
@@ -111,84 +129,21 @@
       <div class='rectangle col'></div>
     </div>
     <div class='trend-row row'>
-      <figure class='trend-card col card'>
-        <a href='#' class='trend-card-img'>
-          <img
-            src='../img/SachCSDL.jpg'
-            class='trend-prod-img'
-            alt='Something ...'
-          />
-        </a>
-        <p class='trend-card-title'>Title</p>
-        <p class='trend-card-price'>200 000 VND</p>
-        <a href='#' class='btn trend-card-btn'>Buy now</a>
+      {{#each products}}
+        <figure class='trend-card col-2 card'>
+          <a href='#' class='trend-card-img'>
+            <img
+              src='{{this.image}}'
+              class='trend-prod-img'
+              alt='Something ...'
+            />
+          </a>
+          <a class='trend-card-title text-truncate'>{{this.name}}</a>
+          <p class='trend-card-price'>{{this.price}} VND</p>
+          <a href='#' class='btn trend-card-btn'>Buy now</a>
 
-      </figure>
-
-      <figure class='trend-card col card'>
-        <a href='#' class='card-img-top trend-card-img'>
-          <img
-            src='../img/SachCSDL.jpg'
-            class='trend-prod-img'
-            alt='Something ...'
-          />
-        </a>
-        <p class='trend-card-title'>Title</p>
-        <p class='trend-card-price'>200 000 VND</p>
-        <a href='#' class='btn trend-card-btn'>Buy now</a>
-      </figure>
-
-      <figure class='trend-card col card'>
-        <a href='#' class='trend-card-img'>
-          <img
-            src='../img/SachKTLT.jpg'
-            class='trend-prod-img'
-            alt='Something ...'
-          />
-        </a>
-        <p class='trend-card-title'>Title</p>
-        <p class='trend-card-price'>200 000 VND</p>
-        <a href='#' class='btn trend-card-btn'>Buy now</a>
-      </figure>
-
-      <figure class='trend-card col card'>
-        <a href='#' class='trend-card-img'>
-          <img
-            src='../img/SachLSD.jpg'
-            class='trend-prod-img'
-            alt='Something ...'
-          />
-        </a>
-        <p class='trend-card-title'>Title</p>
-        <p class='trend-card-price'>200 000 VND</p>
-        <a href='#' class='btn trend-card-btn'>Buy now</a>
-      </figure>
-
-      <figure class='trend-card col card'>
-        <a href='#' class='trend-card-img'>
-          <img
-            src='../img/MTcasio.jpg'
-            class='trend-prod-img'
-            alt='Something ...'
-          />
-        </a>
-        <p class='trend-card-title'>Title</p>
-        <p class='trend-card-price'>200 000 VND</p>
-        <a href='#' class='btn trend-card-btn'>Buy now</a>
-      </figure>
-
-      <figure class='trend-card col card'>
-        <a href='#' class='trend-card-img'>
-          <img
-            src='../img/MTcasio.jpg'
-            class='trend-prod-img'
-            alt='Something ...'
-          />
-        </a>
-        <p class='trend-card-title'>Title</p>
-        <p class='trend-card-price'>200 000 VND</p>
-        <a href='#' class='btn trend-card-btn'>Buy now</a>
-      </figure>
+        </figure>
+      {{/each}}
 
     </div>
     <div class='see-more-btn'>

@@ -41,4 +41,6 @@ router.get('/my-order-cancelled', accountController.getMyOrderCancelled);
 router.get('/my-order/:_id', accountController.getMyOrder);
 router.get('/become-seller/:_id', accountController.getBecomeSeller);
 
+// Admin
+
 module.exports = router;

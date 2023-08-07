@@ -47,7 +47,7 @@
           </a>
         </div>
         <div class='nav-item'>
-          <a class='nav-link' href='./product/all'>
+          <a class='nav-link' href='./product/full'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='32'
@@ -91,7 +91,7 @@
           <a
             class='nav-link active'
             aria-current='page'
-            href='./view'
+            href='./all'
           >All announcements</a>
         </div>
       </div>
@@ -108,7 +108,7 @@
               <p class='text-truncate content'>Content: {{this.content}}</p>
               <a
                 class='view-more-announcement link-primary'
-                href='#'
+                href='./all/{{this.id}}'
                 data-bs-toggle='modal'
                 data-bs-target='#staticAnnouncement'
               >View more</a>
@@ -131,7 +131,7 @@
           <div class='modal-dialog'>
             <div class='modal-content'>
               <div class='modal-header'>
-                <div class='modal-title title' id='staticBackdropLabel'> {{this.title}} </div>
+                <div class='modal-title title' id='staticBackdropLabel'> {{title}} </div>
                 <button
                   type='button'
                   class='btn-close'
@@ -140,9 +140,9 @@
                 ></button>
               </div>
               <div class='modal-body'>
-                <p><strong>To:</strong> {{this.recipient}}</p>
-                <p><strong>Time:</strong> {{this.time}}</p>
-                <p><strong>Content:</strong> {{this.content}}</p>
+                <p><strong>To:</strong> {{recipient}}</p>
+                <p><strong>Time:</strong> {{time}}</p>
+                <p><strong>Content:</strong> {{content}}</p>
               </div>
 
             </div>

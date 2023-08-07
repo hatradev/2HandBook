@@ -3,6 +3,7 @@ const siteRouter = require('./site.route');
 const productRouter = require('./product.route');
 const accountRouter = require('./account.route');
 const announceRouter = require('./announcement.route');
+const commentRouter = require('./comment.route');
 
 function route(app) {
   app.get('/upload', (req, res) => {
@@ -13,6 +14,7 @@ function route(app) {
   app.use('/account', accountRouter);
   app.use('/announcement', announceRouter);
   app.use('/product', productRouter);
+  // app.use('/comment', commentRouter);
 
   // Hai middlewares này phải để cuối để check lỗi
   app.use((req, res, next) => {
