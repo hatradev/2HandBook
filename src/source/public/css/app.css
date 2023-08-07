@@ -641,7 +641,6 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
   padding: 60px 0; }
 
 .file-upload-image {
-  max-height: 50rem;
   max-width: 50rem;
   margin: auto;
   padding: 20px; }
@@ -658,7 +657,8 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
   transition: all 0.2s ease;
   outline: none;
   text-transform: uppercase;
-  font-weight: 700; }
+  font-weight: 700;
+  font-size: 1.6rem; }
 
 .remove-image:hover {
   background: #c13b2a;
@@ -820,7 +820,8 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
   border-right: none; }
 
 .btn-ext, .manage-product a.btn, .edit-product a.btn {
-  background-color: #3b99d7; }
+  background-color: #3b99d7;
+  color: #fff; }
   .btn-ext:hover, .manage-product a.btn:hover, .edit-product a.btn:hover {
     background-color: #337ab7;
     box-shadow: none; }
@@ -873,7 +874,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
   margin-bottom: 1rem; }
 
 .edit-product .edit-product-form-item {
-  margin-bottom: 3rem; }
+  margin-bottom: 2rem; }
   .edit-product .edit-product-form-item input,
   .edit-product .edit-product-form-item textarea {
     border: 0.1rem solid #ccc;
@@ -883,6 +884,9 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
     height: 4rem; }
   .edit-product .edit-product-form-item textarea {
     padding-top: 1rem; }
+
+.edit-product .edit-product-form-item:last-child {
+  margin-bottom: -1rem; }
 
 .edit-product .product-category::after {
   top: unset;
@@ -915,6 +919,39 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
   min-height: 50rem;
   font-size: 2rem;
   background-color: #f6f6f6; }
+
+.edit-product .edit-product-form-upload {
+  position: relative; }
+
+.edit-product .product-image.product-image-preview {
+  position: absolute;
+  top: auto;
+  left: 2rem;
+  bottom: 2.1rem;
+  right: 2rem;
+  border: 0.1rem dashed #ccc;
+  max-width: calc(100% - 4rem);
+  display: flex;
+  overflow: hidden;
+  padding: 2rem; }
+  .edit-product .product-image.product-image-preview img {
+    max-height: calc(50rem - 20rem);
+    overflow: scroll;
+    width: fit-content; }
+  .edit-product .product-image.product-image-preview .btn {
+    margin: 3rem auto 0; }
+
+.edit-product button.btn {
+  font-size: 1.6rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  background-color: #3b99d7;
+  padding: 0.5rem 2rem;
+  transition: all 0.3s;
+  color: #fff; }
+  .edit-product button.btn:hover {
+    background-color: #337ab7;
+    color: #fff; }
 
 .dashboard .dashboard-general {
   font-size: 1.8rem;

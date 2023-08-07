@@ -19,7 +19,7 @@
     }
   }
   .edit-product-form-item {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     input,
     textarea {
       border: 0.1rem solid $color-border;
@@ -32,6 +32,9 @@
     textarea {
       padding-top: 1rem;
     }
+  }
+  .edit-product-form-item:last-child {
+    margin-bottom: -1rem;
   }
   .product-category {
     @extend .select-container-ext;
@@ -65,5 +68,39 @@
     min-height: 50rem;
     font-size: 2rem;
     background-color: $color-text-light;
+  }
+  .edit-product-form-upload {
+    position: relative;
+  }
+  .product-image.product-image-preview {
+    @include abs-pos(auto, 2rem, 2.1rem, 2rem);
+    border: 0.1rem dashed #ccc;
+    max-width: calc(100% - 4rem);
+    display: flex;
+
+    overflow: hidden;
+    padding: 2rem;
+    img {
+      max-height: calc(50rem - 20rem);
+      overflow: scroll;
+      width: fit-content;
+    }
+    .btn {
+      margin: 3rem auto 0;
+    }
+  }
+
+  button.btn {
+    @include font(1.6rem, 500);
+    border-radius: 0.5rem;
+    background-color: $color-primary;
+    padding: 0.5rem 2rem;
+    transition: all 0.3s;
+    color: $color-white;
+
+    &:hover {
+      background-color: $color-primary-shade;
+      color: $color-white;
+    }
   }
 }

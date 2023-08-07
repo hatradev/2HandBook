@@ -82,7 +82,6 @@
 }
 
 .file-upload-image {
-  max-height: 50rem;
   max-width: 50rem;
   margin: auto;
   padding: 20px;
@@ -101,6 +100,7 @@
   outline: none;
   text-transform: uppercase;
   font-weight: 700;
+  font-size: 1.6rem;
 }
 
 .remove-image:hover {

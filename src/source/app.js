@@ -27,8 +27,9 @@ liveReloadServer.server.once('connection', () => {
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(connectLiveReload());
-app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Template engines handlebars
 app.engine(

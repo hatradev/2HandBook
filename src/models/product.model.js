@@ -5,10 +5,9 @@ const productSchema = new mongoose.Schema(
     name: {
       type: String,
       required: [true, 'A product must have a name'],
-      unique: true,
       trim: true,
       maxlength: 50,
-      minlength: 10,
+      minlength: 5,
     },
     price: {
       type: Number,

@@ -1,5 +1,5 @@
 const Product = require('../models/product.model');
-const multer = require('multer');
+const fs = require('fs');
 const {
   mutipleMongooseToObject,
   mongooseToObject,
@@ -44,21 +44,23 @@ class productController {
   // [POST] product/edit/save
   createNewProduct = async (req, res, next) => {
     try {
-      // const storage = multer.diskStorage({
-      //   destination: function (req, file, cb) {
-      //     cb(null, 'uploads/');
-      //   },
-
-      //   // By default, multer removes file extensions so let's add them back
-      //   filename: function (req, file, cb) {
-      //     cb(
-      //       null,
-      //       file.fieldname + '-' + Date.now() + path.extname(file.originalname)
-      //     );
-      //   },
-      // });
-      console.log(req.body);
+      // Lưu thông tin sản phẩm vào trong database
+      const formData = req.body;
+      formData.price = Number(formData.price);
+      formData.stock = Number(formData.stock);
+      formData.isTrend = Number(formData.isTrend);
+      formData.keyword = formData.keyword.split(',');
+      formData.keyword = formData.keyword.map((str) => str.trim());
+      if (req.file && !req.fileValidationError) {
+        formData.image = req.file.path.replace('source/public', '');
+      } else {
+        formData.image = '/img/products/default.png';
+      }
+      const newProduct = await Product(formData);
+      newProduct.save();
+      res.render('message/processing-request');
     } catch (err) {
+      res.send(err);
       next(err);
     }
   };
@@ -74,7 +76,28 @@ class productController {
             return c1 == c2;
           },
         },
+        getEditForUpdate: true,
       });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  // [POST] product/edit/save/:id
+  updateProduct = async (req, res, next) => {
+    try {
+      const formData = req.body;
+      const product = await Product.findById(req.params.id);
+      if (req.file) {
+        if (product.image != '/img/products/default.png') {
+          fs.unlinkSync(`./source/public${product.image}`);
+        }
+        formData.image = req.file.path.replace('source/public', '');
+      } else if (product.image == '/img/products/default.png') {
+        formData.image = '/img/products/default.png';
+      }
+      await Product.updateOne({ _id: req.params.id }, formData);
+      res.redirect('/product/manage');
     } catch (err) {
       next(err);
     }
