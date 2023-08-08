@@ -1,53 +1,68 @@
 const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
 
-const detailBtns = $$('.details-btn')
-const modalBtns = $$('.item-modal')
-const mesBtns = $$('.message')
+var detailBtns = $$('.details-btn')
+var modalBtns = $$('.item-modal')
+var mesBtns = $$('.message')
+var hanldeOrderForm = document.forms['delete-course-form']
+var rejectBtn = $('.btn-delete')
+var acceptBtn = $('.btn-accept')
+var idOrderArr = []
+var idOrder
 
-for (const detailBtn of detailBtns) {
-	detailBtn.onclick = function () {
-		for (const modalBtn of modalBtns) {
-			modalBtn.classList.add("d-none")
+document.addEventListener('DOMContentLoaded', function () {
+
+	// Handle details button
+	for (const detailBtn of detailBtns) {
+
+		if(detailBtn.getAttribute('data-status') != 'pending'){
+			idOrderArr.push(detailBtn.getAttribute('data-id'))
 		}
-		for (const mesBtn of mesBtns) {
-			mesBtn.classList.add("d-none")
-		}
 
-		const id = detailBtn.getAttribute('data-id')
-		console.log(detailBtn.getAttribute('data-id'))
-
-		for (const orderBtn of modalBtns) {
-			if (orderBtn.getAttribute('data-id') == id) {
-				orderBtn.classList.remove("d-none")
+		detailBtn.onclick = function () {
+			for (const modalBtn of modalBtns) {
+				modalBtn.classList.add("d-none")
 			}
-		}
-		for (const orderBtn of mesBtns) {
-			if (orderBtn.getAttribute('data-id') == id) {
-				orderBtn.classList.remove("d-none")
+			for (const mesBtn of mesBtns) {
+				mesBtn.classList.add("d-none")
+			}
+
+			id = detailBtn.getAttribute('data-id')
+			idOrder = id
+
+			for (const orderBtn of modalBtns) {
+				if (orderBtn.getAttribute('data-id') == id) {
+					orderBtn.classList.remove("d-none")
+				}
+			}
+			for (const orderBtn of mesBtns) {
+				if (orderBtn.getAttribute('data-id') == id) {
+					orderBtn.classList.remove("d-none")
+				}
+			}
+
+			if (idOrderArr.includes(id)) {
+				acceptBtn.classList.add('d-none')
+				rejectBtn.classList.add('d-none')
+				console.log('yes')
+			} else {
+				acceptBtn.classList.remove('d-none')
+				rejectBtn.classList.remove('d-none')
+				console.log('no')
 			}
 		}
 	}
-}
-
-const btnSend = $(".btn-success");
-btnSend.addEventListener("click", fetchApiData);
-
-function fetchApiData(e) {
-	e.preventDefault();
-	const dataToSend = {
-		name: "John",
-		age: 30
-	};
-
-	fetch("order/manage-order/accept", {
-		method: "DELETE", // Phương thức yêu cầu là POST
-		headers: {
-			"Content-Type": "application/json" // Tiêu đề Content-Type để chỉ định định dạng của body
-		},
-		body: JSON.stringify(dataToSend) // Trường body được đặt ở đây, chuyển đổi thành JSON trước khi gửi
-	})
-		.then(response => console.log(response.json()))
-		// .then(data => console.log(data))
-		.catch(error => console.error(error));
-}
+	// Handle reject and accept button
+	rejectBtn.onclick = function () {
+		if (idOrder) {
+			hanldeOrderForm.action = '/order/manage-order/' + idOrder + '/reject?_method=PUT'
+			hanldeOrderForm.submit()
+		}
+	}
+	acceptBtn.onclick = function () {
+		if (idOrder) {
+			hanldeOrderForm.action = '/order/manage-order/' + idOrder + '/accept?_method=PUT'
+			hanldeOrderForm.submit()
+		}
+	}
+})

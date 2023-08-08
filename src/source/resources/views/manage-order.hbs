@@ -26,7 +26,7 @@
             <td>{{this.idAccount.email}}</td>
             <td>{{this.idAccount.phone}}</td>
             <td>{{this.status}}</td>
-            <td class='details-btn' data-id="{{this._id}}">
+            <td class='details-btn' data-id="{{this._id}}" data-status="{{this.status}}">
               <a href='' data-bs-toggle='modal' data-bs-target='#product-details'>
                 <i class="fa-solid fa-ellipsis"></i>
               </a>
@@ -89,14 +89,14 @@
               </div>
             </div>
             <div class='modal-footer'>
-              <a href='/order/manage-order/accept' type='button' class='btn btn-success'>
-                Accept
-              </a>
-              <a href='/order/manage-order/delete' type='button' class='btn btn-danger'>
-                Cancel
-              </a>
+              <button class='btn btn-success btn-accept' data-status="">
+                ACCEPT
+              </button>
+              <button class='btn btn-danger btn-delete' data-status="">
+                REJECT
+              </button>
 
-              <a href='#' type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</a>
+              <a href='#' type='button' class='btn btn-secondary' data-bs-dismiss='modal'>CLOSE</a>
             </div>
           </div>
         </div>
@@ -105,5 +105,7 @@
     </div>
   </div>
 </div>
+
+<form name="delete-course-form" method="POST"></form>
 
 <script src="/js/manage-order.js"></script>

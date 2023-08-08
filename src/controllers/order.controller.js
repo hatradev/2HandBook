@@ -50,7 +50,29 @@ class orderController {
       res.status(500).json({ error: 'Lỗi khi lấy tất cả sản phẩm 1' });
     }
   };
-  
+
+  // [PUT] order/manage-order/:id/reject
+  rejectOrder = async (req, res, next) => {
+    try {
+      const orderId = req.params.id;
+      await Order.updateOne({ _id: orderId }, { $set: { status: 'cancelled' } });
+      res.redirect('back');
+      
+    } catch (error) {
+      res.status(500).json({ error: 'Lỗi khi lấy tất cả sản phẩm 1' });
+    }
+  };
+
+  acceptOrder = async (req, res, next) => {
+    try {
+      const orderId = req.params.id;
+      await Order.updateOne({ _id: orderId }, { $set: { status: 'successful' } });
+      res.redirect('back');
+      
+    } catch (error) {
+      res.status(500).json({ error: 'Lỗi khi lấy tất cả sản phẩm 1' });
+    }
+  };
 }
 
 module.exports = new orderController();

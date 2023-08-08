@@ -1445,8 +1445,10 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
       .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order .message {
         font-family: Inter; }
     .sales-page .manage-order .modal.product-details .modal-dialog .modal-footer button {
-      width: 10rem;
-      height: 4rem;
+      width: 9rem;
+      height: 3.5rem;
+      text-align: center;
+      font-size: 1.6rem;
       text-align: center; }
     .sales-page .manage-order .modal.product-details .modal-dialog .modal-footer .btn-success {
       background-color: #1a9781; }

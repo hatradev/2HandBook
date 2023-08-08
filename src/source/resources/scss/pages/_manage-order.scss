@@ -124,7 +124,8 @@
                   }
                 }
               }
-              .message{
+
+              .message {
                 font-family: Inter;
               }
             }
@@ -133,10 +134,13 @@
 
         .modal-footer {
           button {
-            width: 10rem;
-            height: 4rem;
+            width: 9rem;
+            height: 3.5rem;
+            text-align: center;
+            font-size: 1.6rem;
             text-align: center;
           }
+
 
           .btn-success {
             background-color: #1a9781;

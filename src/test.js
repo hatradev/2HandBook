@@ -9,8 +9,9 @@
 // const minutes = originalDate.getMinutes();
 
 // console.log(day,month,year,hours,minutes)
-
-const a = []
-const b = [{'d':1},{'e':2},{'f':3}]
-const c = a.concat(b)
-console.log(c)
+var a = []
+var b = "asdas"
+var c = "asdas"
+a.push(b)
+a.push(c)
+console.log(a)
