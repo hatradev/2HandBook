@@ -1,4 +1,6 @@
 const Account = require('../models/account.model');
+const Order = require('../models/order.model');
+const Product = require('../models/product.model');
 const passport = require('passport');
 const { render } = require('../utils/renderPage');
 const { sendForgotPasswordMail } = require('../utils/mail');
@@ -7,6 +9,7 @@ const {
   mutipleMongooseToObject,
   mongooseToObject,
 } = require('../utils/mongoose');
+const mongoose = require('../utils/mongoose');
 class acccountController {
   // [GET] account/sign-up
   getSignUp = async (req, res, next) => {
@@ -196,55 +199,42 @@ class acccountController {
     //   .catch(next);
   }
 
-  // [GET] account/my-order-pending
-  getMyOrderPending(req, res, next) {
-    // Account.find({})
-    //   .then((accounts) => {
-    //     // accounts = accounts
-    //     console.log(accounts);
-    //   })
-  };
 
-  // [GET] account/my-order-cancelled
-  getMyOrderCancelled = async (req, res, next) => {
+  getMyOrder = async (req, res, next) => {
     try {
-      res.render('my_order_canceled');
+      const user = await Account.findById(req.params._id);
+      const accountId = user._id;
+      const orders = await Order.find( { idAccount: accountId, status: "successful" } )
+      .populate('idAccount')
+      .populate('detail.idProduct')
+      const orderObject = mutipleMongooseToObject(orders)
+      
+      var products = []
+      for (var i of orderObject){
+        for (var j of i.detail){
+          Object.assign(j,{'idOrder': i._id})
+          var temp = []
+          temp.push(j)
+          products.push(j)
+        }
+      }
+      res.locals.orders = orderObject;
+      res.locals.products = products;
+      res.locals.user = mongooseToObject(user);
+
+      res.render('my_order');
+
     } catch (err) {
       next(err);
     }
   };
-
-  // [GET] account/my-order
-  getMyOrder(req, res, next) {
-    // res.send('my account');
-    Account.findOne({_id: req.params._id})
-      .then(user => {
-        res.render('my_order', {
-          user: mongooseToObject(user)
-        });
-        
-      })
-      .catch(next);
-  };
-
-  // [GET] account/become-seller
-  // getBecomeSeller(req, res, next) {
-  //   // res.send('my account');
-  //   Account.findOne({_id: req.params._id})
-  //     .then(user => {
-  //       res.render('become_seller', {
-  //         user: mongooseToObject(user)
-  //       });
-        
-  //     })
-  //     .catch(next);
-  // };
+  
 
   getBecomeSeller = async (req, res, next) => {
     try {
       const accountId = req.params._id;
       const user = await Account.findById(accountId);
-      console.log(user);
+      // console.log(user);
   
       if (user.requestStatus === 'Become-seller') {
         if (user.accountStatus === 'Pending') {
@@ -273,10 +263,6 @@ class acccountController {
   
 
   registerSeller= async (req, res, next) =>{
-    // res.json(req.body);
-    // Account.updateOne({_id: req.params._id}, req.body);
-    // console.log(req.body);
-    // res.json(req.body);
     try {
       const accountId = req.params._id;
       const user = await Account.findById(accountId);

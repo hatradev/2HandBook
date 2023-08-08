@@ -9,8 +9,8 @@
 
           <div class='avatar-right'>
             <div class='info-avatar'>
-              <span class='avatar-name'>Dinh Quy Trieu</span>
-              <span class='avatar-mail mail'>trieudinh@gmail.com</span>
+              <span class='avatar-name'>{{user.firstName}} {{user.lastName}}</span>
+              <span class='avatar-mail mail'>{{user.email}}</span>
             </div>
             <div class='signup-btn'>
               <button type='button' class='btn btn-outline-secondary'
@@ -44,8 +44,13 @@
         </div>
         <div class='remain'></div>
       </div>
-      <div class='col-9'>
-        PENDING
+      <div class='col-9 d-flex justify-content-center align-items-start'>
+        <div class="alert alert-primary" role="alert">
+          <div class="d-flex align-items-center">
+            <strong>Your request to become a seller is pending!</strong>
+            <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

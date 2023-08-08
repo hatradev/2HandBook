@@ -36,6 +36,7 @@ class orderController {
       res.status(500).json({ error: 'Lỗi khi lấy tất cả sản phẩm 1' });
     }
   };
+  
 }
 
 module.exports = new orderController();
