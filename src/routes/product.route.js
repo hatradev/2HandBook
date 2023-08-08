@@ -17,6 +17,7 @@ router.get('/edit', productController.getEditForCreate);
 router.get('/edit/:id', productController.getEditForUpdate);
 router.post('/edit/save', upload, productController.createNewProduct);
 router.post('/edit/save/:id', upload, productController.updateProduct);
+router.post('/delete/:id', productController.deleteProduct);
 // #########################################################
 
 router.get('/all-product', productController.showAllProduct);

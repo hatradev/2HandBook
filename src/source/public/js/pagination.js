@@ -1,9 +1,7 @@
 const pagination = document.querySelector('.pagination');
-const numberOfItems = 60; // assume we have 60 items from database
 if (numberOfItems === 0) pagination.classList.add('d-none');
 else {
-  const numPages = Math.ceil(numberOfItems / 10);
-  let currentPage = 1;
+  const numPages = Math.ceil(numberOfItems / limit);
   let leftMost = 1;
   const initPagination = () => {
     pagination.innerHTML = `<li class='pagination-item col-2 text-center'>
@@ -51,8 +49,8 @@ else {
   };
 
   const updateDescription = () => {
-    paginationDesc.textContent = `${(currentPage - 1) * 10 + 1} - ${Math.min(
-      currentPage * 10,
+    paginationDesc.textContent = `${(currentPage - 1) * limit + 1} - ${Math.min(
+      currentPage * limit,
       numberOfItems
     )} of ${numberOfItems} items`;
   };
@@ -77,10 +75,11 @@ else {
     updateDescription();
   };
 
-  paginationLinks[2].classList.add('pagination-active');
+  paginationLinks[1 + currentPage].classList.add('pagination-active');
   updateDescription();
   paginationLinks.forEach((paginationLink, idx) => {
-    paginationLink.addEventListener('click', function () {
+    paginationLink.addEventListener('click', function (e) {
+      e.preventDefault();
       if (idx === 0) {
         moveToPage(1);
       } else if (idx === 1) {
@@ -92,6 +91,26 @@ else {
       } else {
         moveToPage(Number(this.textContent));
       }
+      // Xử lí tạo đường dẫn mới thay ?page=currentPage
+      let newUrl = window.location.href;
+      newUrl = newUrl.split('page=');
+      if (newUrl[1]) {
+        newUrl[1] = newUrl[1].slice(1);
+        newUrl = newUrl[0] + `page=${currentPage}` + newUrl[1];
+      } else {
+        newUrl = newUrl[0] + `?page=${currentPage}`;
+      }
+      console.log('New URL: ', newUrl);
+      fetch(newUrl, {
+        method: 'GET',
+        redirect: 'follow',
+      })
+        .then((res) => {
+          window.location.href = res.url;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     });
   });
 }

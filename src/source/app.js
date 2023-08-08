@@ -31,6 +31,8 @@ app.use(connectLiveReload());
 // app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(methodOverride('_method'));
 
 // Template engines handlebars
@@ -41,6 +43,7 @@ app.engine(
     helpers: require('../helpers/handlebars'),
   })
 );
+
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources/views'));
 
