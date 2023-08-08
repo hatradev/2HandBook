@@ -43,7 +43,7 @@
                 </div>
                 <div class='remain'></div>
             </div>
-            <div class="col-9 part-right-my-order">
+            <div class="col-9 part-right-my-order overflow-auto">
                 {{!-- {{>statusbar-myorder}} --}}
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-center">
@@ -63,39 +63,37 @@
                 {{#each orders}}
                     {{#each this.detail}}
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header alert alert-success" role="alert">
                         SHOP NAME
                     </div>
                     <div class="card-body">
-                        <div class="contain">
+                        <div class="contain position-relative">
                             <div class="left">
                                 <img src="{{this.idProduct.image}}" class="img-fluid rounded-start" alt="...">
                             </div>
                             <div class="middle">
                                 <div class="card-body">
-                                    <h2 class="card-title">{{this.idProduct.name}}</h2>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural
+                                    <h2 class="card-title fw-bold">{{this.idProduct.name}}</h2>
+                                    <p class="card-text fs-5 fw-light">This is a wider card with supporting text below as a natural
                                         lead-in to additional
                                         content. This content is a little bit longer.</p>
-                                    <p class="card-text"><small class="text-muted">Price: {{this.idProduct.price}} VND.</small></p>
-                                    <p class="card-text"><small class="text-muted">Quantity: x{{this.quantity}}</small></p>
+                                    <p class="card-text"><small class="text-muted fw-bolder">Price: {{this.idProduct.price}} VND.</small></p>
+                                    <p class="card-text"><small class="text-muted fw-bolder">Quantity: x{{this.quantity}}</small></p>
+                                    <p class="card-text position-absolute bottom-0 end-0"><small class="text-muted fs-2 fw-bold">TOTAL: {{this.quantity}}</small></p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="card-footer price">
-                        <span>90.000 VND</span>
-                    </div>
                     <div class="card-footer evaluate-product">
-                        <button type="button" class="btn btn-secondary text-uppercase" data-bs-toggle="modal"
+                        <button type="button" class="btn btn-secondary text-uppercase btn-related-evaluation" data-bs-toggle="modal"
                             data-bs-target="#exampleModal" data-bs-whatever="@mdo">Evaluate</button>
 
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                             aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
-                                    <div class="modal-header">
+                                    <div class="modal-header alert alert-info" role="alert">
                                         <h2 class="modal-title" id="exampleModalLabel">Evaluate the product</h2>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
@@ -144,9 +142,7 @@
                                         </form>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Post</button>
+                                        <button type="button" class="btn btn-primary btn-related-evaluation">Post</button>
                                     </div>
                                 </div>
                             </div>

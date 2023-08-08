@@ -1519,8 +1519,8 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
   padding-left: 2.2rem;
   padding-top: 2rem; }
 
-.alert {
-  width: 90%; }
+.alert-pending {
+  width: 42%; }
 
 .part-right-my-order {
   padding-left: 15.4rem; }
@@ -1551,10 +1551,13 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
 .col-9 .card {
   margin-top: -2rem;
   margin-bottom: 4rem; }
-  .col-9 .card .card-body .contain {
-    display: flex; }
-    .col-9 .card .card-body .contain .middle {
-      width: fit-content; }
+  .col-9 .card .card-body {
+    padding-top: 0%;
+    padding-left: 2rem; }
+    .col-9 .card .card-body .contain {
+      display: flex; }
+      .col-9 .card .card-body .contain .middle {
+        width: fit-content; }
   .col-9 .card .card-footer {
     display: flex;
     justify-content: right; }
@@ -1564,16 +1567,13 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
   justify-content: end;
   height: 5rem;
   border-style: none; }
-  .evaluate-product button {
-    font-weight: bold;
-    font-size: 1.2rem; }
 
 .evaluate-body {
   height: 30rem; }
   .evaluate-body .rating {
     height: 15%; }
     .evaluate-body .rating .first-choice {
-      margin-left: 4rem; }
+      margin-left: 2rem; }
 
 .text_black {
   color: black;
@@ -1584,12 +1584,29 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
   font-weight: bold;
   pointer-events: none; }
 
+.btn-related-evaluation {
+  width: 10rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  padding: 1rem 0rem;
+  transition: all 0.3s;
+  text-align: center;
+  background-color: var(--dark-blue);
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border: 0.1rem solid black; }
+  .btn-related-evaluation:hover {
+    background-color: var(--light-blue);
+    color: black; }
+
 .container-fluid {
   margin-top: 14rem; }
 
 .account-profile-main .row {
   height: 100rem; }
   .account-profile-main .row .col-9 {
+    height: 90%;
     padding-top: 2rem;
     padding-right: 5rem;
     padding-left: 5rem; }

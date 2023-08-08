@@ -1,5 +1,7 @@
+
 .part-right-my-order {
   padding-left: 15.4rem;
+  // height: 120%;
 }
 
 .turn-to-the-left {
@@ -39,6 +41,8 @@
     margin-top: -2rem;
     margin-bottom: 4rem;
     .card-body {
+      padding-top: 0%;
+      padding-left: 2rem;
       .contain {
         display: flex;
         .middle {
@@ -60,10 +64,10 @@
   // background-color: white;
   height: 5rem;
   border-style: none;
-  button {
-    font-weight: bold;
-    font-size: 1.2rem;
-  }
+  // button {
+  //   font-weight: bold;
+  //   font-size: 1.2rem;
+  // }
 }
 
 .evaluate-body {
@@ -71,7 +75,7 @@
   .rating {
     height: 15%;
     .first-choice {
-      margin-left: 4rem;
+      margin-left: 2rem;
     }
   }
 }
@@ -86,4 +90,27 @@
   // color: white;
   font-weight: bold;
   pointer-events: none;
+}
+
+.btn-related-evaluation{
+  width: 10rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  padding: 1rem 0rem;
+  transition: all 0.3s;
+  text-align: center;
+  // margin-top: 2rem;
+  // margin-right: 1rem;
+  background-color: var(--dark-blue);
+  // width: calc(33.33%);
+  color: white;
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border: 0.1rem solid black;
+
+  &:hover {
+    background-color: var(--light-blue);
+    color: black;
+  }
 }
