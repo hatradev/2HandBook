@@ -1,8 +1,40 @@
 <div class='sales-page container'>
   <div class='row'>
-    <div class='col-2'>
-
+    <div class="col-2 vertical-nav">
+      <h1 class="title">Sale pages</h1>
+      <hr>
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a href="">
+            <i class="fa-solid fa-pen-to-square"></i>
+            <h2>Dashboard</h2>
+          </a>
+        </li>
+        <hr>
+        <li class="nav-item">
+          <a href="">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <h2>Manage product</h2>
+          </a>
+        </li>
+        <hr>
+        <li class="nav-item">
+          <a href="http://localhost:3000/order/manage-order">
+            <i class="fa-solid fa-chart-simple"></i>
+            <h2>Manage order</h2>
+          </a>
+        </li>
+        <hr>
+        <li class="nav-item">
+          <a href="http://localhost:3000/evaluate/review">
+            <i class="fa-solid fa-message"></i>
+            <h2>Reviews</h2>
+          </a>
+        </li>
+        <hr>
+      </ul>
     </div>
+
     <div class='col manage-order'>
       <h1 class='page-title'>
         ORDER
@@ -25,7 +57,9 @@
             <td>{{this.idAccount.lastName}} {{this.idAccount.firstName}}</td>
             <td>{{this.idAccount.email}}</td>
             <td>{{this.idAccount.phone}}</td>
-            <td>{{this.status}}</td>
+            <td class="d-flex justify-content-center">
+              <span class="badge rounded-pill bg-success sign-btn">{{this.status}}</span>
+            </td>
             <td class='details-btn' data-id="{{this._id}}" data-status="{{this.status}}">
               <a href='' data-bs-toggle='modal' data-bs-target='#product-details'>
                 <i class="fa-solid fa-ellipsis"></i>

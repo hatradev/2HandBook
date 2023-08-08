@@ -85,6 +85,33 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
 .pagination-description {
   color: #757575; }
 
+.sales-page {
+  margin-top: 14rem; }
+  .sales-page .vertical-nav {
+    background-color: #f6f6f6; }
+    .sales-page .vertical-nav .title {
+      font-size: 2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 2rem;
+      text-align: center; }
+    .sales-page .vertical-nav .nav-list .nav-item {
+      display: flex;
+      align-items: center;
+      padding: 0 2rem;
+      cursor: pointer; }
+      .sales-page .vertical-nav .nav-list .nav-item a {
+        display: flex;
+        align-items: center;
+        font-size: 1.7rem;
+        color: #31383e; }
+        .sales-page .vertical-nav .nav-list .nav-item a h2 {
+          font-size: 1.7rem;
+          margin-bottom: 0;
+          margin-left: 0.5rem; }
+      .sales-page .vertical-nav .nav-list .nav-item:hover {
+        opacity: 0.8; }
+
 .header {
   background-color: rgba(59, 153, 215, 0.2);
   transition: all 0.2s;
@@ -1403,91 +1430,93 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
 
 .sales-page {
   margin-top: 14rem; }
-  .sales-page .manage-order .page-title {
-    padding: 2rem 0;
-    text-transform: uppercase;
-    font-size: 2rem;
-    font-weight: 700; }
-  .sales-page .manage-order .table {
-    margin-top: 1rem; }
-    .sales-page .manage-order .table thead tr {
-      text-align: center; }
-    .sales-page .manage-order .table tr th:first-child {
-      text-align: center; }
-    .sales-page .manage-order .table tr .details,
-    .sales-page .manage-order .table tr .details-btn {
-      text-align: center; }
-    .sales-page .manage-order .table tr .accept,
-    .sales-page .manage-order .table tr .accept-btn {
-      text-align: center; }
-    .sales-page .manage-order .table tr .cancel,
-    .sales-page .manage-order .table tr .cancel-btn {
-      text-align: center; }
-    .sales-page .manage-order .table tr td a i {
-      font-size: 1.8rem;
-      cursor: pointer;
-      padding: 0.2rem 1rem; }
-    .sales-page .manage-order .table tr .details-btn a {
-      color: #000; }
-    .sales-page .manage-order .table tr .accept-btn a {
-      color: #1a9781; }
-    .sales-page .manage-order .table tr .cancel-btn a {
-      color: #e05e5e; }
-  .sales-page .manage-order .pagination-container {
-    margin: 3rem auto; }
-  .sales-page .manage-order .modal.product-details .modal-dialog {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 60vh; }
-    .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-header .modal-title {
+  .sales-page .manage-order {
+    height: 65rem; }
+    .sales-page .manage-order .page-title {
+      padding: 2rem 0;
       text-transform: uppercase;
-      font-size: 1.8rem !important;
-      font-weight: 700 !important; }
-    .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order {
-      max-height: 32rem;
-      overflow-y: scroll; }
-      .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order .form-check {
-        display: flex;
-        justify-content: center; }
-      .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order thead tr {
+      font-size: 2rem;
+      font-weight: 700; }
+    .sales-page .manage-order .table {
+      margin-top: 1rem; }
+      .sales-page .manage-order .table thead tr {
         text-align: center; }
-      .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order tbody tr th {
-        text-align: center;
-        vertical-align: middle;
-        position: sticky; }
-      .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order tbody tr td {
-        vertical-align: middle;
-        word-wrap: break-word;
-        max-width: 32.5rem;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap; }
-      .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order tbody .img {
-        background-color: #f6f6f6;
-        height: 70%;
-        flex-grow: 1; }
-        .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order tbody .img a {
+      .sales-page .manage-order .table tr th:first-child {
+        text-align: center; }
+      .sales-page .manage-order .table tr .details,
+      .sales-page .manage-order .table tr .details-btn {
+        text-align: center; }
+      .sales-page .manage-order .table tr .accept,
+      .sales-page .manage-order .table tr .accept-btn {
+        text-align: center; }
+      .sales-page .manage-order .table tr .cancel,
+      .sales-page .manage-order .table tr .cancel-btn {
+        text-align: center; }
+      .sales-page .manage-order .table tr td a i {
+        font-size: 1.8rem;
+        cursor: pointer;
+        padding: 0.2rem 1rem; }
+      .sales-page .manage-order .table tr .details-btn a {
+        color: #000; }
+      .sales-page .manage-order .table tr .accept-btn a {
+        color: #1a9781; }
+      .sales-page .manage-order .table tr .cancel-btn a {
+        color: #e05e5e; }
+    .sales-page .manage-order .pagination-container {
+      margin: 3rem auto; }
+    .sales-page .manage-order .modal.product-details .modal-dialog {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh; }
+      .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-header .modal-title {
+        text-transform: uppercase;
+        font-size: 1.8rem !important;
+        font-weight: 700 !important; }
+      .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order {
+        max-height: 32rem;
+        overflow-y: scroll; }
+        .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order .form-check {
           display: flex;
           justify-content: center; }
-          .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order tbody .img a .img-product {
-            width: 70%;
-            vertical-align: middle;
-            object-fit: cover; }
-      .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order .message {
-        font-family: Inter; }
-    .sales-page .manage-order .modal.product-details .modal-dialog .modal-footer button {
-      width: 9rem;
-      height: 3.5rem;
-      text-align: center;
-      font-size: 1.6rem;
-      text-align: center; }
-    .sales-page .manage-order .modal.product-details .modal-dialog .modal-footer .btn-success {
-      background-color: #1a9781; }
-    .sales-page .manage-order .modal.product-details .modal-dialog .modal-footer .btn-danger {
-      background-color: #e05e5e; }
-    .sales-page .manage-order .modal.product-details .modal-dialog .modal-footer .btn-secondary {
-      background-color: #3b99d7; }
+        .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order thead tr {
+          text-align: center; }
+        .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order tbody tr th {
+          text-align: center;
+          vertical-align: middle;
+          position: sticky; }
+        .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order tbody tr td {
+          vertical-align: middle;
+          word-wrap: break-word;
+          max-width: 32.5rem;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap; }
+        .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order tbody .img {
+          background-color: #f6f6f6;
+          height: 70%;
+          flex-grow: 1; }
+          .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order tbody .img a {
+            display: flex;
+            justify-content: center; }
+            .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order tbody .img a .img-product {
+              width: 70%;
+              vertical-align: middle;
+              object-fit: cover; }
+        .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order .message {
+          font-family: Inter; }
+      .sales-page .manage-order .modal.product-details .modal-dialog .modal-footer button {
+        width: 9rem;
+        height: 3.5rem;
+        text-align: center;
+        font-size: 1.6rem;
+        text-align: center; }
+      .sales-page .manage-order .modal.product-details .modal-dialog .modal-footer .btn-success {
+        background-color: #1a9781; }
+      .sales-page .manage-order .modal.product-details .modal-dialog .modal-footer .btn-danger {
+        background-color: #e05e5e; }
+      .sales-page .manage-order .modal.product-details .modal-dialog .modal-footer .btn-secondary {
+        background-color: #3b99d7; }
 
 .disabled {
   pointer-events: none; }
@@ -2134,59 +2163,60 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
   .about-us p :last-child {
     margin-bottom: 0rem; }
 
-.review-shop {
-  margin-top: 19rem;
-  margin-bottom: 10rem; }
-  .review-shop .row .part-right-my-order {
-    min-height: 80rem; }
-    .review-shop .row .part-right-my-order .card {
-      margin-top: -2rem;
-      margin-bottom: 4rem; }
-      .review-shop .row .part-right-my-order .card .card-body .information .avatar .img-avatar {
+.sales-page .review-shop .row {
+  margin-left: 2rem; }
+  .sales-page .review-shop .row .review-section {
+    min-height: 75rem;
+    padding-left: 0;
+    margin-top: 5rem; }
+    .sales-page .review-shop .row .review-section .card {
+      margin-bottom: 3rem; }
+      .sales-page .review-shop .row .review-section .card .card-body .information .avatar .img-avatar {
         width: 4rem;
         height: 4rem;
         vertical-align: middle;
         object-fit: cover;
         border-radius: 50%; }
-      .review-shop .row .part-right-my-order .card .card-body .information .infor-span {
+      .sales-page .review-shop .row .review-section .card .card-body .information .infor-span {
         font-size: 1.5rem; }
-        .review-shop .row .part-right-my-order .card .card-body .information .infor-span .name {
+        .sales-page .review-shop .row .review-section .card .card-body .information .infor-span .name {
           font-weight: 600; }
-      .review-shop .row .part-right-my-order .card .card-body .middle {
+      .sales-page .review-shop .row .review-section .card .card-body .middle {
         margin-top: 1rem;
         font-family: 'Inter', sans-serif; }
-        .review-shop .row .part-right-my-order .card .card-body .middle .title {
+        .sales-page .review-shop .row .review-section .card .card-body .middle .title {
           font-size: 1.8rem;
           font-weight: 600; }
-      .review-shop .row .part-right-my-order .card .card-footer {
+      .sales-page .review-shop .row .review-section .card .card-footer {
         display: flex;
         justify-content: right; }
-        .review-shop .row .part-right-my-order .card .card-footer .btn-close {
+        .sales-page .review-shop .row .review-section .card .card-footer .btn-close {
           width: 5rem; }
-        .review-shop .row .part-right-my-order .card .card-footer .modal-footer button {
+        .sales-page .review-shop .row .review-section .card .card-footer .modal-footer button {
           padding: 0.8rem 0; }
-    .review-shop .row .part-right-my-order .reply-cmt {
+    .sales-page .review-shop .row .review-section .reply-cmt {
       display: flex;
       justify-content: end;
       height: 5rem;
       border-style: none; }
-      .review-shop .row .part-right-my-order .reply-cmt button {
+      .sales-page .review-shop .row .review-section .reply-cmt button {
         font-weight: bold;
         width: 11rem;
         font-size: 1.5rem; }
-    .review-shop .row .part-right-my-order .evaluate-body {
+    .sales-page .review-shop .row .review-section .evaluate-body {
       height: 30rem; }
-      .review-shop .row .part-right-my-order .evaluate-body .rating {
+      .sales-page .review-shop .row .review-section .evaluate-body .rating {
         height: 15%; }
-        .review-shop .row .part-right-my-order .evaluate-body .rating .first-choice {
+        .sales-page .review-shop .row .review-section .evaluate-body .rating .first-choice {
           margin-left: 4rem; }
-    .review-shop .row .part-right-my-order .text_black {
+    .sales-page .review-shop .row .review-section .text_black {
       color: black;
       font-weight: bold; }
-    .review-shop .row .part-right-my-order .background_emphasis {
+    .sales-page .review-shop .row .review-section .background_emphasis {
       background-color: #337ab7;
       font-weight: bold;
       pointer-events: none; }
-  .review-shop .pagination-container {
-    margin: 0;
-    width: 25rem; }
+
+.sales-page .review-shop .pagination-container {
+  width: 25rem;
+  margin-bottom: 4rem; }

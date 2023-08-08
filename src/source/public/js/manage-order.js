@@ -7,6 +7,7 @@ var mesBtns = $$('.message')
 var hanldeOrderForm = document.forms['delete-course-form']
 var rejectBtn = $('.btn-delete')
 var acceptBtn = $('.btn-accept')
+var signBtns = $$('.sign-btn')
 var idOrderArr = []
 var idOrder
 
@@ -65,4 +66,18 @@ document.addEventListener('DOMContentLoaded', function () {
 			hanldeOrderForm.submit()
 		}
 	}
+
+	// Handle sign button
+	for (var btn of signBtns){
+		btn.classList.remove('bg-success','bg-primary','bg-danger')
+		console.log(btn.textContent)
+		if(btn.textContent == "successful"){
+			btn.classList.add('bg-success')
+		}else if(btn.textContent == "pending"){
+			btn.classList.add('bg-primary')
+		}else if(btn.textContent == "cancelled"){
+			btn.classList.add('bg-danger')
+		}
+	}
+
 })

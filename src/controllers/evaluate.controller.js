@@ -22,11 +22,13 @@ class evaluateController {
 	// [PUT] /specific-product/create
 	createEvaluate = async (req, res, next) => {
 		try {
+			const idAccount = await Account.findOne({}); //***
 			const cmtInput = req.body.cmtInput
 			const idProduct = req.params.id
 
 			// Tạo một đối tượng "evaluate" mới và lưu vào cơ sở dữ liệu
 			const newEvaluate = new Evaluate({
+				idAccount,
 				idProduct,
 				content: cmtInput
 			});
@@ -43,7 +45,7 @@ class evaluateController {
 	// [GET] /sales-page/review
 	showEvaluate = async (req, res, next) => {
 		try {
-			const idAccount = await Account.findOne({});
+			const idAccount = await Account.findOne({}); //***
 			const evaluates = await Evaluate.find({idAccount: idAccount, reply: ""})
 			.populate('idProduct')
 			res.locals.evaluates = mutipleMongooseToObject(evaluates)

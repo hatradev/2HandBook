@@ -1,108 +1,107 @@
-.review-shop {
-	margin-top: 19rem;
-	margin-bottom: 10rem;
-
-	.row {
-		.part-right-my-order {
-			min-height: 80rem;
-			.card {
-				margin-top: -2rem;
-				margin-bottom: 4rem;
-
-				.card-body {
-					.information {
-						.avatar {
-							.img-avatar {
-								width: 4rem;
-								height: 4rem;
-								vertical-align: middle;
-								object-fit: cover;
-								border-radius: 50%;
+.sales-page{
+	.review-shop {
+		.row {
+			margin-left: 2rem;
+			.review-section {
+				min-height: 75rem;
+				padding-left: 0;
+				margin-top: 5rem;
+				.card {
+					margin-bottom: 3rem;
+	
+					.card-body {
+						.information {
+							.avatar {
+								.img-avatar {
+									width: 4rem;
+									height: 4rem;
+									vertical-align: middle;
+									object-fit: cover;
+									border-radius: 50%;
+								}
+							}
+	
+							.infor-span {
+								font-size: 1.5rem;
+	
+								.name {
+									font-weight: 600;
+								}
+	
+								.date {}
 							}
 						}
-
-						.infor-span {
-							font-size: 1.5rem;
-
-							.name {
+	
+						.middle {
+							margin-top: 1rem;
+							font-family: 'Inter', sans-serif;
+							.title{
+								font-size: 1.8rem;
 								font-weight: 600;
 							}
-
-							.date {}
+							.content{
+	
+							}
 						}
 					}
-
-					.middle {
-						margin-top: 1rem;
-						font-family: 'Inter', sans-serif;
-						.title{
-							font-size: 1.8rem;
-							font-weight: 600;
+	
+					.card-footer {
+						display: flex;
+						justify-content: right;
+						.btn-close{
+							width: 5rem;
 						}
-						.content{
-
+						.modal-footer{
+							button{
+								padding: 0.8rem 0;
+							}
 						}
 					}
 				}
-
-				.card-footer {
+	
+				.reply-cmt {
 					display: flex;
-					justify-content: right;
-					.btn-close{
-						width: 5rem;
+					justify-content: end;
+					height: 5rem;
+					border-style: none;
+	
+	
+					button {
+						font-weight: bold;
+						width: 11rem;
+						font-size: 1.5rem;
 					}
-					.modal-footer{
-						button{
-							padding: 0.8rem 0;
+				}
+	
+				.evaluate-body {
+					height: 30rem;
+	
+					.rating {
+						height: 15%;
+	
+						.first-choice {
+							margin-left: 4rem;
 						}
 					}
 				}
-			}
-
-			.reply-cmt {
-				display: flex;
-				justify-content: end;
-				height: 5rem;
-				border-style: none;
-
-
-				button {
+	
+				.text_black {
+					color: black;
 					font-weight: bold;
-					width: 11rem;
-					font-size: 1.5rem;
 				}
-			}
-
-			.evaluate-body {
-				height: 30rem;
-
-				.rating {
-					height: 15%;
-
-					.first-choice {
-						margin-left: 4rem;
-					}
+	
+				.background_emphasis {
+					background-color: #337ab7;
+					// color: white;
+					font-weight: bold;
+					pointer-events: none;
 				}
-			}
-
-			.text_black {
-				color: black;
-				font-weight: bold;
-			}
-
-			.background_emphasis {
-				background-color: #337ab7;
-				// color: white;
-				font-weight: bold;
-				pointer-events: none;
 			}
 		}
-	}
-
-	.pagination-container{
-		margin: 0;
-		// display: flex;
-		// width: 100%;
-		width: 25rem;
+	
+		.pagination-container{
+			width: 25rem;
+			margin-bottom: 4rem;
+		}
 	}
 }
