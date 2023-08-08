@@ -33,24 +33,30 @@
     .details-item {
       .intro {
         position: relative;
-
         .report-section {
           position: absolute;
           font-size: 2.6rem;
           font-weight: 400;
           padding: 1rem;
           top: -4%;
-          right: 21%;
+          right: 2%;
           display: flex;
           flex-direction: column;
           align-items: flex-end;
           cursor: pointer;
 
           button {
-            width: 5rem;
-            height: 3rem;
-            background-color: #f1e909;
+            display: none;
+            background-color: rgba($color: #3B99D7, $alpha: 0.7);
+            border-radius: 5px;
+            width: 6.8rem;
+            height: 3.3rem;
             font-size: 1.5rem;
+            transition: all 0.6s ease;
+          }
+
+          &:hover button {
+            display: block;
           }
         }
 
@@ -197,9 +203,37 @@
 
       .comment-main {
         .comment-user {
+          position: relative;
           background-color: $color-text-light;
           border-radius: 1rem;
           padding: 1.5rem 2rem;
+
+          .report-section {
+            position: absolute;
+            font-size: 2.6rem;
+            font-weight: 400;
+            padding: 1rem;
+            top: 9%;
+            right: 2%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            cursor: pointer;
+  
+            button {
+              display: none;
+              background-color: rgba($color: #3B99D7, $alpha: 0.7);
+              border-radius: 5px;
+              width: 6.8rem;
+              height: 3.3rem;
+              font-size: 1.5rem;
+              transition: all 0.6s ease;
+            }
+  
+            &:hover button {
+              display: block;
+            }
+          }
 
           .information {
             .avatar {
@@ -225,7 +259,7 @@
 
           .comment-info {
             margin-top: 1rem;
-            font-family: Inter;
+            font-family: 'Inter', sans-serif;
           }
         }
 
@@ -234,11 +268,12 @@
           border-radius: 1rem;
           padding: 1.5rem 2rem;
           margin-left: 6rem;
-          font-family: Inter;
+          font-family: 'Inter', sans-serif;
+          margin-bottom: 2rem;
         }
       }
 
-      .pagination-container{
+      .pagination-container {
         margin-top: 4rem;
       }
 

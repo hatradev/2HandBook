@@ -35,12 +35,7 @@ class orderController {
           products.push(j)
         }
       }
-      // console.log(products)
-
-      // res.json(products)
-      // res.json(messages)
       res.locals.orders = orderObject;
-      // res.locals.products = mongooseToObject(products);
       res.locals.products = products;
       res.locals.messages = messages;
 

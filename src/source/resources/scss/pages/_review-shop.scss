@@ -1,0 +1,108 @@
+.review-shop {
+	margin-top: 19rem;
+	margin-bottom: 10rem;
+
+	.row {
+		.part-right-my-order {
+			min-height: 80rem;
+			.card {
+				margin-top: -2rem;
+				margin-bottom: 4rem;
+
+				.card-body {
+					.information {
+						.avatar {
+							.img-avatar {
+								width: 4rem;
+								height: 4rem;
+								vertical-align: middle;
+								object-fit: cover;
+								border-radius: 50%;
+							}
+						}
+
+						.infor-span {
+							font-size: 1.5rem;
+
+							.name {
+								font-weight: 600;
+							}
+
+							.date {}
+						}
+					}
+
+					.middle {
+						margin-top: 1rem;
+						font-family: 'Inter', sans-serif;
+						.title{
+							font-size: 1.8rem;
+							font-weight: 600;
+						}
+						.content{
+
+						}
+					}
+				}
+
+				.card-footer {
+					display: flex;
+					justify-content: right;
+					.btn-close{
+						width: 5rem;
+					}
+					.modal-footer{
+						button{
+							padding: 0.8rem 0;
+						}
+					}
+				}
+			}
+
+			.reply-cmt {
+				display: flex;
+				justify-content: end;
+				height: 5rem;
+				border-style: none;
+
+
+				button {
+					font-weight: bold;
+					width: 11rem;
+					font-size: 1.5rem;
+				}
+			}
+
+			.evaluate-body {
+				height: 30rem;
+
+				.rating {
+					height: 15%;
+
+					.first-choice {
+						margin-left: 4rem;
+					}
+				}
+			}
+
+			.text_black {
+				color: black;
+				font-weight: bold;
+			}
+
+			.background_emphasis {
+				background-color: #337ab7;
+				// color: white;
+				font-weight: bold;
+				pointer-events: none;
+			}
+		}
+	}
+
+	.pagination-container{
+		margin: 0;
+		// display: flex;
+		// width: 100%;
+		width: 25rem;
+	}
+}

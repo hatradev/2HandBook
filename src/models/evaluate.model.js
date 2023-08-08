@@ -17,6 +17,7 @@ const evaluateSchema = new mongoose.Schema(
     },
     reply: {
       type: String, // content mà shop reply không phải tham chiếu tới evaluate_id
+      default: "",
     },
     rating: {
       type: Number,

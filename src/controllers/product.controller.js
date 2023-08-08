@@ -246,6 +246,7 @@ class productController {
         path: 'idAccount',
         select: 'firstName lastName avatar'
       })
+      .sort({ date: -1 })
       
       const stars = await Evaluate.aggregate([
         {
@@ -283,30 +284,15 @@ class productController {
   };
 
   // [PUT] product/specific-product/:id/report
-  // reportProduct = async (req, res, next) => {
-  //   try {
-  //     Course.updateOne({ _id: req.params.id }, {})
-  //       .then(() => {
-  //           res.redirect('back');
-  //       })
-  //       .catch(next);
-
-  //     // res.json({related, related})
-
-  //     // res.locals.details = details
-  //     // res.locals.product = mongooseToObject(product)
-  //     // res.locals.stars = stars[0]
-  //     // res.locals.related = related
-
-  //     res.render('specific-product')
-  //     // console.log(stars, product)
-
-  //     // var a = mongooseToObject(details)
-  //     // res.json({product, a})
-  //   } catch (error) {
-  //     res.status(500).json({ error: 'Lỗi khi lấy tất cả sản phẩm 3' });
-  //   }
-  // }
+  reportProduct = async (req, res, next) => {
+    try {
+      const productId = req.params.id;
+			await Product.updateOne({ _id: productId }, { $set: { status: 'Reported' } });
+			res.redirect('back');
+    } catch (error) {
+      res.status(500).json({ error: 'Lỗi khi lấy tất cả sản phẩm 3' });
+    }
+  }
 }
 
 // Auxiliary

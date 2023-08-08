@@ -16,6 +16,7 @@ function route(app) {
   app.use('/announcement', announceRouter);
   app.use('/product', productRouter);
   app.use('/order', orderRouter);
+  app.use('/evaluate', evaluateRouter);
 
   // Hai middlewares này phải để cuối để check lỗi
   // app.use((req, res, next) => {

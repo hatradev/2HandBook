@@ -12,6 +12,14 @@
           <i class='fa-solid fa-ellipsis'></i>
           <button>Report</button>
         </form>
+
+        {{!-- <form class="button-container">
+          <button class="ellipse-button">
+            <span class="ellipse-icon">&#8942;</span>
+          </button>
+          <div class="tooltip">Report</div>
+        </form> --}}
+
         <h1 class='product-name'>{{product.name}}
           ksa dasl dals dlas kdlas dlaksdl</h1>
         <h2 class='product-price'>{{product.price}}đ</h2>
@@ -68,22 +76,29 @@
         </div>
       </section>
 
-      <div class='write-cmt d-flex mt-3 align-items-center'>
-        <textarea name='' id='' cols='60' rows='2' placeholder='Write to comment...'></textarea>
+      <form class='write-cmt d-flex mt-3 align-items-center' method='POST'
+            action='/evaluate/specific-product/{{product._id}}/create'>
+        <textarea name='cmtInput' id='write-cmt-input' cols='60' rows='2' placeholder='Write to comment...'></textarea>
         <div class='send-btn btn'>
-          <a href=''>
+          <button>
             <i class='fa-solid fa-paper-plane'></i>
-          </a>
+          </button>
         </div>
-      </div>
+      </form>
 
       <div class="comment-main mt-3" data-id="{{@index}}">
         {{#each evaluates}}
         <div class='comment-user'>
+          <form class='report-section' method='POST'
+            action='/evaluate/specific-product/{{this._id}}/report?_method=PUT'>
+            <i class='fa-solid fa-ellipsis'></i>
+            <button>Report</button>
+          </form>
+
           <div class='information d-flex align-items-center'>
             <div class='avatar'>
               <a href='#'>
-                <img class='img-avatar' src='{{this.idAccount.avatar}}' alt='error'/>
+                <img class='img-avatar' src='{{this.idAccount.avatar}}' alt='error' />
               </a>
             </div>
             <div class='infor-span ms-3'>
