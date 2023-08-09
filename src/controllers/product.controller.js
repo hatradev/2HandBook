@@ -28,8 +28,7 @@ class productController {
   // [GET] product/manage
   getManage = async (req, res, next) => {
     try {
-      console.log(req.query);
-      let options = {};
+      let options = { idAccount: req.user.id };
       // Tìm kiếm
       let keyword = req.query.keyword || '';
       // Lọc theo loại
@@ -41,23 +40,15 @@ class productController {
       if (keyword != '') {
         const regex = new RegExp(keyword, 'i');
         options.name = regex;
-        originalUrl = removeParam('keyword', originalUrl);
       }
-      console.log(originalUrl);
       if (category != '') {
         options.category = category;
-        originalUrl = removeParam('category', originalUrl);
       }
-      console.log(originalUrl);
-      if (sortBy != '') {
-        originalUrl = removeParam('sortBy', originalUrl);
-      }
-      console.log(originalUrl);
       // Phân trang
       let page = isNaN(req.query.page)
         ? 1
         : Math.max(1, parseInt(req.query.page));
-      const limit = 5;
+      const limit = 10;
       // Thực hiện truy vấn
       let products = await Product.find(options)
         .skip((page - 1) * limit)
@@ -69,8 +60,7 @@ class productController {
       res.locals._numberOfItems = await Product.find(options).countDocuments();
       res.locals._limit = limit;
       res.locals._currentPage = page;
-      res.locals._originalUrl = originalUrl;
-      // console.log(res.locals);
+      res.locals._originalUrl = req.url;
       res.render('manage-product', {
         products: mutipleMongooseToObject(products),
         helpers: {
@@ -85,7 +75,8 @@ class productController {
   };
 
   // [GET] product/edit/
-  getEditForCreate = async (req, res) => {
+  getEditForCreate = (req, res) => {
+    console.log(req.query);
     res.render('edit-product', {
       helpers: {
         isCategory(c1, c2) {
@@ -100,6 +91,7 @@ class productController {
     try {
       // Lưu thông tin sản phẩm vào trong database
       const formData = req.body;
+      formData.idAccount = req.user.id;
       formData.price = Number(formData.price);
       formData.stock = Number(formData.stock);
       formData.isTrend = Number(formData.isTrend);
@@ -122,6 +114,7 @@ class productController {
   // [GET] product/edit/:id
   getEditForUpdate = async (req, res, next) => {
     try {
+      console.log(req.query);
       const product = await Product.findById(req.params.id);
       res.render('edit-product', {
         product: mongooseToObject(product),
@@ -144,7 +137,7 @@ class productController {
       const product = await Product.findById(req.params.id);
       if (req.file) {
         if (product.image != '/img/products/default.png') {
-          fs.unlinkSync(`./source/public${product.image}`);
+          // fs.unlinkSync(`./source/public${product.image}`);
         }
         formData.image = req.file.path.replace('source/public', '');
       } else if (product.image == '/img/products/default.png') {
@@ -160,7 +153,6 @@ class productController {
   // [POST] product/delete/:id
   deleteProduct = async (req, res, next) => {
     try {
-      console.log(req.query);
       const product = await Product.findById(req.params.id);
       if (product.image != '/img/products/default.png') {
         fs.unlinkSync(`./source/public${product.image}`);
