@@ -15,4 +15,5 @@ module.exports = {
 		return `${hours}:${minutes} ${day}/${month}/${year}`
 	},
 	increaseIndex: (index,i) => index + i,
+	// originUrl: () => window.location.origin,
 }

@@ -141,10 +141,8 @@ class productController {
           $sort: { _id: 1 },
         },
       ]);
-
       res.locals.categories = categories;
       res.locals.products = mutipleMongooseToObject(products);
-
       res.render('all-product');
     } catch (error) {
       res.status(500).json({ error: 'Lỗi khi lấy tất cả sản phẩm 1' });
@@ -240,7 +238,7 @@ class productController {
       const productId = req.params.id;
 
       const product = await Product.findOne({ _id: productId });
-      const details = product.description.split(';');
+      const details = product.description.split('\n');
       const evaluates = await Evaluate.find({idProduct: productId})
       .populate({
         path: 'idAccount',
@@ -277,7 +275,6 @@ class productController {
       res.locals.evaluates = mutipleMongooseToObject(evaluates);
 
       res.render('specific-product');
-
     } catch (error) {
       res.status(500).json({ error: 'Lỗi khi lấy tất cả sản phẩm 3' });
     }
