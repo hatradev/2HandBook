@@ -273,6 +273,19 @@ class acccountController {
       next(err);
     }
   };
+
+  // [GET] account/all
+  getAllAccount = async (req, res, next) => {
+    try {
+      const accounts = await Account.find();
+
+      res.render('admin_account_all', {
+        accounts: mutipleMongooseToObject(accounts),
+      });
+    } catch (err) {
+      next(err);
+    }
+  };
 }
 
 module.exports = new acccountController();

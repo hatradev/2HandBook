@@ -2031,7 +2031,8 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
     margin-bottom: 3rem; }
   .admin .account-item {
     border-radius: 20px;
-    background: rgba(217, 237, 247, 0.5); }
+    background: rgba(217, 237, 247, 0.5);
+    margin-bottom: 2rem; }
     .admin .account-item .btn {
       border-radius: 90px;
       padding: 0 0;

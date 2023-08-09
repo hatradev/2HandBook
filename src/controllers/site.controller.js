@@ -15,6 +15,7 @@ class SiteController {
       next(err);
     }
   };
+
   getAboutUs = (req, res) => {
     res.render('about-us');
   };

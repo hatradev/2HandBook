@@ -1,8 +1,8 @@
-const $ = document.querySelector.bind(document)
-const $$ = document.querySelectorAll.bind(document)
-const globalData = this
+const $ = document.querySelector.bind(document);
+const $$ = document.querySelectorAll.bind(document);
+const globalData = this;
 
-var selectForm = $(".form-select")
+var selectForm = $('.form-select');
 const resultContainer = document.getElementsByClassName('.trend-row');
 // selectForm.onchange = async function () {
 // 	var selectedValue = selectForm.value.split(',');
@@ -37,4 +37,4 @@ const resultContainer = document.getElementsByClassName('.trend-row');
 // };
 
 var baseUrl = window.location.origin;
-console.log(baseUrl)
+console.log(baseUrl);

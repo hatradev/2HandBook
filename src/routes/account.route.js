@@ -41,6 +41,14 @@ router.get('/my-order/:_id', accountController.getMyOrder);
 router.post('/become-seller/:_id/register-seller', accountController.registerSeller);
 router.get('/become-seller/:_id', accountController.getBecomeSeller);
 
-// Admin
+// ############### ADMIN ####################
+router.get('/all', accountController.getAllAccount);
+// router.get('/banned', accountController.getBannedAccount);
+// router.get('/pending', accountController.getPendingAccount);
+// router.get('/reported', accountController.getReportedAccount);
+// router.post('/ban-account', accountController.banAccount);
+// router.post('/accept-account-request', accountController.acceptAccReq);
+// router.post('/reject-account-request', accountController.rejectAccReq);
+// router.post('/unban-account', accountController.unbanAccount);
 
 module.exports = router;
