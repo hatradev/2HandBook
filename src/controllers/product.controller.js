@@ -1,7 +1,6 @@
 const Product = require('../models/product.model');
 const fs = require('fs');
 const Evaluate = require('../models/evaluate.model');
-
 const sequelize = require('sequelize');
 const Op = sequelize.Op;
 
@@ -29,9 +28,46 @@ class productController {
   // [GET] product/manage
   getManage = async (req, res, next) => {
     try {
-      const products = await Product.find();
+      let options = { idAccount: req.user.id };
+      // Tìm kiếm
+      let keyword = req.query.keyword || '';
+      // Lọc theo loại
+      let category = req.query.category || '';
+      // Sắp xếp
+      let sortBy = req.query.sortBy || '';
+      keyword = keyword.trim();
+      let originalUrl = req.originalUrl;
+      if (keyword != '') {
+        const regex = new RegExp(keyword, 'i');
+        options.name = regex;
+      }
+      if (category != '') {
+        options.category = category;
+      }
+      // Phân trang
+      let page = isNaN(req.query.page)
+        ? 1
+        : Math.max(1, parseInt(req.query.page));
+      const limit = 10;
+      // Thực hiện truy vấn
+      let products = await Product.find(options)
+        .skip((page - 1) * limit)
+        .limit(limit)
+        .sort(sortBy);
+      res.locals._keyword = keyword;
+      res.locals._category = category;
+      res.locals._sortBy = sortBy;
+      res.locals._numberOfItems = await Product.find(options).countDocuments();
+      res.locals._limit = limit;
+      res.locals._currentPage = page;
+      res.locals._originalUrl = req.url;
       res.render('manage-product', {
         products: mutipleMongooseToObject(products),
+        helpers: {
+          isEqual(c1, c2) {
+            return c1 == c2;
+          },
+        },
       });
     } catch (err) {
       next(err);
@@ -39,7 +75,8 @@ class productController {
   };
 
   // [GET] product/edit/
-  getEditForCreate = async (req, res) => {
+  getEditForCreate = (req, res) => {
+    console.log(req.query);
     res.render('edit-product', {
       helpers: {
         isCategory(c1, c2) {
@@ -54,6 +91,7 @@ class productController {
     try {
       // Lưu thông tin sản phẩm vào trong database
       const formData = req.body;
+      formData.idAccount = req.user.id;
       formData.price = Number(formData.price);
       formData.stock = Number(formData.stock);
       formData.isTrend = Number(formData.isTrend);
@@ -76,6 +114,7 @@ class productController {
   // [GET] product/edit/:id
   getEditForUpdate = async (req, res, next) => {
     try {
+      console.log(req.query);
       const product = await Product.findById(req.params.id);
       res.render('edit-product', {
         product: mongooseToObject(product),
@@ -98,7 +137,7 @@ class productController {
       const product = await Product.findById(req.params.id);
       if (req.file) {
         if (product.image != '/img/products/default.png') {
-          fs.unlinkSync(`./source/public${product.image}`);
+          // fs.unlinkSync(`./source/public${product.image}`);
         }
         formData.image = req.file.path.replace('source/public', '');
       } else if (product.image == '/img/products/default.png') {
@@ -110,15 +149,25 @@ class productController {
       next(err);
     }
   };
+
+  // [POST] product/delete/:id
+  deleteProduct = async (req, res, next) => {
+    try {
+      const product = await Product.findById(req.params.id);
+      if (product.image != '/img/products/default.png') {
+        fs.unlinkSync(`./source/public${product.image}`);
+      }
+      await Product.deleteOne({ _id: req.params.id });
+      res.redirect(
+        `/product/manage?page=${req.query.page ? req.query.page : ''}`
+      );
+    } catch (err) {
+      next(err);
+    }
+  };
   // ###########################################################
   // ###################### BUYER #############################
-  getAllProduct = async (req, res, next) => {
-    res.render('all-product');
-  };
-  getAProduct = async (req, res, next) => {
-    res.render('specific-product');
-  };
-  getCart = {};
+  // getCart = {};
   add2Cart = async (req, res, next) => {
     // Lấy id và quantity sản phẩm gửi từ client
     let id = req.body.id ? req.body.id : '';
@@ -313,8 +362,7 @@ class productController {
   // }
 }
 
-// Auxiliary
-
+// ***************************** Helper function *******************************
 function removeParam(key, sourceURL) {
   var rtn = sourceURL.split('?')[0],
     param,

@@ -1,6 +1,5 @@
 const Account = require('../models/account.model');
 const passport = require('passport');
-const { render } = require('../utils/renderPage');
 const { sendForgotPasswordMail } = require('../utils/mail');
 const bcrypt = require('bcrypt');
 const {
@@ -57,7 +56,6 @@ class acccountController {
   signIn = async (req, res, next) => {
     let keepSignedIn = req.body.keepSignedIn;
     let reqUrl = req.body.reqUrl ? req.body.reqUrl : '/account/my-profile';
-    console.log('keepSignedIn:', keepSignedIn);
     passport.authenticate('local-login', (error, user) => {
       if (error) {
         return next(error);
@@ -102,7 +100,7 @@ class acccountController {
 
   // [GET] account/forgot
   showForgotPassword = (req, res, next) => {
-    render(req, res, 'forgot-password');
+    res.render('forgot-password');
   };
 
   // [POST] acccount/forgot
@@ -144,31 +142,33 @@ class acccountController {
   // [GET] account/my-profile
   getMyProfile(req, res, next) {
     // res.send('my account');
-    Account.findOne({_id: req.params._id})
-      .then(user => {
+    Account.findOne({ _id: req.params._id })
+      .then((user) => {
         res.render('profile_updating', {
-          user: mongooseToObject(user)
+          user: mongooseToObject(user),
         });
-        
       })
       .catch(next);
-  };
+  }
 
-  updateMyProfile= async (req, res, next) =>{
+  updateMyProfile = async (req, res, next) => {
     // res.json(req.body);
     // Account.updateOne({_id: req.params._id}, req.body);
     console.log(req.body);
     const accountId = req.params._id;
     try {
       const user = await Account.findById(accountId);
-  
+
       // Check if the present password matches the one in the database
-      const isPasswordValid = await bcrypt.compare(req.body.presentPassword, user.password);
+      const isPasswordValid = await bcrypt.compare(
+        req.body.presentPassword,
+        user.password
+      );
       if (!isPasswordValid) {
         req.flash('changePasswordMessage', 'Incorrect present password.');
         return res.redirect(`/account/my-profile/${req.params._id}`);
       }
-  
+
       // Hash the new password and update it in the database
       const hashedNewPassword = await bcrypt.hash(req.body.newPassword, 10);
       user.password = hashedNewPassword;
@@ -179,20 +179,16 @@ class acccountController {
       user.email = req.body.email;
       user.phone = req.body.phone;
       user.job = req.body.job;
-  
+
       // Save the updated user data to the database
       await user.save();
-  
+
       req.flash('changePasswordMessage', 'Password updated successfully.');
       res.redirect(`/account/my-profile/${req.params._id}`);
     } catch (err) {
       next(err);
     }
-    // Account.updateOne({_id: req.params._id}, req.body)
-    //   .then(() => res.redirect(`/account/my-profile/${req.params._id}`))
-    //   .catch(next);
-  }
-
+  };
 
   getTestPost = async (req, res, next) => {
     try {
@@ -202,7 +198,7 @@ class acccountController {
     }
   };
 
-  postData(req, res, next){
+  postData(req, res, next) {
     res.json(req.body);
     // Account.updateOne({_id: req.params._id}, req.body)
     //   .then(() => res.redirect(`/account/my-profile/${req.params._id}`))
@@ -216,7 +212,7 @@ class acccountController {
     //     // accounts = accounts
     //     console.log(accounts);
     //   })
-  };
+  }
 
   // [GET] account/my-order-cancelled
   getMyOrderCancelled = async (req, res, next) => {
@@ -230,32 +226,26 @@ class acccountController {
   // [GET] account/my-order
   getMyOrder(req, res, next) {
     // res.send('my account');
-    Account.findOne({_id: req.params._id})
-      .then(user => {
+    Account.findOne({ _id: req.params._id })
+      .then((user) => {
         res.render('my_order', {
-          user: mongooseToObject(user)
+          user: mongooseToObject(user),
         });
-        
       })
       .catch(next);
-  };
+  }
 
   // [GET] account/become-seller
   getBecomeSeller(req, res, next) {
     // res.send('my account');
-    Account.findOne({_id: req.params._id})
-      .then(user => {
+    Account.findOne({ _id: req.params._id })
+      .then((user) => {
         res.render('become_seller', {
-          user: mongooseToObject(user)
+          user: mongooseToObject(user),
         });
-        
       })
       .catch(next);
-  };
-
-
+  }
 }
-
-
 
 module.exports = new acccountController();

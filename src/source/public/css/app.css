@@ -63,7 +63,8 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
   background-color: #337ab7; }
 
 .pagination-container {
-  margin: 0 auto; }
+  margin: 0 auto;
+  margin-bottom: 5rem; }
 
 .pagination .pagination-item:not(:first-child):not(:nth-child(2)):not(:last-child):not(
 :nth-last-child(2)) .pagination-link:hover,
@@ -840,9 +841,12 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
   position: absolute;
   top: 50%;
   left: 1.4rem;
-  transform: translateY(-50%);
-  color: #757575;
-  cursor: pointer; }
+  transform: translateY(-50%); }
+  .manage-product .search-label button {
+    background-color: transparent; }
+  .manage-product .search-label .search-icon::before {
+    background-color: transparent;
+    color: #757575; }
 
 .manage-product .manage-product-titles .manage-product-title {
   font-weight: bold; }
