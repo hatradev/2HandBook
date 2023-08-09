@@ -68,6 +68,9 @@ app.use(flash());
 // Middleware khoi tao
 app.use((req, res, next) => {
   res.locals.isLoggedIn = req.isAuthenticated(); // Check nguoi dung dang nhap hay chua
+  if(res.locals.isLoggedIn){
+    res.locals._id = req.user._id;
+  }
   next();
 });
 
