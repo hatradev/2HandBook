@@ -47,14 +47,14 @@
                 {{!-- {{>statusbar-myorder}} --}}
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-center">
-                        <li class="page-item"><a class="page-link background_emphasis text-white"
+                        <li class="page-item"><a class="page-link text_black"
                                 href="http://localhost:3000/account/my-order/{{user._id}}">Success</a>
                         </li>
                         {{!-- <li class="page-item"><a class="page-link text_black"
                                 href="http://localhost:3000/myorderdelivery">Delivering</a></li> --}}
                         <li class="page-item"><a class="page-link text_black"
                                 href="http://localhost:3000/account/my-order-pending/{{user._id}}">Pending</a></li>
-                        <li class="page-item"><a class="page-link text_black"
+                        <li class="page-item"><a class="page-link background_emphasis text-white"
                                 href="http://localhost:3000/account/my-order-cancelled/{{user._id}}">Cancelled</a>
                         </li>
                     </ul>
@@ -63,7 +63,7 @@
                 {{#each orders}}
                     {{#each this.detail}}
                 <div class="card">
-                    <div class="card-header alert alert-success" role="alert">
+                    <div class="card-header alert alert-danger" role="alert">
                         <i class="fa-solid fa-bag-shopping"></i>
                         {{../this.idSeller.shopName}}
                     </div>
@@ -91,69 +91,6 @@
                         </div>
                     </div>
 
-                    <div class="card-footer evaluate-product">
-                        <button type="button" class="btn btn-secondary text-uppercase btn-related-evaluation" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal" data-bs-whatever="@mdo">Evaluate</button>
-
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header alert alert-info" role="alert">
-                                        <h2 class="modal-title" id="exampleModalLabel">Evaluate the product</h2>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body evaluate-body">
-                                        <form>
-                                            <div class="mb-3 rating">
-                                                {{!-- <label for="recipient-name"
-                                                    class="col-form-label">Recipient:</label>
-                                                <input type="text" class="form-control" id="recipient-name"> --}}
-                                                <label for="message-text" class="col-form-label fw-bold">Satisfaction
-                                                    level (Star rating): </label>
-                                                {{!-- <span>Satisfaction level (Star rating)</span> --}}
-                                                <div class="form-check form-check-inline first-choice">
-                                                    <input class="form-check-input" type="radio"
-                                                        name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1">1</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio"
-                                                        name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2">2</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio"
-                                                        name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1">3</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio"
-                                                        name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2">4</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio"
-                                                        name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1">5</label>
-                                                </div>
-
-                                            </div>
-                                            <div class="mb-3 review">
-                                                <label for="message-text" class="col-form-label fw-bold">Review:</label>
-                                                <textarea class="form-control input-size" id="message-text"
-                                                    placeholder="Write to review..."></textarea>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary btn-related-evaluation">Post</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                     {{/each}}
                 {{/each}}

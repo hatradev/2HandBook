@@ -1,0 +1,107 @@
+<div class="container">
+    <div class="account-profile-main container-fluid">
+        <div class="row">
+            <div class='col-3'>
+                <div class='avatar'>
+                    <div class='avatar-left'>
+                        <i class='fa-solid fa-user'></i>
+                    </div>
+
+                    <div class='avatar-right'>
+                        <div class='info-avatar'>
+                            <span class='avatar-name'>{{user.firstName}} {{user.lastName}}</span>
+                            <span class='avatar-mail mail'>{{user.email}}</span>
+                        </div>
+                        <div class='signup-btn'>
+                            <button type="button" class="btn btn-outline-secondary">SIGN OUT</button>
+                        </div>
+                    </div>
+                </div>
+                <div class='my-account'>
+                    <a href='http://localhost:3000/account/my-profile/{{user._id}}'>
+                        <button type='button' class='btn btn-outline-secondary'>
+                            <i class='fa-solid fa-pen-to-square'></i>
+                            <span class='page-link'>My account</span>
+                        </button>
+                    </a>
+                </div>
+                <div class='my-order'>
+                    <a href='http://localhost:3000/account/my-order/{{user._id}}'>
+                        <button type='button' class='btn btn-outline-secondary bg-blue'>
+                            <i class='fa-solid fa-cart-shopping color-white'></i>
+                            <span class='page-link color-white'>My order</span>
+                        </button>
+                    </a>
+                </div>
+                <div class='become-seller'>
+                    <a href='http://localhost:3000/account/become-seller/{{user._id}}'>
+                        <button type='button' class='btn btn-outline-secondary'>
+                            <i class='fa-solid fa-user'></i>
+                            <span class='page-link'>Become seller</span>
+                        </button>
+                    </a>
+                </div>
+                <div class='remain'></div>
+            </div>
+            <div class="col-9 part-right-my-order overflow-auto">
+                {{!-- {{>statusbar-myorder}} --}}
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item"><a class="page-link text_black"
+                                href="http://localhost:3000/account/my-order/{{user._id}}">Success</a>
+                        </li>
+                        <li class="page-item"><a class="page-link background_emphasis text-white"
+                                href="http://localhost:3000/account/my-order-pending/{{user._id}}">Pending</a></li>
+                        <li class="page-item"><a class="page-link text_black"
+                                href="http://localhost:3000/account/my-order-cancelled/{{user._id}}">Cancelled</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                {{#each orders}}
+                    {{#each this.detail}}
+                <div class="card">
+                    <div class="card-header alert alert-primary" role="alert">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        {{../this.idSeller.shopName}}
+                    </div>
+                    <div class="card-body">
+                        <div class="contain position-relative">
+                            <div class="left">
+                                <img src="{{this.idProduct.image}}" class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div class="middle position-relative">
+                                <div class="card-body">
+                                    <h2 class="card-title fw-bold">{{this.idProduct.name}}</h2>
+                                    <p class="card-text fs-5 fw-light">This is a wider card with supporting text below as a natural
+                                        lead-in to additional
+                                        content. This content is a little bit longer.</p>
+                                    <p class="card-text"><small class="text-muted fw-bolder">Price: {{formatCurrency this.idProduct.price}}</small></p>
+                                    <p class="card-text"><small class="text-muted fw-bolder">Quantity:  x{{this.quantity}}</small></p>
+                                    <p class="card-text position-absolute bottom-0 end-0">
+                                        <small class="text-muted fs-2 fw-bold">TOTAL: {{formatCurrency (calculateTotalPrice this.idProduct.price this.quantity)}}</small></p>
+                                    <p class="card-text position-absolute bottom-0 start-0">
+                                        <small class="text-muted order-date">Date:
+                                            {{dateOfOrder ../this.date}}
+                                        </small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                    {{/each}}
+                {{/each}}
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+
+
+{{!--
+<script src='js/my-order.js'></script> --}}

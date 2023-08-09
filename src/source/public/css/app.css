@@ -1628,6 +1628,8 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
     padding-left: 2rem; }
     .col-9 .card .card-body .contain {
       display: flex; }
+      .col-9 .card .card-body .contain .left {
+        width: 20%; }
       .col-9 .card .card-body .contain .middle {
         width: fit-content; }
   .col-9 .card .card-footer {
@@ -1671,6 +1673,9 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
   .btn-related-evaluation:hover {
     background-color: var(--light-blue);
     color: black; }
+
+.order-date {
+  padding-left: 2.2rem; }
 
 .container-fluid {
   margin-top: 14rem; }
