@@ -818,8 +818,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
 
 .container-ext, .manage-product, .edit-product, .dashboard, .payment .delivery-addr {
   background-color: #fff;
-  margin-top: 17rem;
-  padding: 0 4rem; }
+  margin-top: 17rem; }
 
 .breadcrumb-ext, .manage-product .manage-product-breadcrumb, .edit-product .edit-product-breadcrumb, .dashboard .dashboard-breadcrumb {
   font-size: 2rem;
