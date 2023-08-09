@@ -1,6 +1,15 @@
+{{! <div class='account-profile-header'>
+  <div class='container-fluid'>
+    <a class='navbar-brand' href='#'>
+      ACCOUNT PROFILE
+    </a>
+  </div>
+</div> }}
+
 <div class='container'>
   <div class='account-profile-main container-fluid'>
     <div class='row'>
+      {{!-- {{>sidebar-profile}} --}}
       <div class='col-3'>
         <div class='avatar'>
           <div class='avatar-left'>
@@ -9,12 +18,16 @@
 
           <div class='avatar-right'>
             <div class='info-avatar'>
-              <span class='avatar-name'>{{user.firstName}} {{user.lastName}}</span>
-              <span class='avatar-mail mail'>{{user.email}}</span>
+              <span class='avatar-name'>Dinh Quy Trieu</span>
+              <span class='avatar-mail mail'>trieudinh@gmail.com</span>
             </div>
             <div class='signup-btn'>
-              <button type='button' class='btn btn-outline-secondary'
-                onclick="window.location.href='/account/sign-out';">SIGN OUT</button>
+              {{! <button type='button' class='btn btn-outline-primary'>SIGN OUT</button> }}
+              <button
+                type='button'
+                class='btn btn-outline-secondary'
+                onclick="window.location.href='/account/sign-out';"
+              >SIGN OUT</button>
             </div>
           </div>
         </div>
@@ -33,6 +46,10 @@
               <span class='page-link'>My order</span>
             </button>
           </a>
+          {{! <button type='button' class='btn btn-outline-secondary'>
+            <i class='fa-solid fa-cart-shopping'></i>
+            <a class='page-link' href='http://localhost:3000/account/my-order'>My order</a>
+          </button> }}
         </div>
         <div class='become-seller'>
           <a href='http://localhost:3000/account/become-seller/{{user._id}}'>
@@ -41,18 +58,32 @@
               <span class='page-link color-white'>Become seller</span>
             </button>
           </a>
+          {{! <button type='button' class='btn btn-outline-secondary'>
+            <i class='fa-solid fa-user'></i>
+            <a class='page-link' href='http://localhost:3000/account/become-seller'>Become
+              seller</a>
+          </button> }}
         </div>
         <div class='remain'></div>
       </div>
       <div class='col-9'>
-        <form class='row g-3' id='form-1' method="POST" action="/account/become-seller/{{user._id}}/register-seller">
+        <form class='row g-3' id='form-1' method="POST" action="/account/my-profile/{{user._id}}/registerSeller">
           <div class='col-md-6'>
-            <label class='form-label fw-bold'>Name of your shop *</label>
-            <input id='shopName' type='text' class='form-control input-size shadow' name="shopName" />
+            <div class='form-group'>
+              <label class='form-label fw-bold'>Name of your shop *</label>
+              <input
+                id='shop-name'
+                type='text'
+                class='form-control input-size shadow'
+                name="shopName"
+              />
+              <span class='form-message'></span>
+            </div>
           </div>
           <div class='col-md-6'>
             <label class='form-label fw-bold'>Job *</label>
-            <input id='job' type='text' class='form-control input-size shadow' name="job" value="{{user.job}}" />
+            <input id='job' type='text' class='form-control input-size shadow' name="job" value="{{user.job}}"
+             />
           </div>
           {{!-- <div class='col-md-6'>
             <div class='form-group'>
@@ -66,24 +97,45 @@
             </div>
           </div> --}}
           <div class='col-12'>
-            <label class='form-label fw-bold'>Address *</label>
-            <input id='address' type='text' class='form-control input-size shadow' placeholder='' name="address" />
+            <div class='form-group'>
+              <label class='form-label fw-bold'>Address *</label>
+              <input
+                id='address'
+                type='text'
+                class='form-control input-size shadow'
+                placeholder=''
+                name="address"
+              />
+              <span class='form-message'></span>
+            </div>
           </div>
           <div class='col-12'>
-            <label class='form-label fw-bold'>Email *</label>
-            <label class='form-label'>(Can be edited in profile)</label>
-            <input id='email' type='text' class='form-control disabled input-size shadow' name="email"
-              value="{{user.email}}" />
+            <div class='form-group'>
+              <label class='form-label fw-bold'>Email *</label>
+              <label class='form-label'>(Can be edited in profile)</label>
+              <input
+                id='email'
+                type='text'
+                class='form-control disabled input-size shadow'
+                name="email" value="{{user.email}}"
+              />
 
+            </div>
           </div>
           <div class='col-12'>
-            <label class='form-label fw-bold'>Phone number *</label>
-            <label class='form-label'>(Can be edited in profile)</label>
-            <input id='phone' type='text' class='form-control disabled input-size shadow' name="phone"
-              value="{{user.phone}}" />
+            <div class='form-group'>
+              <label class='form-label fw-bold'>Phone number *</label>
+              <label class='form-label'>(Can be edited in profile)</label>
+              <input
+                id='phone'
+                type='text'
+                class='form-control disabled input-size shadow'
+                name="phone" value="{{user.phone}}"
+              />
 
+            </div>
           </div>
-
+       
           <div class='contract-container'>
             <div class='contract-content'>
               <h2>Terms and conditions</h2>
@@ -119,15 +171,25 @@
             </div>
           </div>
 
-          <div class='form-check agree-term'>
-            <input id='flexCheckDefault' class='form-check-input' type='checkbox' value='' />
-            <label class='form-check-label fw-bold' for='flexCheckDefault'>
-              I agree to the terms and conditions.
-            </label>
+          <div class='form-group'>
+            <div class='form-check agree-term'>
+              <input
+                id='flexCheckDefault'
+                class='form-check-input'
+                type='checkbox'
+                value=''
+              />
+              <label class='form-check-label fw-bold' for='flexCheckDefault'>
+                I agree to the terms and conditions.
+              </label>
+            </div>
+            <span class='form-message'></span>
           </div>
 
           <div class='col-12 register'>
-            <button type="submit" class='form-submit btn btn-outline-secondary shadow'>REGISTER</button>
+            <button type="submit"
+              class='form-submit btn btn-outline-secondary shadow'
+            >REGISTER</button>
           </div>
         </form>
       </div>
@@ -135,7 +197,5 @@
   </div>
 </div>
 
-
-{{!-- <script src='/js/become-seller.js'></script>
-<script src='/js/validation.js'></script> --}}
-<script src='/js/becomeSellerValidation.js'></script>
+<script src='/js/become-seller.js'></script>
+<script src='/js/validation.js'></script>

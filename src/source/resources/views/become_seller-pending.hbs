@@ -1,0 +1,61 @@
+<div class='container'>
+  <div class='account-profile-main container-fluid'>
+    <div class='row'>
+      <div class='col-3'>
+        <div class='avatar'>
+          <div class='avatar-left'>
+            <i class='fa-solid fa-user'></i>
+          </div>
+
+          <div class='avatar-right'>
+            <div class='info-avatar'>
+              <span class='avatar-name'>{{user.firstName}} {{user.lastName}}</span>
+              <span class='avatar-mail mail'>{{user.email}}</span>
+            </div>
+            <div class='signup-btn'>
+              <button type='button' class='btn btn-outline-secondary'
+                onclick="window.location.href='/account/sign-out';">SIGN OUT</button>
+            </div>
+          </div>
+        </div>
+        <div class='my-account'>
+          <a href='http://localhost:3000/account/my-profile/{{user._id}}'>
+            <button type='button' class='btn btn-outline-secondary'>
+              <i class='fa-solid fa-pen-to-square'></i>
+              <span class='page-link'>My account</span>
+            </button>
+          </a>
+        </div>
+        <div class='my-order'>
+          <a href='http://localhost:3000/account/my-order/{{user._id}}'>
+            <button type='button' class='btn btn-outline-secondary'>
+              <i class='fa-solid fa-cart-shopping'></i>
+              <span class='page-link'>My order</span>
+            </button>
+          </a>
+        </div>
+        <div class='become-seller'>
+          <a href='http://localhost:3000/account/become-seller/{{user._id}}'>
+            <button type='button' class='btn btn-outline-secondary bg-blue'>
+              <i class='fa-solid fa-user color-white'></i>
+              <span class='page-link color-white'>Become seller</span>
+            </button>
+          </a>
+        </div>
+        <div class='remain'></div>
+      </div>
+      <div class='col-9 d-flex justify-content-center align-items-start'>
+        <div class="alert alert-primary alert-pending" role="alert">
+          <div class="d-flex align-items-center">
+            <strong>Your request to become a seller is pending!</strong>
+            <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{!--
+<script src='/js/become-seller.js'></script>
+<script src='/js/validation.js'></script> --}}

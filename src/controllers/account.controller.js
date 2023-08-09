@@ -1,4 +1,6 @@
 const Account = require('../models/account.model');
+const Order = require('../models/order.model');
+const Product = require('../models/product.model');
 const passport = require('passport');
 const { sendForgotPasswordMail } = require('../utils/mail');
 const bcrypt = require('bcrypt');
@@ -6,6 +8,7 @@ const {
   mutipleMongooseToObject,
   mongooseToObject,
 } = require('../utils/mongoose');
+const mongoose = require('../utils/mongoose');
 class acccountController {
   // [GET] account/sign-up
   getSignUp = async (req, res, next) => {
@@ -156,9 +159,16 @@ class acccountController {
     // Account.updateOne({_id: req.params._id}, req.body);
     console.log(req.body);
     const accountId = req.params._id;
-    try {
-      const user = await Account.findById(accountId);
+    const user = await Account.findById(accountId);
 
+    user.firstName = req.body.firstName;
+    user.lastName = req.body.lastName;
+    user.address = req.body.address;
+    user.email = req.body.email;
+    user.phone = req.body.phone;
+    user.job = req.body.job;
+    await user.save();
+    try {
       // Check if the present password matches the one in the database
       const isPasswordValid = await bcrypt.compare(
         req.body.presentPassword,
@@ -173,12 +183,6 @@ class acccountController {
       const hashedNewPassword = await bcrypt.hash(req.body.newPassword, 10);
       user.password = hashedNewPassword;
       // console.log(user);
-      user.firstName = req.body.firstName;
-      user.lastName = req.body.lastName;
-      user.address = req.body.address;
-      user.email = req.body.email;
-      user.phone = req.body.phone;
-      user.job = req.body.job;
 
       // Save the updated user data to the database
       await user.save();
@@ -190,62 +194,85 @@ class acccountController {
     }
   };
 
-  getTestPost = async (req, res, next) => {
+  getMyOrder = async (req, res, next) => {
     try {
-      res.render('test-profile');
+      const user = await Account.findById(req.params._id);
+      const accountId = user._id;
+      const orders = await Order.find({
+        idAccount: accountId,
+        status: 'successful',
+      })
+        .populate('idAccount')
+        .populate('detail.idProduct');
+      const orderObject = mutipleMongooseToObject(orders);
+
+      var products = [];
+      for (var i of orderObject) {
+        for (var j of i.detail) {
+          Object.assign(j, { idOrder: i._id });
+          var temp = [];
+          temp.push(j);
+          products.push(j);
+        }
+      }
+      res.locals.orders = orderObject;
+      res.locals.products = products;
+      res.locals.user = mongooseToObject(user);
+
+      res.render('my_order');
     } catch (err) {
       next(err);
     }
   };
 
-  postData(req, res, next) {
-    res.json(req.body);
-    // Account.updateOne({_id: req.params._id}, req.body)
-    //   .then(() => res.redirect(`/account/my-profile/${req.params._id}`))
-    //   .catch(next);
-  }
-
-  // [GET] account/my-order-pending
-  getMyOrderPending(req, res, next) {
-    // Account.find({})
-    //   .then((accounts) => {
-    //     // accounts = accounts
-    //     console.log(accounts);
-    //   })
-  }
-
-  // [GET] account/my-order-cancelled
-  getMyOrderCancelled = async (req, res, next) => {
+  getBecomeSeller = async (req, res, next) => {
     try {
-      res.render('my_order_canceled');
+      const accountId = req.params._id;
+      const user = await Account.findById(accountId);
+      // console.log(user);
+
+      if (user.requestStatus === 'Become-seller') {
+        if (user.accountStatus === 'Pending') {
+          // Yêu cầu trở thành người bán đã gửi và tài khoản chưa được chấp thuận
+          return res.render('become_seller-pending', {
+            user: mongooseToObject(user),
+            // processingMessage: 'Your request is being processed. Please wait for approval.',
+          });
+        } else {
+          // Yêu cầu trở thành người bán đã gửi và tài khoản đã được chấp thuận
+          return res.render('become_seller', {
+            user: mongooseToObject(user),
+            approvedMessage:
+              'Congratulations! You have been approved as a seller.',
+          });
+        }
+      }
+
+      // Ngược lại, hiển thị trang trở thành người bán với thông tin hồ sơ của người dùng để cập nhật thông tin và yêu cầu trở thành người bán
+      res.render('become_seller', {
+        user: mongooseToObject(user),
+      });
     } catch (err) {
       next(err);
     }
   };
 
-  // [GET] account/my-order
-  getMyOrder(req, res, next) {
-    // res.send('my account');
-    Account.findOne({ _id: req.params._id })
-      .then((user) => {
-        res.render('my_order', {
-          user: mongooseToObject(user),
-        });
-      })
-      .catch(next);
-  }
+  registerSeller = async (req, res, next) => {
+    try {
+      const accountId = req.params._id;
+      const user = await Account.findById(accountId);
 
-  // [GET] account/become-seller
-  getBecomeSeller(req, res, next) {
-    // res.send('my account');
-    Account.findOne({ _id: req.params._id })
-      .then((user) => {
-        res.render('become_seller', {
-          user: mongooseToObject(user),
-        });
-      })
-      .catch(next);
-  }
+      user.requestStatus = 'Become-seller';
+      user.accountStatus = 'Pending';
+      user.address = req.body.address;
+      user.job = req.body.job;
+      await user.save();
+
+      res.redirect(`/account/become-seller/${req.params._id}`);
+    } catch (err) {
+      next(err);
+    }
+  };
 }
 
 module.exports = new acccountController();

@@ -72,9 +72,10 @@ app.use(flash());
 app.use((req, res, next) => {
   res.locals.isLoggedIn = req.isAuthenticated(); // Check nguoi dung dang nhap hay chua
   if (res.locals.isLoggedIn) {
+    res.locals._id = req.user._id;
     res.locals._firstName = req.user.firstName;
+    next();
   }
-  next();
 });
 
 // ROUTES INIT
