@@ -3,9 +3,8 @@ const announceController = require('../controllers/announcement.controller');
 
 const router = express.Router();
 
-router.get('/', announceController.createNewAnnouncement);
-router.post('/post', announceController.saveNewAnnouncement);
-router.get('/view', announceController.getAllAnnouncement);
-// router.get('/view/:id', announceController.getAnnouncement);
+router.get('/', announceController.getNewAnnouncement);
+router.post('/post', announceController.postNewAnnouncement);
+router.get('/all', announceController.getAllAnnouncement);
 
 module.exports = router;

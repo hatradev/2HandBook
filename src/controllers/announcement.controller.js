@@ -7,20 +7,35 @@ const {
 
 class announceController {
   // [GET] announcement
-  createNewAnnouncement(req, res) {
-    res.render('admin_announcement', { showHeader: true, showFooter: true });
-  }
+  getNewAnnouncement = (req, res) => render(req, res, 'admin_announcement');
 
   // [POST] announcement/post
-  saveNewAnnouncement = async (req, res) => {
-    console.log(req.body);
-    res.send('');
+  postNewAnnouncement = async (req, res, next) => {
+    try {
+      let ntitle = req.body.title;
+      let ncontent = req.body.content;
+      let nrecipient = req.body.recipient;
+
+      const newAnnouncement = new Announcement({
+        title: ntitle,
+        recipient: nrecipient,
+        content: ncontent,
+      });
+
+      await newAnnouncement.save();
+
+      console.log(req.body);
+      res.redirect('/announcement/all');
+    } catch (err) {
+      next(err);
+    }
   };
 
-  // [GET] announcement/view
+  // [GET] announcement/all
   getAllAnnouncement = async (req, res, next) => {
     try {
-      const announcements = await Announcement.find();
+      const announcements = await Announcement.find().sort({ time: -1 });
+
       res.render('admin_all_announcement', {
         showHeader: true,
         showFooter: true,

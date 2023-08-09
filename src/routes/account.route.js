@@ -41,4 +41,6 @@ router.get('/my-order/:_id', accountController.getMyOrder);
 router.post('/become-seller/:_id/register-seller', accountController.registerSeller);
 router.get('/become-seller/:_id', accountController.getBecomeSeller);
 
+// Admin
+
 module.exports = router;
