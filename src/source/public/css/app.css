@@ -783,8 +783,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
     font-family: Inter;
     font-size: 1.5rem;
     font-weight: 500;
-    padding: 0 0.5rem;
-    width: 100%; }
+    padding: 0 0.5rem; }
   .trend .trend-card-price {
     text-align: center;
     color: #000;
@@ -2028,6 +2027,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
     .admin .admin-announce-box .view-more-announcement {
       text-decoration-line: underline; }
   .admin .list-accounts {
+    min-height: 100rem;
     margin-bottom: 3rem; }
   .admin .account-item {
     border-radius: 20px;

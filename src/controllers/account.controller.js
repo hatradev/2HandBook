@@ -286,6 +286,83 @@ class acccountController {
       next(err);
     }
   };
+
+  // [GET] account/pending
+  getPendingAccount = async (req, res, next) => {
+    try {
+      const accounts = await Account.find({ accountStatus: 'Pending' });
+
+      res.render('admin_account_pending', {
+        accounts: mutipleMongooseToObject(accounts),
+      });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  // [GET] account/reported
+  getReportedAccount = async (req, res, next) => {
+    try {
+      const accounts = await Account.find({ accountStatus: 'Reported' });
+
+      res.render('admin_account_reported', {
+        accounts: mutipleMongooseToObject(accounts),
+      });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  // [GET] account/banned
+  getBannedAccount = async (req, res, next) => {
+    try {
+      const accounts = await Account.find({ accountStatus: 'Banned' });
+
+      res.render('admin_account_banned', {
+        accounts: mutipleMongooseToObject(accounts),
+      });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  // [POST] account/ban-account
+  executeAccount = async (req, res, next) => {
+    console.log(req.query.id);
+    try {
+      const user = await Account.findById(req.query.id);
+      const type = req.query.type;
+      if (type == 'ban') {
+        user.accountStatus = 'Banned';
+      } else if (type == 'unban') {
+        if (user.requestStatus == 'Become-seller') {
+          user.accountStatus = 'Pending';
+        } else {
+          user.accountStatus = 'None';
+          user.requestStatus = 'None';
+        }
+      } else if (type == 'accept') {
+        user.accountStatus = 'None';
+        user.requestStatus = 'None';
+        user.role = 'Seller';
+      } else if (type == 'deny') {
+        user.accountStatus = 'None';
+        user.requestStatus = 'None';
+      } else {
+        //type == remove
+        if (user.requestStatus == 'Become-seller') {
+          user.accountStatus = 'Pending';
+        } else {
+          user.accountStatus = 'None';
+          user.requestStatus = 'None';
+        }
+      }
+      await user.save();
+      res.redirect('./all');
+    } catch (err) {
+      next(err);
+    }
+  };
 }
 
 module.exports = new acccountController();

@@ -38,17 +38,16 @@ router.get('/my-profile/:_id', accountController.getMyProfile);
 // router.get('/my-order-pending', accountController.getMyOrderPending);
 // router.get('/my-order-cancelled', accountController.getMyOrderCancelled);
 router.get('/my-order/:_id', accountController.getMyOrder);
-router.post('/become-seller/:_id/register-seller', accountController.registerSeller);
+router.post(
+  '/become-seller/:_id/register-seller',
+  accountController.registerSeller
+);
 router.get('/become-seller/:_id', accountController.getBecomeSeller);
 
 // ############### ADMIN ####################
 router.get('/all', accountController.getAllAccount);
-// router.get('/banned', accountController.getBannedAccount);
-// router.get('/pending', accountController.getPendingAccount);
-// router.get('/reported', accountController.getReportedAccount);
-// router.post('/ban-account', accountController.banAccount);
-// router.post('/accept-account-request', accountController.acceptAccReq);
-// router.post('/reject-account-request', accountController.rejectAccReq);
-// router.post('/unban-account', accountController.unbanAccount);
-
+router.get('/banned', accountController.getBannedAccount);
+router.get('/pending', accountController.getPendingAccount);
+router.get('/reported', accountController.getReportedAccount);
+router.post('/exec-account', accountController.executeAccount);
 module.exports = router;

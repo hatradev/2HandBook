@@ -6,7 +6,7 @@
           <a
             class='nav-link active'
             aria-current='page'
-            href='../announcement'
+            href='./announcement'
           >
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -27,7 +27,7 @@
           </a>
         </div>
         <div class='nav-item'>
-          <a class='nav-link' href='../account/all'>
+          <a class='nav-link' href='./account/all'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='32'
@@ -47,7 +47,7 @@
           </a>
         </div>
         <div class='nav-item'>
-          <a class='nav-link' href='../product/full'>
+          <a class='nav-link' href='./product/all'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='32'
@@ -64,7 +64,7 @@
           </a>
         </div>
         <div class='nav-item'>
-          <a class='nav-link' href='../comment/all'>
+          <a class='nav-link' href='./comment/all'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='32'
@@ -85,13 +85,13 @@
     <div class='admin-article col-10'>
       <div class='nav nav-tabs'>
         <div class='nav-item'>
-          <a class='nav-link' href='../announcement'>Post an announcement</a>
+          <a class='nav-link' href='./'>Post an announcement</a>
         </div>
         <div class='nav-item'>
           <a
             class='nav-link active'
             aria-current='page'
-            href='#'
+            href='./view'
           >All announcements</a>
         </div>
       </div>
@@ -108,14 +108,9 @@
               <p class='text-truncate content'>Content: {{this.content}}</p>
               <a
                 class='view-more-announcement link-primary'
+                href='#'
                 data-bs-toggle='modal'
                 data-bs-target='#staticAnnouncement'
-                id="modalButton"
-                href="./{{this._id}}"
-                data-title="{{this.title}}"
-                data-recipient="{{this.recipient}}"
-                data-content="{{this.content}}"
-                data-time="{{this.time}}"
               >View more</a>
             </div>
           </div>
@@ -127,7 +122,7 @@
         <div
           class='modal fade'
           id='staticAnnouncement'
-          data-bs-backdrop='true'
+          data-bs-backdrop='static'
           data-bs-keyboard='false'
           tabindex='-1'
           aria-labelledby='staticBackdropLabel'
@@ -136,7 +131,7 @@
           <div class='modal-dialog'>
             <div class='modal-content'>
               <div class='modal-header'>
-                <div class='modal-title title' id='staticBackdropLabel'></div>
+                <div class='modal-title title' id='staticBackdropLabel'> {{this.title}} </div>
                 <button
                   type='button'
                   class='btn-close'
@@ -145,9 +140,9 @@
                 ></button>
               </div>
               <div class='modal-body'>
-                <p><strong>To: </strong><span id="mrecipient"></span></p>
-                <p><strong>Time: </strong><span id="mtime"></span></p>
-                <p><strong>Content: </strong><span id="mcontent"></span></p>
+                <p><strong>To:</strong> {{this.recipient}}</p>
+                <p><strong>Time:</strong> {{this.time}}</p>
+                <p><strong>Content:</strong> {{this.content}}</p>
               </div>
 
             </div>
@@ -157,4 +152,3 @@
     </div>
   </div>
 </div>
-<script src='/js/announcement.js'></script>
