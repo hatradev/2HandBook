@@ -5,21 +5,19 @@
       <div class='col row align-items-center'>
         <div class='logo col-2'>
           <a href='http://localhost:3000/'>
-            <img
-              src='/img/logo/logo-dark.png'
-              alt='2HandBook logo'
-              class='logo-img'
-            /></a>
+            <img src='/img/logo/logo-dark.png' alt='2HandBook logo' class='logo-img' /></a>
         </div>
         <div class='search-bar align-items-center col row'>
-          <input
-            type='text'
-            class='search-input col p-4'
-            placeholder='Search...'
-          />
-          <a href='#' class='search-icon-link'>
+          {{!-- <input type='text' class='search-input col p-4' placeholder='Search...' />
+          <a href='/product/all-product/search' class='search-icon-link'>
             <i class='fa-solid fa-magnifying-glass search-icon'></i>
-          </a>
+          </a> --}}
+          <form class='search-bar pt-3 align-items-center' action="/product/all-product/search">
+            <input type='text' class='search-input col p-4' placeholder='Search...' name="keyword" required />
+            <button class='search-icon-link'>
+              <i class='fa-solid fa-magnifying-glass search-icon'></i>
+              <button />
+          </form>
         </div>
       </div>
       <div class='col-4 d-flex align-items-center'>
@@ -60,16 +58,8 @@
             <i class='fa-solid fa-circle-user user-avatar'></i>
             <span>Hi, {{_firstName}}!</span></a>
         {{else}}
-          <a
-            class='btn btn-log-in text-uppercase ms-auto me-3'
-            href='/account/sign-in'
-            role='button'
-          >sign in</a>
-          <a
-            class='btn btn-sign-up text-uppercase me-5'
-            href='/account/sign-up'
-            role='button'
-          >sign up</a>
+        <a class='btn btn-log-in text-uppercase ms-auto me-3' href='/account/sign-in' role='button'>sign in</a>
+        <a class='btn btn-sign-up text-uppercase me-5' href='/account/sign-up' role='button'>sign up</a>
         {{/if}}
         <i class='fa-solid fa-cart-shopping cart-icon'></i>
       </div>

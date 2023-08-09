@@ -1,13 +1,45 @@
 <div class='sales-page container'>
   <div class='row'>
-    <div class='col-2'>
-
+    <div class="col-2 vertical-nav">
+      <h1 class="title">Sale pages</h1>
+      <hr>
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a href="">
+            <i class="fa-solid fa-pen-to-square"></i>
+            <h2>Dashboard</h2>
+          </a>
+        </li>
+        <hr>
+        <li class="nav-item">
+          <a href="">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <h2>Manage product</h2>
+          </a>
+        </li>
+        <hr>
+        <li class="nav-item">
+          <a href="http://localhost:3000/order/manage-order">
+            <i class="fa-solid fa-chart-simple"></i>
+            <h2>Manage order</h2>
+          </a>
+        </li>
+        <hr>
+        <li class="nav-item">
+          <a href="http://localhost:3000/evaluate/review">
+            <i class="fa-solid fa-message"></i>
+            <h2>Reviews</h2>
+          </a>
+        </li>
+        <hr>
+      </ul>
     </div>
+
     <div class='col manage-order'>
       <h1 class='page-title'>
         ORDER
       </h1>
-      <table class='table table-bordered'>
+      <table class='table-order table table-bordered'>
         <thead>
           <tr>
             <th scope='col' class='#' width='5%'>#</th>
@@ -19,19 +51,22 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope='row'>1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td class='details-btn'>
+          {{#each orders}}
+          <tr class="item-order" data-id="{{this._id}}">
+            <th scope='row'>{{increaseIndex @index 1}}</th>
+            <td>{{this.idAccount.lastName}} {{this.idAccount.firstName}}</td>
+            <td>{{this.idAccount.email}}</td>
+            <td>{{this.idAccount.phone}}</td>
+            <td class="d-flex justify-content-center">
+              <span class="badge rounded-pill bg-success sign-btn">{{this.status}}</span>
+            </td>
+            <td class='details-btn' data-id="{{this._id}}" data-status="{{this.status}}">
               <a href='' data-bs-toggle='modal' data-bs-target='#product-details'>
-              <i class="fa-solid fa-ellipsis"></i>
+                <i class="fa-solid fa-ellipsis"></i>
               </a>
             </td>
           </tr>
-
+          {{/each}}
         </tbody>
       </table>
       {{>pagination}}
@@ -51,53 +86,51 @@
                   <table class='table table-bordered table-fixed'>
                     <thead>
                       <tr>
-                        <th scope='col' class='#' width='5%'>#</th>
-                        <th scope='col' class='image' width='5%'>Image</th>
+                        <th scope='col' class='image' width='10%'>Image</th>
                         <th scope='col' class='name'>Name</th>
                         <th scope='col' class='category' width='15%'>Category</th>
                         <th scope='col' class='quantity' width='15%'>Quantity</th>
                         <th scope='col' class='price' width='15%'>Price</th>
-                        <th scope='col' class='price' width='15%'>Status</th>
                       </tr>
                     </thead>
                     <tbody>
-
-                      <tr>
-                        <th scope='row'>1</th>
+                      {{#each products}}
+                      <tr class="item-modal" data-id="{{this.idOrder}}">
                         <td>
                           <div class='img'>
                             <a href='#'>
-                              <img class='img-product' src='img/product-2.jpg' alt='error' />
+                              <img class='img-product' src='{{this.idProduct.image}}' alt='error' />
                             </a>
                           </div>
                         </td>
-                        <td>Lorem ipsum dolor sit, amet consectet Lorem ipsum dolor sit, amet consectet</td>
-                        <td>asda</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                        <td>{{this.idProduct.name}}</td>
+                        <td>{{this.idProduct.category}}</td>
+                        <td>{{this.quantity}}</td>
+                        <td>{{this.idProduct.price}}</td>
                       </tr>
-
+                      {{/each}}
                     </tbody>
                   </table>
-
-                  <div class="message">
+                  {{#each messages}}
+                  <div class="message" data-id="{{this.idOrder}}">
                     <strong>Message:</strong>
                     <p>
-                      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum officia ipsa quas asperiores? Quod ea repellendus ipsum blanditiis laborum est a reprehenderit quas autem necessitatibus nobis, expedita accusantium, molestias officiis.
+                      {{this.message}}
                     </p>
                   </div>
+                  {{/each}}
                 </div>
               </div>
             </div>
             <div class='modal-footer'>
-              <a href='#' type='button' class='btn btn-success'>
-                Accept
-              </a>
-              <a href='#' type='button' class='btn btn-danger'>
-                Cancel
-              </a>
+              <button class='btn btn-success btn-accept' data-status="">
+                ACCEPT
+              </button>
+              <button class='btn btn-danger btn-delete' data-status="">
+                REJECT
+              </button>
 
-              <a href='#' type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</a>
+              <a href='#' type='button' class='btn btn-secondary' data-bs-dismiss='modal'>CLOSE</a>
             </div>
           </div>
         </div>
@@ -106,3 +139,7 @@
     </div>
   </div>
 </div>
+
+<form name="delete-course-form" method="POST"></form>
+
+<script src="/js/manage-order.js"></script>

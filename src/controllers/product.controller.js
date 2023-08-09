@@ -1,6 +1,8 @@
 const Product = require('../models/product.model');
 const fs = require('fs');
 const Evaluate = require('../models/evaluate.model');
+const Account = require('../models/account.model');
+
 const sequelize = require('sequelize');
 const Op = sequelize.Op;
 
@@ -189,10 +191,8 @@ class productController {
           $sort: { _id: 1 },
         },
       ]);
-
       res.locals.categories = categories;
       res.locals.products = mutipleMongooseToObject(products);
-
       res.render('all-product');
     } catch (error) {
       res.status(500).json({ error: 'Lỗi khi lấy tất cả sản phẩm 1' });
@@ -203,7 +203,7 @@ class productController {
   filterProduct = async (req, res, next) => {
     try {
       const type = req.query.category; //? req.query.category : 0
-      console.log(type);
+      // console.log(type);
       const products = await Product.find({ category: type });
       const categories = await Product.aggregate([
         {
@@ -230,7 +230,7 @@ class productController {
     try {
       const type = req.query.sort;
       const order = req.query.order;
-      console.log(type, order);
+      // console.log(type, order);
       const products = await Product.find({}).sort({ [type]: order });
 
       const categories = await Product.aggregate([
@@ -288,7 +288,14 @@ class productController {
       const productId = req.params.id;
 
       const product = await Product.findOne({ _id: productId });
-      const details = product.description.split(';');
+      const details = product.description.split('\n');
+      const evaluates = await Evaluate.find({ idProduct: productId })
+        .populate({
+          path: 'idAccount',
+          select: 'firstName lastName avatar',
+        })
+        .sort({ date: -1 });
+
       const stars = await Evaluate.aggregate([
         {
           $match: {
@@ -310,56 +317,32 @@ class productController {
         },
         { $limit: 6 },
       ]);
-      const evaluates = await Evaluate.aggregate([
-        {
-          $match: {
-            idProduct: productId,
-          },
-        },
-      ]);
-
-      // res.json(evaluates)
 
       res.locals.details = details;
       res.locals.product = mongooseToObject(product);
       res.locals.stars = stars[0];
       res.locals.related = related;
+      res.locals.evaluates = mutipleMongooseToObject(evaluates);
 
       res.render('specific-product');
-      // console.log(stars, product)
-
-      // var a = mongooseToObject(details)
-      // res.json({product, a})
     } catch (error) {
       res.status(500).json({ error: 'Lỗi khi lấy tất cả sản phẩm 3' });
     }
   };
 
   // [PUT] product/specific-product/:id/report
-  // reportProduct = async (req, res, next) => {
-  //   try {
-  //     Course.updateOne({ _id: req.params.id }, {})
-  //       .then(() => {
-  //           res.redirect('back');
-  //       })
-  //       .catch(next);
-
-  //     // res.json({related, related})
-
-  //     // res.locals.details = details
-  //     // res.locals.product = mongooseToObject(product)
-  //     // res.locals.stars = stars[0]
-  //     // res.locals.related = related
-
-  //     res.render('specific-product')
-  //     // console.log(stars, product)
-
-  //     // var a = mongooseToObject(details)
-  //     // res.json({product, a})
-  //   } catch (error) {
-  //     res.status(500).json({ error: 'Lỗi khi lấy tất cả sản phẩm 3' });
-  //   }
-  // }
+  reportProduct = async (req, res, next) => {
+    try {
+      const productId = req.params.id;
+      await Product.updateOne(
+        { _id: productId },
+        { $set: { status: 'Reported' } }
+      );
+      res.redirect('back');
+    } catch (error) {
+      res.status(500).json({ error: 'Lỗi khi lấy tất cả sản phẩm 3' });
+    }
+  };
 }
 
 // ***************************** Helper function *******************************

@@ -36,3 +36,5 @@ const resultContainer = document.getElementsByClassName('.trend-row');
 // 	}
 // };
 
+var baseUrl = window.location.origin;
+console.log(baseUrl)
