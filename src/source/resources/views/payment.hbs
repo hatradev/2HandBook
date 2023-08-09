@@ -29,9 +29,9 @@
         <p>Address:</p>
       </div>
       <div class='del-second col-10'>
-        <p>Name of Buyer</p>
-        <p>0999.999.999</p>
-        <p>??, Street?, Province, City....</p>
+        <p>{{accBuyer.firstName}} {{accBuyer.lastName}}</p>
+        <p>{{accBuyer.phone}}</p>
+        <p>{{accBuyer.address}}</p>
       </div>
     </div>
   </div>
@@ -59,7 +59,7 @@
         ></path>
       </svg>
       <div class='shopname'>
-        SHOPNAME
+        {{product.idAccount.shopName}}
       </div>
     </div>
     <hr />
@@ -67,14 +67,14 @@
       <div class='product row'>
         <a href='#' class='col-2 img'>
           <img
-            src='../img/SachLSD.jpg'
+            src= {{product.image}}
             class='pay-prod-img'
             alt='Something ...'
           />
         </a>
         <div class='col-10 row'>
-          <p class='pay-prod-title col'><strong>Title</strong></p>
-          <p class='pay-prod-price col'>200 000 VND</p>
+          <p class='pay-prod-title col'><strong>{{product.name}}</strong></p>
+          <p class='pay-prod-price col'>{{formatCurrency product.price}}</p>
           <div class='pay-prod-info'>
             <p class='pay-prod-quantity'>Quantity: 2</p>
             <p class='pay-prod-date'>Date: ....</p>
@@ -82,7 +82,7 @@
 
         </div>
       </div>
-      <div class='product row'>
+      {{!-- <div class='product row'>
         <a href='#' class='col-2 img'>
           <img
             src='../img/SachCSDL.jpg'
@@ -98,8 +98,8 @@
             <p class='pay-prod-date'>Date: ....</p>
           </div>
         </div>
-      </div>
-      <div class='product row'>
+      </div> --}}
+      {{!-- <div class='product row'>
         <a href='#' class='col-2 img'>
           <img
             src='../img/SachKTLT.jpg'
@@ -115,20 +115,25 @@
             <p class='pay-prod-date'>Date: ....</p>
           </div>
         </div>
-      </div>
+      </div> --}}
       <hr />
-      <p class='total-price'>Total: 1 200 000 VND</p>
+      <p class='total-price'>Total: {{formatCurrency 1200000}}</p>
     </div>
   </div>
 
-  <div class='delivery-box'>
-    <label for='mes' class='message'>Message</label>
-    <textarea class='form-control' id='mes' rows='3'></textarea>
-  </div>
+  <form method="POST" action="/order/payment-placeOrder/{{product._id}}">
+    <div class='delivery-box'>
+      <label for='mes' class='message'>Message</label>
+      <textarea class='form-control' id='mes' name="message" rows='3'></textarea>
+    </div>
 
-  <div class='placeorder delivery-box'>
-    <p class='noticePlace'><i>By clicking "Place Order", you are agreeing to
-        2HandBook's General Transaction Terms</i></p>
-    <div class='btn'>PLACE ORDER</div>
-  </div>
+    <div class='placeorder delivery-box'>
+      <p class='noticePlace'><i>By clicking "Place Order", you are agreeing to
+          2HandBook's General Transaction Terms</i></p>
+      <button type="submit">
+        <div class='btn'>PLACE ORDER</div>
+      </button>
+    </div>
+  </form>
+
 </div>

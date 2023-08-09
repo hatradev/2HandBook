@@ -5,6 +5,9 @@ const router = express.Router();
 router.get('/manage-order', orderController.showAllOrder);
 router.put('/manage-order/:id/reject', orderController.rejectOrder);
 router.put('/manage-order/:id/accept', orderController.acceptOrder);
+router.get('/payment/:_id', orderController.getPayment);
+router.post('/payment-placeOrder/:_id', orderController.placeOrder);
+
 
 
 module.exports = router;
