@@ -1,0 +1,109 @@
+<div class="sales-page container">
+	<div class="row">
+		<div class="col-2 vertical-nav">
+			<h1 class="title">Sale pages</h1>
+			<hr>
+			<ul class="nav-list">
+				<li class="nav-item">
+					<a href="">
+						<i class="fa-solid fa-pen-to-square"></i>
+						<h2>Dashboard</h2>
+					</a>
+				</li>
+				<hr>
+				<li class="nav-item">
+					<a href="">
+						<i class="fa-solid fa-cart-shopping"></i>
+						<h2>Manage product</h2>
+					</a>
+				</li>
+				<hr>
+				<li class="nav-item">
+					<a href="http://localhost:3000/order/manage-order">
+						<i class="fa-solid fa-chart-simple"></i>
+						<h2>Manage order</h2>
+					</a>
+				</li>
+				<hr>
+				<li class="nav-item">
+					<a href="http://localhost:3000/evaluate/review">
+						<i class="fa-solid fa-message"></i>
+						<h2>Reviews</h2>
+					</a>
+				</li>
+				<hr>
+			</ul>
+		</div>
+
+		<div class="col review-shop">
+			<div class="row">
+				<div class="col-12 review-section">
+					{{#each evaluates}}
+					<div class="card">
+						<div class="card-header">
+							<strong>ORDER CODE: {{this._id}}</strong>
+						</div>
+						<div class="card-body">
+							<div class='information d-flex align-items-center'>
+								<div class='avatar'>
+									<a href='#'>
+										<img class='img-avatar' src='/img/SachKTLT.jpg' alt='error' />
+									</a>
+								</div>
+								<div class='infor-span ms-3'>
+									<span class='name'>{{this.idAccount.lastName}} {{this.idAccount.firstName}}</span>
+									<div class='date mt-1'>{{convertDate this.date}}</div>
+								</div>
+							</div>
+							<div class="middle">
+								<h2 class="card-title title">Tên sản phẩm: {{this.idProduct.name}}</h2>
+								<p class="card-text content">{{this.content}}</p>
+							</div>
+						</div>
+
+						<div class="card-footer reply-cmt">
+							<button type="button" class="btn btn-secondary text-uppercase" data-bs-toggle="modal"
+								data-bs-target="#exampleModal" data-bs-whatever="@mdo">REPLY</button>
+
+							<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+								aria-hidden="true">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h2 class="modal-title" id="exampleModalLabel">Evaluate the product</h2>
+											<button type="button" class="btn-close" data-bs-dismiss="modal"
+												aria-label="Close"></button>
+										</div>
+										<div class="modal-body evaluate-body">
+											<form method='POST' class="reply-form" id="{{this._id}}"
+												action='/evaluate/review/{{this._id}}/reply'>
+												<div class="mb-3 review">
+													<label for="message-text"
+														class="col-form-label fw-bold">Comment:</label>
+													<textarea class="form-control input-size" cols='60' rows='10'
+														id="message-text" name='reply'
+														placeholder="Write to review..."></textarea>
+												</div>
+											</form>
+										</div>
+										<div class="modal-footer">
+											<button class="btn btn-secondary" data-bs-dismiss="modal">CLOSE</button>
+											<button class="btn btn-primary submit-btn"
+												form="{{this._id}}">SUBMIT</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					{{/each}}
+				</div>
+				<div class="col">
+					{{>pagination}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="/js/review-shop.js"></script>

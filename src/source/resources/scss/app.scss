@@ -5,6 +5,7 @@
 // Import components
 @import 'components/buttons';
 @import 'components/pagination';
+@import 'components/sales-page';
 
 // Import layouts
 @import 'layouts/header';
@@ -23,6 +24,7 @@
 @import 'pages/all-product';
 @import 'pages/manage-order';
 @import 'pages/become_seller';
+@import 'pages/become_seller-pending';
 @import 'pages/my_order';
 @import 'pages/profile_updating';
 @import 'pages/shop-info';
@@ -31,3 +33,4 @@
 @import 'pages/sign-up';
 @import 'pages/sign-in';
 @import 'pages/about-us';
+@import 'pages/review-shop';

@@ -58,10 +58,10 @@
           <div class='product-category'>
             <label class='product-category-label'>Category</label>
             <select class='edit-product-select' name="category">
-              <option value='Document' {{#if (isCategory product.category 'Document')}}selected{{/if}}>Document</option>
-              <option value='Uniform' {{#if (isCategory product.category 'Uniform')}}selected{{/if}}>Uniform</option>
-              <option value='Calculator' {{#if (isCategory product.category 'Calculator')}}selected{{/if}}>Calculator</option>
-              <option value='Other' {{#if (isCategory product.category 'Other')}}selected{{/if}}>Other</option>
+              <option value='document' {{#if (isCategory product.category 'document')}}selected{{/if}}>Document</option>
+              <option value='uniform' {{#if (isCategory product.category 'uniform')}}selected{{/if}}>Uniform</option>
+              <option value='stationery' {{#if (isCategory product.category 'stationery')}}selected{{/if}}>Stationery</option>
+              <option value='other' {{#if (isCategory product.category 'other')}}selected{{/if}}>Other</option>
             </select>
           </div>
           {{>upload-file}}

@@ -3,11 +3,9 @@ const manageProductContent = document.querySelector('.manage-product-content');
 const deleteBtn = document.querySelector('.manage-product .js-delete-btn');
 
 if (numberOfItems === 0) {
-  manageProductContent.classList.add('d-none');
-  deleteBtn.classList.add('d-none');
-  manageProductScreen.insertAdjacentHTML(
+  manageProductContent.insertAdjacentHTML(
     'beforeend',
-    `<p class="text-center" style="font-size: 2rem; margin-top: 2rem;">You haven't add any products! </p>`
+    `<p class="text-center alert alert-warning" style="font-size: 2rem; margin-top: 2rem;">You haven't add any products! </p>`
   );
 } else {
   const mainCheckbox = document.querySelector(
@@ -31,9 +29,28 @@ if (numberOfItems === 0) {
       });
   });
 
-  deleteBtn.addEventListener('click', () => {
+  deleteBtn.addEventListener('click', (e) => {
+    e.preventDefault();
     checkboxes.forEach((checkbox) => {
-      if (checkbox.checked) checkbox.parentElement.remove();
+      if (checkbox.checked) {
+        fetch(
+          `http://localhost:3000/product/delete/${checkbox.value}?page=${currentPage}`,
+          {
+            method: 'POST',
+            redirect: 'follow',
+          }
+        )
+          .then((res) => {
+            console.log(res);
+            if (res.redirected) {
+              window.location.href = res.url;
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+        checkbox.parentElement.remove();
+      }
       mainCheckbox.checked = false;
     });
   });

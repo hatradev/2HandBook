@@ -63,7 +63,8 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
   background-color: #337ab7; }
 
 .pagination-container {
-  margin: 0 auto; }
+  margin: 0 auto;
+  margin-bottom: 5rem; }
 
 .pagination .pagination-item:not(:first-child):not(:nth-child(2)):not(:last-child):not(
 :nth-last-child(2)) .pagination-link:hover,
@@ -84,6 +85,33 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
 
 .pagination-description {
   color: #757575; }
+
+.sales-page {
+  margin-top: 14rem; }
+  .sales-page .vertical-nav {
+    background-color: #f6f6f6; }
+    .sales-page .vertical-nav .title {
+      font-size: 2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 2rem;
+      text-align: center; }
+    .sales-page .vertical-nav .nav-list .nav-item {
+      display: flex;
+      align-items: center;
+      padding: 0 2rem;
+      cursor: pointer; }
+      .sales-page .vertical-nav .nav-list .nav-item a {
+        display: flex;
+        align-items: center;
+        font-size: 1.7rem;
+        color: #31383e; }
+        .sales-page .vertical-nav .nav-list .nav-item a h2 {
+          font-size: 1.7rem;
+          margin-bottom: 0;
+          margin-left: 0.5rem; }
+      .sales-page .vertical-nav .nav-list .nav-item:hover {
+        opacity: 0.8; }
 
 .header {
   background-color: rgba(59, 153, 215, 0.2);
@@ -174,20 +202,25 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
 
 .search-bar {
   position: relative; }
-  .search-bar .search-input {
-    height: 3.4rem;
-    border-radius: 2rem;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #fff; }
-    .search-bar .search-input::placeholder {
-      color: #f6f6f6; }
-  .search-bar .search-icon-link {
-    width: 2rem;
-    font-size: 1.6rem;
-    position: absolute;
-    right: 2rem; }
-    .search-bar .search-icon-link .search-icon::before {
-      color: #fff; }
+  .search-bar .search-bar {
+    position: relative; }
+    .search-bar .search-bar .search-input {
+      height: 3.4rem;
+      width: 100%;
+      border-radius: 2rem;
+      background-color: #fff;
+      color: #31383e; }
+      .search-bar .search-bar .search-input::placeholder {
+        color: #31383e; }
+    .search-bar .search-bar .search-icon-link {
+      width: 2rem;
+      font-size: 1.6rem;
+      position: absolute;
+      right: 2rem;
+      top: 2rem;
+      background-color: #fff; }
+      .search-bar .search-bar .search-icon-link .search-icon::before {
+        color: #31383e; }
 
 .header.light {
   background-color: #3b99d7; }
@@ -332,14 +365,13 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
     border-bottom: 0.5rem solid #fff; }
   .footer .footer-list {
     color: #fff;
-    font-family: Ubuntu;
+    font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: 500;
     line-height: 1.5em;
     margin-top: 1rem; }
   .footer .footer-link {
     color: #fff;
-    font-family: Ubuntu;
     font-size: 16px;
     font-weight: 500; }
   .footer .footer-item {
@@ -787,8 +819,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
 
 .container-ext, .manage-product, .edit-product, .dashboard, .payment .delivery-addr {
   background-color: #fff;
-  margin-top: 17rem;
-  padding: 0 4rem; }
+  margin-top: 17rem; }
 
 .breadcrumb-ext, .manage-product .manage-product-breadcrumb, .edit-product .edit-product-breadcrumb, .dashboard .dashboard-breadcrumb {
   font-size: 2rem;
@@ -841,9 +872,12 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
   position: absolute;
   top: 50%;
   left: 1.4rem;
-  transform: translateY(-50%);
-  color: #757575;
-  cursor: pointer; }
+  transform: translateY(-50%); }
+  .manage-product .search-label button {
+    background-color: transparent; }
+  .manage-product .search-label .search-icon::before {
+    background-color: transparent;
+    color: #757575; }
 
 .manage-product .manage-product-titles .manage-product-title {
   font-weight: bold; }
@@ -1038,16 +1072,21 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
         font-weight: 400;
         padding: 1rem;
         top: -4%;
-        right: 21%;
+        right: 2%;
         display: flex;
         flex-direction: column;
         align-items: flex-end;
         cursor: pointer; }
         .specific-product .payment-section .details-item .intro .report-section button {
-          width: 5rem;
-          height: 3rem;
-          background-color: #f1e909;
-          font-size: 1.5rem; }
+          display: none;
+          background-color: rgba(59, 153, 215, 0.7);
+          border-radius: 5px;
+          width: 6.8rem;
+          height: 3.3rem;
+          font-size: 1.5rem;
+          transition: all 0.6s ease; }
+        .specific-product .payment-section .details-item .intro .report-section:hover button {
+          display: block; }
       .specific-product .payment-section .details-item .intro .product-name {
         font-size: 3rem;
         font-weight: 700;
@@ -1067,16 +1106,17 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
         margin-left: 12px;
         font-size: 1.5rem; }
     .specific-product .payment-section .details-item .details-product {
-      margin-top: 4rem; }
+      margin-top: 2rem; }
       .specific-product .payment-section .details-item .details-product span {
         font-size: 1.8rem; }
       .specific-product .payment-section .details-item .details-product .details-list {
         font-size: 1.5rem;
-        margin-left: 2rem; }
+        margin-left: 2rem;
+        margin-top: 0 !important; }
         .specific-product .payment-section .details-item .details-product .details-list li {
-          margin-bottom: 0.4rem; }
+          margin-bottom: 0.2rem; }
     .specific-product .payment-section .details-item .adjust-quantity {
-      margin-top: 7.8rem; }
+      margin-top: 4.8rem; }
       .specific-product .payment-section .details-item .adjust-quantity .quantity {
         line-height: 2.5rem; }
       .specific-product .payment-section .details-item .adjust-quantity .adjust-icon .btn:nth-child(2) {
@@ -1130,33 +1170,60 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
       padding: 1rem; }
       .specific-product .comment-section .comment-item .write-cmt .send-btn:hover i {
         opacity: 0.6; }
-  .specific-product .comment-section .comment-item .comment-details {
+  .specific-product .comment-section .comment-item .comment-main .comment-user {
+    position: relative;
     background-color: #f6f6f6;
     border-radius: 1rem;
     padding: 1.5rem 2rem; }
-    .specific-product .comment-section .comment-item .comment-details .information .avatar .img-avatar {
+    .specific-product .comment-section .comment-item .comment-main .comment-user .report-section {
+      position: absolute;
+      font-size: 2.6rem;
+      font-weight: 400;
+      padding: 1rem;
+      top: 9%;
+      right: 2%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      cursor: pointer; }
+      .specific-product .comment-section .comment-item .comment-main .comment-user .report-section button {
+        display: none;
+        background-color: rgba(59, 153, 215, 0.7);
+        border-radius: 5px;
+        width: 6.8rem;
+        height: 3.3rem;
+        font-size: 1.5rem;
+        transition: all 0.6s ease; }
+      .specific-product .comment-section .comment-item .comment-main .comment-user .report-section:hover button {
+        display: block; }
+    .specific-product .comment-section .comment-item .comment-main .comment-user .information .avatar .img-avatar {
       width: 4rem;
       height: 4rem;
       vertical-align: middle;
       object-fit: cover;
       border-radius: 50%; }
-    .specific-product .comment-section .comment-item .comment-details .information .infor-span {
+    .specific-product .comment-section .comment-item .comment-main .comment-user .information .infor-span {
       font-size: 1.5rem; }
-      .specific-product .comment-section .comment-item .comment-details .information .infor-span .name {
+      .specific-product .comment-section .comment-item .comment-main .comment-user .information .infor-span .name {
         font-weight: 600; }
-    .specific-product .comment-section .comment-item .comment-details .comment-info {
+    .specific-product .comment-section .comment-item .comment-main .comment-user .comment-info {
       margin-top: 1rem;
-      font-family: Inter; }
-  .specific-product .comment-section .comment-item .reply-from-seller {
+      font-family: 'Inter', sans-serif; }
+  .specific-product .comment-section .comment-item .comment-main .reply-from-seller {
     background-color: #d9edf7;
     border-radius: 1rem;
     padding: 1.5rem 2rem;
     margin-left: 6rem;
-    font-family: Inter; }
-  .specific-product .comment-section .comment-item .extra-view-btn {
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 2rem; }
+  .specific-product .comment-section .comment-item .pagination-container {
+    margin-top: 4rem; }
+  .specific-product .comment-section .extra-view-btn {
     margin-top: 3rem;
     width: 13rem;
-    padding: 1rem; }
+    padding: 1rem;
+    font-size: 1.8rem;
+    text-transform: uppercase; }
   .specific-product .related-product {
     margin-top: 2rem;
     margin-bottom: 6rem; }
@@ -1212,7 +1279,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
           margin-bottom: 0.5rem; }
 
 .all-product {
-  margin-top: 14rem;
+  margin-top: 17rem;
   max-width: 108rem; }
   .all-product .sort-section {
     margin-top: 2.5rem;
@@ -1367,89 +1434,105 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
 
 .sales-page {
   margin-top: 14rem; }
-  .sales-page .manage-order .page-title {
-    padding: 2rem 0;
-    text-transform: uppercase;
-    font-size: 2rem;
-    font-weight: 700; }
-  .sales-page .manage-order .table {
-    margin-top: 1rem; }
-    .sales-page .manage-order .table thead tr {
-      text-align: center; }
-    .sales-page .manage-order .table tr th:first-child {
-      text-align: center; }
-    .sales-page .manage-order .table tr .details,
-    .sales-page .manage-order .table tr .details-btn {
-      text-align: center; }
-    .sales-page .manage-order .table tr .accept,
-    .sales-page .manage-order .table tr .accept-btn {
-      text-align: center; }
-    .sales-page .manage-order .table tr .cancel,
-    .sales-page .manage-order .table tr .cancel-btn {
-      text-align: center; }
-    .sales-page .manage-order .table tr td a i {
-      font-size: 1.8rem;
-      cursor: pointer;
-      padding: 0.2rem 1rem; }
-    .sales-page .manage-order .table tr .details-btn a {
-      color: #000; }
-    .sales-page .manage-order .table tr .accept-btn a {
-      color: #1a9781; }
-    .sales-page .manage-order .table tr .cancel-btn a {
-      color: #e05e5e; }
-  .sales-page .manage-order .pagination-container {
-    margin: 3rem auto; }
-  .sales-page .manage-order .modal.product-details .modal-dialog {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 60vh; }
-    .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-header .modal-title {
+  .sales-page .manage-order {
+    height: 65rem; }
+    .sales-page .manage-order .page-title {
+      padding: 2rem 0;
       text-transform: uppercase;
-      font-size: 1.8rem !important;
-      font-weight: 700 !important; }
-    .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order {
-      max-height: 32rem;
-      overflow-y: scroll; }
-      .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order .form-check {
-        display: flex;
-        justify-content: center; }
-      .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order thead tr {
+      font-size: 2rem;
+      font-weight: 700; }
+    .sales-page .manage-order .table {
+      margin-top: 1rem; }
+      .sales-page .manage-order .table thead tr {
         text-align: center; }
-      .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order tbody tr th {
-        text-align: center;
-        vertical-align: middle;
-        position: sticky; }
-      .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order tbody tr td {
-        vertical-align: middle;
-        word-wrap: break-word;
-        max-width: 32.5rem;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap; }
-      .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order tbody .img {
-        background-color: #f6f6f6;
-        height: 70%;
-        flex-grow: 1; }
-        .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order tbody .img a {
+      .sales-page .manage-order .table tr th:first-child {
+        text-align: center; }
+      .sales-page .manage-order .table tr .details,
+      .sales-page .manage-order .table tr .details-btn {
+        text-align: center; }
+      .sales-page .manage-order .table tr .accept,
+      .sales-page .manage-order .table tr .accept-btn {
+        text-align: center; }
+      .sales-page .manage-order .table tr .cancel,
+      .sales-page .manage-order .table tr .cancel-btn {
+        text-align: center; }
+      .sales-page .manage-order .table tr td a i {
+        font-size: 1.8rem;
+        cursor: pointer;
+        padding: 0.2rem 1rem; }
+      .sales-page .manage-order .table tr .details-btn a {
+        color: #000; }
+      .sales-page .manage-order .table tr .accept-btn a {
+        color: #1a9781; }
+      .sales-page .manage-order .table tr .cancel-btn a {
+        color: #e05e5e; }
+    .sales-page .manage-order .pagination-container {
+      margin: 3rem auto; }
+    .sales-page .manage-order .modal.product-details .modal-dialog {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh; }
+      .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-header .modal-title {
+        text-transform: uppercase;
+        font-size: 1.8rem !important;
+        font-weight: 700 !important; }
+      .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order {
+        max-height: 32rem;
+        overflow-y: scroll; }
+        .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order .form-check {
           display: flex;
           justify-content: center; }
-          .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order tbody .img a .img-product {
-            width: 70%;
-            vertical-align: middle;
-            object-fit: cover; }
-      .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order .message {
-        font-family: Inter; }
-    .sales-page .manage-order .modal.product-details .modal-dialog .modal-footer button {
-      width: 10rem;
-      height: 4rem;
-      text-align: center; }
-    .sales-page .manage-order .modal.product-details .modal-dialog .modal-footer .btn-success {
-      background-color: #1a9781; }
-    .sales-page .manage-order .modal.product-details .modal-dialog .modal-footer .btn-danger {
-      background-color: #e05e5e; }
-    .sales-page .manage-order .modal.product-details .modal-dialog .modal-footer .btn-secondary {
-      background-color: #3b99d7; }
+        .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order thead tr {
+          text-align: center; }
+        .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order tbody tr th {
+          text-align: center;
+          vertical-align: middle;
+          position: sticky; }
+        .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order tbody tr td {
+          vertical-align: middle;
+          word-wrap: break-word;
+          max-width: 32.5rem;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap; }
+        .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order tbody .img {
+          background-color: #f6f6f6;
+          height: 70%;
+          flex-grow: 1; }
+          .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order tbody .img a {
+            display: flex;
+            justify-content: center; }
+            .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order tbody .img a .img-product {
+              width: 70%;
+              vertical-align: middle;
+              object-fit: cover; }
+        .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-body .manage-order .message {
+          font-family: Inter; }
+      .sales-page .manage-order .modal.product-details .modal-dialog .modal-footer button {
+        width: 9rem;
+        height: 3.5rem;
+        text-align: center;
+        font-size: 1.6rem;
+        text-align: center; }
+      .sales-page .manage-order .modal.product-details .modal-dialog .modal-footer .btn-success {
+        background-color: #1a9781; }
+      .sales-page .manage-order .modal.product-details .modal-dialog .modal-footer .btn-danger {
+        background-color: #e05e5e; }
+      .sales-page .manage-order .modal.product-details .modal-dialog .modal-footer .btn-secondary {
+        background-color: #3b99d7; }
+
+.form-group.invalid .form-control {
+  border-style: solid;
+  border-color: #f33a58; }
+
+.form-group.invalid .form-check-input {
+  border-style: solid;
+  border-color: #f33a58; }
+
+.form-group.invalid .form-message {
+  color: #f33a58;
+  font-size: 1.2rem; }
 
 .disabled {
   pointer-events: none; }
@@ -1508,6 +1591,9 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
   padding-left: 2.2rem;
   padding-top: 2rem; }
 
+.alert-pending {
+  width: 42%; }
+
 .part-right-my-order {
   padding-left: 15.4rem; }
 
@@ -1537,10 +1623,13 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
 .col-9 .card {
   margin-top: -2rem;
   margin-bottom: 4rem; }
-  .col-9 .card .card-body .contain {
-    display: flex; }
-    .col-9 .card .card-body .contain .middle {
-      width: fit-content; }
+  .col-9 .card .card-body {
+    padding-top: 0%;
+    padding-left: 2rem; }
+    .col-9 .card .card-body .contain {
+      display: flex; }
+      .col-9 .card .card-body .contain .middle {
+        width: fit-content; }
   .col-9 .card .card-footer {
     display: flex;
     justify-content: right; }
@@ -1550,16 +1639,13 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
   justify-content: end;
   height: 5rem;
   border-style: none; }
-  .evaluate-product button {
-    font-weight: bold;
-    font-size: 1.2rem; }
 
 .evaluate-body {
   height: 30rem; }
   .evaluate-body .rating {
     height: 15%; }
     .evaluate-body .rating .first-choice {
-      margin-left: 4rem; }
+      margin-left: 2rem; }
 
 .text_black {
   color: black;
@@ -1570,12 +1656,29 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
   font-weight: bold;
   pointer-events: none; }
 
+.btn-related-evaluation {
+  width: 10rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  padding: 1rem 0rem;
+  transition: all 0.3s;
+  text-align: center;
+  background-color: var(--dark-blue);
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border: 0.1rem solid black; }
+  .btn-related-evaluation:hover {
+    background-color: var(--light-blue);
+    color: black; }
+
 .container-fluid {
   margin-top: 14rem; }
 
 .account-profile-main .row {
   height: 100rem; }
   .account-profile-main .row .col-9 {
+    height: 90%;
     padding-top: 2rem;
     padding-right: 5rem;
     padding-left: 5rem; }
@@ -2095,3 +2198,61 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
     margin-bottom: 2rem; }
   .about-us p :last-child {
     margin-bottom: 0rem; }
+
+.sales-page .review-shop .row {
+  margin-left: 2rem; }
+  .sales-page .review-shop .row .review-section {
+    min-height: 75rem;
+    padding-left: 0;
+    margin-top: 5rem; }
+    .sales-page .review-shop .row .review-section .card {
+      margin-bottom: 3rem; }
+      .sales-page .review-shop .row .review-section .card .card-body .information .avatar .img-avatar {
+        width: 4rem;
+        height: 4rem;
+        vertical-align: middle;
+        object-fit: cover;
+        border-radius: 50%; }
+      .sales-page .review-shop .row .review-section .card .card-body .information .infor-span {
+        font-size: 1.5rem; }
+        .sales-page .review-shop .row .review-section .card .card-body .information .infor-span .name {
+          font-weight: 600; }
+      .sales-page .review-shop .row .review-section .card .card-body .middle {
+        margin-top: 1rem;
+        font-family: 'Inter', sans-serif; }
+        .sales-page .review-shop .row .review-section .card .card-body .middle .title {
+          font-size: 1.8rem;
+          font-weight: 600; }
+      .sales-page .review-shop .row .review-section .card .card-footer {
+        display: flex;
+        justify-content: right; }
+        .sales-page .review-shop .row .review-section .card .card-footer .btn-close {
+          width: 5rem; }
+        .sales-page .review-shop .row .review-section .card .card-footer .modal-footer button {
+          padding: 0.8rem 0; }
+    .sales-page .review-shop .row .review-section .reply-cmt {
+      display: flex;
+      justify-content: end;
+      height: 5rem;
+      border-style: none; }
+      .sales-page .review-shop .row .review-section .reply-cmt button {
+        font-weight: bold;
+        width: 11rem;
+        font-size: 1.5rem; }
+    .sales-page .review-shop .row .review-section .evaluate-body {
+      height: 30rem; }
+      .sales-page .review-shop .row .review-section .evaluate-body .rating {
+        height: 15%; }
+        .sales-page .review-shop .row .review-section .evaluate-body .rating .first-choice {
+          margin-left: 4rem; }
+    .sales-page .review-shop .row .review-section .text_black {
+      color: black;
+      font-weight: bold; }
+    .sales-page .review-shop .row .review-section .background_emphasis {
+      background-color: #337ab7;
+      font-weight: bold;
+      pointer-events: none; }
+
+.sales-page .review-shop .pagination-container {
+  width: 25rem;
+  margin-bottom: 4rem; }

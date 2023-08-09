@@ -1,82 +1,126 @@
-<section class='row'>
-  <aside class='sidebar col-2'></aside>
-  <section class='manage-product col-10'>
-    <div class='d-flex'>
-      <p class='manage-product-breadcrumb'>Products</p>
-      <a class='btn text-uppercase ms-auto' href='http://localhost:3000/product/edit' role='button'>Add product</a>
-    </div>
-    <section class='manage-product-content'>
-      <div class='manage-product-controll row gx-0 mb-5'>
-        <div class='col-4 manage-product-search-bar'>
-          <label for='search-input-id' class='search-label'>
-            <i class='fa-solid fa-magnifying-glass search-icon'></i>
-          </label>
-          <input
-            type='email'
-            class='search-input'
-            id='search-input-id'
-            placeholder='Search for product'
-          />
-        </div>
-        <div class='col-4 manage-product-select-container'>
-          <select class='manage-product-select'>
-            <option selected>All categories</option>
-            <option value='document'>Document</option>
-            <option value='uniform'>Uniform</option>
-            <option value='calculator'>Calculator</option>
-            <option value='other'>Other</option>
-          </select>
-        </div>
-        <div class='col-4 manage-product-select-container'>
-          <select class='manage-product-select'>
-            <option selected>Sort by</option>
-            <option value='name'>Name</option>
-            <option value='category'>Category</option>
-            <option value='price'>Price</option>
-          </select>
-        </div>
-      </div>
-      <ul class='manage-product-titles row gx-0'>
-        <input class='manage-product-checkbox col-1' type='checkbox' value='' />
-        <li class='manage-product-title text-center col-1'>Image</li>
-        <li class='manage-product-title text-center col'>Name</li>
-        <li class='manage-product-title text-center col-2'>Category</li>
-        <li class='manage-product-title text-center col-2'>Stock</li>
-        <li class='manage-product-title text-center col-2'>Price</li>
-      </ul>
-      <ul class='manage-product-list'>
-        {{#each products}}
-        <li class='manage-product-item row gx-0'>
-          <input
-            class='manage-product-checkbox col-1'
-            type='checkbox'
-            value=''
-          />
-          <a href='/product/edit/{{this._id}}' class='manage-product-item-link col'>
-            <ul class='manage-product-item-infos row gx-0 align-items-center'>
-              <li class='manage-product-info text-center col-1'>
-                <img
-                  src='{{this.image}}'
-                  alt='ky thuat lap trinh'
-                  class='manage-product-img'
-                />
-              </li>
-              <li class='manage-product-info text-center col'>{{this.name}}</li>
-              <li class='manage-product-info text-center col-2'>{{this.category}}</li>
-              <li class='manage-product-info text-center col-2'>{{this.stock}}</li>
-              <li class='manage-product-info text-center col-2'>{{this.price}} VND</li>
-            </ul>
+<section class="container">
+  <section class='row'>
+    <aside class='sidebar col-2 vertical-nav'>
+      <h1 class="title">Sale pages</h1>
+      <hr>
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a href="">
+            <i class="fa-solid fa-pen-to-square"></i>
+            <h2>Dashboard</h2>
           </a>
         </li>
-        {{/each}}
+        <hr>
+        <li class="nav-item">
+          <a href="">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <h2>Manage product</h2>
+          </a>
+        </li>
+        <hr>
+        <li class="nav-item">
+          <a href="http://localhost:3000/order/manage-order">
+            <i class="fa-solid fa-chart-simple"></i>
+            <h2>Manage order</h2>
+          </a>
+        </li>
+        <hr>
+        <li class="nav-item">
+          <a href="http://localhost:3000/evaluate/review">
+            <i class="fa-solid fa-message"></i>
+            <h2>Reviews</h2>
+          </a>
+        </li>
+        <hr>
       </ul>
+    </aside>
+    <section class='manage-product col-10' style="min-height: calc(100vh - 35rem);">
+      <div class='d-flex'>
+        <p class='manage-product-breadcrumb'>Products</p>
+        <a class='btn text-uppercase ms-auto' href='http://localhost:3000/product/edit' role='button'>Add product</a>
+      </div>
+      <section class='manage-product-content'>
+        <form method="GET" action="/product/manage" class='manage-product-controll row gx-0 mb-5' id="manage-form">
+          <div class='col-4 manage-product-search-bar'>
+            <label for='search-input-id' class='search-label'>
+              <button><i class='fa-solid fa-magnifying-glass search-icon'></i></button>
+            </label>
+            <input type="hidden" name="page" value="{{_currentPage}}">
+            <input
+              type='text'
+              class='search-input'
+              id='search-input-id'
+              placeholder='Search for product'
+              name="keyword"
+              value="{{_keyword}}"
+            />
+          </div>
+          <div class='col-4 manage-product-select-container'>
+            <select class='manage-product-select' name="category" onchange="document.getElementById('manage-form').submit()">
+              <option value='' {{#if (isEqual _category '')}}selected{{/if}}>All categories</option>
+              <option value='document' {{#if (isEqual _category 'document')}}selected{{/if}}>Document</option>
+              <option value='uniform' {{#if (isEqual _category 'uniform')}}selected{{/if}}>Uniform</option>
+              <option value='stationery' {{#if (isEqual _category 'stationery')}}selected{{/if}}>Stationery</option>
+              <option value='other' {{#if (isEqual _category 'other')}}selected{{/if}}>Other</option>
+            </select>
+          </div>
+          <div class='col-4 manage-product-select-container'>
+            <select class='manage-product-select' name="sortBy" onchange="document.getElementById('manage-form').submit()">
+              <option value="" {{#if (isEqual _sortBy '')}}selected{{/if}}>Sort by</option>
+              <option value='name' {{#if (isEqual _sortBy 'name')}}selected{{/if}}>Name</option>
+              <option value='category' {{#if (isEqual _sortBy 'category')}}selected{{/if}}>Category</option>
+              <option value='stock' {{#if (isEqual _sortBy 'stock')}}selected{{/if}}>Stock</option>
+              <option value='price' {{#if (isEqual _sortBy 'price')}}selected{{/if}}>Price</option>
+            </select>
+          </div>
+        </form>
+        <ul class='manage-product-titles row gx-0'>
+          <input class='manage-product-checkbox col-1' type='checkbox' value='' />
+          <li class='manage-product-title text-center col-1'>Image</li>
+          <li class='manage-product-title text-center col'>Name</li>
+          <li class='manage-product-title text-center col-2'>Category</li>
+          <li class='manage-product-title text-center col-2'>Stock</li>
+          <li class='manage-product-title text-center col-2'>Price</li>
+        </ul>
+        <ul class='manage-product-list'>
+          {{#each products}}
+          <li class='manage-product-item row gx-0'>
+            <input
+              class='manage-product-checkbox col-1'
+              type='checkbox'
+              value={{this._id}}
+            />
+            <a href='/product/edit/{{this._id}}' class='manage-product-item-link col'>
+              <ul class='manage-product-item-infos row gx-0 align-items-center'>
+                <li class='manage-product-info text-center col-1'>
+                  <img
+                    src='{{this.image}}'
+                    alt='ky thuat lap trinh'
+                    class='manage-product-img'
+                  />
+                </li>
+                <li class='manage-product-info text-center col'>{{this.name}}</li>
+                <li class='manage-product-info text-center col-2 text-capitalize'>{{this.category}}</li>
+                <li class='manage-product-info text-center col-2'>{{this.stock}}</li>
+                <li class='manage-product-info text-center col-2'>{{this.price}} VND</li>
+              </ul>
+            </a>
+          </li>
+          {{/each}}
+        </ul>
+      </section>
+      <a
+        class='btn text-uppercase js-delete-btn'
+        href='#'
+        role='button'
+      >Delete</a>
+      <script>
+        let numberOfItems = {{_numberOfItems}};
+        let limit = {{_limit}};
+        let currentPage = {{_currentPage}};
+      </script>
+      {{>pagination}}
     </section>
-    <a
-      class='btn text-uppercase js-delete-btn'
-      href='#'
-      role='button'
-    >Delete</a>
-    {{>pagination}}
   </section>
 </section>
 <script src='/js/manage-product.js'></script>

@@ -1,4 +1,3 @@
-const { render } = require('../utils/renderPage');
 const Product = require('../models/product.model');
 const {
   mutipleMongooseToObject,
@@ -16,7 +15,9 @@ class SiteController {
       next(err);
     }
   };
-  getAboutUs = (req, res) => render(req, res, 'about-us');
+  getAboutUs = (req, res) => {
+    res.render('about-us');
+  };
 }
 
 module.exports = new SiteController();
