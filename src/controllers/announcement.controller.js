@@ -7,7 +7,9 @@ const {
 
 class announceController {
   // [GET] announcement
-  getNewAnnouncement = (req, res) => render(req, res, 'admin_announcement');
+  getNewAnnouncement = (req, res) => {
+    res.render('admin_announcement');
+  };
 
   // [POST] announcement/post
   postNewAnnouncement = async (req, res, next) => {
