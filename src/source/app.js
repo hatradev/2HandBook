@@ -74,10 +74,9 @@ app.use((req, res, next) => {
   if (res.locals.isLoggedIn) {
     res.locals._id = req.user._id;
     res.locals._firstName = req.user.firstName;
-    next();
   }
+  next();
 });
-console.log('OK');
 
 // ROUTES INIT
 route(app);

@@ -6,7 +6,6 @@ const {
 class siteController {
   // [GET] /
   getHome = async (req, res, next) => {
-    console.log('OK');
     try {
       const products = await Product.find({ isTrend: true });
       res.render('home', {
