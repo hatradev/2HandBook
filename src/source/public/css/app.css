@@ -1294,7 +1294,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
   .all-product .filter-vs-product {
     position: relative;
     padding-top: 2.5rem;
-    height: 85rem; }
+    min-height: 85rem; }
     .all-product .filter-vs-product .filter-section {
       background-color: #d9edf7; }
       .all-product .filter-vs-product .filter-section .search-bar {
