@@ -1629,9 +1629,9 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
     .col-9 .card .card-body .contain {
       display: flex; }
       .col-9 .card .card-body .contain .left {
-        width: 20%; }
+        min-width: 16.9rem; }
       .col-9 .card .card-body .contain .middle {
-        width: fit-content; }
+        min-width: 66rem; }
   .col-9 .card .card-footer {
     display: flex;
     justify-content: right; }

@@ -40,16 +40,20 @@
   .card {
     margin-top: -2rem;
     margin-bottom: 4rem;
+    // min-width: 21.5rem;
     .card-body {
       padding-top: 0%;
       padding-left: 2rem;
+      // min-height: 21.5rem;
       .contain {
         display: flex;
         .left{
-          width: 20%;
+          // width: 20%;
+          min-width: 16.9rem;
         }
         .middle {
-          width: fit-content;
+          min-width: 66rem;
+          // width: fit-content;
         }
       }
     }

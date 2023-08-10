@@ -62,6 +62,7 @@
 
                 {{#each orders}}
                     {{#each this.detail}}
+                        {{#with ../../this._id as currentOrderId}}
                             <div class="card">
                                 <div class="card-header alert alert-success" role="alert">
                                     <i class="fa-solid fa-bag-shopping"></i>
@@ -75,6 +76,10 @@
                                         <div class="middle position-relative">
                                             <div class="card-body">
                                                 <h2 class="card-title fw-bold">{{this.idProduct.name}}</h2>
+                                                <p class="card-text fs-5 fw-light">This is a wider card with supporting text below
+                                                    as a natural
+                                                    lead-in to additional
+                                                    content. This content is a little bit longer.</p>
                                                 <p class="card-text"><small class="text-muted fw-bolder">Price: {{formatCurrency
                                                         this.idProduct.price}}</small></p>
                                                 <p class="card-text"><small class="text-muted fw-bolder">Quantity:
@@ -95,61 +100,73 @@
 
                                 <div class="card-footer evaluate-product">
                                     <button id="evaluateButton_{{this.idProduct._id}}" type="button"
-                                        class="btn btn-secondary text-uppercase btn-related-evaluation {{booleanToString this.isEvaluated}} evaluate-button"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" data-product-id="{{this.idProduct._id}}">EVALUATE</button>
+                                        class="btn btn-secondary text-uppercase btn-related-evaluation {{booleanToString this.isEvaluated}}"
+                                        data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                        data-bs-whatever="@mdo">Evaluate</button>
 
-
-                                    
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                        aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header alert alert-info" role="alert">
-                                                    <h2 class="modal-title" id="exampleModalLabel">Evaluate the product. {{this.idProduct._id}}</h2>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    <h2 class="modal-title" id="exampleModalLabel">Evaluate the product</h2>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
                                                 </div>
-                                                <form id="evaluateForm" method="POST" action="">
+                                                <form method="POST"
+                                                    action="/evaluate/order-success/{{currentOrderId}}">
                                                     <div class="modal-body evaluate-body">
                                                         <div class="mb-3 rating">
-                                                            <label for="message-text" class="col-form-label fw-bold">Satisfaction level (Star
-                                                                rating):</label>
+                                                            {{!-- <label for="recipient-name"
+                                                                class="col-form-label">Recipient:</label>
+                                                            <input type="text" class="form-control" id="recipient-name"> --}}
+                                                            <label for="message-text" class="col-form-label fw-bold">Satisfaction
+                                                                level (Star rating): </label>
+                                                            {{!-- <span>Satisfaction level (Star rating)</span> --}}
                                                             <div class="form-check form-check-inline first-choice">
-                                                                <input class="form-check-input" type="radio" name="rate" id="inlineRadio1" value=1>
+                                                                <input class="form-check-input" type="radio" name="rate"
+                                                                    id="inlineRadio1" value=1>
                                                                 <label class="form-check-label" for="inlineRadio1">1</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="rate" id="inlineRadio1" value=2>
-                                                                <label class="form-check-label" for="inlineRadio1">2</label>
+                                                                <input class="form-check-input" type="radio" name="rate"
+                                                                    id="inlineRadio2" value=2>
+                                                                <label class="form-check-label" for="inlineRadio2">2</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="rate" id="inlineRadio1" value=3>
+                                                                <input class="form-check-input" type="radio" name="rate"
+                                                                    id="inlineRadio1" value=3>
                                                                 <label class="form-check-label" for="inlineRadio1">3</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="rate" id="inlineRadio1" value=4>
-                                                                <label class="form-check-label" for="inlineRadio1">4</label>
+                                                                <input class="form-check-input" type="radio" name="rate"
+                                                                    id="inlineRadio2" value=4>
+                                                                <label class="form-check-label" for="inlineRadio2">4</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="rate" id="inlineRadio1" value=5>
+                                                                <input class="form-check-input" type="radio" name="rate"
+                                                                    id="inlineRadio1" value=5>
                                                                 <label class="form-check-label" for="inlineRadio1">5</label>
                                                             </div>
-                                                            <!-- Add more radio inputs for other ratings -->
+
                                                         </div>
                                                         <div class="mb-3 review">
                                                             <label for="message-text" class="col-form-label fw-bold">Review:</label>
-                                                            <textarea class="form-control input-size" id="message-text" name="review"
-                                                                placeholder="Write a review..."></textarea>
+                                                            <textarea class="form-control input-size" id="message-text"
+                                                                name="review" placeholder="Write to review..."></textarea>
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button id="post" type="submit" class="btn btn-primary btn-related-evaluation">Post</button>
+                                                        <button id="post" type="submit"
+                                                            class="btn btn-primary btn-related-evaluation">Post</button>
                                                     </div>
                                                 </form>
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
+                        {{/with}}
                     {{/each}}
                 {{/each}}
 
@@ -161,20 +178,6 @@
 </div>
 
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const evaluateButtons = document.querySelectorAll(".evaluate-button");
-
-        evaluateButtons.forEach((button) => {
-            button.addEventListener("click", function () {
-                const productId = this.dataset.productId; // Lấy giá trị idProduct từ thuộc tính dataset
-
-                const form = document.querySelector("#evaluateForm");
-                form.action = `/evaluate/order-success/${productId}`;
-            });
-        });
-    });
-</script>
 
 
 
