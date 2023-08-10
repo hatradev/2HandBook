@@ -2,7 +2,7 @@ const express = require('express');
 const siteController = require('../controllers/site.controller');
 
 const router = express.Router();
-
+console.log('Site');
 router.get('/', siteController.getHome);
 router.get('/about-us', siteController.getAboutUs);
 

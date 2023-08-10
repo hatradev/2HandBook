@@ -1,14 +1,29 @@
-class SiteController {
+const Product = require('../models/product.model');
+const {
+  mutipleMongooseToObject,
+  mongooseToObject,
+} = require('../utils/mongoose');
+class siteController {
   // [GET] /
-  getHome = (req, res) => {
-    console.log(req.session);
-    console.log(req.session.cookie.maxAge);
-    res.render('home');
+  getHome = async (req, res, next) => {
+    console.log('OK');
+    try {
+      const products = await Product.find({ isTrend: true });
+      res.render('home', {
+        products: mutipleMongooseToObject(products),
+      });
+    } catch (err) {
+      next(err);
+    }
   };
 
-  getAboutUs = (req, res) => {
-    res.render('about-us');
+  getAboutUs = (req, res, next) => {
+    try {
+      res.render('about-us');
+    } catch (err) {
+      next(err);
+    }
   };
 }
 
-module.exports = new SiteController();
+module.exports = new siteController();

@@ -1,6 +1,6 @@
 const Account = require('../models/account.model');
 const Order = require('../models/order.model');
-const Product = require('../models/product.model');
+// const Product = require('../models/product.model');
 const passport = require('passport');
 const { sendForgotPasswordMail } = require('../utils/mail');
 const bcrypt = require('bcrypt');
@@ -326,7 +326,7 @@ class acccountController {
     }
   };
 
-  // [POST] account/ban-account
+  // [POST] account/exec-account
   executeAccount = async (req, res, next) => {
     console.log(req.query.id);
     try {

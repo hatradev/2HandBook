@@ -1,4 +1,4 @@
-const createError = require('http-errors');
+// const createError = require('http-errors');
 const siteRouter = require('./site.route');
 const productRouter = require('./product.route');
 const accountRouter = require('./account.route');
@@ -7,6 +7,7 @@ const evaluateRouter = require('./evaluate.route');
 const orderRouter = require('./order.route');
 
 function route(app) {
+  console.log('route app');
   app.get('/upload', (req, res) => {
     res.render('upload-file');
   });
