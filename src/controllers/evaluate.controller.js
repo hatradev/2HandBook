@@ -1,5 +1,7 @@
 const Evaluate = require('../models/evaluate.model');
 const Account = require('../models/account.model');
+const Product = require('../models/product.model');
+const Order = require('../models/order.model');
 const fs = require('fs');
 
 const {
@@ -41,6 +43,50 @@ class evaluateController {
 			res.status(500).json({ error: 'Lỗi khi lấy tất cả sản phẩm 1' });
 		}
 	};
+
+	evaluateAndRating = async (req, res, next) => {
+		try {
+		  // const { idAccount, idProduct, status, message, quantity } = req.body; // Giả sử dữ liệu được gửi qua body
+		  const accBuyer = await Account.findOne({_id: req.user.id})
+		  const product = await Product.findOne({ _id: req.params._id })
+		  const order = await Order.findOne({ 'detail.idProduct': product._id })
+
+		//   const orders = await Order.find({idSeller: accountId})
+		//   .populate('idAccount')
+		//   .populate('detail.idProduct')
+		  
+		// console.log(req.params._id);
+		//   const productID = product._id
+		//   .populate('idAccount')
+		  // const idProduct = req.params._id;
+		  // const message = req.body.message;
+		  // const quantity = 1;
+		  // console.log(idProduct)
+	  
+		  // const product = await Product.findById(idProduct);
+		//   const idSeller = product.idAccount;
+	
+		  const newEvaluate = new Evaluate({
+			idAccount: accBuyer._id,
+			idProduct: product._id,
+			content: req.body.review,
+			rating: req.body.rate,
+		  });
+
+		  order.detail.forEach((detailItem) => {
+			if (detailItem.idProduct.equals(product._id)) {
+			  detailItem.isEvaluated = true;
+			}
+		  });
+		//   console.log(newEvaluate);
+		  await newEvaluate.save(); // Lưu order mới vào MongoDB
+		  await order.save();
+		  res.redirect(`/account/my-order/${req.user.id}`);
+		  // res.status(201).json({ message: 'Đơn hàng đã được tạo thành công', order: savedOrder });
+		} catch (err) {
+		  next(err);
+		}
+	  };
 
 	// [GET] /sales-page/review
 	showEvaluate = async (req, res, next) => {

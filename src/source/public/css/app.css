@@ -1677,6 +1677,12 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
 .order-date {
   padding-left: 2.2rem; }
 
+.isEvaluated {
+  pointer-events: none;
+  /* Không cho hover và click */
+  opacity: 0.6;
+  /* Giảm độ sáng để tạo hiệu ứng vô hiệu hoá */ }
+
 .container-fluid {
   margin-top: 14rem; }
 

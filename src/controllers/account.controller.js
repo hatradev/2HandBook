@@ -207,22 +207,22 @@ class acccountController {
         .populate('idSeller');
       const orderObject = mutipleMongooseToObject(orders);
 
-      var products = [];
-      var sellers = [];
-      for (var i of orderObject) {
-        // Object.assign(i, { idOrder: i._id });
-        sellers.push(i);
-        for (var j of i.detail) {
-          Object.assign(j, { idOrder: i._id });
-          var temp = [];
-          temp.push(j);
-          products.push(j);
-          // sellers.push(j);
-        }
-      }
+      // var products = [];
+      // var sellers = [];
+      // for (var i of orderObject) {
+      //   // Object.assign(i, { idOrder: i._id });
+      //   sellers.push(i);
+      //   for (var j of i.detail) {
+      //     Object.assign(j, { idOrder: i._id });
+      //     var temp = [];
+      //     temp.push(j);
+      //     products.push(j);
+      //     // sellers.push(j);
+      //   }
+      // }
       res.locals.orders = orderObject;
-      res.locals.products = products;
-      res.locals.sellers = sellers;
+      // res.locals.products = products;
+      // res.locals.sellers = sellers;
       res.locals.user = mongooseToObject(user);
 
       res.render('my_order');

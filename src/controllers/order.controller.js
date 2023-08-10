@@ -92,32 +92,35 @@ class orderController {
   placeOrder = async (req, res, next) => {
     try {
       // const { idAccount, idProduct, status, message, quantity } = req.body; // Giả sử dữ liệu được gửi qua body
-      // const idAccount = req.user.id;
+      const accBuyer = await Account.findOne({_id: req.user.id})
+      const product = await Product.findOne({ _id: req.params._id })
+      .populate('idAccount')
       // const idProduct = req.params._id;
       // const message = req.body.message;
       // const quantity = 1;
       // console.log(idProduct)
   
-      let newOrder = {
-        idAccount: mongoose.Types.ObjectId(idProduct),
-        detail: [
-          {
-            idProduct: mongoose.Types.ObjectId(idProduct),
-            // quantity: 1,
-            isEvaluated: false,
-          },
-        ],
-        // status: "pending",
-        // message,
-      };
-      // console.log(newOrder);
-      res.json(newOrder)
-  
-      await newOrder.save();
+      // const product = await Product.findById(idProduct);
+      const idSeller = product.idAccount;
+
+      const newOrder = new Order({
+        idAccount: accBuyer._id,
+        idSeller: idSeller,
+        detail: [{
+          idProduct: product._id,
+          quantity: 1,
+          isEvaluated: false,
+        }],
+        status: 'pending',
+        message: req.body.message,
+      });
+
+      console.log(newOrder);
+      await newOrder.save(); // Lưu order mới vào MongoDB
       res.redirect(`/account/my-order-pending/${req.user.id}`);
       // res.status(201).json({ message: 'Đơn hàng đã được tạo thành công', order: savedOrder });
     } catch (err) {
-      res.status(500).json({ error: 'Lỗi khi tạo đơn hàng a' });
+      next(err);
     }
   };
   

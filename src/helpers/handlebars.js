@@ -1,3 +1,5 @@
+const mongoose = require('mongoose');
+
 module.exports = {
   accessArr: (arr, index) => arr[index],
   showStar: (stars) => {
@@ -29,6 +31,17 @@ module.exports = {
   },
   formatCurrency: (number) => {
     return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(number);
+  },
+
+  booleanToString: function(value) {
+    return value ? 'isEvaluated' : 'not';
+  },
+
+  objectIdToString: (objectId) => {
+    if (mongoose.isValidObjectId(objectId)) {
+      return objectId.toString();
+    }
+    return objectId;
   },
   increaseIndex: (index, i) => index + i,
   // originUrl: () => window.location.origin,
