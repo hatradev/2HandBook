@@ -1,5 +1,38 @@
 <section class='row'>
-  <aside class='sidebar col-2'></aside>
+  <aside class='sidebar col-2 vertical-nav'>
+      <h1 class="title">Sale pages</h1>
+      <hr>
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a href="">
+            <i class="fa-solid fa-pen-to-square"></i>
+            <h2>Dashboard</h2>
+          </a>
+        </li>
+        <hr>
+        <li class="nav-item">
+          <a href="">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <h2>Manage products</h2>
+          </a>
+        </li>
+        <hr>
+        <li class="nav-item">
+          <a href="#" onclick="globalLink('/order/manage-order')">
+            <i class="fa-solid fa-chart-simple"></i>
+            <h2>Manage orders</h2>
+          </a>
+        </li>
+        <hr>
+        <li class="nav-item">
+          <a href="#" onclick="globalLink('/evaluate/review')">
+            <i class="fa-solid fa-message"></i>
+            <h2>Reviews</h2>
+          </a>
+        </li>
+        <hr>
+      </ul>
+  </aside>
   <section class='dashboard col-10'>
     <p class='dashboard-breadcrumb'>Dashboard</p>
     <section class="dashboard-general col-8 mx-auto">
@@ -65,7 +98,7 @@
         <li class="dashboard-specific-item">
           <ul class="dashboard-specific-infos row gx-0 align-items-center">
             <li class="dashboard-specific-info text-center col-1">
-            <img src="/img/products/ky-thuat-lap-trinh.png"   alt="ky thuat lap trinh" class="dashboard-specific-img">
+              <img src="/img/products/ky-thuat-lap-trinh.png" alt="ky thuat lap trinh" class="dashboard-specific-img">
             </li>
             <li class="dashboard-specific-info text-center col">{{this.name}}</li>
             <li class="dashboard-specific-info text-center col-1">{{this.views}}</li>
@@ -78,6 +111,6 @@
         {{/each}}
       </ul>
     </section>
-  {{>pagination}}
+    {{>pagination}}
   </section>
 </section>

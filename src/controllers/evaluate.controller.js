@@ -48,6 +48,7 @@ class evaluateController {
 		try {
 			const account = await Account.findOne({}); //***
 			// const idAccount = await Account.findOne({_id: req.params._id}); //***
+			// console.log(account)
 			const evaluates = await Evaluate.find({idAccount: account._id, reply: ""})
 			.populate('idProduct')
 			res.locals.evaluates = mutipleMongooseToObject(evaluates)

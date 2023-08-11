@@ -45,11 +45,9 @@ document.addEventListener('DOMContentLoaded', function () {
 			if (idOrderArr.includes(id)) {
 				acceptBtn.classList.add('d-none')
 				rejectBtn.classList.add('d-none')
-				console.log('yes')
 			} else {
 				acceptBtn.classList.remove('d-none')
 				rejectBtn.classList.remove('d-none')
-				console.log('no')
 			}
 		}
 	}
@@ -70,7 +68,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	// Handle sign button
 	for (var btn of signBtns){
 		btn.classList.remove('bg-success','bg-primary','bg-danger')
-		console.log(btn.textContent)
 		if(btn.textContent == "successful"){
 			btn.classList.add('bg-success')
 		}else if(btn.textContent == "pending"){
