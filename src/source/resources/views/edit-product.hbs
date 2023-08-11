@@ -1,78 +1,80 @@
-<section class='row'>
-  <aside class='sidebar col-2'></aside>
-  <section class='edit-product col-10'>
-    <div class='d-flex'>
-      <a class='edit-product-breadcrumb' href='/product/manage'>
-        <i class='fa-regular fa-chevron-left'></i>
-        <span>Products</span>
-      </a>
-      <a type="submit" class='btn text-uppercase ms-auto js-save-btn' href="#">Save</a>
-    </div>
-      <form action="/product/edit/save/{{product._id}}" method="POST" class='edit-product-forms row gx-0' id="edit-form" enctype="multipart/form-data">
-        <ul class='edit-product-form col-7'>
-          <li class='edit-product-form-item'>
-            <label for='product-name'>Name</label>
-            <input id='product-name' type='text' value='{{product.name}}' name="name" required/>
-          </li>
-          <li class=' edit-product-form-item'>
-            <label for='product-description'>Description</label>
-            <textarea
-              name="description"
-              id='product-description'
-              cols='30'
-              rows='10'
-              required
-            >{{product.description}}</textarea>
-          </li>
-          <li class='edit-product-form-item row'>
-            <div class='col'>
-              <label for='product-price'>Price</label>
-              <input id='product-price' type="number" value='{{product.price}}' name="price" required/>
-            </div>
-            <div class='col'>
-              <label for='product-stock'>Stock</label>
-              <input id='product-stock' type="number" value='{{product.stock}}' name="stock" required/>
-            </div>
-          </li>
-          <li class='edit-product-form-item row'>
-            <div class='col'>
-              <label for='product-keyword'>Keywords</label>
-              <input id='product-keyword' type='text' value='{{product.keyword}}' name="keyword" required/>
-            </div>
-          </li> 
-          <li class='edit-product-form-item row'>
-            <div class='d-flex col-4 align-items-center'>
-                <div class="d-flex align-items-center">
-                  <input id='product-trend' type='radio' value="1" name="isTrend" style="height: 2.4rem; width: 2.4rem;" {{#if product.isTrend}}checked{{/if}}/>
-                  <label for='product-trend' class="m-0 px-4">Trend</label>
-                </div>
-                <div class="d-flex align-items-center px-5">
-                  <input id='product-not-trend' type='radio' value="0" name="isTrend" style="height: 2.4rem; width: 2.4rem;"class="me-4" {{#unless product.isTrend}}checked{{/unless}}/>
-                  <label for='product-not-trend' class="m-0 text-nowrap" >Not trend</label>
-                </div>
+<div class="container">
+  <section class='row'>
+    <aside class='sidebar col-2'></aside>
+    <section class='edit-product col-10'>
+      <div class='d-flex'>
+        <a class='edit-product-breadcrumb' href='/product/manage'>
+          <i class='fa-regular fa-chevron-left'></i>
+          <span>Products</span>
+        </a>
+        <a type="submit" class='btn text-uppercase ms-auto js-save-btn' href="#">Save</a>
+      </div>
+        <form action="/product/edit/save/{{product._id}}" method="POST" class='edit-product-forms row gx-0' id="edit-form" enctype="multipart/form-data">
+          <ul class='edit-product-form col-7'>
+            <li class='edit-product-form-item'>
+              <label for='product-name'>Name</label>
+              <input id='product-name' type='text' value='{{product.name}}' name="name" required/>
+            </li>
+            <li class=' edit-product-form-item'>
+              <label for='product-description'>Description</label>
+              <textarea
+                name="description"
+                id='product-description'
+                cols='30'
+                rows='10'
+                required
+              >{{product.description}}</textarea>
+            </li>
+            <li class='edit-product-form-item row'>
+              <div class='col'>
+                <label for='product-price'>Price</label>
+                <input id='product-price' type="number" value='{{product.price}}' name="price" required/>
               </div>
-          </li> 
-        </ul>
-      
-        <div class='edit-product-form edit-product-form-upload col'>
-          <div class='product-category'>
-            <label class='product-category-label'>Category</label>
-            <select class='edit-product-select' name="category">
-              <option value='document' {{#if (isCategory product.category 'document')}}selected{{/if}}>Document</option>
-              <option value='uniform' {{#if (isCategory product.category 'uniform')}}selected{{/if}}>Uniform</option>
-              <option value='stationery' {{#if (isCategory product.category 'stationery')}}selected{{/if}}>Stationery</option>
-              <option value='other' {{#if (isCategory product.category 'other')}}selected{{/if}}>Other</option>
-            </select>
+              <div class='col'>
+                <label for='product-stock'>Stock</label>
+                <input id='product-stock' type="number" value='{{product.stock}}' name="stock" required/>
+              </div>
+            </li>
+            <li class='edit-product-form-item row'>
+              <div class='col'>
+                <label for='product-keyword'>Keywords</label>
+                <input id='product-keyword' type='text' value='{{product.keyword}}' name="keyword" required/>
+              </div>
+            </li>
+            <li class='edit-product-form-item row'>
+              <div class='d-flex col-4 align-items-center'>
+                  <div class="d-flex align-items-center">
+                    <input id='product-trend' type='radio' value="1" name="isTrend" style="height: 2.4rem; width: 2.4rem;" {{#if product.isTrend}}checked{{/if}}/>
+                    <label for='product-trend' class="m-0 px-4">Trend</label>
+                  </div>
+                  <div class="d-flex align-items-center px-5">
+                    <input id='product-not-trend' type='radio' value="0" name="isTrend" style="height: 2.4rem; width: 2.4rem;"class="me-4" {{#unless product.isTrend}}checked{{/unless}}/>
+                    <label for='product-not-trend' class="m-0 text-nowrap" >Not trend</label>
+                  </div>
+                </div>
+            </li>
+          </ul>
+  
+          <div class='edit-product-form edit-product-form-upload col'>
+            <div class='product-category'>
+              <label class='product-category-label'>Category</label>
+              <select class='edit-product-select' name="category">
+                <option value='document' {{#if (isCategory product.category 'document')}}selected{{/if}}>Document</option>
+                <option value='uniform' {{#if (isCategory product.category 'uniform')}}selected{{/if}}>Uniform</option>
+                <option value='stationery' {{#if (isCategory product.category 'stationery')}}selected{{/if}}>Stationery</option>
+                <option value='other' {{#if (isCategory product.category 'other')}}selected{{/if}}>Other</option>
+              </select>
+            </div>
+            {{>upload-file}}
+            {{#if getEditForUpdate}}
+            <div class='product-image product-image-preview flex-column justify-content-center align-items-center'>
+              <img src="{{product.image}}" alt="product image preview">
+              <button href="#" class="btn text-uppercase" type="button">Change image</button>
+            </div>
+            {{/if}}
           </div>
-          {{>upload-file}}
-          {{#if getEditForUpdate}}
-          <div class='product-image product-image-preview flex-column justify-content-center align-items-center'>
-            <img src="{{product.image}}" alt="product image preview">
-            <button href="#" class="btn text-uppercase" type="button">Change image</button>
-          </div>  
-          {{/if}}  
-        </div>
-      </form>
+        </form>
+    </section>
   </section>
-</section>
-<script src='/js/edit-product.js'></script>
+  <script src='/js/edit-product.js'></script>
+</div>

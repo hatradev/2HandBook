@@ -20,8 +20,30 @@
     }
 
     &:hover {
-      opacity: 0.6;
+      transform: scale(1.2);
     }
+  }
+
+  .badge {
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+    -webkit-border-radius: 0.9rem;
+    -moz-border-radius: 0.9rem;
+    border-radius: 0.9rem;
+  }
+
+  .label-warning[href],
+  .badge-warning[href] {
+    background-color: #ff7971;
+  }
+  #lblCartCount {
+    font-size: 1.2rem;
+    background: #ff7971;
+    color: #fff;
+    padding: 0.2rem 0.5rem;
+    vertical-align: top;
+    margin-left: -0.5rem;
+    z-index: 1;
   }
 
   .announce-container {
@@ -34,7 +56,7 @@
     margin-right: 4rem;
     position: relative;
     &.has-noti::after {
-      content: '';
+      content: "";
       @include abs-pos(0, 0);
       @include box(1rem, 1rem, #ff7971);
       border-radius: 50%;
@@ -62,7 +84,7 @@
 
     .announce-link.unread {
       &::before {
-        content: '';
+        content: "";
         @include box(1.5rem, 1.5rem, $color-primary);
         @include abs-pos(1rem, 1rem);
         border-radius: 50%;
@@ -105,26 +127,6 @@
 .search-bar {
   position: relative;
 
-  // .search-input {
-  //   height: 3.4rem;
-  //   border-radius: 2rem;
-  //   background-color: rgba(255, 255, 255, 0.2);
-  //   color: #fff;
-
-  //   &::placeholder {
-  //     color: $color-text-light;
-  //   }
-  // }
-
-  // .search-icon-link {
-  //   width: 2rem;
-  //   font-size: 1.6rem;
-  //   @include abs-pos(false, 2rem);
-
-  //   .search-icon::before {
-  //     color: #fff;
-  //   }
-  // }
   .search-bar {
     position: relative;
 
@@ -171,16 +173,3 @@
     color: $color-text-dark;
   }
 }
-
-// .header-empty {
-//   .header-empty-item {
-//     &:first-child {
-//       background-color: $color-primary;
-//       height: 7rem;
-//     }
-//     &:nth-child(2) {
-//       background-color: $color-primary-tint;
-//       height: 7rem;
-//     }
-//   }
-// }

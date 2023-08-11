@@ -1,21 +1,21 @@
-const searchInput = document.querySelector('.header .search-input');
-const btnLogin = document.querySelector('.header .btn-log-in');
-const btnSignup = document.querySelector('.header .btn-sign-up');
-const announceBtn = document.querySelector('.header .announce-icon');
-const announceList = document.querySelector('.header .announce-list');
+const searchInput = document.querySelector(".header .search-input");
+const btnLogin = document.querySelector(".header .btn-log-in");
+const btnSignup = document.querySelector(".header .btn-sign-up");
+const announceBtn = document.querySelector(".header .announce-icon");
+const announceList = document.querySelector(".header .announce-list");
 
-searchInput.addEventListener('focus', function () {
-  searchInput.placeholder = '';
+searchInput.addEventListener("focus", function () {
+  searchInput.placeholder = "";
 });
 
-searchInput.addEventListener('blur', function () {
-  searchInput.placeholder = 'Search...';
+searchInput.addEventListener("blur", function () {
+  searchInput.placeholder = "Search...";
 });
 
 // User has some new notifications
-announceBtn.classList.add('has-noti');
+announceBtn.classList.add("has-noti");
 
 // Open and close notification button
-announceBtn.addEventListener('click', () => {
-  announceBtn.classList.toggle('noti-open');
+announceBtn.addEventListener("click", () => {
+  announceBtn.classList.toggle("noti-open");
 });
