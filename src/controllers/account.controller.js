@@ -156,33 +156,6 @@ class acccountController {
       .catch(next);
   }
 
-  uploadAvatar = async (req, res, next) => {
-    try {
-      const accountId = req.user._id; // Lấy ID của người dùng đã đăng nhập
-      const avatarPath = req.file.path; // Đường dẫn tới ảnh đã tải lên
-
-      // Cập nhật đường dẫn ảnh vào MongoDB
-      const updatedUser = await Account.findByIdAndUpdate(
-        accountId,
-        { avatar: avatarPath },
-        { new: true }
-      );
-
-      // Xóa ảnh cũ nếu có
-      if (req.user.avatar) {
-        const oldAvatarPath = path.join(__dirname, '../', req.user.avatar);
-        fs.unlinkSync(oldAvatarPath);
-      }
-
-      res.status(200).json({
-        message: 'Avatar updated successfully',
-        updatedUser: updatedUser,
-      });
-    } catch (error) {
-      res.status(500).json({ error: 'Error updating avatar' });
-    }
-  };
-
   updateMyProfile = async (req, res, next) => {
     // res.json(req.body);
     // Account.updateOne({_id: req.params._id}, req.body);
@@ -196,8 +169,9 @@ class acccountController {
     user.email = req.body.email;
     user.phone = req.body.phone;
     user.job = req.body.job;
+    user.avatar = req.body.avatarPath;
     // console.log(req.body);
-    res.json(req.body);
+    // res.json(req.body);
     await user.save();
     try {
       // Check if the present password matches the one in the database

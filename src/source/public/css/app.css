@@ -493,10 +493,12 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
     padding-right: 1rem; }
     .account-profile-main .row .col-3 .avatar .avatar-left {
       width: 40%;
-      height: 90%; }
+      height: 90%;
+      cursor: pointer; }
       .account-profile-main .row .col-3 .avatar .avatar-left img {
         height: 8.2rem;
-        width: 8.2rem; }
+        width: 8.2rem;
+        border-radius: 0.5rem; }
     .account-profile-main .row .col-3 .avatar .avatar-right {
       height: 90%;
       padding-left: 1.8rem;

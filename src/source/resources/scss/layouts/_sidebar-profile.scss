@@ -18,10 +18,12 @@
       .avatar-left {
         width: 40%;
         height: 90%;
+        cursor: pointer;
         // max-height: 8rem;
         img{
           height: 8.2rem;
           width: 8.2rem;
+          border-radius: 0.5rem;
         }
         // padding-bottom: 2rem;
         // i {

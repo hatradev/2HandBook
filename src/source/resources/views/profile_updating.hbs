@@ -129,8 +129,10 @@
     const reader = new FileReader();
     reader.onload = function() {
       // Lưu đường dẫn ảnh vào trường ẩn
+      avatarImage.src = reader.result;
       const avatarPathInput = document.getElementById('avatarPath');
-      avatarPathInput.value = reader.result;
+      //const localImagePath = URL.createObjectURL(selectedFile);
+      avatarPathInput.value = '/img/avatar/' + selectedFile.name;
     };
     reader.readAsDataURL(selectedFile);
   }
