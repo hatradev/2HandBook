@@ -34,7 +34,7 @@
         <hr>
       </ul>
     </aside>
-    <section class='manage-product col-10' style="min-height: calc(100vh - 35rem);">
+    <section class='manage-product col-10' style="min-height: calc(100vh - 14rem - 17rem);">
       <div class='d-flex'>
         <p class='manage-product-breadcrumb'>Products</p>
         <a class='btn text-uppercase ms-auto' href='http://localhost:3000/product/edit' role='button'>Add product</a>
@@ -100,8 +100,8 @@
                   />
                 </li>
                 <li class='manage-product-info text-center col'>{{this.name}}</li>
-                <li class='manage-product-info text-center col-2 text-capitalize'>{{this.category}}</li>
-                <li class='manage-product-info text-center col-2'>{{this.stock}}</li>
+                <li class='manage-product-info text-center col-2 text-capitalize' style="padding-right: 2rem;">{{this.category}}</li>
+                <li class='manage-product-info text-center col-2 style="padding-right: 2rem;'>{{this.stock}}</li>
                 <li class='manage-product-info text-center col-2'>{{this.price}} VND</li>
               </ul>
             </a>

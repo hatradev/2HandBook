@@ -79,14 +79,16 @@ app.use((req, res, next) => {
     req.session.cart = [];
     res.locals._cartNumber = 0;
   }
-  if (res.locals.isLoggedIn) {
-    res.locals._id = req.user._id;
-    res.locals._firstName = req.user.firstName;
-    require("../middleware/cartInit")(req, res, next);
+  if (!res.locals._cartNumber) {
     res.locals._cartNumber = req.session.cart.reduce(
       (accum, product) => accum + product.quantity,
       0
     );
+  }
+  if (res.locals.isLoggedIn) {
+    res.locals._id = req.user._id;
+    res.locals._firstName = req.user.firstName;
+    require("../middleware/cartInit")(req, res, next);
   }
   next();
 });

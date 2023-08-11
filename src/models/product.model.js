@@ -2,13 +2,13 @@ const mongoose = require("mongoose");
 
 const productSchema = new mongoose.Schema(
   {
-    image: {
-      type: String,
-      required: [true, "A product must have a cover image"],
-    },
     idAccount: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "account",
+    },
+    image: {
+      type: String,
+      required: [true, "A product must have a cover image"],
     },
     name: {
       type: String,
@@ -31,7 +31,7 @@ const productSchema = new mongoose.Schema(
     category: {
       type: String,
       default: "document",
-      enum: ["document", "calculator", "uniform", "other"],
+      enum: ["document", "stationery", "uniform", "other"],
     },
     status: {
       type: String,

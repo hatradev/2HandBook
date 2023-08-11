@@ -13,7 +13,6 @@ const {
 var allProducts;
 
 class productController {
-  // ###################### SELLER #############################
   // [GET] product/dashboard
   getDashboard = async (req, res, next) => {
     try {
@@ -30,12 +29,13 @@ class productController {
   getManage = async (req, res, next) => {
     try {
       let options = { idAccount: req.user.id };
+      // let options = { idAccount: req.user.id, status: "Available" };
       // Tìm kiếm
       let keyword = req.query.keyword || "";
       // Lọc theo loại
       let category = req.query.category || "";
       // Sắp xếp
-      let sortBy = req.query.sortBy || "";
+      let sortBy = req.query.sortBy || "updateAt";
       keyword = keyword.trim();
       let originalUrl = req.originalUrl;
       if (keyword != "") {
@@ -167,8 +167,8 @@ class productController {
       next(err);
     }
   };
-  // ###########################################################
-  // ###################### BUYER #############################
+
+  // [GET] product/cart
   getCart = async (req, res, next) => {
     try {
       res.json(req.session.cart);
@@ -177,6 +177,7 @@ class productController {
     }
   };
 
+  // [POST] product/cart
   add2Cart = async (req, res, next) => {
     try {
       // Lấy id và quantity sản phẩm gửi từ client
@@ -205,15 +206,18 @@ class productController {
     }
   };
 
+  // [DELETE] product/cart
   deleteFromCart = async (req, res, next) => {
     try {
       req.session.cart.forEach(async (product, idx) => {
         if (product._id == req.params.id) {
           req.session.cart.splice(idx, 1);
-          await Account.findOneAndUpdate(
-            { _id: req.user._id },
-            { cart: req.session.cart }
-          );
+          if (req.user) {
+            await Account.findOneAndUpdate(
+              { _id: req.user._id },
+              { cart: req.session.cart }
+            );
+          }
         }
       });
       res.json(req.session.cart);
@@ -222,7 +226,7 @@ class productController {
     }
     // req.session.cart.forEach((element) => {});
   };
-  // ###########################################################
+
   // [GET] product/all-product
   showAllProduct = async (req, res, next) => {
     try {
@@ -390,7 +394,7 @@ class productController {
   };
 }
 
-// ***************************** Helper function *******************************
+// ***************************** HELPERS *******************************
 function removeParam(key, sourceURL) {
   var rtn = sourceURL.split("?")[0],
     param,
