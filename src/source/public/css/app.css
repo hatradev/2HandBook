@@ -493,13 +493,10 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
     padding-right: 1rem; }
     .account-profile-main .row .col-3 .avatar .avatar-left {
       width: 40%;
-      height: 90%;
-      display: flex;
-      justify-content: center; }
-      .account-profile-main .row .col-3 .avatar .avatar-left i {
-        padding-top: 0.5rem;
-        font-size: 7.9rem;
-        padding-bottom: 0.6rem; }
+      height: 90%; }
+      .account-profile-main .row .col-3 .avatar .avatar-left img {
+        height: 8.2rem;
+        width: 8.2rem; }
     .account-profile-main .row .col-3 .avatar .avatar-right {
       height: 90%;
       padding-left: 1.8rem;

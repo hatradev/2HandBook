@@ -3,9 +3,14 @@
     <div class='row'>
       <div class='col-3'>
         <div class='avatar'>
-          <div class='avatar-left'>
+          {{!-- <div class='avatar-left'>
             <i class='fa-solid fa-user'></i>
+          </div> --}}
+          <div class='avatar-left'>
+            <input type='file' id='avatar-input' accept='image/*' style='display: none;' />
+            <img id='avatar-image' src='{{user.avatar}}' alt='Avatar' />
           </div>
+
 
           <div class='avatar-right'>
             <div class='info-avatar'>
@@ -68,6 +73,8 @@
             <input id='email' type='text' class='form-control input-size shadow' placeholder='' name="email"
               value="{{user.email}}" />
           </div>
+          <input type='hidden' id='avatarPath' name='avatarPath' value='{{user.avatar}}'>
+          {{!-- <img id='avatar-image' src='{{user.avatar}}' alt='Avatar' /> --}}
           <div class='col-md-6'>
             <label class='form-label fw-bold'>Phone number*</label>
             <input id='phone' type='text' class='form-control input-size shadow' name="phone" value="{{user.phone}}"
@@ -110,3 +117,28 @@
 
 {{!-- Include the changePassword.js script --}}
 {{!-- <script src="/js/changePassword.js"></script> --}}
+
+<script>
+  const avatarInput = document.getElementById('avatar-input');
+  const avatarImage = document.getElementById('avatar-image');
+  const avatarLeft = document.querySelector('.avatar-left');
+
+  avatarInput.addEventListener('change', (event) => {
+  const selectedFile = event.target.files[0];
+  if (selectedFile) {
+    const reader = new FileReader();
+    reader.onload = function() {
+      // Lưu đường dẫn ảnh vào trường ẩn
+      const avatarPathInput = document.getElementById('avatarPath');
+      avatarPathInput.value = reader.result;
+    };
+    reader.readAsDataURL(selectedFile);
+  }
+});
+
+
+  avatarLeft.addEventListener('click', () => {
+    avatarInput.click();
+  });
+</script>
+

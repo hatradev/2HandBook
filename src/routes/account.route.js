@@ -32,6 +32,7 @@ router.use(accountController.isLoggedIn);
 // ################################################
 router.get('/sign-out', accountController.signOut);
 router.post('/my-profile/:_id/update', accountController.updateMyProfile);
+router.post('/my-profile/upload-avatar', accountController.uploadAvatar);
 router.get('/my-profile/:_id', accountController.getMyProfile);
 
 // router.get('/my-profile', accountController.getMyProfile);
