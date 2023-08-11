@@ -385,15 +385,12 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
     border-radius: 15px;
     border: 1px solid #fff;
     display: inline-block;
-    margin-bottom: 0.5rem; }
-    .footer .footer-tag .footer-link {
-      padding: 3rem 1rem; }
-    .footer .footer-tag :hover {
-      color: #337ab7;
-      background-color: #fff;
-      border-radius: 15px;
-      border: 2px solid #fff;
-      padding: 0rem 1rem; }
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 0.8rem; }
+    .footer .footer-tag:hover {
+      background-color: #fff; }
+      .footer .footer-tag:hover .footer-link {
+        color: #337ab7; }
 
 .navbar {
   text-transform: uppercase;
@@ -1371,6 +1368,11 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
         margin: auto 0; }
       .all-product .filter-vs-product .product-section .trend .trend-row {
         margin-top: 0; }
+        .all-product .filter-vs-product .product-section .trend .trend-row .announcement {
+          justify-content: center;
+          display: flex;
+          margin-top: 3rem;
+          font-size: 1.6rem; }
       .all-product .filter-vs-product .product-section .trend .trend-card {
         margin: 0;
         border-radius: 0;

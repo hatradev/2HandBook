@@ -143,21 +143,24 @@
 
         .trend-row {
           margin-top: 0;
+          .announcement{
+            justify-content: center;
+            display: flex;
+            margin-top: 3rem;
+            font-size: 1.6rem;
+          }
         }
 
         .trend-card {
           margin: 0;
           border-radius: 0;
           border: 1px solid #31383e;
-          // padding: 0 0.75rem;
           margin-bottom: 1rem;
         }
 
         .trend-card-img {
           background-color: #fff;
-          // height: 100%;
           height: 24.3rem;
-          // border-bottom: 1px solid #31383e;
 
           .trend-prod-img {
             float: left;

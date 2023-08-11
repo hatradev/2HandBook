@@ -1,17 +1,12 @@
 <div class='all-product container'>
   <div class='sort-section d-flex justify-content-end'>
-    {{!-- <select class='form-select' aria-label="Default select example">
-      <option selected value="default">Sort by priority</option>
-      <option value="price,asc">Low to high price</option>
-      <option value="price,desc">High to low price</option>
-    </select> --}}
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
         aria-expanded="false">
         Sort by priority
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="/product/all-product/sort?sort=price&order=1">Low to high price</a></li>
+        <li><a class="dropdown-item" href="/product/all-product/sort?sort=price&order=1" onclick="linkSort(event, '/product/all-product/sort?sort=price&order=1')">Low to high price</a></li>
         <li><a class="dropdown-item" href="/product/all-product/sort?sort=price&order=-1">High to low price</a></li>
       </ul>
     </div>
@@ -26,19 +21,6 @@
             <i class='fa-solid fa-magnifying-glass search-icon'></i>
           <button/>
         </form>
-      </div>
-
-      <div class='price-filter mt-3'>
-        <input type='range' min='1' max='100' value='50' class='slider mt-3' id='myRange' />
-
-        <div class='mt-3 d-flex justify-content-between align-items-center'>
-          <a href='{{currentUrl}}/' class='filter-btn btn'>Filter</a>
-          <div class='price-span d-flex'>
-            <span class='low-price'>100.000</span>
-            <span> - </span>
-            <span class='high-price'>100000</span>
-          </div>
-        </div>
       </div>
 
       <div class='filter-type-list mt-5'>
@@ -71,6 +53,12 @@
               <a href='#' class='btn trend-card-btn'>Buy now</a>
             </div>
           </div>
+          {{else}}
+          <div class="col">
+            <div class="announcement">
+              Không có sản phẩm phù hợp
+            </div>
+          </div>
           {{/each}}
         </div>
       </section>
@@ -79,3 +67,5 @@
 </div>
 
 <script src="/js/all-product.js"></script>
+<script src="/js/global-link.js"></script>
+{{!-- <script src="/js/test.js"></script> --}}
