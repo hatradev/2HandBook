@@ -1,23 +1,19 @@
 const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
 
-function linkSort(event, href){
-    var href_arr = href.split('?')
-    // var tagA = $(`${classtagA}`)
+function linkSort(href){
     var currentLink = window.location.href
+    var current_arr = currentLink.split('?')
     var currentDomain = window.location.origin;
-    // var hrefTagA = classtagA.href
-    // window.location.href = currentDomain + '/' + href
+
     if (currentLink.includes('search') || currentLink.includes('category')){
-        window.location.href = currentLink + '&' + href_arr[1]
-        // console.log(currentLink + '&' + href_arr[1])
+        if(currentLink.includes('sort')){
+            var split_arr = currentLink.split('&')
+            window.location.href = currentDomain + href + '&' + split_arr[2]
+        }else{
+            window.location.href = currentDomain + href + '&' + current_arr[1]
+        }
     }else{
-        window.location.href = currentDomain + '/' + href
-        // console.log(currentDomain + '/' + href)
+        window.location.href = currentDomain + href
     }
-    console.log(currentLink)
-    console.log(currentDomain)
-    console.log(href)
-    
-    // event.preventDefault()
 }

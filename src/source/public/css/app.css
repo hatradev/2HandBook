@@ -110,8 +110,9 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
           font-size: 1.7rem;
           margin-bottom: 0;
           margin-left: 0.5rem; }
-      .sales-page .vertical-nav .nav-list .nav-item:hover {
-        opacity: 0.8; }
+      .sales-page .vertical-nav .nav-list .nav-item:hover a {
+        opacity: 0.8;
+        color: #337ab7; }
 
 .header {
   background-color: rgba(59, 153, 215, 0.2);
@@ -208,19 +209,17 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
       height: 3.4rem;
       width: 100%;
       border-radius: 2rem;
-      background-color: #fff;
-      color: #31383e; }
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #fff; }
       .search-bar .search-bar .search-input::placeholder {
-        color: #31383e; }
+        color: #fff; }
     .search-bar .search-bar .search-icon-link {
       width: 2rem;
       font-size: 1.6rem;
       position: absolute;
       right: 2rem;
       top: 2rem;
-      background-color: #fff; }
-      .search-bar .search-bar .search-icon-link .search-icon::before {
-        color: #31383e; }
+      background-color: transparent; }
 
 .header.light {
   background-color: #3b99d7; }

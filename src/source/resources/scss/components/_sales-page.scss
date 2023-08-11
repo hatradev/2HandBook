@@ -31,8 +31,9 @@
           }
         }
 
-        &:hover {
+        &:hover a{
           opacity: 0.8;
+          color: $color-primary-shade;
         }
       }
     }

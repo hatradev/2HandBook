@@ -22,13 +22,14 @@ class evaluateController {
 	// [PUT] /specific-product/create
 	createEvaluate = async (req, res, next) => {
 		try {
-			const idAccount = await Account.findOne({}); //***
+			const account = await Account.findOne({}); //***
+			// const idAccount = req.params._id; //***
 			const cmtInput = req.body.cmtInput
 			const idProduct = req.params.id
 
 			// Tạo một đối tượng "evaluate" mới và lưu vào cơ sở dữ liệu
 			const newEvaluate = new Evaluate({
-				idAccount,
+				idAccount: account._id,
 				idProduct,
 				content: cmtInput
 			});
@@ -45,12 +46,11 @@ class evaluateController {
 	// [GET] /sales-page/review
 	showEvaluate = async (req, res, next) => {
 		try {
-			const idAccount = await Account.findOne({}); //***
-			const evaluates = await Evaluate.find({idAccount: idAccount, reply: ""})
+			const account = await Account.findOne({}); //***
+			// const idAccount = await Account.findOne({_id: req.params._id}); //***
+			const evaluates = await Evaluate.find({idAccount: account._id, reply: ""})
 			.populate('idProduct')
 			res.locals.evaluates = mutipleMongooseToObject(evaluates)
-			// res.json(evaluates)
-			// res.status(200).json({ error: 'thanh cong' });
 			res.render('review-shop')
 		} catch (error) {
 			res.status(500).json({ error: 'Lỗi khi lấy tất cả sản phẩm 1' });

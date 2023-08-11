@@ -238,21 +238,9 @@ class productController {
       if (keyword.trim() != '') {
         const regex = new RegExp(keyword, 'i');
         options.name = regex
-        console.log(options)
       }
-      
-      // const type_category = req.query.category ? req.query.category : 0
-      // console.log(type, order);
+
       const products = await Product.find(options).sort({ [type]: order });
-      // if(type_category){
-      //   products = await Product.find({}).sort({ [type]: order });
-      // }
-
-      // if (type_category){
-      //   products.find({ category: type_category });
-      // }
-      // console.log(type);
-
       const categories = await Product.aggregate([
         {
           $group: {
