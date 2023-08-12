@@ -16,15 +16,7 @@
           <button>Report</button>
         </form>
 
-        {{! <form class="button-container">
-          <button class="ellipse-button">
-            <span class="ellipse-icon">&#8942;</span>
-          </button>
-          <div class="tooltip">Report</div>
-        </form> }}
-
-        <h1 class="product-name">{{product.name}}
-          ksa dasl dals dlas kdlas dlaksdl</h1>
+        <h1 class="product-name">{{product.name}}</h1>
         <h2 class="product-price">{{product.price}}đ</h2>
         <div class="rating d-flex align-items-center mt-4">
           <h3 class="score m-0">{{showStar stars.avgRating}}</h3>
@@ -48,12 +40,16 @@
       </div>
 
       <div class="adjust-quantity d-flex">
-        <div class="quantity">Quantity: 1</div>
+        <div class="quantity">Quantity:
+          <span
+            class="quantity-number"
+            style="display: inline-block; width: 2rem;"
+          >1</span></div>
         <div class="adjust-icon ms-5">
-          <a href="#" class="btn">
+          <a href="#" class="plus-btn btn">
             <i class="fa-sharp fa-solid fa-plus"></i>
           </a>
-          <a href="#" class="btn">
+          <a href="#" class="minus-btn btn">
             <i class="fa-solid fa-minus"></i>
           </a>
         </div>

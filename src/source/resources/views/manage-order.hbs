@@ -1,39 +1,6 @@
 <div class='sales-page container'>
   <div class='row'>
-    <div class="col-2 vertical-nav">
-      <h1 class="title">Sale pages</h1>
-      <hr>
-      <ul class="nav-list">
-        <li class="nav-item">
-          <a href="">
-            <i class="fa-solid fa-pen-to-square"></i>
-            <h2>Dashboard</h2>
-          </a>
-        </li>
-        <hr>
-        <li class="nav-item">
-          <a href="">
-            <i class="fa-solid fa-cart-shopping"></i>
-            <h2>Manage product</h2>
-          </a>
-        </li>
-        <hr>
-        <li class="nav-item">
-          <a href="http://localhost:3000/order/manage-order">
-            <i class="fa-solid fa-chart-simple"></i>
-            <h2>Manage order</h2>
-          </a>
-        </li>
-        <hr>
-        <li class="nav-item">
-          <a href="http://localhost:3000/evaluate/review">
-            <i class="fa-solid fa-message"></i>
-            <h2>Reviews</h2>
-          </a>
-        </li>
-        <hr>
-      </ul>
-    </div>
+    {{>sales-page}}
 
     <div class='col manage-order'>
       <h1 class='page-title'>
@@ -65,6 +32,12 @@
                 <i class="fa-solid fa-ellipsis"></i>
               </a>
             </td>
+          </tr>
+          {{else}}
+          <tr class="item-order">
+            <th scope='row' colspan="6" style="padding: 1rem;">
+              Không có đơn đặt hàng từ khách hàng
+            </th>
           </tr>
           {{/each}}
         </tbody>

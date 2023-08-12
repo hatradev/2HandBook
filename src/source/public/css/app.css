@@ -110,8 +110,9 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
           font-size: 1.7rem;
           margin-bottom: 0;
           margin-left: 0.5rem; }
-      .sales-page .vertical-nav .nav-list .nav-item:hover {
-        opacity: 0.8; }
+      .sales-page .vertical-nav .nav-list .nav-item:hover a {
+        opacity: 0.8;
+        color: #337ab7; }
 
 .header {
   background-color: rgba(59, 153, 215, 0.2);
@@ -225,19 +226,17 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
       height: 3.4rem;
       width: 100%;
       border-radius: 2rem;
-      background-color: #fff;
-      color: #31383e; }
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #fff; }
       .search-bar .search-bar .search-input::placeholder {
-        color: #31383e; }
+        color: #fff; }
     .search-bar .search-bar .search-icon-link {
       width: 2rem;
       font-size: 1.6rem;
       position: absolute;
       right: 2rem;
       top: 2rem;
-      background-color: #fff; }
-      .search-bar .search-bar .search-icon-link .search-icon::before {
-        color: #31383e; }
+      background-color: transparent; }
 
 .header.light {
   background-color: #3b99d7; }
@@ -404,15 +403,12 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
     border-radius: 15px;
     border: 1px solid #fff;
     display: inline-block;
-    margin-bottom: 0.5rem; }
-    .footer .footer-tag .footer-link {
-      padding: 3rem 1rem; }
-    .footer .footer-tag :hover {
-      color: #337ab7;
-      background-color: #fff;
-      border-radius: 15px;
-      border: 2px solid #fff;
-      padding: 0rem 1rem; }
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 0.8rem; }
+    .footer .footer-tag:hover {
+      background-color: #fff; }
+      .footer .footer-tag:hover .footer-link {
+        color: #337ab7; }
 
 .navbar {
   text-transform: uppercase;
@@ -836,7 +832,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
 
 .container-ext, .manage-product, .edit-product, .dashboard, .payment .delivery-addr {
   background-color: #fff;
-  margin-top: 17rem; }
+  margin-top: 2rem; }
 
 .breadcrumb-ext, .manage-product .manage-product-breadcrumb, .edit-product .edit-product-breadcrumb, .dashboard .dashboard-breadcrumb {
   font-size: 2rem;
@@ -846,7 +842,8 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
   padding: 2rem;
   margin: 2rem 0;
   border: 0.1rem solid #ccc;
-  font-size: 1.6rem; }
+  font-size: 1.6rem;
+  min-height: 60rem; }
 
 .select-container-ext, .manage-product .manage-product-select-container, .edit-product .product-category {
   position: relative; }
@@ -1388,6 +1385,11 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
         margin: auto 0; }
       .all-product .filter-vs-product .product-section .trend .trend-row {
         margin-top: 0; }
+        .all-product .filter-vs-product .product-section .trend .trend-row .announcement {
+          justify-content: center;
+          display: flex;
+          margin-top: 3rem;
+          font-size: 1.6rem; }
       .all-product .filter-vs-product .product-section .trend .trend-card {
         margin: 0;
         border-radius: 0;
@@ -1452,7 +1454,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
 .sales-page {
   margin-top: 14rem; }
   .sales-page .manage-order {
-    height: 65rem; }
+    min-height: 65rem; }
     .sales-page .manage-order .page-title {
       padding: 2rem 0;
       text-transform: uppercase;
@@ -1538,6 +1540,11 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
         background-color: #e05e5e; }
       .sales-page .manage-order .modal.product-details .modal-dialog .modal-footer .btn-secondary {
         background-color: #3b99d7; }
+    .sales-page .manage-order .announcement {
+      justify-content: center;
+      display: flex;
+      margin-top: 3rem;
+      font-size: 1.6rem; }
 
 .form-group.invalid .form-control {
   border-style: solid;
@@ -2242,6 +2249,12 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
   .about-us p :last-child {
     margin-bottom: 0rem; }
 
+.sales-page .review-shop .page-title {
+  padding: 2rem 0;
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 700; }
+
 .sales-page .review-shop .row {
   margin-left: 2rem; }
   .sales-page .review-shop .row .review-section {
@@ -2295,6 +2308,11 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
       background-color: #337ab7;
       font-weight: bold;
       pointer-events: none; }
+    .sales-page .review-shop .row .review-section .announcement {
+      justify-content: center;
+      display: flex;
+      margin-top: 3rem;
+      font-size: 1.6rem; }
 
 .sales-page .review-shop .pagination-container {
   width: 25rem;

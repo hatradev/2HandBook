@@ -45,17 +45,13 @@
     border: 1px solid #fff;
     display: inline-block;
     margin-bottom: 0.5rem;
+    padding: 0.5rem 0.8rem;
 
-    .footer-link {
-      padding: 3rem 1rem;
-    }
-
-    :hover {
-      color: #337ab7;
+    &:hover {
+      .footer-link{
+        color: #337ab7;
+      }
       background-color: #fff;
-      border-radius: 15px;
-      border: 2px solid #fff;
-      padding: 0rem 1rem;
     }
   }
 }

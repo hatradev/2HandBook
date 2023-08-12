@@ -293,8 +293,17 @@ class productController {
     try {
       const type = req.query.sort;
       const order = req.query.order;
-      const products = await Product.find({}).sort({ [type]: order });
+      let options = {};
+      if (req.query.category) {
+        options.category = req.query.category;
+      }
+      const keyword = req.query.keyword || "";
+      if (keyword.trim() != "") {
+        const regex = new RegExp(keyword, "i");
+        options.name = regex;
+      }
 
+      const products = await Product.find(options).sort({ [type]: order });
       const categories = await Product.aggregate([
         {
           $group: {

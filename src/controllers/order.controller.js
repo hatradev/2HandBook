@@ -17,8 +17,9 @@ class orderController {
   // [GET] order/manage-order
   showAllOrder = async (req, res, next) => {
     try {
-      const aOrder = await Account.findOne();
-      const accountId = aOrder._id;
+      // const aOrder = await Account.findOne();
+      // const accountId = aOrder._id
+      const accountId = req.user._id;
 
       const orders = await Order.find({ idSeller: accountId })
         .populate("idAccount")

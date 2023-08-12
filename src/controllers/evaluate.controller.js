@@ -23,23 +23,24 @@ class evaluateController {
       res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 1" });
     }
   };
+
   // [PUT] /specific-product/create
   createEvaluate = async (req, res, next) => {
     try {
-      const idAccount = await Account.findOne({}); //***
+      // const account = await Account.findOne({}); //***
+      const idAccount = req.user._id; //***
+      console.log(idAccount);
       const cmtInput = req.body.cmtInput;
       const idProduct = req.params.id;
 
       // Tạo một đối tượng "evaluate" mới và lưu vào cơ sở dữ liệu
       const newEvaluate = new Evaluate({
-        idAccount,
+        // idAccount: account._id,
+        idAccount: idAccount,
         idProduct,
         content: cmtInput,
       });
       await newEvaluate.save();
-
-      // console.log()
-      // res.status(200).json(newEvaluate);
       res.redirect("back");
     } catch (error) {
       res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 1" });
@@ -77,6 +78,23 @@ class evaluateController {
       res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 1" });
     }
   };
+  // [GET] /sales-page/review
+  showEvaluate = async (req, res, next) => {
+    try {
+      // const account = await Account.findOne({}); //***
+      const idAccount = req.user._id; //***
+      // const idAccount = await Account.findOne({_id: req.params._id}); //***
+      // console.log(account)
+      const evaluates = await Evaluate.find({ idAccount, reply: "" }).populate(
+        "idProduct"
+      );
+      res.locals.evaluates = mutipleMongooseToObject(evaluates);
+      res.render("review-shop");
+    } catch (error) {
+      res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 1" });
+    }
+  };
+
   evaluateAndRating = async (req, res, next) => {
     try {
       // const { idAccount, idProduct, status, message, quantity } = req.body; // Giả sử dữ liệu được gửi qua body
@@ -88,22 +106,6 @@ class evaluateController {
         idAccount: accBuyer._id,
         "detail.idProduct": product._id,
       });
-
-      //   const orders = await Order.find({idSeller: accountId})
-      //   .populate('idAccount')
-      //   .populate('detail.idProduct')
-
-      // console.log(req.params._id);
-      //   const productID = product._id
-      //   .populate('idAccount')
-      // const idProduct = req.params._id;
-      // const message = req.body.message;
-      // const quantity = 1;
-      // console.log(idProduct)
-
-      // const product = await Product.findById(idProduct);
-      //   const idSeller = product.idAccount;
-
       const newEvaluate = new Evaluate({
         idAccount: accBuyer._id,
         idProduct: product._id,

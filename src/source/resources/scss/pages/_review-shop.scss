@@ -1,14 +1,23 @@
-.sales-page{
+.sales-page {
 	.review-shop {
+		.page-title {
+			padding: 2rem 0;
+			text-transform: uppercase;
+			font-size: 2rem;
+			font-weight: 700;
+		}
+
 		.row {
 			margin-left: 2rem;
+
 			.review-section {
 				min-height: 75rem;
 				padding-left: 0;
 				margin-top: 5rem;
+
 				.card {
 					margin-bottom: 3rem;
-	
+
 					.card-body {
 						.information {
 							.avatar {
@@ -20,86 +29,95 @@
 									border-radius: 50%;
 								}
 							}
-	
+
 							.infor-span {
 								font-size: 1.5rem;
-	
+
 								.name {
 									font-weight: 600;
 								}
-	
+
 								.date {}
 							}
 						}
-	
+
 						.middle {
 							margin-top: 1rem;
 							font-family: 'Inter', sans-serif;
-							.title{
+
+							.title {
 								font-size: 1.8rem;
 								font-weight: 600;
 							}
-							.content{
-	
-							}
+
+							.content {}
 						}
 					}
-	
+
 					.card-footer {
 						display: flex;
 						justify-content: right;
-						.btn-close{
+
+						.btn-close {
 							width: 5rem;
 						}
-						.modal-footer{
-							button{
+
+						.modal-footer {
+							button {
 								padding: 0.8rem 0;
 							}
 						}
 					}
 				}
-	
+
 				.reply-cmt {
 					display: flex;
 					justify-content: end;
 					height: 5rem;
 					border-style: none;
-	
-	
+
+
 					button {
 						font-weight: bold;
 						width: 11rem;
 						font-size: 1.5rem;
 					}
 				}
-	
+
 				.evaluate-body {
 					height: 30rem;
-	
+
 					.rating {
 						height: 15%;
-	
+
 						.first-choice {
 							margin-left: 4rem;
 						}
 					}
 				}
-	
+
 				.text_black {
 					color: black;
 					font-weight: bold;
 				}
-	
+
 				.background_emphasis {
 					background-color: #337ab7;
 					// color: white;
 					font-weight: bold;
 					pointer-events: none;
 				}
+
+				.announcement {
+					justify-content: center;
+					display: flex;
+					margin-top: 3rem;
+					font-size: 1.6rem;
+				}
 			}
 		}
-	
-		.pagination-container{
+
+		.pagination-container {
 			width: 25rem;
 			margin-bottom: 4rem;
 		}
