@@ -1,6 +1,6 @@
 <div class="sales-page container">
 	<div class="row">
-		<div class="col-2 vertical-nav">
+		{{!-- <div class="col-2 vertical-nav">
 			<h1 class="title">Sale pages</h1>
 			<hr>
 			<ul class="nav-list">
@@ -33,9 +33,13 @@
 				</li>
 				<hr>
 			</ul>
-		</div>
+		</div> --}}
+		{{>sales-page}}
 
 		<div class="col review-shop">
+			<h1 class='page-title'>
+        REVIEW
+      </h1>
 			<div class="row">
 				<div class="col-12 review-section">
 					{{#each evaluates}}
@@ -71,29 +75,31 @@
 									<div class="modal-content">
 										<div class="modal-header">
 											<h2 class="modal-title" id="exampleModalLabel">Evaluate the product</h2>
-											<button type="button" class="btn-close" data-bs-dismiss="modal"
-												aria-label="Close"></button>
+											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 										</div>
 										<div class="modal-body evaluate-body">
 											<form method='POST' class="reply-form" id="{{this._id}}"
 												action='/evaluate/review/{{this._id}}/reply'>
 												<div class="mb-3 review">
-													<label for="message-text"
-														class="col-form-label fw-bold">Comment:</label>
-													<textarea class="form-control input-size" cols='60' rows='10'
-														id="message-text" name='reply'
+													<label for="message-text" class="col-form-label fw-bold">Comment:</label>
+													<textarea class="form-control input-size" cols='60' rows='10' id="message-text" name='reply'
 														placeholder="Write to review..."></textarea>
 												</div>
 											</form>
 										</div>
 										<div class="modal-footer">
 											<button class="btn btn-secondary" data-bs-dismiss="modal">CLOSE</button>
-											<button class="btn btn-primary submit-btn"
-												form="{{this._id}}">SUBMIT</button>
+											<button class="btn btn-primary submit-btn" form="{{this._id}}">SUBMIT</button>
 										</div>
 									</div>
 								</div>
 							</div>
+						</div>
+					</div>
+					{{else}}
+					<div class="col">
+						<div class="announcement">
+							Không có đánh giá từ khách hàng
 						</div>
 					</div>
 					{{/each}}

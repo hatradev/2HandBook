@@ -2,7 +2,7 @@
 	<h1 class="title">Sale pages</h1>
 	<hr>
 	<ul class="nav-list">
-		<li class="nav-item">
+		<li class="nav-item" onclick="globalLink(event,'/product/dashboard')">
 			<a href="">
 				<i class="fa-solid fa-pen-to-square"></i>
 				<h2>Dashboard</h2>
@@ -10,21 +10,21 @@
 		</li>
 		<hr>
 		<li class="nav-item">
-			<a href="">
+			<a href="#" onclick="globalLink(event,'/product/manage')">
 				<i class="fa-solid fa-cart-shopping"></i>
 				<h2>Manage products</h2>
 			</a>
 		</li>
 		<hr>
 		<li class="nav-item">
-			<a href="#" onclick="globalLink('/order/manage-order')">
+			<a href="#" onclick="globalLink(event,'/order/manage-order')">
 				<i class="fa-solid fa-chart-simple"></i>
 				<h2>Manage orders</h2>
 			</a>
 		</li>
 		<hr>
 		<li class="nav-item">
-			<a href="#" onclick="globalLink('/evaluate/review')">
+			<a href="#" onclick="globalLink(event,'/evaluate/review')">
 				<i class="fa-solid fa-message"></i>
 				<h2>Reviews</h2>
 			</a>

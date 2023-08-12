@@ -2,7 +2,7 @@
   margin-top: 14rem;
 
   .manage-order {
-    height: 65rem;
+    min-height: 65rem;
     .page-title {
       padding: 2rem 0;
       text-transform: uppercase;
@@ -156,6 +156,13 @@
           }
         }
       }
+    }
+
+    .announcement{
+      justify-content: center;
+      display: flex;
+      margin-top: 3rem;
+      font-size: 1.6rem;
     }
   }
 }

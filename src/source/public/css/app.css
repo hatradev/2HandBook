@@ -815,7 +815,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
 
 .container-ext, .manage-product, .edit-product, .dashboard, .payment .delivery-addr {
   background-color: #fff;
-  margin-top: 17rem; }
+  margin-top: 2rem; }
 
 .breadcrumb-ext, .manage-product .manage-product-breadcrumb, .edit-product .edit-product-breadcrumb, .dashboard .dashboard-breadcrumb {
   font-size: 2rem;
@@ -825,7 +825,8 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
   padding: 2rem;
   margin: 2rem 0;
   border: 0.1rem solid #ccc;
-  font-size: 1.6rem; }
+  font-size: 1.6rem;
+  min-height: 60rem; }
 
 .select-container-ext, .manage-product .manage-product-select-container, .edit-product .product-category {
   position: relative; }
@@ -1436,7 +1437,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
 .sales-page {
   margin-top: 14rem; }
   .sales-page .manage-order {
-    height: 65rem; }
+    min-height: 65rem; }
     .sales-page .manage-order .page-title {
       padding: 2rem 0;
       text-transform: uppercase;
@@ -1522,6 +1523,11 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
         background-color: #e05e5e; }
       .sales-page .manage-order .modal.product-details .modal-dialog .modal-footer .btn-secondary {
         background-color: #3b99d7; }
+    .sales-page .manage-order .announcement {
+      justify-content: center;
+      display: flex;
+      margin-top: 3rem;
+      font-size: 1.6rem; }
 
 .form-group.invalid .form-control {
   border-style: solid;
@@ -2200,6 +2206,12 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
   .about-us p :last-child {
     margin-bottom: 0rem; }
 
+.sales-page .review-shop .page-title {
+  padding: 2rem 0;
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 700; }
+
 .sales-page .review-shop .row {
   margin-left: 2rem; }
   .sales-page .review-shop .row .review-section {
@@ -2253,6 +2265,11 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
       background-color: #337ab7;
       font-weight: bold;
       pointer-events: none; }
+    .sales-page .review-shop .row .review-section .announcement {
+      justify-content: center;
+      display: flex;
+      margin-top: 3rem;
+      font-size: 1.6rem; }
 
 .sales-page .review-shop .pagination-container {
   width: 25rem;
