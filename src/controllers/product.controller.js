@@ -243,9 +243,7 @@ class productController {
   // [GET] product/all-product
   showAllProduct = async (req, res, next) => {
     try {
-      let page = isNaN(req.query.page)
-        ? 1
-        : Math.max(1, parseInt(req.query.page));
+      let page = isNaN(req.query.page) ? 1 : Math.max(1, parseInt(req.query.page));
       const limit = 8;
       const products = await Product.find({})
         .skip((page - 1) * limit)
@@ -264,6 +262,7 @@ class productController {
       res.locals._numberOfItems = await Product.find().countDocuments();
       res.locals._limit = limit;
       res.locals._currentPage = page;
+
       res.locals.categories = categories;
       res.locals.products = mutipleMongooseToObject(products);
       res.render("all-product");
@@ -275,8 +274,13 @@ class productController {
   // [GET] product/all-product/category
   filterProduct = async (req, res, next) => {
     try {
+      let page = isNaN(req.query.page) ? 1 : Math.max(1, parseInt(req.query.page));
+      console.log(page)
+      const limit = 8;
+
       const type = req.query.category; //? req.query.category : 0
-      const products = await Product.find({ category: type });
+      const products = await Product.find({ category: type }).skip((page - 1) * limit)
+      .limit(limit)
       const categories = await Product.aggregate([
         {
           $group: {
@@ -288,6 +292,10 @@ class productController {
           $sort: { _id: 1 }, // Sắp xếp giảm dần dựa trên trường 'count'
         },
       ]);
+      res.locals._numberOfItems = await Product.find({ category: type }).countDocuments();
+      res.locals._limit = limit;
+      res.locals._currentPage = page;
+
       res.locals.categories = categories;
       res.locals.products = mutipleMongooseToObject(products);
 

@@ -21,7 +21,7 @@ class orderController {
       // const accountId = aOrder._id
       const accountId = req.user._id;
 
-      const orders = await Order.find({ idSeller: accountId })
+      const orders = await Order.find({ idSeller: accountId }).sort({ date: -1 })
         .populate("idAccount")
         .populate("detail.idProduct");
       const orderObject = mutipleMongooseToObject(orders);

@@ -6,8 +6,10 @@
         Sort by priority
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="#" onclick="linkSort('/product/all-product/sort?sort=price&order=1')">Low to high price</a></li>
-        <li><a class="dropdown-item" href="#" onclick="linkSort('/product/all-product/sort?sort=price&order=-1')">High to low price</a></li>
+        <li><a class="dropdown-item" href="#" onclick="linkSort('/product/all-product/sort?sort=price&order=1')">Low to
+            high price</a></li>
+        <li><a class="dropdown-item" href="#" onclick="linkSort('/product/all-product/sort?sort=price&order=-1')">High
+            to low price</a></li>
       </ul>
     </div>
   </div>
@@ -16,10 +18,10 @@
     <div class='col-3 filter-section'>
       <div class="form-search">
         <form class='search-bar pt-3 align-items-center' action="/product/all-product/search">
-          <input type='text' class='search-input col p-4' placeholder='Search...' name="keyword" required/>
+          <input type='text' class='search-input col p-4' placeholder='Search...' name="keyword" />
           <button class='search-icon-link'>
             <i class='fa-solid fa-magnifying-glass search-icon'></i>
-          <button/>
+            <button />
         </form>
       </div>
 
@@ -36,13 +38,14 @@
         <hr />
         {{/each}}
       </div>
+      {{!--
       <script>
-        let numberOfItems = {{_numberOfItems}};
-        let limit = {{_limit}};
-        let currentPage = {{_currentPage}};
+        let numberOfItems = {{ _numberOfItems }};
+        let limit = {{ _limit }};
+        let currentPage = {{ _currentPage }};
         let leftMost = currentPage - ((currentPage - 1) % 3);
       </script>
-      {{>pagination}}
+      {{>pagination}} --}}
     </div>
 
     <div class='col product-section'>
@@ -67,6 +70,15 @@
           </div>
           {{/each}}
         </div>
+        <div class="row">
+          <script>
+            let numberOfItems = {{ _numberOfItems }};
+            let limit = {{ _limit }};
+            let currentPage = {{ _currentPage }};
+            let leftMost = currentPage - ((currentPage - 1) % 3);
+          </script>
+          {{>pagination}}
+        </div>
       </section>
     </div>
   </div>
@@ -74,4 +86,5 @@
 
 <script src="/js/all-product.js"></script>
 <script src="/js/global-link.js"></script>
-{{!-- <script src="/js/test.js"></script> --}}
+{{!--
+<script src="/js/test.js"></script> --}}

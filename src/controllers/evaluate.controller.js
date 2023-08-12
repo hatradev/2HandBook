@@ -54,7 +54,9 @@ class evaluateController {
       const evaluates = await Evaluate.find({
         idAccount: idAccount,
         reply: "",
-      }).populate("idProduct");
+      }).sort({ date: -1 })
+      .populate("idProduct")
+
       res.locals.evaluates = mutipleMongooseToObject(evaluates);
       res.render("review-shop");
     } catch (error) {

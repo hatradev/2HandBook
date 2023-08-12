@@ -1448,25 +1448,17 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
         .all-product .filter-vs-product .product-section .trend .see-more-btn .trend-btn:hover {
           color: #fff;
           background-color: #337ab7; }
-    .all-product .filter-vs-product .pagination-container {
-      position: absolute;
-      width: 29rem;
-      margin: 2rem auto;
-      bottom: 0%;
-      right: 24%; }
-      .all-product .filter-vs-product .pagination-container .pagination {
-        margin-bottom: 0.6rem; }
 
 .sales-page {
   margin-top: 14rem; }
   .sales-page .manage-order {
-    min-height: 65rem;
     padding: 1rem 2rem; }
     .sales-page .manage-order .page-title {
       padding: 2rem 0;
       font-size: 2rem;
       font-weight: 500; }
     .sales-page .manage-order .table {
+      min-height: 65rem;
       margin-top: 1rem; }
       .sales-page .manage-order .table thead tr {
         text-align: center; }
@@ -1497,7 +1489,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 60vh; }
+      max-height: 40rem; }
       .sales-page .manage-order .modal.product-details .modal-dialog .modal-content .modal-header .modal-title {
         text-transform: uppercase;
         font-size: 1.8rem !important;
