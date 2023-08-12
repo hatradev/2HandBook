@@ -1,24 +1,23 @@
-const mongoose = require('mongoose');
-const product = require('./product.model');
-const account = require('./account.model');
+const mongoose = require("mongoose");
+const product = require("./product.model");
+const account = require("./account.model");
 
 const orderSchema = new mongoose.Schema({
   idAccount: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'account',
+    ref: "account",
     required: true,
   },
   idSeller: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'account',
-    default: '',
+    ref: "account",
     required: true,
   },
   detail: [
     {
       idProduct: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'product',
+        ref: "product",
         required: true,
       },
       quantity: {
@@ -33,7 +32,7 @@ const orderSchema = new mongoose.Schema({
   ],
   status: {
     type: String,
-    enum: ['cancelled', 'pending', 'successful'],
+    enum: ["cancelled", "pending", "successful"],
     required: true,
   },
   date: {
@@ -45,4 +44,4 @@ const orderSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model('order', orderSchema);
+module.exports = mongoose.model("order", orderSchema);

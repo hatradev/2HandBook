@@ -78,7 +78,7 @@ async function buildCartScreen(products) {
           currency: "VND",
         })}</span>
       </p>
-      <a class="btn text-uppercase" href="#" role="button">Pay for cart</a>
+      <a class="btn text-uppercase" href="/order/payment-for-cart" role="button">Pay for cart</a>
     `
     );
   } else {

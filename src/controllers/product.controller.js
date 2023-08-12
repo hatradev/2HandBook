@@ -117,11 +117,12 @@ class productController {
       } else {
         formData.image = "/img/products/default.png";
       }
-      const newProduct = await Product(formData);
-      newProduct.save();
+      // res.json(formData);
+      const newProduct = new Product(formData);
+      await newProduct.save();
+      // newProduct.save();
       res.render("message/processing-request");
     } catch (err) {
-      res.send(err);
       next(err);
     }
   };
@@ -421,14 +422,14 @@ class productController {
       for (const each of allProducts) {
         const account = await Account.findOne(
           { _id: each.idAccount },
-          'shopName'
+          "shopName"
         );
         each.shopName = account.shopName;
       }
       res.locals._numberOfItems = await Product.find().countDocuments();
       res.locals._limit = limit;
       res.locals._currentPage = page;
-      res.render('admin_product_all', {
+      res.render("admin_product_all", {
         products: allProducts,
         numOfProducts: allProducts.length,
       });
@@ -445,7 +446,7 @@ class productController {
         : Math.max(1, parseInt(req.query.page));
 
       const limit = 10;
-      const product1 = await Product.find({ status: 'Banned' })
+      const product1 = await Product.find({ status: "Banned" })
         .sort({ time: -1 })
         .skip((page - 1) * limit)
         .limit(limit);
@@ -453,16 +454,16 @@ class productController {
       for (const each of allProducts) {
         const account = await Account.findOne(
           { _id: each.idAccount },
-          'shopName'
+          "shopName"
         );
         each.shopName = account.shopName;
       }
       res.locals._numberOfItems = await Product.find({
-        status: 'banned',
+        status: "banned",
       }).countDocuments();
       res.locals._limit = limit;
       res.locals._currentPage = page;
-      res.render('admin_product_banned', {
+      res.render("admin_product_banned", {
         products: allProducts,
         numOfProducts: allProducts.length,
       });
@@ -479,7 +480,7 @@ class productController {
         : Math.max(1, parseInt(req.query.page));
 
       const limit = 10;
-      const product1 = await Product.find({ status: 'Pending' })
+      const product1 = await Product.find({ status: "Pending" })
         .sort({ time: -1 })
         .skip((page - 1) * limit)
         .limit(limit);
@@ -487,16 +488,16 @@ class productController {
       for (const each of allProducts) {
         const account = await Account.findOne(
           { _id: each.idAccount },
-          'shopName'
+          "shopName"
         );
         each.shopName = account.shopName;
       }
       res.locals._numberOfItems = await Product.find({
-        status: 'Pending',
+        status: "Pending",
       }).countDocuments();
       res.locals._limit = limit;
       res.locals._currentPage = page;
-      res.render('admin_product_pending', {
+      res.render("admin_product_pending", {
         products: allProducts,
         numOfProducts: allProducts.length,
       });
@@ -513,7 +514,7 @@ class productController {
         : Math.max(1, parseInt(req.query.page));
 
       const limit = 10;
-      const product1 = await Product.find({ status: 'Reported' })
+      const product1 = await Product.find({ status: "Reported" })
         .sort({ time: -1 })
         .skip((page - 1) * limit)
         .limit(limit);
@@ -521,16 +522,16 @@ class productController {
       for (const each of allProducts) {
         const account = await Account.findOne(
           { _id: each.idAccount },
-          'shopName'
+          "shopName"
         );
         each.shopName = account.shopName;
       }
       res.locals._numberOfItems = await Product.find({
-        status: 'Reported',
+        status: "Reported",
       }).countDocuments();
       res.locals._limit = limit;
       res.locals._currentPage = page;
-      res.render('admin_product_reported', {
+      res.render("admin_product_reported", {
         products: allProducts,
         numOfProducts: allProducts.length,
       });
@@ -547,7 +548,7 @@ class productController {
         : Math.max(1, parseInt(req.query.page));
 
       const limit = 10;
-      const product1 = await Product.find({ status: 'Trending' })
+      const product1 = await Product.find({ status: "Trending" })
         .sort({ time: -1 })
         .skip((page - 1) * limit)
         .limit(limit);
@@ -555,16 +556,16 @@ class productController {
       for (const each of allProducts) {
         const account = await Account.findOne(
           { _id: each.idAccount },
-          'shopName'
+          "shopName"
         );
         each.shopName = account.shopName;
       }
       res.locals._numberOfItems = await Product.find({
-        status: 'Trending',
+        status: "Trending",
       }).countDocuments();
       res.locals._limit = limit;
       res.locals._currentPage = page;
-      res.render('admin_product_trending', {
+      res.render("admin_product_trending", {
         products: allProducts,
         numOfProducts: allProducts.length,
       });
@@ -579,22 +580,22 @@ class productController {
     try {
       const product = await Product.findById(req.query.id);
       const type = req.query.type;
-      if (type == 'ban' || type == 'deny') {
+      if (type == "ban" || type == "deny") {
         // ban unban accept deny (request) remove (reported) acptrend denytrend
-        product.status = 'Banned';
-      } else if (type == 'unban' || type == 'remove' || type == 'accept') {
-        product.status = 'Available';
-      } else if (type == 'acptrend') {
-        product.status = 'Available';
+        product.status = "Banned";
+      } else if (type == "unban" || type == "remove" || type == "accept") {
+        product.status = "Available";
+      } else if (type == "acptrend") {
+        product.status = "Available";
         product.isTrend = true;
-      } else if (type == 'denytrend') {
-        product.status = 'Available';
+      } else if (type == "denytrend") {
+        product.status = "Pending";
         product.isTrend = false;
       } else {
-        product.status = 'Available';
+        product.status = "Available";
       }
       await product.save();
-      res.redirect('back');
+      res.redirect("back");
     } catch (err) {
       next(err);
     }
