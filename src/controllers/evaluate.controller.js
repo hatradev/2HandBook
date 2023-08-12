@@ -50,7 +50,8 @@ class evaluateController {
   // [GET] /sales-page/review
   showEvaluate = async (req, res, next) => {
     try {
-      const idAccount = await Account.findOne({}); //***
+      // const idAccount = await Account.findOne({}); //***
+      const idAccount = req.user._id //***
       const evaluates = await Evaluate.find({
         idAccount: idAccount,
         reply: "",
@@ -64,16 +65,20 @@ class evaluateController {
     }
   };
 
-  // [POST] /sales-page/:id/reply
+  // [POST] /evaluate/review/:id/reply
   replyEvaluate = async (req, res, next) => {
     try {
       const idEvaluate = req.params.id;
+      console.log(idEvaluate)
       const replyShop = req.body.reply;
-      await Evaluate.updateOne(
-        { _id: idEvaluate },
-        { $set: { reply: replyShop } }
-      );
-      res.redirect("back");
+      console.log(replyShop)
+      // await Evaluate.updateOne(
+      //   { _id: idEvaluate },
+      //   { $set: { reply: replyShop } }
+      // );
+      // res.redirect("back");
+      res.json({idEvaluate, replyShop})
+      
     } catch (error) {
       res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 1" });
     }

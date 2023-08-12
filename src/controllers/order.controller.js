@@ -20,6 +20,7 @@ class orderController {
       // const aOrder = await Account.findOne();
       // const accountId = aOrder._id
       const accountId = req.user._id;
+      // console.log(accountId)
 
       const orders = await Order.find({ idSeller: accountId }).sort({ date: -1 })
         .populate("idAccount")
@@ -32,16 +33,17 @@ class orderController {
         messages.push({ idOrder: i._id, message: i.message });
         for (var j of i.detail) {
           Object.assign(j, { idOrder: i._id });
-          var temp = [];
-          temp.push(j);
+          // var temp = [];
+          // temp.push(j);
           products.push(j);
         }
       }
       res.locals.orders = orderObject;
       res.locals.products = products;
-      // console.log(products)
       res.locals.messages = messages;
-      // res.json(products)
+      // console.log(products)
+      // res.json({products})
+
       res.render("manage-order");
     } catch (error) {
       res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 1" });

@@ -41,10 +41,10 @@
           {{/each}}
         </tbody>
       </table>
-       <script>
-        let numberOfItems = {{_numberOfItems}};
-        let limit = {{_limit}};
-        let currentPage = {{_currentPage}};
+      <script>
+        let numberOfItems = {{ _numberOfItems }};
+        let limit = {{ _limit }};
+        let currentPage = {{ _currentPage }};
         let leftMost = currentPage - ((currentPage - 1) % 3);
       </script>
       {{>pagination}}
@@ -73,6 +73,8 @@
                     </thead>
                     <tbody>
                       {{#each products}}
+                      {{#if this.idProduct}}
+                      <!-- Xử lý khi điều kiện đúng -->
                       <tr class="item-modal" data-id="{{this.idOrder}}">
                         <td>
                           <div class='img'>
@@ -86,6 +88,9 @@
                         <td>{{this.quantity}}</td>
                         <td>{{this.idProduct.price}}</td>
                       </tr>
+                      {{else}}
+                      <!-- Xử lý khi điều kiện sai -->
+                      {{/if}}
                       {{/each}}
                     </tbody>
                   </table>

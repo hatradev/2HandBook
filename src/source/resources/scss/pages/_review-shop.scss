@@ -52,6 +52,10 @@
             display: flex;
             justify-content: right;
 
+            .modal-content{
+              height: 41rem;
+            }
+
             .btn-close {
               width: 5rem;
             }

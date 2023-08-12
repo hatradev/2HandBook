@@ -1467,7 +1467,6 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
       font-size: 2rem;
       font-weight: 500; }
     .sales-page .manage-order .table {
-      min-height: 65rem;
       margin-top: 1rem; }
       .sales-page .manage-order .table thead tr {
         text-align: center; }
@@ -2287,6 +2286,8 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
       .sales-page .review-shop .row .review-section .card .card-footer {
         display: flex;
         justify-content: right; }
+        .sales-page .review-shop .row .review-section .card .card-footer .modal-content {
+          height: 41rem; }
         .sales-page .review-shop .row .review-section .card .card-footer .btn-close {
           width: 5rem; }
         .sales-page .review-shop .row .review-section .card .card-footer .modal-footer button {
