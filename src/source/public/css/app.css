@@ -1313,8 +1313,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
         font-size: 1.6rem; }
   .all-product .filter-vs-product {
     position: relative;
-    padding-top: 2.5rem;
-    height: 85rem; }
+    padding-top: 2.5rem; }
     .all-product .filter-vs-product .filter-section {
       background-color: #d9edf7; }
       .all-product .filter-vs-product .filter-section .search-bar {
@@ -1357,97 +1356,107 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
         background-color: #f6f6f6; }
         .all-product .filter-vs-product .filter-section .price-filter .filter-btn:hover {
           background-color: #337ab7; }
-      .all-product .filter-vs-product .filter-section .filter-type-list .list-title {
-        font-size: 2rem;
-        font-weight: 700;
-        text-transform: uppercase; }
-      .all-product .filter-vs-product .filter-section .filter-type-list .list-title + hr {
-        width: 42%; }
-      .all-product .filter-vs-product .filter-section .filter-type-list .type-item {
-        font-size: 1.6rem; }
-        .all-product .filter-vs-product .filter-section .filter-type-list .type-item a {
-          display: inline-block; }
-        .all-product .filter-vs-product .filter-section .filter-type-list .type-item a .type-name {
-          color: #31383e;
-          text-transform: capitalize; }
-        .all-product .filter-vs-product .filter-section .filter-type-list .type-item .number {
-          color: #31383e; }
-    .all-product .filter-vs-product .product-section .trend {
-      margin-top: 0; }
-      .all-product .filter-vs-product .product-section .trend .main-heading {
-        line-height: 3.5rem;
-        border-radius: 15px;
-        background: #337ab7;
-        color: #fff;
-        text-align: center;
-        height: 3.5rem;
-        width: 15vw; }
-      .all-product .filter-vs-product .product-section .trend .h2 {
-        display: inline-block; }
-      .all-product .filter-vs-product .product-section .trend .rectangle {
-        background: #337ab7;
-        height: 0.5rem;
-        padding: 0 0;
-        margin: auto 0; }
-      .all-product .filter-vs-product .product-section .trend .trend-row {
-        margin-top: 0; }
-        .all-product .filter-vs-product .product-section .trend .trend-row .announcement {
-          justify-content: center;
-          display: flex;
-          margin-top: 3rem;
-          font-size: 1.6rem; }
-      .all-product .filter-vs-product .product-section .trend .trend-card {
-        margin: 0;
-        border-radius: 0;
-        border: 1px solid #31383e;
-        margin-bottom: 1rem; }
-      .all-product .filter-vs-product .product-section .trend .trend-card-img {
-        background-color: #fff;
-        height: 24.3rem; }
-        .all-product .filter-vs-product .product-section .trend .trend-card-img .trend-prod-img {
-          float: left;
-          height: 100%;
-          object-fit: contain; }
-      .all-product .filter-vs-product .product-section .trend .trend-card-title {
-        color: #000;
-        font-family: Inter;
-        font-size: 1.5rem;
-        font-weight: 500;
-        padding: 0 0.5rem;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        height: 4.5rem; }
-      .all-product .filter-vs-product .product-section .trend .trend-card-price {
-        text-align: center;
-        color: #000;
-        font-weight: 700; }
-      .all-product .filter-vs-product .product-section .trend .trend-card-btn {
-        text-transform: uppercase;
-        border-radius: 0;
-        background: #31383e;
-        font-weight: 700;
-        color: #fff; }
-      .all-product .filter-vs-product .product-section .trend figure a.btn:link,
-      .all-product .filter-vs-product .product-section .trend figure a.btn:visited {
-        border-radius: 0;
-        background: #31383e; }
-      .all-product .filter-vs-product .product-section .trend .see-more-btn {
-        margin-top: 2rem;
-        margin-bottom: 8rem;
-        display: flex;
-        align-items: center;
-        justify-content: center; }
-        .all-product .filter-vs-product .product-section .trend .see-more-btn .trend-btn {
-          width: 15vw;
-          text-transform: uppercase;
+      .all-product .filter-vs-product .filter-section .filter-type-list {
+        height: 100%; }
+        .all-product .filter-vs-product .filter-section .filter-type-list .list-title {
+          font-size: 2rem;
           font-weight: 700;
-          border: 3px solid #337ab7;
-          background: #fff;
+          text-transform: uppercase; }
+        .all-product .filter-vs-product .filter-section .filter-type-list .list-title + hr {
+          width: 42%; }
+        .all-product .filter-vs-product .filter-section .filter-type-list .type-item {
+          font-size: 1.6rem; }
+          .all-product .filter-vs-product .filter-section .filter-type-list .type-item a {
+            display: inline-block; }
+          .all-product .filter-vs-product .filter-section .filter-type-list .type-item a .type-name {
+            color: #31383e;
+            text-transform: capitalize; }
+          .all-product .filter-vs-product .filter-section .filter-type-list .type-item .number {
+            color: #31383e; }
+    .all-product .filter-vs-product .product-section {
+      height: 100%; }
+      .all-product .filter-vs-product .product-section .trend {
+        margin-top: 0;
+        margin-bottom: 0; }
+        .all-product .filter-vs-product .product-section .trend .pagination-container {
+          width: 30rem;
+          margin-bottom: 2rem;
+          margin-top: 2rem; }
+        .all-product .filter-vs-product .product-section .trend .main-heading {
+          line-height: 3.5rem;
           border-radius: 15px;
-          color: #337ab7; }
-        .all-product .filter-vs-product .product-section .trend .see-more-btn .trend-btn:hover {
+          background: #337ab7;
           color: #fff;
-          background-color: #337ab7; }
+          text-align: center;
+          height: 3.5rem;
+          width: 15vw; }
+        .all-product .filter-vs-product .product-section .trend .h2 {
+          display: inline-block; }
+        .all-product .filter-vs-product .product-section .trend .rectangle {
+          background: #337ab7;
+          height: 0.5rem;
+          padding: 0 0;
+          margin: auto 0; }
+        .all-product .filter-vs-product .product-section .trend .trend-row {
+          margin-top: 0;
+          height: 76rem; }
+          .all-product .filter-vs-product .product-section .trend .trend-row .announcement {
+            justify-content: center;
+            display: flex;
+            margin-top: 3rem;
+            font-size: 1.6rem; }
+        .all-product .filter-vs-product .product-section .trend .trend-card {
+          margin: 0;
+          border-radius: 0;
+          border: 1px solid #31383e;
+          margin-bottom: 1rem; }
+        .all-product .filter-vs-product .product-section .trend .trend-card-img {
+          background-color: #fff;
+          height: 24.3rem; }
+          .all-product .filter-vs-product .product-section .trend .trend-card-img .trend-prod-img {
+            float: left;
+            height: 100%;
+            object-fit: contain; }
+        .all-product .filter-vs-product .product-section .trend .trend-card-title {
+          color: #000;
+          font-family: Inter;
+          font-size: 1.5rem;
+          font-weight: 500;
+          padding: 0 0.5rem;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          height: 4.5rem; }
+        .all-product .filter-vs-product .product-section .trend .trend-card-price {
+          text-align: center;
+          color: #000;
+          font-weight: 700; }
+        .all-product .filter-vs-product .product-section .trend .trend-card-btn {
+          text-transform: uppercase;
+          border-radius: 0;
+          background: #31383e;
+          font-weight: 700;
+          color: #fff; }
+        .all-product .filter-vs-product .product-section .trend figure a.btn:link,
+        .all-product .filter-vs-product .product-section .trend figure a.btn:visited {
+          border-radius: 0;
+          background: #31383e; }
+        .all-product .filter-vs-product .product-section .trend .see-more-btn {
+          margin-top: 2rem;
+          margin-bottom: 8rem;
+          display: flex;
+          align-items: center;
+          justify-content: center; }
+          .all-product .filter-vs-product .product-section .trend .see-more-btn .trend-btn {
+            width: 15vw;
+            text-transform: uppercase;
+            font-weight: 700;
+            border: 3px solid #337ab7;
+            background: #fff;
+            border-radius: 15px;
+            color: #337ab7; }
+          .all-product .filter-vs-product .product-section .trend .see-more-btn .trend-btn:hover {
+            color: #fff;
+            background-color: #337ab7; }
 
 .sales-page {
   margin-top: 14rem; }

@@ -3,8 +3,8 @@
 		{{>sales-page}}
 		<div class="col review-shop">
 			<h1 class='page-title'>
-        Reviews
-      </h1>
+				Reviews
+			</h1>
 			<div class="row">
 				<div class="col-12 review-section">
 					{{#each evaluates}}
@@ -40,21 +40,25 @@
 									<div class="modal-content">
 										<div class="modal-header">
 											<h2 class="modal-title" id="exampleModalLabel">Evaluate the product</h2>
-											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+											<button type="button" class="btn-close" data-bs-dismiss="modal"
+												aria-label="Close"></button>
 										</div>
 										<div class="modal-body evaluate-body">
 											<form method='POST' class="reply-form" id="{{this._id}}"
 												action='/evaluate/review/{{this._id}}/reply'>
 												<div class="mb-3 review">
-													<label for="message-text" class="col-form-label fw-bold">Comment:</label>
-													<textarea class="form-control input-size" cols='60' rows='10' id="message-text" name='reply'
+													<label for="message-text"
+														class="col-form-label fw-bold">Comment:</label>
+													<textarea class="form-control input-size" cols='60' rows='10'
+														id="message-text" name='reply'
 														placeholder="Write to review..."></textarea>
 												</div>
 											</form>
 										</div>
 										<div class="modal-footer">
 											<button class="btn btn-secondary" data-bs-dismiss="modal">CLOSE</button>
-											<button class="btn btn-primary submit-btn" form="{{this._id}}">SUBMIT</button>
+											<button class="btn btn-primary submit-btn"
+												form="{{this._id}}">SUBMIT</button>
 										</div>
 									</div>
 								</div>
@@ -71,9 +75,9 @@
 				</div>
 				<div class="col">
 					<script>
-						let numberOfItems = {{_numberOfItems}};
-						let limit = {{_limit}};
-						let currentPage = {{_currentPage}};
+						let numberOfItems = {{ _numberOfItems }};
+						let limit = {{ _limit }};
+						let currentPage = {{ _currentPage }};
 						let leftMost = currentPage - ((currentPage - 1) % 3);
 					</script>
 					{{>pagination}}

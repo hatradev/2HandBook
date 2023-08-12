@@ -280,7 +280,7 @@ class productController {
 
       const type = req.query.category; //? req.query.category : 0
       const products = await Product.find({ category: type }).skip((page - 1) * limit)
-      .limit(limit)
+        .limit(limit)
       const categories = await Product.aggregate([
         {
           $group: {
@@ -308,6 +308,10 @@ class productController {
   // [GET] product/all-product/sort
   sortProduct = async (req, res, next) => {
     try {
+      let page = isNaN(req.query.page) ? 1 : Math.max(1, parseInt(req.query.page));
+      console.log(page)
+      const limit = 8;
+
       const type = req.query.sort;
       const order = req.query.order;
       let options = {};
@@ -320,7 +324,9 @@ class productController {
         options.name = regex;
       }
 
-      const products = await Product.find(options).sort({ [type]: order });
+      const products = await Product.find(options).sort({ [type]: order })
+        .skip((page - 1) * limit)
+        .limit(limit)
       const categories = await Product.aggregate([
         {
           $group: {
@@ -332,6 +338,10 @@ class productController {
           $sort: { _id: 1 },
         },
       ]);
+
+      res.locals._numberOfItems = await Product.find(options).countDocuments();
+      res.locals._limit = limit;
+      res.locals._currentPage = page;
       res.locals.categories = categories;
       res.locals.products = mutipleMongooseToObject(products);
 
@@ -344,10 +354,16 @@ class productController {
   // [GET] product/all-product/search
   searchProduct = async (req, res, next) => {
     try {
+      let page = isNaN(req.query.page) ? 1 : Math.max(1, parseInt(req.query.page));
+      console.log(page)
+      const limit = 8;
+
       const keyword = req.query.keyword || "";
       if (keyword.trim() != "") {
         const regex = new RegExp(keyword, "i");
-        const products = await Product.find({ name: regex });
+        const products = await Product.find({ name: regex })
+          .skip((page - 1) * limit)
+          .limit(limit)
 
         const categories = await Product.aggregate([
           {
@@ -360,6 +376,9 @@ class productController {
             $sort: { _id: 1 },
           },
         ]);
+        res.locals._numberOfItems = await Product.find({ name: regex }).countDocuments();
+        res.locals._limit = limit;
+        res.locals._currentPage = page;
 
         res.locals.categories = categories;
         res.locals.products = mutipleMongooseToObject(products);

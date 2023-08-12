@@ -21,7 +21,7 @@
   .filter-vs-product {
     position: relative;
     padding-top: 2.5rem;
-    height: 85rem;
+    // height: 85rem;
 
     .filter-section {
       // height: 37rem;
@@ -88,6 +88,7 @@
       }
 
       .filter-type-list {
+        height: 100%;
         .list-title {
           font-size: 2rem;
           font-weight: 700;
@@ -118,8 +119,16 @@
     }
 
     .product-section {
+      height: 100%;
       .trend {
         margin-top: 0;
+        margin-bottom: 0;
+
+        .pagination-container {
+          width: 30rem;
+          margin-bottom: 2rem;
+          margin-top: 2rem;
+        }
 
         .main-heading {
           line-height: 3.5rem;
@@ -144,6 +153,7 @@
 
         .trend-row {
           margin-top: 0;
+          height: 76rem;
           .announcement {
             justify-content: center;
             display: flex;
@@ -226,18 +236,6 @@
           }
         }
       }
-    }
-
-    .pagination-container {
-      // position: absolute;
-      // width: 29rem;
-      // margin: 2rem auto;
-      // bottom: 0%;
-      // right: 24%;
-
-      // .pagination {
-      //   margin-bottom: 0.6rem;
-      // }
     }
   }
 }

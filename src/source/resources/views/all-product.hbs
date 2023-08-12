@@ -1,5 +1,8 @@
 <div class='all-product container'>
-  <div class='sort-section d-flex justify-content-end'>
+  <div class='sort-section d-flex justify-content-between align-items-center'>
+    <h1 class='page-title' style="margin-left: -0.9rem; font-weight: 600;">
+      ALL PRODUCTS
+    </h1>
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
         aria-expanded="false">
@@ -38,14 +41,6 @@
         <hr />
         {{/each}}
       </div>
-      {{!--
-      <script>
-        let numberOfItems = {{ _numberOfItems }};
-        let limit = {{ _limit }};
-        let currentPage = {{ _currentPage }};
-        let leftMost = currentPage - ((currentPage - 1) % 3);
-      </script>
-      {{>pagination}} --}}
     </div>
 
     <div class='col product-section'>
@@ -63,7 +58,7 @@
             </div>
           </div>
           {{else}}
-          <div class="col">
+          <div class="col-12">
             <div class="announcement">
               Không có sản phẩm phù hợp
             </div>

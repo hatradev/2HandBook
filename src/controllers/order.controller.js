@@ -39,8 +39,9 @@ class orderController {
       }
       res.locals.orders = orderObject;
       res.locals.products = products;
+      // console.log(products)
       res.locals.messages = messages;
-
+      // res.json(products)
       res.render("manage-order");
     } catch (error) {
       res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 1" });
