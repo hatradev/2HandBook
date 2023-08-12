@@ -31,6 +31,7 @@
     }
 
     .details-item {
+      font-family: "Inter", sans-serif;
       .intro {
         position: relative;
         .report-section {
@@ -67,6 +68,7 @@
           max-height: 7.2rem;
           overflow: hidden;
           text-overflow: ellipsis;
+          max-width: 40rem;
         }
 
         .product-price {
@@ -137,6 +139,7 @@
           text-transform: uppercase;
           background: #d2e6ef;
           color: #000;
+          font-family: $font-family-primary;
 
           &:hover {
             border-radius: 0.5rem;
@@ -151,6 +154,7 @@
           padding: 1rem 0;
           background: $color-primary-shade;
           color: #fff;
+          font-family: $font-family-primary;
         }
       }
     }

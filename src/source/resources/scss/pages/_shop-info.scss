@@ -1,144 +1,135 @@
 :root {
-    --grey: #F6F6F6;
-    --dark-blue: #337ab7;
-    --light-blue: #D9EDF7;
-}
-
-.button {
-    font-size: 1.6rem;
-    font-weight: 500;
-    border-radius: 0.5rem;
-    padding: 0.5rem 0rem;
-    transition: all 0.3s;
-    text-align: center;
-    width: calc(50% - 3rem);
-
-    background-color: var(--light-blue);
-    color: black;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    margin-right: 3rem;
-
-    &:hover {
-        background-color: var(--dark-blue);
-        color: white;
-    }
-}
-.button:last-child {
-    margin-right: 0;
-}
-.button.clicked {
-    background-color: var(--dark-blue);
-    color: white;
-    &:hover {
-        background-color: var(--light-blue);
-        color: black;
-    }
+  --grey: #f6f6f6;
+  --dark-blue: #337ab7;
+  --light-blue: #d9edf7;
 }
 
 .shop-info {
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 320px;
-    padding-right: 320px;
-    padding-top: 210px;
-    padding-bottom: 210px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 32rem;
+  padding-right: 32rem;
+  padding-top: 21rem;
+  padding-bottom: 5rem;
+  font-size: 2rem;
 
-    .info {
+  .trend {
+    margin-bottom: 5rem;
+  }
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: calc(2%) 0;
+    box-sizing: border-box;
+    background-color: var(--grey);
+
+    .logo-section {
+      display: flex;
+      .shop-logo {
+        width: 9rem;
+        height: 9rem;
+        border-radius: 50%;
+        margin-right: 4.5rem;
+        display: inline-block;
+      }
+
+      .name-report {
+        display: inline-block;
+
+        .shop-name {
+          font-size: 2.7rem;
+          font-weight: bold;
+        }
+
+        .button {
+          font-size: 2rem;
+          font-weight: 500;
+          border-radius: 0.5rem;
+          padding: 0.5rem 0rem;
+          transition: all 0.3s;
+          text-align: center;
+          width: calc(100%);
+          min-width: 10.5rem;
+          background-color: var(--light-blue);
+          color: black;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+          margin-top: 1.7rem;
+          margin-right: 3rem;
+
+          &:hover {
+            background-color: var(--dark-blue);
+            color: white;
+          }
+        }
+
+        .button:last-child {
+          margin-right: 0;
+        }
+
+        .button.clicked {
+          background-color: var(--dark-blue);
+          color: white;
+
+          &:hover {
+            background-color: var(--light-blue);
+            color: black;
+          }
+        }
+
+        .follow-button.followed {
+          background-color: #337ab7;
+          color: white;
+        }
+      }
+    }
+
+    .info-section {
+      font-size: 2rem;
+
+      .info-row {
         display: flex;
-        margin-bottom: 25px;
-        height: 15rem;
+        justify-content: space-between;
 
-        .info-col {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 10px;
-            box-sizing: border-box;
-            background-color: var(--grey);
-
-            .logo-section {
-                display: flex;
-                align-items: center;
-                margin-left: 1.5rem;
-
-                .shop-logo {
-                    width: 65px;
-                    height: 65px;
-                    border-radius: 50%;
-                    margin-right: 17px;
-                    display: inline-block;
-                }
-
-                .name-online {
-                    display: inline-block;
-
-                    .shop-name {
-                        font-size: 24px;
-                        font-weight: bold;
-                    }
-
-                    .last-online {
-                        margin-top: 0;
-                        margin-bottom: 0;
-                        color: #337ab7;
-                    }
-                }
-            }
-
-            .follow-chat {
-                display: flex;
-                justify-content: center;
-                margin-top: 1.5rem;
-    
-                .follow-button.followed {
-                    background-color: #337ab7;
-                    color: white;
-                }
-            }
-
-            .info-text {
-                margin-left: 1.5rem;
-                font-size: 1.7rem;
-                
-                p:not(:last-child) {
-                    padding-bottom: 0.9rem;
-                }
-            }
+        .category {
+          font-weight: 500;
         }
 
-        .info-col:not(:last-child) {
-            margin-right: 20px;
+        .content {
+          margin-left: 7rem;
         }
+      }
+      .info-row:not(:last-child) {
+        padding-bottom: 0.7rem;
+      }
     }
-
-    .discounts {
-        display: flex;
-        overflow-x: auto;
-        gap: 20px;
-
-        .discount {
-            background-color: var(--grey);
-            padding: 2.5rem;
-            min-width: 200px;
-            flex: 0 0 calc(33.33% - 13px);
-
-            h3, p {
-                padding-bottom: 0.9rem;
-            }
-        }
+  }
+  .trend-card-btn.btn {
+    background-color: $color-text-dark;
+    border-radius: 0;
+    &:hover {
+      background-color: $color-text-dark;
     }
-
-    .discounts::-webkit-scrollbar {
-        height: 10px;
-        /* Width of the scrollbar */
+  }
+  .card {
+    margin-bottom: 2rem;
+    cursor: pointer;
+    .trend-prod-img {
+      object-fit: contain;
+      height: 30rem;
     }
-
-    /* Style the scrollbar thumb (the draggable part) */
-    .discounts::-webkit-scrollbar-thumb {
-        background-color: #c0c0c0;
-        /* Color of the scrollbar thumb */
-        border-radius: 8px;
-        /* Rounded corners for the thumb */
+    .trend-card-title {
+      padding: 1rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.8rem;
+      font-size: 1.6rem;
     }
+    .trend-card-price {
+      padding-bottom: 1rem;
+    }
+  }
 }

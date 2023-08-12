@@ -69,9 +69,18 @@
     @include abs-pos(calc(100% + 2rem), -100%);
     background-color: $color-white;
     min-width: 50rem;
-    min-height: 40rem;
+    max-height: 40rem;
+    overflow: scroll;
     box-shadow: 0 0 1rem 0 $color-text-grey;
     padding: 0.5rem;
+    user-select: none;
+    transition: all ease-in 0.5s;
+    // hide scrollbar but allow scrolling
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     .announce-link {
       display: inline-block;
@@ -80,6 +89,10 @@
       border: 0.4rem solid $color-white;
       border-bottom: 0.1rem solid $color-border;
       padding: 1rem;
+      width: 100%;
+      &:hover {
+        background-color: darken($color: $color-text-light, $amount: 5);
+      }
     }
 
     .announce-link.unread {

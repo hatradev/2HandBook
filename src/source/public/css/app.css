@@ -83,7 +83,8 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
     line-height: 3rem; }
 
 .pagination-description {
-  color: #757575; }
+  color: #757575;
+  font-size: 1.6rem; }
 
 .sales-page {
   margin-top: 14rem; }
@@ -174,16 +175,26 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
     right: -100%;
     background-color: #fff;
     min-width: 50rem;
-    min-height: 40rem;
+    max-height: 40rem;
+    overflow: scroll;
     box-shadow: 0 0 1rem 0 #757575;
-    padding: 0.5rem; }
+    padding: 0.5rem;
+    user-select: none;
+    transition: all ease-in 0.5s;
+    scrollbar-width: none;
+    -ms-overflow-style: none; }
+    .header .announce-list::-webkit-scrollbar {
+      display: none; }
     .header .announce-list .announce-link {
       display: inline-block;
       padding: 0.4rem;
       position: relative;
       border: 0.4rem solid #fff;
       border-bottom: 0.1rem solid #ccc;
-      padding: 1rem; }
+      padding: 1rem;
+      width: 100%; }
+      .header .announce-list .announce-link:hover {
+        background-color: #e9e9e9; }
     .header .announce-list .announce-link.unread {
       background-color: #f6f6f6; }
       .header .announce-list .announce-link.unread::before {
@@ -1084,82 +1095,87 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
         justify-content: center; }
         .specific-product .payment-section .img-item a .img-product {
           width: 35rem; }
-    .specific-product .payment-section .details-item .intro {
-      position: relative; }
-      .specific-product .payment-section .details-item .intro .report-section {
-        position: absolute;
-        font-size: 2.6rem;
-        font-weight: 400;
-        padding: 1rem;
-        top: -4%;
-        right: 2%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        cursor: pointer; }
-        .specific-product .payment-section .details-item .intro .report-section button {
-          display: none;
-          background-color: rgba(59, 153, 215, 0.7);
-          border-radius: 5px;
-          width: 6.8rem;
-          height: 3.3rem;
+    .specific-product .payment-section .details-item {
+      font-family: "Inter", sans-serif; }
+      .specific-product .payment-section .details-item .intro {
+        position: relative; }
+        .specific-product .payment-section .details-item .intro .report-section {
+          position: absolute;
+          font-size: 2.6rem;
+          font-weight: 400;
+          padding: 1rem;
+          top: -4%;
+          right: 2%;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          cursor: pointer; }
+          .specific-product .payment-section .details-item .intro .report-section button {
+            display: none;
+            background-color: rgba(59, 153, 215, 0.7);
+            border-radius: 5px;
+            width: 6.8rem;
+            height: 3.3rem;
+            font-size: 1.5rem;
+            transition: all 0.6s ease; }
+          .specific-product .payment-section .details-item .intro .report-section:hover button {
+            display: block; }
+        .specific-product .payment-section .details-item .intro .product-name {
+          font-size: 3rem;
+          font-weight: 700;
+          margin-bottom: 1rem;
+          max-height: 7.2rem;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 40rem; }
+        .specific-product .payment-section .details-item .intro .product-price {
+          font-size: 2.5rem; }
+        .specific-product .payment-section .details-item .intro .rating .score {
+          font-size: 1.5rem; }
+        .specific-product .payment-section .details-item .intro .rating .rating-star i {
           font-size: 1.5rem;
-          transition: all 0.6s ease; }
-        .specific-product .payment-section .details-item .intro .report-section:hover button {
-          display: block; }
-      .specific-product .payment-section .details-item .intro .product-name {
-        font-size: 3rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        max-height: 7.2rem;
-        overflow: hidden;
-        text-overflow: ellipsis; }
-      .specific-product .payment-section .details-item .intro .product-price {
-        font-size: 2.5rem; }
-      .specific-product .payment-section .details-item .intro .rating .score {
-        font-size: 1.5rem; }
-      .specific-product .payment-section .details-item .intro .rating .rating-star i {
-        font-size: 1.5rem;
-        color: #f1e909; }
-      .specific-product .payment-section .details-item .intro .rating .number {
-        margin-left: 12px;
-        font-size: 1.5rem; }
-    .specific-product .payment-section .details-item .details-product {
-      margin-top: 2rem; }
-      .specific-product .payment-section .details-item .details-product span {
-        font-size: 1.8rem; }
-      .specific-product .payment-section .details-item .details-product .details-list {
-        font-size: 1.5rem;
-        margin-left: 2rem;
-        margin-top: 0 !important; }
-        .specific-product .payment-section .details-item .details-product .details-list li {
-          margin-bottom: 0.2rem; }
-    .specific-product .payment-section .details-item .adjust-quantity {
-      margin-top: 4.8rem; }
-      .specific-product .payment-section .details-item .adjust-quantity .quantity {
-        line-height: 2.5rem; }
-      .specific-product .payment-section .details-item .adjust-quantity .adjust-icon .btn:nth-child(2) {
-        margin-left: 0.5rem; }
-      .specific-product .payment-section .details-item .adjust-quantity .available-product {
-        line-height: 2.5rem; }
-    .specific-product .payment-section .details-item .payment-btn-section {
-      margin-top: 2.4rem; }
-      .specific-product .payment-section .details-item .payment-btn-section .add-cart-btn {
-        width: 16rem;
-        padding: 1rem 0;
-        text-transform: uppercase;
-        background: #d2e6ef;
-        color: #000; }
-        .specific-product .payment-section .details-item .payment-btn-section .add-cart-btn:hover {
-          border-radius: 0.5rem;
-          box-shadow: 0 0 0 0.2rem #337ab7 inset;
-          transition: all 0.3s; }
-      .specific-product .payment-section .details-item .payment-btn-section .payment-btn {
-        width: 22rem;
-        margin-left: 2rem;
-        padding: 1rem 0;
-        background: #337ab7;
-        color: #fff; }
+          color: #f1e909; }
+        .specific-product .payment-section .details-item .intro .rating .number {
+          margin-left: 12px;
+          font-size: 1.5rem; }
+      .specific-product .payment-section .details-item .details-product {
+        margin-top: 2rem; }
+        .specific-product .payment-section .details-item .details-product span {
+          font-size: 1.8rem; }
+        .specific-product .payment-section .details-item .details-product .details-list {
+          font-size: 1.5rem;
+          margin-left: 2rem;
+          margin-top: 0 !important; }
+          .specific-product .payment-section .details-item .details-product .details-list li {
+            margin-bottom: 0.2rem; }
+      .specific-product .payment-section .details-item .adjust-quantity {
+        margin-top: 4.8rem; }
+        .specific-product .payment-section .details-item .adjust-quantity .quantity {
+          line-height: 2.5rem; }
+        .specific-product .payment-section .details-item .adjust-quantity .adjust-icon .btn:nth-child(2) {
+          margin-left: 0.5rem; }
+        .specific-product .payment-section .details-item .adjust-quantity .available-product {
+          line-height: 2.5rem; }
+      .specific-product .payment-section .details-item .payment-btn-section {
+        margin-top: 2.4rem; }
+        .specific-product .payment-section .details-item .payment-btn-section .add-cart-btn {
+          width: 16rem;
+          padding: 1rem 0;
+          text-transform: uppercase;
+          background: #d2e6ef;
+          color: #000;
+          font-family: "Ubuntu", sans-serif; }
+          .specific-product .payment-section .details-item .payment-btn-section .add-cart-btn:hover {
+            border-radius: 0.5rem;
+            box-shadow: 0 0 0 0.2rem #337ab7 inset;
+            transition: all 0.3s; }
+        .specific-product .payment-section .details-item .payment-btn-section .payment-btn {
+          width: 22rem;
+          margin-left: 2rem;
+          padding: 1rem 0;
+          background: #337ab7;
+          color: #fff;
+          font-family: "Ubuntu", sans-serif; }
   .specific-product .comment-section .comment-item .trend {
     margin-top: 2rem;
     margin-bottom: 3rem; }
@@ -1784,108 +1800,100 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
   color: rgba(0, 0, 0, 0.598); }
 
 :root {
-  --grey: #F6F6F6;
+  --grey: #f6f6f6;
   --dark-blue: #337ab7;
-  --light-blue: #D9EDF7; }
-
-.button {
-  font-size: 1.6rem;
-  font-weight: 500;
-  border-radius: 0.5rem;
-  padding: 0.5rem 0rem;
-  transition: all 0.3s;
-  text-align: center;
-  width: calc(50% - 3rem);
-  background-color: var(--light-blue);
-  color: black;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  margin-right: 3rem; }
-  .button:hover {
-    background-color: var(--dark-blue);
-    color: white; }
-
-.button:last-child {
-  margin-right: 0; }
-
-.button.clicked {
-  background-color: var(--dark-blue);
-  color: white; }
-  .button.clicked:hover {
-    background-color: var(--light-blue);
-    color: black; }
+  --light-blue: #d9edf7; }
 
 .shop-info {
   margin-left: auto;
   margin-right: auto;
-  padding-left: 320px;
-  padding-right: 320px;
-  padding-top: 210px;
-  padding-bottom: 210px;
-  /* Style the scrollbar thumb (the draggable part) */ }
-  .shop-info .info {
+  padding-left: 32rem;
+  padding-right: 32rem;
+  padding-top: 21rem;
+  padding-bottom: 5rem;
+  font-size: 2rem; }
+  .shop-info .trend {
+    margin-bottom: 5rem; }
+  .shop-info .column {
     display: flex;
-    margin-bottom: 25px;
-    height: 15rem; }
-    .shop-info .info .info-col {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 10px;
-      box-sizing: border-box;
-      background-color: var(--grey); }
-      .shop-info .info .info-col .logo-section {
-        display: flex;
-        align-items: center;
-        margin-left: 1.5rem; }
-        .shop-info .info .info-col .logo-section .shop-logo {
-          width: 65px;
-          height: 65px;
-          border-radius: 50%;
-          margin-right: 17px;
-          display: inline-block; }
-        .shop-info .info .info-col .logo-section .name-online {
-          display: inline-block; }
-          .shop-info .info .info-col .logo-section .name-online .shop-name {
-            font-size: 24px;
-            font-weight: bold; }
-          .shop-info .info .info-col .logo-section .name-online .last-online {
-            margin-top: 0;
-            margin-bottom: 0;
-            color: #337ab7; }
-      .shop-info .info .info-col .follow-chat {
-        display: flex;
-        justify-content: center;
-        margin-top: 1.5rem; }
-        .shop-info .info .info-col .follow-chat .follow-button.followed {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: calc(2%) 0;
+    box-sizing: border-box;
+    background-color: var(--grey); }
+    .shop-info .column .logo-section {
+      display: flex; }
+      .shop-info .column .logo-section .shop-logo {
+        width: 9rem;
+        height: 9rem;
+        border-radius: 50%;
+        margin-right: 4.5rem;
+        display: inline-block; }
+      .shop-info .column .logo-section .name-report {
+        display: inline-block; }
+        .shop-info .column .logo-section .name-report .shop-name {
+          font-size: 2.7rem;
+          font-weight: bold; }
+        .shop-info .column .logo-section .name-report .button {
+          font-size: 2rem;
+          font-weight: 500;
+          border-radius: 0.5rem;
+          padding: 0.5rem 0rem;
+          transition: all 0.3s;
+          text-align: center;
+          width: calc(100%);
+          min-width: 10.5rem;
+          background-color: var(--light-blue);
+          color: black;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+          margin-top: 1.7rem;
+          margin-right: 3rem; }
+          .shop-info .column .logo-section .name-report .button:hover {
+            background-color: var(--dark-blue);
+            color: white; }
+        .shop-info .column .logo-section .name-report .button:last-child {
+          margin-right: 0; }
+        .shop-info .column .logo-section .name-report .button.clicked {
+          background-color: var(--dark-blue);
+          color: white; }
+          .shop-info .column .logo-section .name-report .button.clicked:hover {
+            background-color: var(--light-blue);
+            color: black; }
+        .shop-info .column .logo-section .name-report .follow-button.followed {
           background-color: #337ab7;
           color: white; }
-      .shop-info .info .info-col .info-text {
-        margin-left: 1.5rem;
-        font-size: 1.7rem; }
-        .shop-info .info .info-col .info-text p:not(:last-child) {
-          padding-bottom: 0.9rem; }
-    .shop-info .info .info-col:not(:last-child) {
-      margin-right: 20px; }
-  .shop-info .discounts {
-    display: flex;
-    overflow-x: auto;
-    gap: 20px; }
-    .shop-info .discounts .discount {
-      background-color: var(--grey);
-      padding: 2.5rem;
-      min-width: 200px;
-      flex: 0 0 calc(33.33% - 13px); }
-      .shop-info .discounts .discount h3, .shop-info .discounts .discount p {
-        padding-bottom: 0.9rem; }
-  .shop-info .discounts::-webkit-scrollbar {
-    height: 10px;
-    /* Width of the scrollbar */ }
-  .shop-info .discounts::-webkit-scrollbar-thumb {
-    background-color: #c0c0c0;
-    /* Color of the scrollbar thumb */
-    border-radius: 8px;
-    /* Rounded corners for the thumb */ }
+    .shop-info .column .info-section {
+      font-size: 2rem; }
+      .shop-info .column .info-section .info-row {
+        display: flex;
+        justify-content: space-between; }
+        .shop-info .column .info-section .info-row .category {
+          font-weight: 500; }
+        .shop-info .column .info-section .info-row .content {
+          margin-left: 7rem; }
+      .shop-info .column .info-section .info-row:not(:last-child) {
+        padding-bottom: 0.7rem; }
+  .shop-info .trend-card-btn.btn {
+    background-color: #31383e;
+    border-radius: 0; }
+    .shop-info .trend-card-btn.btn:hover {
+      background-color: #31383e; }
+  .shop-info .card {
+    margin-bottom: 2rem;
+    cursor: pointer; }
+    .shop-info .card .trend-prod-img {
+      object-fit: contain;
+      height: 30rem; }
+    .shop-info .card .trend-card-title {
+      padding: 1rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.8rem;
+      font-size: 1.6rem; }
+    .shop-info .card .trend-card-price {
+      padding-bottom: 1rem; }
 
 .payment {
   min-height: 100vh; }

@@ -89,6 +89,13 @@ app.use((req, res, next) => {
     res.locals._id = req.user._id;
     res.locals._firstName = req.user.firstName;
     require("../middleware/cartInit")(req, res, next);
+    res.locals._cartNumber = req.user.cart.reduce(
+      (accum, product) => accum + product.quantity,
+      0
+    );
+    if (!req.session.readAnnounce) {
+      req.session.readAnnounce = req.user.readAnnounce;
+    }
   }
   next();
 });

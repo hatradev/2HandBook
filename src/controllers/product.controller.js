@@ -237,7 +237,6 @@ class productController {
     } catch (err) {
       next(err);
     }
-    // req.session.cart.forEach((element) => {});
   };
 
   // [GET] product/all-product

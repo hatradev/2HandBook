@@ -1,36 +1,37 @@
-@import 'abstracts/variables';
-@import 'abstracts/mixins';
-@import 'base/global';
+// Import abstract and base
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "base/global";
 
 // Import components
-@import 'components/buttons';
-@import 'components/pagination';
-@import 'components/sales-page';
+@import "components/buttons";
+@import "components/pagination";
+@import "components/sales-page";
 
 // Import layouts
-@import 'layouts/header';
-@import 'layouts/cart';
-@import 'layouts/footer';
-@import 'layouts/nav';
-@import 'layouts/sidebar-profile';
-@import 'layouts/upload-file';
+@import "layouts/header";
+@import "layouts/cart";
+@import "layouts/footer";
+@import "layouts/nav";
+@import "layouts/sidebar-profile";
+@import "layouts/upload-file";
 
 // Import pages
-@import 'pages/home';
-@import 'pages/manage-product';
-@import 'pages/edit-product';
-@import 'pages/dashboard';
-@import 'pages/specific-product';
-@import 'pages/all-product';
-@import 'pages/manage-order';
-@import 'pages/become_seller';
-@import 'pages/become_seller-pending';
-@import 'pages/my_order';
-@import 'pages/profile_updating';
-@import 'pages/shop-info';
-@import 'pages/payment';
-@import 'pages/admin';
-@import 'pages/sign-up';
-@import 'pages/sign-in';
-@import 'pages/about-us';
-@import 'pages/review-shop';
+@import "pages/home";
+@import "pages/manage-product";
+@import "pages/edit-product";
+@import "pages/dashboard";
+@import "pages/specific-product";
+@import "pages/all-product";
+@import "pages/manage-order";
+@import "pages/become_seller";
+@import "pages/become_seller-pending";
+@import "pages/my_order";
+@import "pages/profile_updating";
+@import "pages/shop-info";
+@import "pages/payment";
+@import "pages/admin";
+@import "pages/sign-up";
+@import "pages/sign-in";
+@import "pages/about-us";
+@import "pages/review-shop";

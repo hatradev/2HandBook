@@ -1,14 +1,14 @@
-const passport = require('passport');
-const LocalStrategy = require('passport-local');
-const bcrypt = require('bcrypt');
-const Account = require('../models/account.model');
+const passport = require("passport");
+const LocalStrategy = require("passport-local");
+const bcrypt = require("bcrypt");
+const Account = require("../models/account.model");
 
-// Ham nay duoc goi khi xac thuc thanh cong va luu thong tin user vao session
+// Hàm được gọi khi xác thực thành công và lưu thông tin người dùng vào session
 passport.serializeUser((user, done) => {
   done(null, user.id);
 });
 
-// Ham duoc goi boi passport.session de lay thong tin cua user tu csdl va dua vao req.user
+// Hàm được gọi bởi passport.session để lấy thông tin người dùng từ DB và lưu vào req.user
 passport.deserializeUser(async (id, done) => {
   try {
     let user = await Account.findById(id);
@@ -18,49 +18,58 @@ passport.deserializeUser(async (id, done) => {
   }
 });
 
-// Ham xac thuc nguoi dung khi dang nhap
+// Hàm xác thực người dùng khi đăng nhập
 passport.use(
-  'local-login',
+  "local-login",
   new LocalStrategy(
     {
-      usernameField: 'email', // Ten dang nhap la email
-      passwordField: 'password',
-      passReqToCallback: true, // Cho phep truyen req vao call
+      usernameField: "email",
+      passwordField: "password",
+      passReqToCallback: true, // Cho phép truyền req vào trong call back
     },
     async (req, email, password, done) => {
-      console.log(req.user, email, password, done);
       if (email) {
-        email = email.toLowerCase(); // Chuyen email thanh ki tu thuong
+        email = email.toLowerCase();
       }
       try {
         if (!req.user) {
-          // User chua dang nhap
+          // Người dùng chưa đăng nhập
           let user = await Account.findOne({ email: email }).exec();
           console.log(user);
+          // Email chưa tồn tại
           if (!user) {
-            // Neu email chua ton tai
             return done(
               null,
               false,
-              req.flash('loginMessage', 'Email does not exist!')
+              req.flash("loginMessage", "Email does not exist!")
             );
           }
+          // Sai mật khẩu
           if (!bcrypt.compareSync(password, user.password)) {
-            // Sai mat khau
             return done(
               null,
               false,
-              req.flash('loginMessage', 'Invalid password !')
+              req.flash("loginMessage", "Invalid password !")
             );
           }
-          console.log('Mat khau OK');
-          // Cho phep dang nhap
+          // Người dùng bị ban bởi admin
+          if (user.accountStatus == "Banned") {
+            return done(
+              null,
+              false,
+              req.flash(
+                "loginMessage",
+                "You have been banned by Admin of 2HandBook. Please contact to twohandbookse@gmail.com for further information."
+              )
+            );
+          }
+          // Đăng nhập thành công
           return done(null, user);
         }
-        // Bo qua dang nhap
+        // Bỏ qua việc đăng nhập
         return done(null, req.user);
       } catch (error) {
-        console.log('Something goes wrong!!');
+        console.log("Something goes wrong in sign in!!");
         return done(error);
       }
     }
@@ -69,11 +78,11 @@ passport.use(
 
 // Hàm đăng kí tài khoản
 passport.use(
-  'local-register',
+  "local-register",
   new LocalStrategy(
     {
-      usernameField: 'email',
-      passwordField: 'password',
+      usernameField: "email",
+      passwordField: "password",
       passReqToCallback: true,
     },
     async (req, email, password, done) => {
@@ -92,7 +101,7 @@ passport.use(
           return done(
             null,
             false,
-            req.flash('registerMessage', 'Email is already taken!')
+            req.flash("registerMessage", "Email is already taken!")
           );
         }
         let formData = req.body;
@@ -105,8 +114,8 @@ passport.use(
           null,
           user,
           req.flash(
-            'loginMessage',
-            'You have registered successfully. Please login.'
+            "loginMessage",
+            "You have registered successfully. Please login."
           )
         );
       } catch (error) {

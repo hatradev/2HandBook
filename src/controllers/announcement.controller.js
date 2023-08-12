@@ -1,14 +1,15 @@
-const Announcement = require('../models/announcement.model');
+const Account = require("../models/account.model");
+const Announcement = require("../models/announcement.model");
 const {
   mutipleMongooseToObject,
   mongooseToObject,
-} = require('../utils/mongoose');
+} = require("../utils/mongoose");
 
 class announceController {
   // [GET] announcement
   getNewAnnouncement = (req, res, next) => {
     try {
-      res.render('admin_announcement');
+      res.render("admin_announcement");
     } catch (err) {
       next(err);
     }
@@ -30,7 +31,7 @@ class announceController {
       await newAnnouncement.save();
 
       console.log(req.body);
-      res.redirect('/announcement/all');
+      res.redirect("/announcement/all");
     } catch (err) {
       next(err);
     }
@@ -52,9 +53,44 @@ class announceController {
       res.locals._numberOfItems = await Announcement.find().countDocuments();
       res.locals._limit = limit;
       res.locals._currentPage = page;
-      res.render('admin_all_announcement', {
+      res.render("admin_all_announcement", {
         announcements: mutipleMongooseToObject(announcements),
       });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  // Thông báo cho người dùng
+  // [GET] /announcement/list
+  getListAnnouncement = async (req, res, next) => {
+    try {
+      const announcements = await Announcement.find({
+        $or: [{ recipient: "Everyone" }, { recipient: req.user.role + "s" }],
+      }).sort({ time: -1 });
+      if (req.session.readAnnounce.length < announcements.length) {
+        for (
+          let i = 0;
+          i < announcements.length - req.session.readAnnounce.length;
+          i++
+        ) {
+          req.session.readAnnounce.unshift(1);
+        }
+      }
+      const readArr = req.session.readAnnounce;
+      res.json({ announcements, readArr });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  // [POST] /announcement/list/:idx
+  updateListAnnouncement = async (req, res, next) => {
+    try {
+      req.session.readAnnounce[req.params.idx] = 0;
+      const readArr = req.session.readAnnounce;
+      await Account.updateOne({ _id: req.user._id }, { readAnnounce: readArr });
+      res.json(readArr);
     } catch (err) {
       next(err);
     }

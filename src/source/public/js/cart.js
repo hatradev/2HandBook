@@ -92,7 +92,6 @@ async function buildCartScreen(products) {
     ".cart .product-close-btn"
   );
   productCloseBtns?.forEach((productCloseBtn) => {
-    console.log("Hi");
     productCloseBtn.addEventListener("click", (e) => {
       e.preventDefault();
     });

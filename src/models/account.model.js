@@ -35,6 +35,10 @@ const accountSchema = new mongoose.Schema(
         quantity: Number,
       },
     ],
+    readAnnounce: {
+      type: [Boolean],
+      default: [],
+    },
   },
   {
     timestamps: true,

@@ -62,7 +62,7 @@
           href="#"
           class="add-cart-btn btn"
           id="js-add-cart-btn"
-          onclick="addCart('{{product._id}}', '1');"
+          onclick="addCart('{{product._id}}', document.querySelector('.quantity-number').textContent);"
         >Add to cart</a>
         <a href="/order/payment/{{product._id}}" class="payment-btn btn">BUY NOW</a>
       </div>
@@ -113,7 +113,7 @@
 
             <div class="information d-flex align-items-center">
               <div class="avatar">
-                <a href="#">
+                <a href="/account/page/{{this.idAccount._id}}">
                   <img
                     class="img-avatar"
                     src="{{this.idAccount.avatar}}"

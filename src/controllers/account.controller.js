@@ -1,6 +1,7 @@
 const Account = require("../models/account.model");
 const Order = require("../models/order.model");
 const Product = require("../models/product.model");
+const Evaluate = require("../models/evaluate.model");
 const fs = require("fs");
 const path = require("path");
 const passport = require("passport");
@@ -31,7 +32,6 @@ class acccountController {
         return next(error);
       }
       // Đăng kí không thành công, load lại trang đăng kí
-      console.log(user);
       if (!user) {
         console.log("Đăng kí không thành công");
         return res.redirect(`/account/sign-up`);
@@ -123,9 +123,12 @@ class acccountController {
       const { generateRandomStr } = require("../utils/function-helpers");
       // Hash mật khẩu và update vào database
       const newPassword = generateRandomStr(8);
-      await Account.updateOne({
-        password: bcrypt.hashSync(newPassword, bcrypt.genSaltSync(8)),
-      });
+      await Account.updateOne(
+        { _id: user._id },
+        {
+          password: bcrypt.hashSync(newPassword, bcrypt.genSaltSync(8)),
+        }
+      );
       // Gửi mail
       sendForgotPasswordMail(user, host, newPassword)
         .then((result) => {
@@ -145,6 +148,58 @@ class acccountController {
       return res.render("forgot-password", {
         message: "Email does not exist!",
       });
+    }
+  };
+
+  // [GET] account/page/:id
+  getAccountPage = async (req, res, next) => {
+    try {
+      const account = await Account.findById(req.params.id);
+      if (account.role == "Seller") {
+        res.locals._isSeller = true;
+        let page = isNaN(req.query.page)
+          ? 1
+          : Math.max(1, parseInt(req.query.page));
+        const limit = 8;
+        const productAll = await Product.find({
+          idAccount: account._id,
+        });
+        const products = await Product.find({ idAccount: account._id })
+          .skip((page - 1) * limit)
+          .limit(limit);
+        let options = [];
+        let numOfProduct = 0;
+        let evaluates;
+        let numOfRating = 0;
+        let sumRating = 0;
+        for (let i = 0; i < productAll.length; i++) {
+          options.push({ idProduct: productAll[i]._id });
+          numOfProduct += productAll[i].stock;
+        }
+        if (options.length != 0) {
+          evaluates = await Evaluate.find({
+            $or: options,
+          });
+        }
+        for (let i = 0; i < evaluates.length; i++) {
+          sumRating += evaluates[i].rating;
+          if (evaluates[i].rating > 0) {
+            numOfRating += 1;
+          }
+        }
+        res.locals.products = mutipleMongooseToObject(products);
+        res.locals._numberOfReview = evaluates.length;
+        res.locals._numberOfProduct = numOfProduct;
+        res.locals._avgOfRating = (sumRating / numOfRating).toFixed(1);
+        res.locals._numberOfItems = productAll.length;
+        res.locals._limit = limit;
+        res.locals._currentPage = page;
+      }
+      res.render("shop-info", {
+        account: mongooseToObject(account),
+      });
+    } catch (err) {
+      next(err);
     }
   };
 
