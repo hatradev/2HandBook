@@ -64,8 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		e.preventDefault()
 		if (idOrder) {
 			hanldeOrderForm.action = '/order/manage-order/' + idOrder + '/accept?_method=PUT'
-			// hanldeOrderForm.submit()
-			checkQuantity(idOrder)
+			hanldeOrderForm.submit()
 		}
 	}
 
@@ -80,34 +79,4 @@ document.addEventListener('DOMContentLoaded', function () {
 			btn.classList.add('bg-danger')
 		}
 	}
-
-// 	var acceptBtn = $('.btn-accept')
-// 	// console.log(acceptBtn)
-// 	// acceptBtn.onsubmit = function (event) {
-// 	// 	event.preventDefault()
-// 	// 	console.log(123)
-// 	// }
-// 	acceptBtn.on('submit', function(event) {
-//     event.preventDefault();
-//     console.log(123);
-//     // Đoạn mã xử lý sau khi nút được nhấn
-// });
-
-	async function checkQuantity(id) { //quantityUser
-		try {
-			let res = await fetch("/order/quantity", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({ id: id }),
-			});
-			let order = await res.json();
-			console.log(order[0].detail[0].quantity)
-
-		} catch (err) {
-			console.log("sai");
-		}
-	}
-
 })
