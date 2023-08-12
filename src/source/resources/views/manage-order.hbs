@@ -19,7 +19,7 @@
         <tbody>
           {{#each orders}}
           <tr class="item-order" data-id="{{this._id}}">
-            <th scope='row'>{{increaseIndex @index 1}}</th>
+            <th scope='row'>{{increaseIndex ../_currentPage ../_limit @index}}</th>
             <td>{{this.idAccount.lastName}} {{this.idAccount.firstName}}</td>
             <td>{{this.idAccount.email}}</td>
             <td>{{this.idAccount.phone}}</td>
@@ -106,10 +106,10 @@
               </div>
             </div>
             <div class='modal-footer'>
-              <button class='btn btn-success btn-accept' data-status="">
+              <button class='btn btn-success btn-accept' data-status="" data-id="{{this._id}}">
                 ACCEPT
               </button>
-              <button class='btn btn-danger btn-delete' data-status="">
+              <button class='btn btn-danger btn-delete' data-status="" data-id="{{this._id}}">
                 REJECT
               </button>
 

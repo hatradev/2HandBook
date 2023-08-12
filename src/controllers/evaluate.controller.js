@@ -51,12 +51,21 @@ class evaluateController {
   showEvaluate = async (req, res, next) => {
     try {
       // const idAccount = await Account.findOne({}); //***
+      let page = isNaN(req.query.page) ? 1 : Math.max(1, parseInt(req.query.page));
+      const limit = 4;
+
       const idAccount = req.user._id //***
       const evaluates = await Evaluate.find({
-        idAccount: idAccount,
         reply: "",
       }).sort({ date: -1 })
-      .populate("idProduct")
+      .populate({
+        path: "idProduct",
+        match: { idAccount: idAccount } // Điều kiện kiểm tra trên idProduct
+      }).skip((page - 1) * limit).limit(limit);
+      
+      res.locals._numberOfItems = await Product.find().countDocuments();
+      res.locals._limit = limit;
+      res.locals._currentPage = page;
 
       res.locals.evaluates = mutipleMongooseToObject(evaluates);
       res.render("review-shop");

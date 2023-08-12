@@ -403,10 +403,20 @@ class productController {
         })
         .sort({ date: -1 });
 
+      const evaNumber = await Evaluate.find({ idProduct: productId })
+      .populate({
+        path: "idAccount",
+        select: "firstName lastName avatar",
+      })
+      .sort({ date: -1 }).countDocuments();
+
+      // console.log(evaNumber)
+
       const stars = await Evaluate.aggregate([
         {
           $match: {
             idProduct: productId,
+            rating: { $ne: 0 }
           },
         },
         {
@@ -425,6 +435,7 @@ class productController {
         { $limit: 6 },
       ]);
 
+      res.locals.evaNumber = evaNumber;
       res.locals.details = details;
       res.locals.product = mongooseToObject(product);
       res.locals.stars = stars[0];

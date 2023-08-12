@@ -1101,12 +1101,24 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
           display: none;
           background-color: rgba(59, 153, 215, 0.7);
           border-radius: 5px;
-          width: 6.8rem;
+          width: 8.5rem;
           height: 3.3rem;
           font-size: 1.5rem;
-          transition: all 0.6s ease; }
-        .specific-product .payment-section .details-item .intro .report-section:hover button {
-          display: block; }
+          transition: all 0.6s ease;
+          margin-bottom: 0.3rem;
+          transition: all 0.3s; }
+        .specific-product .payment-section .details-item .intro .report-section .view-shop {
+          display: none;
+          font-size: 1.5rem;
+          width: 8.5rem;
+          background-color: rgba(59, 153, 215, 0.7);
+          padding: 0.5rem 0.5rem;
+          border-radius: 6px;
+          transition: all 0.3s; }
+        .specific-product .payment-section .details-item .intro .report-section:hover button,
+        .specific-product .payment-section .details-item .intro .report-section:hover .view-shop {
+          display: block;
+          transition: all 0.3s; }
       .specific-product .payment-section .details-item .intro .product-name {
         font-size: 3rem;
         font-weight: 700;
@@ -1127,7 +1139,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
     .specific-product .payment-section .details-item .details-product {
       margin-top: 2rem; }
       .specific-product .payment-section .details-item .details-product span {
-        font-size: 1.8rem; }
+        font-size: 1.6rem; }
       .specific-product .payment-section .details-item .details-product .details-list {
         font-size: 1.5rem;
         margin-left: 2rem;
@@ -1180,13 +1192,15 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
       border-radius: 1rem;
       padding: 1rem;
       width: 100%;
-      font-family: Inter; }
+      font-family: "Inter", sans-serif; }
     .specific-product .comment-section .comment-item .write-cmt .send-btn {
       position: absolute;
       font-size: 1.5rem;
       right: 0.5%;
       top: 41%;
       padding: 1rem; }
+      .specific-product .comment-section .comment-item .write-cmt .send-btn button {
+        background: transparent; }
       .specific-product .comment-section .comment-item .write-cmt .send-btn:hover i {
         opacity: 0.6; }
   .specific-product .comment-section .comment-item .comment-main .comment-user {
@@ -1209,10 +1223,11 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
         display: none;
         background-color: rgba(59, 153, 215, 0.7);
         border-radius: 5px;
-        width: 6.8rem;
         height: 3.3rem;
         font-size: 1.5rem;
-        transition: all 0.6s ease; }
+        transition: all 0.6s ease;
+        width: 8.5rem;
+        margin-bottom: 0.2rem; }
       .specific-product .comment-section .comment-item .comment-main .comment-user .report-section:hover button {
         display: block; }
     .specific-product .comment-section .comment-item .comment-main .comment-user .information .avatar .img-avatar {

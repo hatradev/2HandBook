@@ -7,44 +7,37 @@
     </div>
     <div class="col-6 details-item">
       <div class="intro">
-        <form
-          class="report-section"
-          method="POST"
-          action="/product/specific-product/{{product._id}}/report?_method=PUT"
-        >
+        <form class="report-section" method="POST"
+          action="/product/specific-product/{{product._id}}/report?_method=PUT">
           <i class="fa-solid fa-ellipsis"></i>
           <button>Report</button>
+          <div class="view-shop">
+            <a href="../../account/page/{{product.idAccount}}">View shop</a>
+          </div>
         </form>
 
         <h1 class="product-name">{{product.name}}</h1>
         <h2 class="product-price">{{product.price}}đ</h2>
         <div class="rating d-flex align-items-center mt-4">
-          <h3 class="score m-0">{{showStar stars.avgRating}}</h3>
-          <div class="rating-star ms-3">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-          </div>
-          <h3 class="number mb-0">12 comments</h3>
+          <h3 class="score m-0" style="font-family: 'Inter', sans-serif;">{{showStar stars.avgRating}}/5 (độ yêu thích)
+          </h3>
+          <h3 class="number mb-0" style="margin-left: 3rem; font-family: 'Inter', sans-serif;">{{evaNumber}} comments
+          </h3>
         </div>
       </div>
       <div class="details-product">
         <span>Details:</span>
         <ul class="details-list mt-3">
           {{#each details}}
-            <li>{{this}}</li>
+          <li>{{this}}</li>
           {{/each}}
         </ul>
       </div>
 
       <div class="adjust-quantity d-flex">
         <div class="quantity">Quantity:
-          <span
-            class="quantity-number"
-            style="display: inline-block; width: 2rem;"
-          >1</span></div>
+          <span class="quantity-number" style="display: inline-block; width: 2rem;">1</span>
+        </div>
         <div class="adjust-icon ms-5">
           <a href="#" class="plus-btn btn">
             <i class="fa-sharp fa-solid fa-plus"></i>
@@ -53,17 +46,13 @@
             <i class="fa-solid fa-minus"></i>
           </a>
         </div>
-        <div class="available-product ms-5">{{product.stock}}
+        <div class="available-product ms-5"><span>{{product.stock}}</span>
           available products</div>
       </div>
 
       <div class="payment-btn-section">
-        <a
-          href="#"
-          class="add-cart-btn btn"
-          id="js-add-cart-btn"
-          onclick="addCart('{{product._id}}', '1');"
-        >Add to cart</a>
+        <a href="#" class="add-cart-btn btn" id="js-add-cart-btn" onclick="addCart('{{product._id}}', '1');">Add to
+          cart</a>
         <a href="/order/payment/{{product._id}}" class="payment-btn btn">BUY NOW</a>
       </div>
     </div>
@@ -80,18 +69,9 @@
         </div>
       </section>
 
-      <form
-        class="write-cmt d-flex mt-3 align-items-center"
-        method="POST"
-        action="/evaluate/specific-product/{{product._id}}/create"
-      >
-        <textarea
-          name="cmtInput"
-          id="write-cmt-input"
-          cols="60"
-          rows="2"
-          placeholder="Write to comment..."
-        ></textarea>
+      <form class="write-cmt d-flex mt-3 align-items-center" method="POST"
+        action="/evaluate/specific-product/{{product._id}}/create">
+        <textarea name="cmtInput" id="write-cmt-input" cols="60" rows="2" placeholder="Write to comment..."></textarea>
         <div class="send-btn btn">
           <button>
             <i class="fa-solid fa-paper-plane"></i>
@@ -101,47 +81,42 @@
 
       <div class="comment-main mt-3" data-id="{{@index}}">
         {{#each evaluates}}
-          <div class="comment-user">
-            <form
-              class="report-section"
-              method="POST"
-              action="/evaluate/specific-product/{{this._id}}/report?_method=PUT"
-            >
-              <i class="fa-solid fa-ellipsis"></i>
-              <button>Report</button>
-            </form>
+        <div class="comment-user">
+          <form class="report-section" method="POST"
+            action="/evaluate/specific-product/{{this._id}}/report?_method=PUT">
+            <i class="fa-solid fa-ellipsis"></i>
+            <button>Report</button>
+          </form>
 
-            <div class="information d-flex align-items-center">
-              <div class="avatar">
-                <a href="#">
-                  <img
-                    class="img-avatar"
-                    src="{{this.idAccount.avatar}}"
-                    alt="error"
-                  />
-                </a>
-              </div>
-              <div class="infor-span ms-3">
-                <span class="name">{{this.idAccount.lastName}}
-                  {{this.idAccount.firstName}}</span>
-                <div class="date mt-1">{{convertDate this.date}}</div>
-              </div>
-              <div class="stars ms-4">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
+          <div class="information d-flex align-items-center">
+            <div class="avatar">
+              <a href="#">
+                <img class="img-avatar" src="{{this.idAccount.avatar}}" alt="error" />
+              </a>
             </div>
-            <div class="comment-info">
-              {{this.content}}
+            <div class="infor-span ms-3">
+              <span class="name">{{this.idAccount.lastName}}
+                {{this.idAccount.firstName}}</span>
+              <div class="date mt-1">{{convertDate this.date}}</div>
+            </div>
+            <div class="stars ms-4">
+              {{#if this.rating}}
+              {{!-- Nội dung khi điều kiện đúng --}}
+                <h3 class="score m-0" style="font-family: 'Inter', sans-serif; font-size: 1.5rem;">{{showStar
+                  this.rating}}/5 (độ yêu thích)</h3>
+              {{else}}
+              {{!-- Nội dung khi điều kiện sai --}}
+              {{/if}}
             </div>
           </div>
-          <div class="reply-from-seller mt-3">
-            Seller:
-            {{this.reply}}
+          <div class="comment-info">
+            {{this.content}}
           </div>
+        </div>
+        <div class="reply-from-seller mt-3">
+          Seller:
+          {{this.reply}}
+        </div>
         {{/each}}
       </div>
     </div>
@@ -160,23 +135,16 @@
     </div>
     <div class="trend-row row">
       {{#each related}}
-        <div class="col-2">
-          <figure class="trend-card card">
-            <a
-              href="/product/specific-product/{{this._id}}"
-              class="trend-card-img"
-            >
-              <img
-                src="{{this.image}}"
-                class="trend-prod-img"
-                alt="Something ..."
-              />
-            </a>
-            <p class="trend-card-title">{{this.name}}</p>
-            <p class="trend-card-price">{{this.price}} VND</p>
-            <a href="#" class="btn trend-card-btn">Buy now</a>
-          </figure>
-        </div>
+      <div class="col-2">
+        <figure class="trend-card card">
+          <a href="/product/specific-product/{{this._id}}" class="trend-card-img">
+            <img src="{{this.image}}" class="trend-prod-img" alt="Something ..." />
+          </a>
+          <p class="trend-card-title">{{this.name}}</p>
+          <p class="trend-card-price">{{this.price}} VND</p>
+          <a href="#" class="btn trend-card-btn">Buy now</a>
+        </figure>
+      </div>
       {{/each}}
     </div>
   </section>

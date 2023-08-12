@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	// Handle details button
 	for (const detailBtn of detailBtns) {
 
-		if(detailBtn.getAttribute('data-status') != 'pending'){
+		if (detailBtn.getAttribute('data-status') != 'pending') {
 			idOrderArr.push(detailBtn.getAttribute('data-id'))
 		}
 
@@ -48,6 +48,8 @@ document.addEventListener('DOMContentLoaded', function () {
 			} else {
 				acceptBtn.classList.remove('d-none')
 				rejectBtn.classList.remove('d-none')
+				acceptBtn.setAttribute('data-id',id)
+				rejectBtn.setAttribute('data-id',id)
 			}
 		}
 	}
@@ -58,22 +60,53 @@ document.addEventListener('DOMContentLoaded', function () {
 			hanldeOrderForm.submit()
 		}
 	}
-	acceptBtn.onclick = function () {
+	acceptBtn.onclick = function (e) {
+		e.preventDefault()
 		if (idOrder) {
 			hanldeOrderForm.action = '/order/manage-order/' + idOrder + '/accept?_method=PUT'
-			hanldeOrderForm.submit()
+			// hanldeOrderForm.submit()
+			checkQuantity(idOrder)
 		}
 	}
 
 	// Handle sign button
-	for (var btn of signBtns){
-		btn.classList.remove('bg-success','bg-primary','bg-danger')
-		if(btn.textContent == "successful"){
+	for (var btn of signBtns) {
+		btn.classList.remove('bg-success', 'bg-primary', 'bg-danger')
+		if (btn.textContent == "successful") {
 			btn.classList.add('bg-success')
-		}else if(btn.textContent == "pending"){
+		} else if (btn.textContent == "pending") {
 			btn.classList.add('bg-primary')
-		}else if(btn.textContent == "cancelled"){
+		} else if (btn.textContent == "cancelled") {
 			btn.classList.add('bg-danger')
+		}
+	}
+
+// 	var acceptBtn = $('.btn-accept')
+// 	// console.log(acceptBtn)
+// 	// acceptBtn.onsubmit = function (event) {
+// 	// 	event.preventDefault()
+// 	// 	console.log(123)
+// 	// }
+// 	acceptBtn.on('submit', function(event) {
+//     event.preventDefault();
+//     console.log(123);
+//     // Đoạn mã xử lý sau khi nút được nhấn
+// });
+
+	async function checkQuantity(id) { //quantityUser
+		try {
+			let res = await fetch("/order/quantity", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({ id: id }),
+			});
+			let order = await res.json();
+			console.log(order[0].detail[0].quantity)
+
+		} catch (err) {
+			console.log("sai");
 		}
 	}
 

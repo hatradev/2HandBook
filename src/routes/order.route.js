@@ -9,6 +9,7 @@ router.get('/payment/:_id', orderController.getPayment);
 router.get('/payment-for-cart', orderController.getPayForCart);
 router.post('/payment-placeOrder/:_id', orderController.placeOrder);
 router.post('/payment-placeOrderForCart', orderController.placeOrderForCart);
+router.post("/quantity", orderController.getQuantity);
 
 
 
