@@ -16,7 +16,19 @@ class productController {
   // [GET] product/dashboard
   getDashboard = async (req, res, next) => {
     try {
-      const products = await Product.find();
+      const options = { idAccount: req.user.id };
+      // Phân trang
+      let page = isNaN(req.query.page)
+        ? 1
+        : Math.max(1, parseInt(req.query.page));
+      const limit = 6;
+      const products = await Product.find(options)
+        .skip((page - 1) * limit)
+        .limit(limit)
+        .sort("-createdAt");
+      res.locals._numberOfItems = await Product.find(options).countDocuments();
+      res.locals._limit = limit;
+      res.locals._currentPage = page;
       res.render("dashboard", {
         products: mutipleMongooseToObject(products),
       });
@@ -35,7 +47,7 @@ class productController {
       // Lọc theo loại
       let category = req.query.category || "";
       // Sắp xếp
-      let sortBy = req.query.sortBy || "updateAt";
+      let sortBy = req.query.sortBy || "-updatedAt";
       keyword = keyword.trim();
       let originalUrl = req.originalUrl;
       if (keyword != "") {
@@ -49,7 +61,7 @@ class productController {
       let page = isNaN(req.query.page)
         ? 1
         : Math.max(1, parseInt(req.query.page));
-      const limit = 10;
+      const limit = 5;
       // Thực hiện truy vấn
       let products = await Product.find(options)
         .skip((page - 1) * limit)

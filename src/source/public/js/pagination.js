@@ -2,7 +2,6 @@ const pagination = document.querySelector(".pagination");
 if (numberOfItems === 0) pagination.classList.add("d-none");
 else {
   const numPages = Math.ceil(numberOfItems / limit);
-  let leftMost = 1;
   const initPagination = () => {
     pagination.innerHTML = `<li class='pagination-item col-2 text-center'>
       <a class='pagination-link' href='#' aria-label='Previous all'>
@@ -14,7 +13,7 @@ else {
         <i class='fa-regular fa-chevron-left'></i>
       </a>
     </li>`;
-    for (let i = 1; i <= Math.min(numPages, 3); i++) {
+    for (let i = leftMost; i < leftMost + Math.min(numPages, 3); i++) {
       pagination.insertAdjacentHTML(
         "beforeend",
         `<li class="pagination-item col text-center">
@@ -75,7 +74,9 @@ else {
     updateDescription();
   };
 
-  paginationLinks[1 + currentPage].classList.add("pagination-active");
+  paginationLinks[2 + currentPage - leftMost].classList.add(
+    "pagination-active"
+  );
   updateDescription();
   paginationLinks.forEach((paginationLink, idx) => {
     paginationLink.addEventListener("click", function (e) {
