@@ -1,8 +1,7 @@
-const pagination = document.querySelector('.pagination');
-if (numberOfItems === 0) pagination.classList.add('d-none');
+const pagination = document.querySelector(".pagination");
+if (numberOfItems === 0) pagination.classList.add("d-none");
 else {
   const numPages = Math.ceil(numberOfItems / limit);
-  let leftMost = 1;
   const initPagination = () => {
     pagination.innerHTML = `<li class='pagination-item col-2 text-center'>
       <a class='pagination-link' href='#' aria-label='Previous all'>
@@ -14,9 +13,9 @@ else {
         <i class='fa-regular fa-chevron-left'></i>
       </a>
     </li>`;
-    for (let i = 1; i <= Math.min(numPages, 3); i++) {
+    for (let i = leftMost; i < leftMost + Math.min(numPages, 3); i++) {
       pagination.insertAdjacentHTML(
-        'beforeend',
+        "beforeend",
         `<li class="pagination-item col text-center">
           <a class="pagination-link" href="#">
             ${i}
@@ -25,7 +24,7 @@ else {
       );
     }
     pagination.insertAdjacentHTML(
-      'beforeend',
+      "beforeend",
       `<li class='pagination-item col text-center'>
         <a class='pagination-link' href='#' aria-label='Next'>
           <i class='fa-regular fa-chevron-right'></i>
@@ -39,12 +38,12 @@ else {
     );
   };
   initPagination();
-  const paginationLinks = document.querySelectorAll('.pagination-link');
-  const paginationDesc = document.querySelector('.pagination-description');
+  const paginationLinks = document.querySelectorAll(".pagination-link");
+  const paginationDesc = document.querySelector(".pagination-description");
 
   const disableCurrentPage = () => {
     paginationLinks[currentPage - leftMost + 2].classList.remove(
-      'pagination-active'
+      "pagination-active"
     );
   };
 
@@ -71,14 +70,16 @@ else {
       updatePages();
     }
     currentPage = page;
-    paginationLinks[page - leftMost + 2].classList.add('pagination-active');
+    paginationLinks[page - leftMost + 2].classList.add("pagination-active");
     updateDescription();
   };
 
-  paginationLinks[1 + currentPage].classList.add('pagination-active');
+  paginationLinks[2 + currentPage - leftMost].classList.add(
+    "pagination-active"
+  );
   updateDescription();
   paginationLinks.forEach((paginationLink, idx) => {
-    paginationLink.addEventListener('click', function (e) {
+    paginationLink.addEventListener("click", function (e) {
       e.preventDefault();
       if (idx === 0) {
         moveToPage(1);
@@ -91,19 +92,19 @@ else {
       } else {
         moveToPage(Number(this.textContent));
       }
-      // Xử lí tạo đường dẫn mới thay ?page=currentPage
+      // Xử lí tạo đường dẫn mới chỉ thay ?page=currentPage
       let newUrl = window.location.href;
-      newUrl = newUrl.split('page=');
+      newUrl = newUrl.split("page=");
       if (newUrl[1]) {
         newUrl[1] = newUrl[1].slice(1);
         newUrl = newUrl[0] + `page=${currentPage}` + newUrl[1];
       } else {
         newUrl = newUrl[0] + `?page=${currentPage}`;
       }
-      console.log('New URL: ', newUrl);
+      console.log("New URL: ", newUrl);
       fetch(newUrl, {
-        method: 'GET',
-        redirect: 'follow',
+        method: "GET",
+        redirect: "follow",
       })
         .then((res) => {
           window.location.href = res.url;

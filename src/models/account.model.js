@@ -1,12 +1,12 @@
-const mongoose = require('mongoose');
-const product = require('./product.model');
+const mongoose = require("mongoose");
+const product = require("./product.model");
 
 const accountSchema = new mongoose.Schema(
   {
     role: {
       type: String,
-      enum: ['Admin', 'Buyer', 'Seller'],
-      default: 'Buyer',
+      enum: ["Admin", "Buyer", "Seller"],
+      default: "Buyer",
     },
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
@@ -15,22 +15,22 @@ const accountSchema = new mongoose.Schema(
     password: { type: String, required: true },
     phone: { type: String, required: true },
     avatar: { type: String },
-    job: { type: String },
-    address: { type: String },
-    shopName: { type: String },
+    job: { type: String, default: "" },
+    address: { type: String, default: "" },
+    shopName: { type: String, default: "" },
     requestStatus: {
       type: String,
-      enum: ['Become-seller', 'None'],
+      enum: ["Become-seller", "None"],
     },
     accountStatus: {
       type: String,
-      enum: ['None', 'Pending', 'Reported', 'Banned'],
+      enum: ["None", "Pending", "Reported", "Banned"],
     },
     cart: [
       {
-        id_product: {
+        _id: {
           type: mongoose.Schema.Types.ObjectId,
-          ref: 'product',
+          ref: "product",
         },
         quantity: Number,
       },
@@ -41,4 +41,4 @@ const accountSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model('account', accountSchema);
+module.exports = mongoose.model("account", accountSchema);
