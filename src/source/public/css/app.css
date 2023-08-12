@@ -767,7 +767,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
   .trend .trend-row {
     margin-top: 4rem; }
   .trend .trend-card {
-    margin: 0 1rem;
+    margin: 0 0rem;
     border-radius: 0;
     border: 1px solid #31383e;
     padding: 0 0; }
@@ -2018,8 +2018,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
       height: 4rem;
       margin-top: 3rem; }
   .admin .admin-announce {
-    min-height: 102rem;
-    margin-bottom: 3rem; }
+    margin-bottom: 2rem; }
   .admin .admin-announce-box {
     margin-bottom: 2rem; }
     .admin .admin-announce-box .content {
@@ -2027,8 +2026,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
     .admin .admin-announce-box .view-more-announcement {
       text-decoration-line: underline; }
   .admin .list-accounts {
-    min-height: 100rem;
-    margin-bottom: 3rem; }
+    margin-bottom: 2rem; }
   .admin .account-item {
     border-radius: 20px;
     background: rgba(217, 237, 247, 0.5);
@@ -2044,10 +2042,25 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
       color: #000;
       font-family: Inter;
       font-size: 1.4rem; }
+    .admin .account-item .account-img {
+      object-fit: contain; }
   .admin .account-icon {
     margin: 1rem 1rem;
     height: 5rem;
     width: 5rem; }
+  .admin .product-item {
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem; }
+    .admin .product-item .product-img {
+      height: 100%;
+      object-fit: contain; }
+    .admin .product-item .box {
+      border: 2px solid #000; }
+    .admin .product-item .dropdown-item {
+      color: #000;
+      font-family: Inter;
+      font-size: 1.4rem; }
 
 :root {
   --grey: #f6f6f6;

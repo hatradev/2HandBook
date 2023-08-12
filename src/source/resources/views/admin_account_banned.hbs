@@ -60,7 +60,7 @@
           </a>
         </div>
         <div class='nav-item'>
-          <a class='nav-link' href='../comment/all'>
+          <a class='nav-link' href='../evaluate/all'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='32'
@@ -94,12 +94,14 @@
         </div>
       </div>
       <div class='admin-content'>
+        {{#if numOfAccounts}}
         <div class='list-accounts'>
-          {{#each accounts}}
-          <div class='account-item row align-items-center'>
-            {{#if this.avatar}}
-            </div><img class='account-icon' src='{{this.avatar}}' />
-            {{else}}
+          
+            {{#each accounts}}
+              <div class='account-item row align-items-center'>
+                {{#if this.avatar}}
+                <img class='account-icon col-1 account-img flex-fill' src='{{this.avatar}}' />
+                {{else}}
             <svg
               xmlns='http://www.w3.org/2000/svg'
               viewBox='0 0 21 21'
@@ -183,6 +185,15 @@
           </div>
           {{/each}}
         </div>
+        <script>
+            let numberOfItems = {{_numberOfItems}};
+            let limit = {{_limit}};
+            let currentPage = {{_currentPage}};
+          </script>
+        {{>pagination}}
+        {{else}}
+          <div class="alert alert-info text-center" role="alert">No accounts have been banned.</div>
+        {{/if}}
       </div>
     </div>
   </div>

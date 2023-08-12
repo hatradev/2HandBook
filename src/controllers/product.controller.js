@@ -343,6 +343,201 @@ class productController {
       res.status(500).json({ error: 'Lỗi khi lấy tất cả sản phẩm 3' });
     }
   };
+
+  // [GET] product/full
+  getFullProduct = async (req, res, next) => {
+    try {
+      let page = isNaN(req.query.page)
+        ? 1
+        : Math.max(1, parseInt(req.query.page));
+
+      const limit = 10;
+      const product1 = await Product.find()
+        .sort({ time: -1 })
+        .skip((page - 1) * limit)
+        .limit(limit);
+      const allProducts = mutipleMongooseToObject(product1);
+      for (const each of allProducts) {
+        const account = await Account.findOne(
+          { _id: each.idAccount },
+          'shopName'
+        );
+        each.shopName = account.shopName;
+      }
+      res.locals._numberOfItems = await Product.find().countDocuments();
+      res.locals._limit = limit;
+      res.locals._currentPage = page;
+      res.render('admin_product_all', {
+        products: allProducts,
+        numOfProducts: allProducts.length,
+      });
+    } catch (error) {
+      next(error);
+    }
+  };
+
+  // [GET] product/banned
+  getBannedProduct = async (req, res, next) => {
+    try {
+      let page = isNaN(req.query.page)
+        ? 1
+        : Math.max(1, parseInt(req.query.page));
+
+      const limit = 10;
+      const product1 = await Product.find({ status: 'Banned' })
+        .sort({ time: -1 })
+        .skip((page - 1) * limit)
+        .limit(limit);
+      const allProducts = mutipleMongooseToObject(product1);
+      for (const each of allProducts) {
+        const account = await Account.findOne(
+          { _id: each.idAccount },
+          'shopName'
+        );
+        each.shopName = account.shopName;
+      }
+      res.locals._numberOfItems = await Product.find({
+        status: 'banned',
+      }).countDocuments();
+      res.locals._limit = limit;
+      res.locals._currentPage = page;
+      res.render('admin_product_banned', {
+        products: allProducts,
+        numOfProducts: allProducts.length,
+      });
+    } catch (error) {
+      next(error);
+    }
+  };
+
+  // [GET] reported/pending
+  getPendingProduct = async (req, res, next) => {
+    try {
+      let page = isNaN(req.query.page)
+        ? 1
+        : Math.max(1, parseInt(req.query.page));
+
+      const limit = 10;
+      const product1 = await Product.find({ status: 'Pending' })
+        .sort({ time: -1 })
+        .skip((page - 1) * limit)
+        .limit(limit);
+      const allProducts = mutipleMongooseToObject(product1);
+      for (const each of allProducts) {
+        const account = await Account.findOne(
+          { _id: each.idAccount },
+          'shopName'
+        );
+        each.shopName = account.shopName;
+      }
+      res.locals._numberOfItems = await Product.find({
+        status: 'Pending',
+      }).countDocuments();
+      res.locals._limit = limit;
+      res.locals._currentPage = page;
+      res.render('admin_product_pending', {
+        products: allProducts,
+        numOfProducts: allProducts.length,
+      });
+    } catch (error) {
+      next(error);
+    }
+  };
+
+  // [GET] product/reported
+  getReportedProduct = async (req, res, next) => {
+    try {
+      let page = isNaN(req.query.page)
+        ? 1
+        : Math.max(1, parseInt(req.query.page));
+
+      const limit = 10;
+      const product1 = await Product.find({ status: 'Reported' })
+        .sort({ time: -1 })
+        .skip((page - 1) * limit)
+        .limit(limit);
+      const allProducts = mutipleMongooseToObject(product1);
+      for (const each of allProducts) {
+        const account = await Account.findOne(
+          { _id: each.idAccount },
+          'shopName'
+        );
+        each.shopName = account.shopName;
+      }
+      res.locals._numberOfItems = await Product.find({
+        status: 'Reported',
+      }).countDocuments();
+      res.locals._limit = limit;
+      res.locals._currentPage = page;
+      res.render('admin_product_reported', {
+        products: allProducts,
+        numOfProducts: allProducts.length,
+      });
+    } catch (error) {
+      next(error);
+    }
+  };
+
+  // [GET] product/trending
+  getTrendProduct = async (req, res, next) => {
+    try {
+      let page = isNaN(req.query.page)
+        ? 1
+        : Math.max(1, parseInt(req.query.page));
+
+      const limit = 10;
+      const product1 = await Product.find({ status: 'Trending' })
+        .sort({ time: -1 })
+        .skip((page - 1) * limit)
+        .limit(limit);
+      const allProducts = mutipleMongooseToObject(product1);
+      for (const each of allProducts) {
+        const account = await Account.findOne(
+          { _id: each.idAccount },
+          'shopName'
+        );
+        each.shopName = account.shopName;
+      }
+      res.locals._numberOfItems = await Product.find({
+        status: 'Trending',
+      }).countDocuments();
+      res.locals._limit = limit;
+      res.locals._currentPage = page;
+      res.render('admin_product_trending', {
+        products: allProducts,
+        numOfProducts: allProducts.length,
+      });
+    } catch (error) {
+      next(error);
+    }
+  };
+
+  // [POST] account/exec-product
+  executeProduct = async (req, res, next) => {
+    console.log(req.query.id);
+    try {
+      const product = await Product.findById(req.query.id);
+      const type = req.query.type;
+      if (type == 'ban' || type == 'deny') {
+        // ban unban accept deny (request) remove (reported) acptrend denytrend
+        product.status = 'Banned';
+      } else if (type == 'unban' || type == 'remove' || type == 'accept') {
+        product.status = 'Available';
+      } else if (type == 'acptrend') {
+        product.status = 'Available';
+        product.isTrend = true;
+      } else if (type == 'denytrend') {
+        product.status = 'Available';
+        product.isTrend = false;
+      } else {
+        product.status = 'Available';
+      }
+      await product.save();
+      res.redirect('back');
+    } catch (err) {
+      next(err);
+    }
+  };
 }
 
 // ***************************** Helper function *******************************

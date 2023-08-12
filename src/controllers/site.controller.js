@@ -7,7 +7,9 @@ class siteController {
   // [GET] /
   getHome = async (req, res, next) => {
     try {
-      const products = await Product.find({ isTrend: true });
+      const products = await Product.find({ isTrend: true })
+        .limit(6)
+        .sort('timestamps: -1');
       res.render('home', {
         products: mutipleMongooseToObject(products),
       });

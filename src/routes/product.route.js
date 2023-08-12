@@ -28,4 +28,12 @@ router.get('/all-product/search', productController.searchProduct);
 router.put('/specific-product/:id/report', productController.reportProduct);
 router.get('/specific-product/:id', productController.showSpecificProduct);
 
+// admin
+router.get('/full', productController.getFullProduct);
+router.get('/banned', productController.getBannedProduct);
+router.get('/pending', productController.getPendingProduct);
+router.get('/reported', productController.getReportedProduct);
+router.get('/trending', productController.getTrendProduct);
+router.post('/exec-product', productController.executeProduct);
+
 module.exports = router;

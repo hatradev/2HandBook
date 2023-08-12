@@ -277,10 +277,22 @@ class acccountController {
   // [GET] account/all
   getAllAccount = async (req, res, next) => {
     try {
-      const accounts = await Account.find();
+      let page = isNaN(req.query.page)
+        ? 1
+        : Math.max(1, parseInt(req.query.page));
+
+      const limit = 10;
+      const accounts = await Account.find()
+        .sort({ time: -1 })
+        .skip((page - 1) * limit)
+        .limit(limit);
+      res.locals._numberOfItems = await Account.find().countDocuments();
+      res.locals._limit = limit;
+      res.locals._currentPage = page;
 
       res.render('admin_account_all', {
         accounts: mutipleMongooseToObject(accounts),
+        numOfAccounts: accounts.length,
       });
     } catch (err) {
       next(err);
@@ -290,10 +302,23 @@ class acccountController {
   // [GET] account/pending
   getPendingAccount = async (req, res, next) => {
     try {
-      const accounts = await Account.find({ accountStatus: 'Pending' });
+      let page = isNaN(req.query.page)
+        ? 1
+        : Math.max(1, parseInt(req.query.page));
 
+      const limit = 10;
+      const accounts = await Account.find({ accountStatus: 'Pending' })
+        .sort({ time: -1 })
+        .skip((page - 1) * limit)
+        .limit(limit);
+      res.locals._numberOfItems = await Account.find({
+        status: 'Pending',
+      }).countDocuments();
+      res.locals._limit = limit;
+      res.locals._currentPage = page;
       res.render('admin_account_pending', {
         accounts: mutipleMongooseToObject(accounts),
+        numOfAccounts: accounts.length,
       });
     } catch (err) {
       next(err);
@@ -303,10 +328,23 @@ class acccountController {
   // [GET] account/reported
   getReportedAccount = async (req, res, next) => {
     try {
-      const accounts = await Account.find({ accountStatus: 'Reported' });
+      let page = isNaN(req.query.page)
+        ? 1
+        : Math.max(1, parseInt(req.query.page));
 
+      const limit = 10;
+      const accounts = await Account.find({ accountStatus: 'Reported' })
+        .sort({ time: -1 })
+        .skip((page - 1) * limit)
+        .limit(limit);
+      res.locals._numberOfItems = await Account.find({
+        status: 'Reported',
+      }).countDocuments();
+      res.locals._limit = limit;
+      res.locals._currentPage = page;
       res.render('admin_account_reported', {
         accounts: mutipleMongooseToObject(accounts),
+        numOfAccounts: accounts.length,
       });
     } catch (err) {
       next(err);
@@ -316,10 +354,23 @@ class acccountController {
   // [GET] account/banned
   getBannedAccount = async (req, res, next) => {
     try {
-      const accounts = await Account.find({ accountStatus: 'Banned' });
+      let page = isNaN(req.query.page)
+        ? 1
+        : Math.max(1, parseInt(req.query.page));
 
+      const limit = 10;
+      const accounts = await Account.find({ accountStatus: 'Banned' })
+        .sort({ time: -1 })
+        .skip((page - 1) * limit)
+        .limit(limit);
+      res.locals._numberOfItems = await Account.find({
+        status: 'Banned',
+      }).countDocuments();
+      res.locals._limit = limit;
+      res.locals._currentPage = page;
       res.render('admin_account_banned', {
         accounts: mutipleMongooseToObject(accounts),
+        numOfAccounts: accounts.length,
       });
     } catch (err) {
       next(err);
@@ -358,7 +409,7 @@ class acccountController {
         }
       }
       await user.save();
-      res.redirect('./all');
+      res.redirect('back');
     } catch (err) {
       next(err);
     }

@@ -6,6 +6,9 @@ for (const e of stat) {
   } else if (e.innerText == 'Reported') {
     e.style.color = '#fa983a';
     console.log(e.innerHTML);
+  } else if (e.innerText == 'Pending' || e.innerText == 'Trending') {
+    e.style.color = '#2980b9';
+    console.log(e.innerHTML);
   } else {
     e.innerHTML = 'Active';
     e.style.color = '#0e760e';

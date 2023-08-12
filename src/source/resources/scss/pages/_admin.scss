@@ -93,8 +93,7 @@
     }
   }
   .admin-announce {
-    min-height: 102rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
   .admin-announce-box {
     margin-bottom: 2rem;
@@ -106,8 +105,7 @@
     }
   }
   .list-accounts {
-    min-height: 100rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
   .account-item {
     border-radius: 20px;
@@ -127,10 +125,30 @@
       font-family: Inter;
       font-size: 1.4rem;
     }
+    .account-img {
+      object-fit: contain;
+    }
   }
   .account-icon {
     margin: 1rem 1rem;
     height: 5rem;
     width: 5rem;
+  }
+  .product-item {
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    .product-img {
+      height: 100%;
+      object-fit: contain;
+    }
+    .box {
+      border: 2px solid #000;
+    }
+    .dropdown-item {
+      color: #000;
+      font-family: Inter;
+      font-size: 1.4rem;
+    }
   }
 }

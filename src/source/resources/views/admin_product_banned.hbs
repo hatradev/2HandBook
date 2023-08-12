@@ -3,7 +3,7 @@
     <div class='admin-sidebar col-2'>
       <div class='nav flex-column nav-pills nav-fill'>
         <div class='nav-item'>
-          <a class='nav-link' href='./admin_announcement'>
+          <a class='nav-link' href='../announcement'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='32'
@@ -23,7 +23,7 @@
           </a>
         </div>
         <div class='nav-item'>
-          <a class='nav-link' href='./admin_account_all'>
+          <a class='nav-link' href='../account/all'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='32'
@@ -46,7 +46,7 @@
           <a
             class='nav-link active'
             aria-current='page'
-            href='./admin_product_all'
+            href='../product/full'
           >
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -64,7 +64,7 @@
           </a>
         </div>
         <div class='nav-item'>
-          <a class='nav-link' href='./admin_comment_all'>
+          <a class='nav-link' href='../evaluate/all'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='32'
@@ -85,28 +85,78 @@
     <div class='admin-article col-10'>
       <div class='nav nav-tabs'>
         <div class='nav-item'>
-          <a class='nav-link' href='./admin_product_all'>All product</a>
+          <a class='nav-link' href='./full'>All product</a>
         </div>
         <div class='nav-item'>
-          <a class='nav-link' href='./admin_product_pending'>Pending</a>
+          <a class='nav-link' href='./pending'>Pending</a>
         </div>
         <div class='nav-item'>
-          <a class='nav-link' href='./admin_product_trending'>Trending</a>
+          <a class='nav-link' href='./trending'>Trending</a>
         </div>
         <div class='nav-item'>
-          <a class='nav-link' href='./admin_product_reported'>Reported</a>
+          <a class='nav-link' href='./reported'>Reported</a>
         </div>
         <div class='nav-item'>
           <a
             class='nav-link active'
             aria-current='page'
-            href='./admin_product_banned'
+            href='./banned'
           >Banned</a>
         </div>
       </div>
       <div class='admin-content'>
-        <p>AAAAA</p>
+        {{#if numOfProducts}}
+          <div class='list-products row row-cols-2'>
+          
+            {{#each products}}
+              <div class='product-item col align-self-stretch d-flex align-items-stretch'>
+                <div class="row box w-100">
+
+                  <img class='product-img col-4 align-self-center' src='{{this.image}}' />
+
+                  <div class='col-6 d-flex flex-column'>
+                    <p class='list-inline-item'><strong>{{this.name}}</strong></p>
+                    <p class='list-inline-item'>Shop: {{this.shopName}}</p>
+                    <div class='list-inline-item'>Status: <div class='list-inline-item status'>{{this.status}}</div></div>
+                    <p class='list-inline-item'>Category: {{this.category}}</p>
+                    <p class='list-inline-item'>Price: {{this.price}}</p>
+                    <p class='list-inline-item flex-fill'>Stock: {{this.stock}}</p>
+                  
+                  </div>
+
+                  <form class='dropdown col-2 text-center mt-1' action='./exec-product?type=unban&id={{this._id}}' method="post">
+                    <a
+                      class='dropdown text-center'
+                      href='#'
+                      role='button'
+                      id='dropdownMenuLink'
+                      data-bs-toggle='dropdown'
+                      aria-expanded='false'
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M5 10c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2Zm14 0c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2Zm-7 0c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2Z"/></svg>
+                    </a>
+
+                    <ul class='dropdown-menu' aria-labelledby='dropdownMenuLink'>
+                      <li><a class='dropdown-item' href='./specific-product/{{this._id}}'>View info</a></li>
+                      <li><button type="submit" class='dropdown-item'>Unban</button></li>
+                    </ul>
+                  </form>
+                </div>
+              </div>
+              
+            {{/each}}
+          </div>
+          <script>
+            let numberOfItems = {{_numberOfItems}};
+            let limit = {{_limit}};
+            let currentPage = {{_currentPage}};
+          </script>
+          {{>pagination}}
+        {{else}}
+          <div class="alert alert-info text-center" role="alert">No products have been banned.</div>
+        {{/if}}
       </div>
     </div>
   </div>
 </div>
+<script src='/js/status-account.js'></script>

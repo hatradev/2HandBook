@@ -39,8 +39,19 @@ class announceController {
   // [GET] announcement/all
   getAllAnnouncement = async (req, res, next) => {
     try {
-      const announcements = await Announcement.find().sort({ time: -1 });
+      let page = isNaN(req.query.page)
+        ? 1
+        : Math.max(1, parseInt(req.query.page));
 
+      const limit = 10;
+
+      const announcements = await Announcement.find()
+        .sort({ time: -1 })
+        .skip((page - 1) * limit)
+        .limit(limit);
+      res.locals._numberOfItems = await Announcement.find().countDocuments();
+      res.locals._limit = limit;
+      res.locals._currentPage = page;
       res.render('admin_all_announcement', {
         announcements: mutipleMongooseToObject(announcements),
       });
