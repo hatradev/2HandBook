@@ -56,8 +56,6 @@ class evaluateController {
         reply: "",
       }).populate("idProduct");
       res.locals.evaluates = mutipleMongooseToObject(evaluates);
-      // res.json(evaluates)
-      // res.status(200).json({ error: 'thanh cong' });
       res.render("review-shop");
     } catch (error) {
       res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 1" });
@@ -74,22 +72,6 @@ class evaluateController {
         { $set: { reply: replyShop } }
       );
       res.redirect("back");
-    } catch (error) {
-      res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 1" });
-    }
-  };
-  // [GET] /sales-page/review
-  showEvaluate = async (req, res, next) => {
-    try {
-      // const account = await Account.findOne({}); //***
-      const idAccount = req.user._id; //***
-      // const idAccount = await Account.findOne({_id: req.params._id}); //***
-      // console.log(account)
-      const evaluates = await Evaluate.find({ idAccount, reply: "" }).populate(
-        "idProduct"
-      );
-      res.locals.evaluates = mutipleMongooseToObject(evaluates);
-      res.render("review-shop");
     } catch (error) {
       res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 1" });
     }
@@ -125,23 +107,6 @@ class evaluateController {
       // res.status(201).json({ message: 'Đơn hàng đã được tạo thành công', order: savedOrder });
     } catch (err) {
       next(err);
-    }
-  };
-
-  // [GET] /sales-page/review
-  showEvaluate = async (req, res, next) => {
-    try {
-      const idAccount = await Account.findOne({}); //***
-      const evaluates = await Evaluate.find({
-        idAccount: idAccount,
-        reply: "",
-      }).populate("idProduct");
-      res.locals.evaluates = mutipleMongooseToObject(evaluates);
-      // res.json(evaluates)
-      // res.status(200).json({ error: 'thanh cong' });
-      res.render("review-shop");
-    } catch (error) {
-      res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 1" });
     }
   };
 

@@ -1,22 +1,22 @@
 .sales-page {
   margin-top: 14rem;
-  // margin-bottom: 10rem;
   .vertical-nav {
     background-color: #f6f6f6;
+    padding: 1.5rem;
     .title {
       font-size: 2rem;
       font-weight: 700;
       text-transform: uppercase;
       padding: 2rem;
       text-align: center;
+      color: $color-primary-shade;
     }
 
     .nav-list {
       .nav-item {
         display: flex;
         align-items: center;
-        padding: 0 2rem;
-        // justify-content: center;
+        padding: 1rem 1rem;
         cursor: pointer;
         a {
           display: flex;
@@ -31,7 +31,7 @@
           }
         }
 
-        &:hover a{
+        &:hover a {
           opacity: 0.8;
           color: $color-primary-shade;
         }

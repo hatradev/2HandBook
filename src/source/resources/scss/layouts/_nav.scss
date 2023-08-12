@@ -18,7 +18,7 @@
     }
 
     .nav-item:not(:last-child) .nav-link::after {
-      content: '';
+      content: "";
       background-color: $color-text-light;
       @include box(0.2rem, 1.4rem);
       @include abs-pos(50%, 0);
@@ -64,7 +64,7 @@
   display: flex;
   position: relative;
   &::before {
-    content: '';
+    content: "";
     @include abs-pos(100%, false, false, 0);
     @include box(120%, 1rem);
     display: none;
@@ -77,7 +77,7 @@
 }
 
 .subnav {
-  @include abs-pos(calc(100% + 1rem), false, false, 0);
+  @include abs-pos(calc(100% + 1rem), false, false, 2rem);
   @include font(1.6rem, normal);
   text-transform: capitalize;
   border-radius: 0.5rem;
@@ -85,6 +85,7 @@
   display: none;
   overflow: hidden;
   z-index: 999;
+  min-width: 20rem;
   .subnav-link {
     &:link,
     &:visited {

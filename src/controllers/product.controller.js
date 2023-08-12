@@ -243,7 +243,13 @@ class productController {
   // [GET] product/all-product
   showAllProduct = async (req, res, next) => {
     try {
-      const products = await Product.find({});
+      let page = isNaN(req.query.page)
+        ? 1
+        : Math.max(1, parseInt(req.query.page));
+      const limit = 8;
+      const products = await Product.find({})
+        .skip((page - 1) * limit)
+        .limit(limit);
       const categories = await Product.aggregate([
         {
           $group: {
@@ -255,6 +261,9 @@ class productController {
           $sort: { _id: 1 },
         },
       ]);
+      res.locals._numberOfItems = await Product.find().countDocuments();
+      res.locals._limit = limit;
+      res.locals._currentPage = page;
       res.locals.categories = categories;
       res.locals.products = mutipleMongooseToObject(products);
       res.render("all-product");

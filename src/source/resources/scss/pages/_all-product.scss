@@ -7,9 +7,10 @@
     margin-right: 0.75rem;
     background-color: #fff;
 
-    .dropdown{
+    .dropdown {
       background-color: #fff;
-      button, ul li{
+      button,
+      ul li {
         height: 4rem;
         width: 20rem;
         font-size: 1.6rem;
@@ -93,7 +94,7 @@
           text-transform: uppercase;
         }
 
-        .list-title+hr {
+        .list-title + hr {
           width: 42%;
         }
 
@@ -143,7 +144,7 @@
 
         .trend-row {
           margin-top: 0;
-          .announcement{
+          .announcement {
             justify-content: center;
             display: flex;
             margin-top: 3rem;
@@ -195,7 +196,6 @@
         }
 
         figure {
-
           a.btn:link,
           a.btn:visited {
             border-radius: 0;
@@ -230,16 +230,14 @@
 
     .pagination-container {
       position: absolute;
-      width: 25rem;
+      width: 29rem;
       margin: 2rem auto;
       bottom: 0%;
-      right: 26%;
+      right: 24%;
 
       .pagination {
         margin-bottom: 0.6rem;
       }
     }
   }
-
-
 }

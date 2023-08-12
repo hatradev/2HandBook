@@ -3,11 +3,13 @@
 .container-ext {
   background-color: $color-white;
   margin-top: 2rem;
+  padding: 1rem 2rem;
 }
 
 .breadcrumb-ext {
   font-size: $font-size-quaternary;
   line-height: 3.6rem;
+  font-weight: 500;
 }
 
 .content-ext {
@@ -22,7 +24,7 @@
   position: relative;
 
   &::after {
-    content: '';
+    content: "";
     @include abs-pos(50%, 2rem);
     transform: translateY(-50%);
     border: 0.6rem solid transparent;
@@ -50,7 +52,6 @@
 // ************************
 
 .manage-product {
-
   @extend .container-ext;
   .manage-product-breadcrumb {
     @extend .breadcrumb-ext;

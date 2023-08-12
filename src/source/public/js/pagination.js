@@ -13,7 +13,11 @@ else {
         <i class='fa-regular fa-chevron-left'></i>
       </a>
     </li>`;
-    for (let i = leftMost; i < leftMost + Math.min(numPages, 3); i++) {
+    for (
+      let i = leftMost;
+      i < Math.min(leftMost + Math.min(numPages, 3), numPages + 1);
+      i++
+    ) {
       pagination.insertAdjacentHTML(
         "beforeend",
         `<li class="pagination-item col text-center">

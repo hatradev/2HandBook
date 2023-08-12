@@ -36,6 +36,12 @@
         <hr />
         {{/each}}
       </div>
+      <script>
+        let numberOfItems = {{_numberOfItems}};
+        let limit = {{_limit}};
+        let currentPage = {{_currentPage}};
+        let leftMost = currentPage - ((currentPage - 1) % 3);
+      </script>
       {{>pagination}}
     </div>
 

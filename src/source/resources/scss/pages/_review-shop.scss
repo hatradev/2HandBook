@@ -1,125 +1,118 @@
 .sales-page {
-	.review-shop {
-		.page-title {
-			padding: 2rem 0;
-			text-transform: uppercase;
-			font-size: 2rem;
-			font-weight: 700;
-		}
+  .review-shop {
+    .page-title {
+      padding: 3rem 2rem;
+      font-size: 2rem;
+      font-weight: 500;
+    }
 
-		.row {
-			margin-left: 2rem;
+    .row {
+      margin-left: 2rem;
 
-			.review-section {
-				min-height: 75rem;
-				padding-left: 0;
-				margin-top: 5rem;
+      .review-section {
+        min-height: 75rem;
+        padding-left: 0;
 
-				.card {
-					margin-bottom: 3rem;
+        .card {
+          margin-bottom: 3rem;
 
-					.card-body {
-						.information {
-							.avatar {
-								.img-avatar {
-									width: 4rem;
-									height: 4rem;
-									vertical-align: middle;
-									object-fit: cover;
-									border-radius: 50%;
-								}
-							}
+          .card-body {
+            .information {
+              .avatar {
+                .img-avatar {
+                  width: 4rem;
+                  height: 4rem;
+                  vertical-align: middle;
+                  object-fit: cover;
+                  border-radius: 50%;
+                }
+              }
 
-							.infor-span {
-								font-size: 1.5rem;
+              .infor-span {
+                font-size: 1.5rem;
 
-								.name {
-									font-weight: 600;
-								}
+                .name {
+                  font-weight: 600;
+                }
+              }
+            }
 
-								.date {}
-							}
-						}
+            .middle {
+              margin-top: 1rem;
+              font-family: "Inter", sans-serif;
 
-						.middle {
-							margin-top: 1rem;
-							font-family: 'Inter', sans-serif;
+              .title {
+                font-size: 1.8rem;
+                font-weight: 600;
+              }
+            }
+          }
 
-							.title {
-								font-size: 1.8rem;
-								font-weight: 600;
-							}
+          .card-footer {
+            display: flex;
+            justify-content: right;
 
-							.content {}
-						}
-					}
+            .btn-close {
+              width: 5rem;
+            }
 
-					.card-footer {
-						display: flex;
-						justify-content: right;
+            .modal-footer {
+              button {
+                padding: 0.8rem 0;
+              }
+            }
+          }
+        }
 
-						.btn-close {
-							width: 5rem;
-						}
+        .reply-cmt {
+          display: flex;
+          justify-content: end;
+          height: 5rem;
+          border-style: none;
 
-						.modal-footer {
-							button {
-								padding: 0.8rem 0;
-							}
-						}
-					}
-				}
+          button {
+            font-weight: bold;
+            width: 11rem;
+            font-size: 1.5rem;
+          }
+        }
 
-				.reply-cmt {
-					display: flex;
-					justify-content: end;
-					height: 5rem;
-					border-style: none;
+        .evaluate-body {
+          height: 30rem;
 
+          .rating {
+            height: 15%;
 
-					button {
-						font-weight: bold;
-						width: 11rem;
-						font-size: 1.5rem;
-					}
-				}
+            .first-choice {
+              margin-left: 4rem;
+            }
+          }
+        }
 
-				.evaluate-body {
-					height: 30rem;
+        .text_black {
+          color: black;
+          font-weight: bold;
+        }
 
-					.rating {
-						height: 15%;
+        .background_emphasis {
+          background-color: #337ab7;
+          // color: white;
+          font-weight: bold;
+          pointer-events: none;
+        }
 
-						.first-choice {
-							margin-left: 4rem;
-						}
-					}
-				}
+        .announcement {
+          justify-content: center;
+          display: flex;
+          margin-top: 3rem;
+          font-size: 1.6rem;
+        }
+      }
+    }
 
-				.text_black {
-					color: black;
-					font-weight: bold;
-				}
-
-				.background_emphasis {
-					background-color: #337ab7;
-					// color: white;
-					font-weight: bold;
-					pointer-events: none;
-				}
-
-				.announcement {
-					justify-content: center;
-					display: flex;
-					margin-top: 3rem;
-					font-size: 1.6rem;
-				}
-			}
-		}
-
-		.pagination-container {
-			width: 25rem;
-			margin-bottom: 4rem;
-		}
-	}
+    .pagination-container {
+      width: 28rem;
+      margin-bottom: 4rem;
+    }
+  }
 }

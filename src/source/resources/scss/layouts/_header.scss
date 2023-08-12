@@ -151,7 +151,7 @@
       background-color: transparent;
 
       .search-icon::before {
-        // color: #fff;
+        color: #fff;
       }
     }
   }
@@ -170,6 +170,6 @@
   }
 
   .search-icon::before {
-    color: $color-text-dark;
+    color: $color-text-dark !important;
   }
 }
