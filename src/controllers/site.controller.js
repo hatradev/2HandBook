@@ -3,15 +3,13 @@ const {
   mutipleMongooseToObject,
   mongooseToObject,
 } = require("../utils/mongoose");
-class SiteController {
+class siteController {
   // [GET] /
   getHome = async (req, res, next) => {
     try {
-      const products = await Product.find({ isTrend: true });
-      // console.log(req.session.cookie);
-      console.log(req.session.touch());
-      // console.log(req.session.cookie.maxAge);
-      console.log(req.user);
+      const products = await Product.find({ isTrend: true })
+        .limit(6)
+        .sort("timestamps: -1");
       res.render("home", {
         products: mutipleMongooseToObject(products),
       });
@@ -19,9 +17,14 @@ class SiteController {
       next(err);
     }
   };
-  getAboutUs = (req, res) => {
-    res.render("about-us");
+
+  getAboutUs = (req, res, next) => {
+    try {
+      res.render("about-us");
+    } catch (err) {
+      next(err);
+    }
   };
 }
 
-module.exports = new SiteController();
+module.exports = new siteController();

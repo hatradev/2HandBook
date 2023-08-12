@@ -11,6 +11,7 @@ const orderSchema = new mongoose.Schema({
   idSeller: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'account',
+    default: '',
     required: true,
   },
   detail: [
