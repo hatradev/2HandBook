@@ -35,6 +35,7 @@
       </div>
     </div>
   </div>
+  {{#each accBuyer.cart}}
   <div class='delivery-box container'>
     <div class='shop-box'>
       <svg
@@ -59,7 +60,7 @@
         ></path>
       </svg>
       <div class='shopname'>
-        {{product.idAccount.shopName}}
+        {{this.id_product.idAccount.shopName}}
       </div>
     </div>
     <hr />
@@ -67,14 +68,14 @@
       <div class='product row'>
         <a href='#' class='col-2 img'>
           <img
-            src= {{product.image}}
+            src= "{{this.id_product.image}}"
             class='pay-prod-img'
             alt='Something ...'
           />
         </a>
         <div class='col-10 row'>
-          <p class='pay-prod-title col'><strong>{{product.name}}</strong></p>
-          <p class='pay-prod-price col'>{{formatCurrency product.price}}</p>
+          <p class='pay-prod-title col'><strong>{{this.id_product.name}}</strong></p>
+          <p class='pay-prod-price col'>{{formatCurrency this.id_product.price}}</p>
           <div class='pay-prod-info'>
             <p class='pay-prod-quantity'>Quantity: 2</p>
             <p class='pay-prod-date'>Date: ....</p>
@@ -120,8 +121,9 @@
       <p class='total-price'>Total: {{formatCurrency 1200000}}</p>
     </div>
   </div>
+  {{/each}}
 
-  <form method="POST" action="/order/payment-placeOrder/{{product._id}}">
+  <form method="POST" action="/order/payment-placeOrderForCart">
     <div class='delivery-box'>
       <label for='mes' class='message'>Message</label>
       <textarea class='form-control' id='mes' name="message" rows='3'></textarea>

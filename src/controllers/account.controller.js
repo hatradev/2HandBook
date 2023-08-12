@@ -1,6 +1,8 @@
 const Account = require("../models/account.model");
 const Order = require("../models/order.model");
 const Product = require("../models/product.model");
+const fs = require("fs");
+const path = require("path");
 const passport = require("passport");
 const { sendForgotPasswordMail } = require("../utils/mail");
 const bcrypt = require("bcrypt");
@@ -171,6 +173,9 @@ class acccountController {
     user.email = req.body.email;
     user.phone = req.body.phone;
     user.job = req.body.job;
+    user.avatar = req.body.avatarPath;
+    // console.log(req.body);
+    // res.json(req.body);
     await user.save();
     try {
       // Check if the present password matches the one in the database
@@ -207,7 +212,45 @@ class acccountController {
         status: "successful",
       })
         .populate("idAccount")
-        .populate("detail.idProduct");
+        .populate("detail.idProduct")
+        .populate("idSeller");
+      const orderObject = mutipleMongooseToObject(orders);
+
+      // var products = [];
+      // var sellers = [];
+      // for (var i of orderObject) {
+      //   // Object.assign(i, { idOrder: i._id });
+      //   sellers.push(i);
+      //   for (var j of i.detail) {
+      //     Object.assign(j, { idOrder: i._id });
+      //     var temp = [];
+      //     temp.push(j);
+      //     products.push(j);
+      //     // sellers.push(j);
+      //   }
+      // }
+      res.locals.orders = orderObject;
+      // res.locals.products = products;
+      // res.locals.sellers = sellers;
+      res.locals.user = mongooseToObject(user);
+
+      res.render("my_order");
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  getMyOrderPending = async (req, res, next) => {
+    try {
+      const user = await Account.findById(req.params._id);
+      const accountId = user._id;
+      const orders = await Order.find({
+        idAccount: accountId,
+        status: "pending",
+      })
+        .populate("idAccount")
+        .populate("detail.idProduct")
+        .populate("idSeller");
       const orderObject = mutipleMongooseToObject(orders);
 
       var products = [];
@@ -223,7 +266,39 @@ class acccountController {
       res.locals.products = products;
       res.locals.user = mongooseToObject(user);
 
-      res.render("my_order");
+      res.render("my_order-pending");
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  getMyOrderCancelled = async (req, res, next) => {
+    try {
+      const user = await Account.findById(req.params._id);
+      const accountId = user._id;
+      const orders = await Order.find({
+        idAccount: accountId,
+        status: "cancelled",
+      })
+        .populate("idAccount")
+        .populate("detail.idProduct")
+        .populate("idSeller");
+      const orderObject = mutipleMongooseToObject(orders);
+
+      var products = [];
+      for (var i of orderObject) {
+        for (var j of i.detail) {
+          Object.assign(j, { idOrder: i._id });
+          var temp = [];
+          temp.push(j);
+          products.push(j);
+        }
+      }
+      res.locals.orders = orderObject;
+      res.locals.products = products;
+      res.locals.user = mongooseToObject(user);
+
+      res.render("my_order-cancelled");
     } catch (err) {
       next(err);
     }

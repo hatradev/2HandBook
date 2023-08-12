@@ -4,6 +4,7 @@ const router = express.Router();
 
 router.put('/specific-product/:id/report', evaluateController.reportEvaluate);
 router.post('/specific-product/:id/create', evaluateController.createEvaluate);
+router.post('/order-success/:_id', evaluateController.evaluateAndRating);
 
 router.get('/review', evaluateController.showEvaluate);
 router.post('/review/:id/reply', evaluateController.replyEvaluate);

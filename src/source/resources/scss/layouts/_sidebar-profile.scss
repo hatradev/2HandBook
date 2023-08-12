@@ -18,19 +18,25 @@
       .avatar-left {
         width: 40%;
         height: 90%;
-
-        // padding-bottom: 2rem;
-        i {
-          // padding: 1rem;
-          padding-top: 0.5rem;
-          font-size: 7.9rem;
-          padding-bottom: 0.6rem;
-          // background-color: white;
+        cursor: pointer;
+        // max-height: 8rem;
+        img{
+          height: 8.2rem;
+          width: 8.2rem;
+          border-radius: 0.5rem;
         }
+        // padding-bottom: 2rem;
+        // i {
+        //   // padding: 1rem;
+        //   padding-top: 0.5rem;
+        //   font-size: 7.9rem;
+        //   padding-bottom: 0.6rem;
+        //   // background-color: white;
+        // }
 
-        display: flex;
+        // display: flex;
         // align-items: center;
-        justify-content: center;
+        // justify-content: center;
       }
 
       .avatar-right {
