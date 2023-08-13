@@ -87,6 +87,7 @@ class evaluateController {
       const order = await Order.findOne({
         idAccount: accBuyer._id,
         "detail.idProduct": product._id,
+        "detail.isEvaluated": false,
       });
       const newEvaluate = new Evaluate({
         idAccount: accBuyer._id,
