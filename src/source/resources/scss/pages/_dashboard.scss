@@ -39,11 +39,11 @@
       color: #f63233;
       background-color: lighten(#f63233, $amount: 30);
     }
-    &:nth-child(2) i {
+    &:nth-child(3) i {
       color: #cc01ff;
       background-color: lighten(#cc01ff, $amount: 30);
     }
-    &:nth-child(3) i {
+    &:nth-child(2) i {
       color: #00ca15;
       background-color: lighten(#00ca15, $amount: 30);
     }
@@ -71,5 +71,138 @@
     .dashboard-specific-info {
       @include truncate;
     }
+  }
+}
+
+/// *** CHARTS
+
+@property --p {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+
+.pie {
+  --p: 20;
+  --b: 3rem;
+  --c: #00ca15;
+  --w: 20rem;
+
+  width: var(--w);
+  aspect-ratio: 1;
+  position: relative;
+  display: inline-grid;
+  margin: 0.5rem;
+  place-content: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+.pie:before,
+.pie:after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+.pie:before {
+  background-color: #0085ff !important;
+}
+.pie:before {
+  inset: 0;
+  background: radial-gradient(farthest-side, var(--c) 98%, #0000) top/var(--b)
+      var(--b) no-repeat,
+    conic-gradient(var(--c) calc(var(--p) * 1%), #0000 0);
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    #0000 calc(99% - var(--b)),
+    #000 calc(100% - var(--b))
+  );
+  mask: radial-gradient(
+    farthest-side,
+    #0000 calc(99% - var(--b)),
+    #000 calc(100% - var(--b))
+  );
+}
+.pie:after {
+  inset: calc(50% - var(--b) / 2);
+  transform: rotate(calc(var(--p) * 3.6deg))
+    translateY(calc(50% - var(--w) / 2));
+}
+.animate {
+  animation: p 1s 0.5s both;
+}
+.no-round:before {
+  background-size: 0 0, auto;
+}
+.no-round:after {
+  content: none;
+}
+@keyframes p {
+  from {
+    --p: 0;
+  }
+}
+
+// LINE CHART
+.skills {
+  animation-name: skills;
+}
+
+section {
+  article.skills {
+    width: 20rem;
+
+    p {
+      z-index: 0;
+      color: #fff;
+      padding: 0.1rem 0.5rem;
+      position: relative;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    .t-6 {
+      margin-bottom: 3.5rem;
+      height: 0rem;
+      width: 45rem;
+      span:nth-child(1) {
+        z-index: -2;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        background: #bebebe;
+        height: 100%;
+        width: 100%;
+      }
+
+      span:nth-child(2) {
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: $color-text-grey;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.skills {
+  animation: skills 1.25s cubic-bezier(0.17, 0.67, 0, 1);
+}
+
+@keyframes skills {
+  0% {
+    left: -500px;
+    opacity: 0;
+  }
+  100% {
+    left: 0;
+    opacity: 1;
   }
 }

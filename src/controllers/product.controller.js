@@ -2,6 +2,8 @@ const Product = require("../models/product.model");
 const fs = require("fs");
 const Evaluate = require("../models/evaluate.model");
 const Account = require("../models/account.model");
+const Order = require("../models/order.model");
+
 const sequelize = require("sequelize");
 const Op = sequelize.Op;
 
@@ -17,20 +19,65 @@ class productController {
   getDashboard = async (req, res, next) => {
     try {
       const options = { idAccount: req.user.id };
-      // Phân trang
-      let page = isNaN(req.query.page)
-        ? 1
-        : Math.max(1, parseInt(req.query.page));
-      const limit = 6;
-      const products = await Product.find(options)
-        .skip((page - 1) * limit)
-        .limit(limit)
-        .sort("-createdAt");
-      res.locals._numberOfItems = await Product.find(options).countDocuments();
-      res.locals._limit = limit;
-      res.locals._currentPage = page;
+      let income = 0; //
+      let order = 0; //
+      let stock = 0; //
+      let review = 0; //
+      let sucOrder = 0; //
+      let rating = 0;
+      let sumRating = 0;
+      let idProductForFindEval = [];
+      let cate = [0, 0, 0, 0];
+      // Tính toán *******************
+      const orders = await Order.find({ idSeller: req.user.id });
+      const productAll = await Product.find(options);
+      order = orders.length;
+      for (let i = 0; i < orders.length; i++) {
+        if (orders[i].status == "successful") {
+          sucOrder += 1;
+          for (const product of orders[i].detail) {
+            const productInfo = await Product.findById(product.idProduct);
+            income += productInfo.price * product.quantity;
+          }
+        }
+      }
+      for (const product of productAll) {
+        stock += product.stock;
+        if (product.category == "document") cate[0] += product.stock;
+        else if (product.category == "uniform") cate[1] += product.stock;
+        else if (product.category == "stationery") cate[2] += product.stock;
+        else cate[3] += product.stock;
+        idProductForFindEval.push({ idProduct: product._id });
+      }
+      const evaluates = await Evaluate.find({ $or: idProductForFindEval });
+      stock = productAll.reduce((acc, product) => acc + product.stock, 0);
+      review = evaluates.length;
+      for (let i = 0; i < evaluates.length; i++) {
+        sumRating += evaluates[i].rating;
+        if (evaluates[i].rating > 0) {
+          rating += 1;
+        }
+      }
+      // ****************************************
+      res.locals._document = cate[0];
+      res.locals._uniform = cate[1];
+      res.locals._stationery = cate[2];
+      res.locals._other = cate[3];
+      res.locals._income = income;
+      res.locals._order = order;
+      res.locals._stock = stock;
+      res.locals._review = review;
+      res.locals._sucOrder = sucOrder;
+      res.locals._rating = (sumRating / rating).toFixed(1);
+      res.locals._percent = ((sucOrder / order) * 100).toFixed(0);
       res.render("dashboard", {
-        products: mutipleMongooseToObject(products),
+        convertMoney: (str) => {
+          return Number(str).toLocaleString("it-IT", {
+            style: "currency",
+            currency: "VND",
+          });
+        },
+        calcPercent: (value, total) => ((value / total) * 100).toFixed(0),
       });
     } catch (err) {
       next(err);
@@ -80,6 +127,12 @@ class productController {
           isEqual(c1, c2) {
             return c1 == c2;
           },
+          convertMoney: (str) => {
+            return Number(str).toLocaleString("it-IT", {
+              style: "currency",
+              currency: "VND",
+            });
+          },
         },
       });
     } catch (err) {
@@ -111,16 +164,15 @@ class productController {
       formData.keyword = formData.keyword.map((str) => str.trim());
       if (formData.isTrend) {
         formData.status = "Trending";
+        isTrend = 0;
       }
       if (req.file && !req.fileValidationError) {
         formData.image = req.file.path.replace("source/public", "");
       } else {
         formData.image = "/img/products/default.png";
       }
-      // res.json(formData);
       const newProduct = new Product(formData);
       await newProduct.save();
-      // newProduct.save();
       res.render("message/processing-request");
     } catch (err) {
       next(err);
@@ -617,32 +669,6 @@ class productController {
       next(err);
     }
   };
-}
-
-// ***************************** HELPERS *******************************
-function removeParam(key, sourceURL) {
-  var rtn = sourceURL.split("?")[0],
-    param,
-    params_arr = [],
-    queryString = sourceURL.indexOf("?") !== -1 ? sourceURL.split("?")[1] : "";
-  if (queryString !== "") {
-    params_arr = queryString.split("&");
-    for (var i = params_arr.length - 1; i >= 0; i -= 1) {
-      param = params_arr[i].split("=")[0];
-      if (param === key) {
-        params_arr.splice(i, 1);
-      }
-    }
-    if (params_arr.length) rtn = rtn + "?" + params_arr.join("&");
-  }
-  return rtn;
-}
-
-function normalizeStr(str) {
-  return str
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase();
 }
 
 module.exports = new productController();

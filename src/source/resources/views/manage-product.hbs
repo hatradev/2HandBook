@@ -69,14 +69,14 @@
                 <li class='manage-product-info text-center col'>{{this.name}}</li>
                 <li class='manage-product-info text-center col-2 text-capitalize' style="padding-right: 2rem;">{{this.category}}</li>
                 <li class='manage-product-info text-center col-2 style="padding-right: 2rem;'>{{this.stock}}</li>
-                <li class='manage-product-info text-center col-2'>{{this.price}} VND</li>
+                <li class='manage-product-info text-center col-2'>{{convertMoney this.price}}</li>
               </ul>
             </a>
           </li>
           {{/each}}
         </ul>
-      </section>
-      <a
+        </section>
+        <a
         class='btn text-uppercase js-delete-btn'
         href='#'
         role='button'

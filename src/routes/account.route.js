@@ -29,7 +29,7 @@ router.get("/forgot", accountController.showForgotPassword);
 router.post("/forgot", accountController.forgotPassword);
 router.get("/page/:id", accountController.getAccountPage);
 // Middleware dùng để check login, các route cần login phải nằm dưới nó
-router.use(accountController.isLoggedIn);
+// router.use(accountController.isLoggedIn);
 // ################################################
 router.get("/sign-out", accountController.signOut);
 router.post("/my-profile/:_id/update", accountController.updateMyProfile);

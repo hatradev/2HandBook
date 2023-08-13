@@ -2,88 +2,79 @@
   <section class='row'>
     {{>sales-page}}
     <section class='dashboard col-10'>
-      <p class='dashboard-breadcrumb'>Dashboard</p>
+      <p class='dashboard-breadcrumb'>Dashboard</p> 
       <section class="dashboard-general col-8 mx-auto">
         <ul class="dashboard-general-list row gx-0 mb-5">
           <li class="dashboard-general-item col d-flex flex-column align-items-center">
             <p class="dashboard-general-title d-flex align-items-center">
               <i class="fa-solid fa-money-bill-wave text-center "></i>
-              <span>Total income</span>
+              <span>Total Income</span>
             </p>
-            <p class="dashboard-general-content fw-bold">1500000 VND</p>
+            <p class="dashboard-general-content fw-bold">{{convertMoney _income}}</p>
           </li>
           <li class="dashboard-general-item col d-flex flex-column align-items-center">
             <p class="dashboard-general-title d-flex align-items-center">
               <i class="fa-solid fa-truck text-center"></i>
-              <span>Total orders</span>
+              <span>Total Orders</span>
             </p>
-            <p class="dashboard-general-content fw-bold">300</p>
+            <p class="dashboard-general-content fw-bold">{{_order}}</p>
           </li>
           <li class="dashboard-general-item col d-flex flex-column align-items-center">
             <p class="dashboard-general-title d-flex align-items-center">
               <i class="fa-solid fa-box-open text-center"></i>
-              <span>Total stock</span>
+              <span>Total Stock</span>
             </p>
-            <p class="dashboard-general-content fw-bold">20</p>
+            <p class="dashboard-general-content fw-bold">{{_stock}}</p>
           </li>
         </ul>
-        <ul class="dashboard-general-list row gx-0">
+        <ul class="dashboard-general-list row gx-0 mb-5">
+          
           <li class="dashboard-general-item col d-flex flex-column align-items-center">
             <p class="dashboard-general-title d-flex align-items-center">
-              <i class="fa-solid fa-eye text-center "></i>
-              <span>Total views</span>
+              <i class="fa-solid fa-comments text-center"></i>
+              <span>Total Reviews</span>
             </p>
-            <p class="dashboard-general-content fw-bold">80</p>
+            <p class="dashboard-general-content fw-bold">{{_review}}</p>
           </li>
           <li class="dashboard-general-item col d-flex flex-column align-items-center">
             <p class="dashboard-general-title d-flex align-items-center">
-              <i class="fa-solid fa-comments  text-center"></i>
-              <span>Total reviews</span>
+              <i class="fa-sharp fa-solid fa-badge-check text-center"></i>
+              <span>Successful Orders</span>
             </p>
-            <p class="dashboard-general-content fw-bold">1234</p>
+            <p class="dashboard-general-content fw-bold">{{_sucOrder}}</p>
           </li>
           <li class="dashboard-general-item col d-flex flex-column align-items-center">
             <p class="dashboard-general-title d-flex align-items-center">
               <i class="fa-solid fa-star text-center"></i>
-              <span>Average rating</span>
+              <span>Average Rating</span>
             </p>
-            <p class="dashboard-general-content fw-bold">4.7</p>
+            <p class="dashboard-general-content fw-bold">{{_rating}}</p>
           </li>
         </ul>
+        {{!-- *****************  --}}
+       <section class="d-flex align-items-center margin-top: 3rem; margin-left: 2rem;">
+         <div class="pie animate no-round" style="--p:80; font-size: 3rem; margin: 0 2rem;"> {{_percent}}%</div>
+         
+          <section id="skills" class="toad-fullscreen">
+                <article class="skills">
+                    <div class="t-6">
+                        <p>{{_document}} documents<span></span><span class="skills" style="width: {{calcPercent _document _stock}}%;"></span></p>
+                    </div>
+                    <div class="t-6">
+                        <p>{{_uniform}} uniforms<span></span><span class="skills" style="width: {{calcPercent _uniform _stock}}%;"></span></p>
+                    </div>
+         
+                    <div class="t-6">
+                        <p>{{_stationery}} stationeries<span></span><span class="skills" style="width: {{calcPercent _stationery _stock}}%;"></span></p>
+                    </div>
+                    <div class="t-6">
+                        <p>{{_other}} others<span></span><span class="skills" style="width: {{calcPercent _other _stock}}%;"></span></p>
+                    </div>
+                </article>
+            </section>
+       </section>
+        {{!-- ********  --}}
       </section>
-      <section class="dashboard-specific">
-        <ul class="dashboard-specific-titles row gx-0">
-          <li class="dashboard-specific-title text-center col-1">Image</li>
-          <li class="dashboard-specific-title text-center col">Name</li>
-          <li class="dashboard-specific-title text-center col-1">Purchased</li>
-          <li class="dashboard-specific-title text-center col-2">Conversion Rate</li>
-          <li class="dashboard-specific-title text-center col-1">Reviews</li>
-          <li class="dashboard-specific-title text-center col-1">Rating</li>
-        </ul>
-        <ul class="dashboard-specific-list">
-          {{#each products}}
-          <li class="dashboard-specific-item">
-            <ul class="dashboard-specific-infos row gx-0 align-items-center">
-              <li class="dashboard-specific-info text-center col-1">
-              <img src="{{this.image}}" alt="ky thuat lap trinh" class="dashboard-specific-img">
-              </li>
-              <li class="dashboard-specific-info text-center col px-5">{{this.name}}</li>
-              <li class="dashboard-specific-info text-center col-1">2</li>
-              <li class="dashboard-specific-info text-center col-2">66.67%</li>
-              <li class="dashboard-specific-info text-center col-1">13</li>
-              <li class="dashboard-specific-info text-center col-1">4.7</li>
-            </ul>
-          </li>
-          {{/each}}
-        </ul>
-      </section>
-    <script>
-        let numberOfItems = {{_numberOfItems}};
-        let limit = {{_limit}};
-        let currentPage = {{_currentPage}};
-        let leftMost = currentPage - ((currentPage - 1) % 3);
-    </script>
-    {{>pagination}}
     </section>
   </section>
 </section>

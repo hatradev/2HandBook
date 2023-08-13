@@ -4,27 +4,45 @@
       <img class="shop-logo" src="{{account.avatar}}" alt="Shop Logo" />
 
       <div class="name-report">
+        {{#if _isSeller}}
         <h1 class="shop-name">{{account.shopName}}</h1>
+        {{else}}
+        <h1 class="shop-name">{{account.firstName}} {{account.lastName}}</h1>
+        {{/if}}
         <button id="report-button" class="button">Report</button>
       </div>
     </div>
   </div>
-  {{#if _isSeller}}
     <div class="column">
       <div class="info-section">
-        <div class="info-row">
-          <p class="category">Number of products:</p>
-          <p class="content">{{_numberOfProduct}}</p>
+        <div class="info-row d-flex align-items-center">
+        {{#if _isSeller}}
+          <p class="category">Total products:</p>
+          <strong class="content">{{_numberOfProduct}}</strong>
+        {{else}}
+          <p class="category">Total orders:</p>
+          <strong class="content">{{_totalOrder}}</strong>
+        {{/if}}
         </div>
 
-        <div class="info-row">
-          <p class="category">Number of reviews:</p>
-          <p class="content">{{_numberOfReview}}</p>
+        <div class="info-row d-flex align-items-center">
+        {{#if _isSeller}}
+          <p class="category">Total reviews:</p>
+          <strong class="content">{{_numberOfReview}}</strong>
+        {{else}}
+          <p class="category">Successful orders: </p>
+          <strong class="content">{{_totalSucOrder}}</strong>
+        {{/if}}
         </div>
 
-        <div class="info-row">
+        <div class="info-row d-flex align-items-center">
+        {{#if _isSeller}}
           <p class="category">Average rating:</p>
-          <p class="content">{{_avgOfRating}}</p>
+          <strong class="content">{{_avgOfRating}}</strong>
+        {{else}}
+          <p class="category">Total pay:</p>
+          <strong class="content">{{convertMoney _totalPay}}</strong>
+        {{/if}}
         </div>
       </div>
     </div>
@@ -51,8 +69,8 @@
             </div>
           {{else}}
             <div class="col">
-              <div class="announcement">
-                Không có sản phẩm phù hợp
+              <div class="announcement text-center alert alert-warning">
+                This account doesn't have any products !
               </div>
             </div>
           {{/each}}
@@ -66,8 +84,6 @@
       </script>
       {{>pagination}}
     </div>
-  {{/if}}
-
 </div>
 
 <script src="/js/shop-info.js"></script>

@@ -176,27 +176,61 @@ class acccountController {
           options.push({ idProduct: productAll[i]._id });
           numOfProduct += productAll[i].stock;
         }
-        if (options.length != 0) {
-          evaluates = await Evaluate.find({
-            $or: options,
-          });
+        if (productAll.length > 0) {
+          if (options.length != 0) {
+            evaluates = await Evaluate.find({
+              $or: options,
+            });
+          }
+          for (let i = 0; i < evaluates.length; i++) {
+            sumRating += evaluates[i].rating;
+            if (evaluates[i].rating > 0) {
+              numOfRating += 1;
+            }
+          }
+          res.locals.products = mutipleMongooseToObject(products);
+          res.locals._numberOfReview = evaluates.length;
+          res.locals._numberOfProduct = numOfProduct;
+          res.locals._avgOfRating = (sumRating / numOfRating).toFixed(1);
+          res.locals._numberOfItems = productAll.length;
+          res.locals._limit = limit;
+          res.locals._currentPage = page;
+        } else {
+          res.locals._numberOfProduct = 0;
+          res.locals._numberOfReview = 0;
+          res.locals._avgOfRating = 0;
         }
-        for (let i = 0; i < evaluates.length; i++) {
-          sumRating += evaluates[i].rating;
-          if (evaluates[i].rating > 0) {
-            numOfRating += 1;
+      } else {
+        const orders = await Order.find({ idAccount: req.params.id });
+        let totalPay = 0;
+        // await orders.forEach(async (order) => {
+        //   await order.detail.forEach(async (product) => {
+        //     const productInfo = await Product.findById(product.idProduct);
+        //     totalPay += product.quantity * productInfo.price;
+        //   });
+        // });
+        for (const order of orders) {
+          for (const product of order.detail) {
+            const productInfo = await Product.findById(product.idProduct);
+            totalPay += product.quantity * productInfo.price;
           }
         }
-        res.locals.products = mutipleMongooseToObject(products);
-        res.locals._numberOfReview = evaluates.length;
-        res.locals._numberOfProduct = numOfProduct;
-        res.locals._avgOfRating = (sumRating / numOfRating).toFixed(1);
-        res.locals._numberOfItems = productAll.length;
-        res.locals._limit = limit;
-        res.locals._currentPage = page;
+        let totalSucOrder = await Order.find({
+          idAccount: req.params.id,
+          status: "successful",
+        }).countDocuments();
+        res.locals._totalOrder = orders.length;
+        res.locals._totalSucOrder = totalSucOrder;
+        res.locals._totalPay = totalPay;
       }
       res.render("shop-info", {
         account: mongooseToObject(account),
+        convertMoney: (str) => {
+          return Number(str).toLocaleString("it-IT", {
+            style: "currency",
+            currency: "VND",
+          });
+        },
       });
     } catch (err) {
       next(err);
