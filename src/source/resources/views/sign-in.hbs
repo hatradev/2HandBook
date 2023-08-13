@@ -1,54 +1,62 @@
-<section class='container'>
-  <section class='sign-in'>
-    <h2 class='si-header'>SIGN IN</h2>
+<section class="container">
+  <section class="sign-in">
+    <h2 class="si-header">SIGN IN</h2>
 
-    <form method='POST' class='si-form' action='/account/sign-in'>
-      <div class='si-info-input'>
-        <label class='si-info' for='email'>Email</label>
+    <form method="POST" class="si-form" action="/account/sign-in">
+      <div class="si-info-input">
+        <label class="si-info" for="email">Email</label>
         <br />
         <input
-          class='si-input'
-          type='email'
-          id='email'
-          name='email'
+          class="si-input"
+          type="email"
+          id="email"
+          name="email"
           required
         /><br />
       </div>
-      <div class='si-info-input'>
-        <label class='si-info' for='password'>Password</label>
+      <div class="si-info-input">
+        <label class="si-info" for="password">Password</label>
         <br />
 
         <input
-          class='si-input'
-          type='password'
-          id='password'
-          name='password'
+          class="si-input"
+          type="password"
+          id="password"
+          name="password"
           required
         /><br />
 
-        <div class='si-remem-pass'>
+        <div class="si-remem-pass">
           <input
-            class='si-rmpass-checkbox'
-            type='checkbox'
-            id='keepSignedIn'
-            name='keepSignedIn'
-            value='Remember me'
+            class="si-rmpass-checkbox"
+            type="checkbox"
+            id="keepSignedIn"
+            name="keepSignedIn"
+            value="Remember me"
           />
-          <label class='si-rmpass-text' for='keepSignedIn'>Remember me</label><br
+          <label class="si-rmpass-text" for="keepSignedIn">Remember me</label><br
           />
         </div>
       </div>
 
-      <div class='si-buttons'>
-        <button class='si-button' type='submit'>Sign in</button>
-        <a class='si-button' href='/account/sign-up'>Sign up</a>
+      <div class="si-buttons">
+        <button class="si-button" type="submit">Sign in</button>
+        <a class="si-button" href="/account/sign-up">Sign up</a>
       </div>
 
-      <a class='si-forget-pass' href='/account/forgot'>Forgot password</a>
-      <input type='hidden' name='reqUrl' value='{{reqUrl}}' />
+      <a class="si-forget-pass" href="/account/forgot">Forgot password</a>
+      <input type="hidden" name="reqUrl" value="{{reqUrl}}" />
     </form>
     {{#if loginMessage}}
-      <p class='alert alert-warning mt-5'>{{{loginMessage}}}</p>
+      <p class="alert alert-warning mt-5">{{{loginMessage}}}</p>
+    {{else}}
+      {{#if _loginFirst}}
+        <p class="alert alert-warning mt-5">{{_loginFirst}}</p>
+      {{else}}
+        {{#if registerMessage}}
+          <p class="alert alert-warning mt-5">{{registerMessage}}</p>
+        {{/if}}
+      {{/if}}
     {{/if}}
   </section>
 </section>

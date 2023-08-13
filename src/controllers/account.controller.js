@@ -37,7 +37,7 @@ class acccountController {
         return res.redirect(`/account/sign-up`);
       } else {
         // Đăng kí thành công
-        res.redirect("/account/sign-in");
+        res.redirect("/account/sign-in?success=true");
       }
     })(req, res, next);
   };
@@ -47,6 +47,15 @@ class acccountController {
     try {
       if (req.isAuthenticated()) {
         return res.redirect("/account/my-profile");
+      }
+      console.log(req.url);
+
+      if (req.query?.success == "true") {
+        res.locals.registerMessage =
+          "You have registered successfully. Please login!";
+        console.log("OK");
+      } else if (req.url.includes("?")) {
+        res.locals._loginFirst = "You haven't logged in. Please login first!";
       }
       res.render("sign-in", {
         loginMessage: req.flash("loginMessage"),
@@ -93,6 +102,13 @@ class acccountController {
       return next();
     }
     res.redirect(`/account/sign-in?reqUrl=${req.originalUrl}`);
+  };
+
+  isAdmin = (req, res, next) => {
+    if (req.user.role == "Admin") {
+      return next();
+    }
+    // res.locals
   };
 
   // [GET] account/sign-out

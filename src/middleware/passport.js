@@ -110,14 +110,7 @@ passport.use(
         user = await Account(formData);
         user.save();
         // Thông báo user đăng kí tài khoản thành công
-        done(
-          null,
-          user,
-          req.flash(
-            "loginMessage",
-            "You have registered successfully. Please login."
-          )
-        );
+        done(null, user);
       } catch (error) {
         return done(error);
       }
