@@ -37,7 +37,7 @@ class acccountController {
         return res.redirect(`/account/sign-up`);
       } else {
         // Đăng kí thành công
-        res.redirect("/account/sign-in");
+        res.redirect("/account/sign-in?success=true");
       }
     })(req, res, next);
   };
@@ -47,6 +47,15 @@ class acccountController {
     try {
       if (req.isAuthenticated()) {
         return res.redirect("/account/my-profile");
+      }
+      console.log(req.url);
+
+      if (req.query?.success == "true") {
+        res.locals.registerMessage =
+          "You have registered successfully. Please login!";
+        console.log("OK");
+      } else if (req.url.includes("?")) {
+        res.locals._loginFirst = "You haven't logged in. Please login first!";
       }
       res.render("sign-in", {
         loginMessage: req.flash("loginMessage"),
@@ -79,20 +88,40 @@ class acccountController {
         // Get the account ID from the logged-in user
         const accountId = user._id; // Adjust this to match your account model field name
         req.session.cart = cart;
-
         // Append the account ID as a slug to the "reqUrl"
-        const redirectUrl = `${reqUrl}/${accountId}`;
+        if (reqUrl == "/account/my-profile") {
+          reqUrl = `${reqUrl}/${accountId}`;
+        }
         req.session.cookie.maxAge = keepSignedIn ? 24 * 60 * 60 * 1000 : null;
-        return res.redirect(redirectUrl);
+        return res.redirect(reqUrl);
       });
     })(req, res, next);
   };
 
+  // Authentication and Authorization
   isLoggedIn = (req, res, next) => {
     if (req.isAuthenticated()) {
       return next();
     }
     res.redirect(`/account/sign-in?reqUrl=${req.originalUrl}`);
+  };
+
+  isAdmin = (req, res, next) => {
+    if (req.user.role == "Admin") {
+      return next();
+    }
+    res.status(404).render("error", {
+      message: "You don't have permission!",
+    });
+  };
+
+  isSeller = (req, res, next) => {
+    if (req.user.role == "Seller") {
+      return next();
+    }
+    res.status(404).render("error", {
+      message: "You don't have permission!",
+    });
   };
 
   // [GET] account/sign-out
