@@ -84,6 +84,7 @@ class orderController {
 
       res.locals.accBuyer = mongooseToObject(accBuyer);
       res.locals.product = mongooseToObject(product);
+      res.locals.quantity = req.query.quantity;
 
       // console.log(res.locals.product);
       res.render("payment");

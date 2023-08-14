@@ -60,7 +60,7 @@
         ></path>
       </svg>
       <div class='shopname'>
-        {{this.id_product.idAccount.shopName}}
+        {{this._id.idAccount.shopName}}
       </div>
     </div>
     <hr />
@@ -68,17 +68,17 @@
       <div class='product row'>
         <a href='#' class='col-2 img'>
           <img
-            src= "{{this.id_product.image}}"
+            src= "{{this._id.image}}"
             class='pay-prod-img'
             alt='Something ...'
           />
         </a>
         <div class='col-10 row'>
-          <p class='pay-prod-title col'><strong>{{this.id_product.name}}</strong></p>
-          <p class='pay-prod-price col'>{{formatCurrency this.id_product.price}}</p>
+          <p class='pay-prod-title col'><strong>{{this._id.name}}</strong></p>
+          <p class='pay-prod-price col'>{{formatCurrency this._id.price}}</p>
           <div class='pay-prod-info'>
-            <p class='pay-prod-quantity'>Quantity: 2</p>
-            <p class='pay-prod-date'>Date: ....</p>
+            <p class='pay-prod-quantity'>Quantity: {{this.quantity}}</p>
+            <p class='pay-prod-date'>Date: {{getCurrentDate}}</p>
           </div>
 
         </div>
@@ -118,7 +118,7 @@
         </div>
       </div> --}}
       <hr />
-      <p class='total-price'>Total: {{formatCurrency 1200000}}</p>
+      <p class='total-price'>Total: {{formatCurrency (calculateTotalPrice this._id.price this.quantity)}}</p>
     </div>
   </div>
   {{/each}}

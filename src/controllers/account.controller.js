@@ -267,16 +267,66 @@ class acccountController {
   };
 
   // [GET] account/my-profile
-  getMyProfile(req, res, next) {
-    // res.send('my account');
-    Account.findOne({ _id: req.params._id })
-      .then((user) => {
-        res.render("profile_updating", {
-          user: mongooseToObject(user),
-        });
-      })
-      .catch(next);
-  }
+  // getMyProfile(req, res, next) {
+  //   // res.send('my account');
+  //   Account.findOne({ _id: req.params._id })
+  //     .then((user) => {
+  //       res.render("profile_updating", {
+  //         user: mongooseToObject(user),
+  //       });
+  //     })
+  //     .catch(next);
+  // }
+
+  // getMyProfile = async (req, res, next) => {
+  //   try {
+  //     const accountId = req.params._id;
+  //     const user = await Account.findById(accountId);
+  //     // console.log(user);
+
+  //     if (user.role === "Admin") {
+  //       return res.render("profile_updating-admin", {
+  //         user: mongooseToObject(user),
+  //       });
+  //     } 
+  //     else if (user.role === "Buyer") {
+  //       return res.render("profile_updating", {
+  //         user: mongooseToObject(user),
+  //       });
+  //     } 
+  //     else {
+  //       return res.render("profile_updating-seller", {
+  //         user: mongooseToObject(user),
+  //       });
+  //     } 
+  //   } catch (err) {
+  //     next(err);
+  //   }
+  // };
+
+  getMyProfile = async (req, res, next) => {
+    try {
+      const user = await Account.findById(req.params._id);
+      const idUser = user._id;
+      res.locals.user = mongooseToObject(user);
+      if(user.role === "Admin"){
+        res.locals.switchRole = "Admin"
+        res.locals.switchLink = "announcement"
+      }
+      else if(user.role === "Buyer"){
+        res.locals.switchRole = "Become seller"       
+        res.locals.switchLink = "account/become-seller/" + idUser
+      }
+      else{
+        res.locals.switchRole = "Sale management"
+        res.locals.switchLink = "product/dashboard"
+      }
+
+      res.render("profile_updating");
+    } catch (err) {
+      next(err);
+    }
+  };
 
   updateMyProfile = async (req, res, next) => {
     // res.json(req.body);
@@ -334,6 +384,19 @@ class acccountController {
         .populate("idSeller");
       const orderObject = mutipleMongooseToObject(orders);
 
+      res.locals.user = mongooseToObject(user);
+      if(user.role === "Admin"){
+        res.locals.switchRole = "Admin"
+        res.locals.switchLink = "announcement"
+      }
+      else if(user.role === "Buyer"){
+        res.locals.switchRole = "Become seller"       
+        res.locals.switchLink = "account/become-seller/" + accountId
+      }
+      else{
+        res.locals.switchRole = "Sale management"
+        res.locals.switchLink = "product/dashboard"
+      }
       // var products = [];
       // var sellers = [];
       // for (var i of orderObject) {
@@ -350,7 +413,6 @@ class acccountController {
       res.locals.orders = orderObject;
       // res.locals.products = products;
       // res.locals.sellers = sellers;
-      res.locals.user = mongooseToObject(user);
 
       res.render("my_order");
     } catch (err) {
@@ -379,6 +441,19 @@ class acccountController {
           temp.push(j);
           products.push(j);
         }
+      }
+
+      if(user.role === "Admin"){
+        res.locals.switchRole = "Admin"
+        res.locals.switchLink = "announcement"
+      }
+      else if(user.role === "Buyer"){
+        res.locals.switchRole = "Become seller"       
+        res.locals.switchLink = "account/become-seller/" + accountId
+      }
+      else{
+        res.locals.switchRole = "Sale management"
+        res.locals.switchLink = "product/dashboard"
       }
       res.locals.orders = orderObject;
       res.locals.products = products;
@@ -416,6 +491,19 @@ class acccountController {
       res.locals.products = products;
       res.locals.user = mongooseToObject(user);
 
+      if(user.role === "Admin"){
+        res.locals.switchRole = "Admin"
+        res.locals.switchLink = "announcement"
+      }
+      else if(user.role === "Buyer"){
+        res.locals.switchRole = "Become seller"       
+        res.locals.switchLink = "account/become-seller/" + accountId
+      }
+      else{
+        res.locals.switchRole = "Sale management"
+        res.locals.switchLink = "product/dashboard"
+      }
+
       res.render("my_order-cancelled");
     } catch (err) {
       next(err);
@@ -427,28 +515,17 @@ class acccountController {
       const accountId = req.params._id;
       const user = await Account.findById(accountId);
       // console.log(user);
+      res.locals.user = mongooseToObject(user);
+      res.locals.switchRole = "Become seller"       
+      res.locals.switchLink = "account/become-seller/" + accountId
 
-      if (user.requestStatus === "Become-seller") {
-        if (user.accountStatus === "Pending") {
-          // Yêu cầu trở thành người bán đã gửi và tài khoản chưa được chấp thuận
-          return res.render("become_seller-pending", {
-            user: mongooseToObject(user),
-            // processingMessage: 'Your request is being processed. Please wait for approval.',
-          });
-        } else {
-          // Yêu cầu trở thành người bán đã gửi và tài khoản đã được chấp thuận
-          return res.render("become_seller", {
-            user: mongooseToObject(user),
-            approvedMessage:
-              "Congratulations! You have been approved as a seller.",
-          });
-        }
+      if (user.accountStatus === "Pending") {
+        res.render("become_seller-pending");
+      } else {
+        // Yêu cầu trở thành người bán đã gửi và tài khoản đã được chấp thuận
+        res.render("become_seller");
       }
-
-      // Ngược lại, hiển thị trang trở thành người bán với thông tin hồ sơ của người dùng để cập nhật thông tin và yêu cầu trở thành người bán
-      res.render("become_seller", {
-        user: mongooseToObject(user),
-      });
+      
     } catch (err) {
       next(err);
     }
