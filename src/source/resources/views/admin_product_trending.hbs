@@ -108,7 +108,7 @@
 
                   <div class='col-6 d-flex flex-column'>
                     <p class='list-inline-item'><strong>{{this.name}}</strong></p>
-                    <p class='list-inline-item'>Shop: {{this.shopName}}</p>
+                    <p class='list-inline-item'>Shop: {{this.idAccount.shopName}}</p>
                     <div class='list-inline-item'>Status: <div class='list-inline-item status'>{{this.status}}</div> | {{#if this.isTrend}} onTrend {{else}} Pending {{/if}} </div>
                     <p class='list-inline-item'>Category: {{this.category}}</p>
                     <p class='list-inline-item'>Price: {{this.price}}</p>
@@ -143,7 +143,7 @@
             let numberOfItems = {{_numberOfItems}};
             let limit = {{_limit}};
             let currentPage = {{_currentPage}};
-let leftMost = currentPage - ((currentPage - 1) % 3);
+            let leftMost = currentPage - ((currentPage - 1) % 3);
           </script>
           {{>pagination}}
         {{else}}

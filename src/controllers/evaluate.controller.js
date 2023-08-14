@@ -145,6 +145,75 @@ class evaluateController {
       res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 1" });
     }
   };
+
+  getAllEvaluate = async (req, res, next) => {
+    try {
+      let page = isNaN(req.query.page)
+        ? 1
+        : Math.max(1, parseInt(req.query.page));
+
+      const limit = 10;
+      const evaluate = await Evaluate.find({})
+        .populate("idAccount")
+        .populate({
+          path: "idProduct",
+          populate: { path: "idAccount" },
+        })
+        .sort({ date: -1 })
+        .skip((page - 1) * limit)
+        .limit(limit);
+      const allEvaluate = mutipleMongooseToObject(evaluate);
+      res.locals._numberOfItems = await Evaluate.find({}).countDocuments();
+      res.locals._limit = limit;
+      res.locals._currentPage = page;
+      res.render("admin_comment_all", {
+        evaluate: allEvaluate,
+      });
+    } catch (error) {
+      next(error);
+    }
+  };
+
+  getReportedEvaluate = async (req, res, next) => {
+    try {
+      let page = isNaN(req.query.page)
+        ? 1
+        : Math.max(1, parseInt(req.query.page));
+
+      const limit = 10;
+      const evaluate = await Evaluate.find({ status: "reported" })
+        .populate("idAccount")
+        .populate({
+          path: "idProduct",
+          populate: { path: "idAccount" },
+        })
+        .sort({ date: -1 })
+        .skip((page - 1) * limit)
+        .limit(limit);
+      const allEvaluate = mutipleMongooseToObject(evaluate);
+      res.locals._numberOfItems = await Evaluate.find({
+        status: "reported",
+      }).countDocuments();
+      res.locals._limit = limit;
+      res.locals._currentPage = page;
+      res.render("admin_comment_reported", {
+        evaluate: allEvaluate,
+      });
+    } catch (error) {
+      next(error);
+    }
+  };
+
+  deleteEvaluate = async (req, res, next) => {
+    try {
+      const idEvaluate = req.body.id;
+      const remove = await Evaluate.findByIdAndDelete(idEvaluate);
+      console.log(remove);
+      res.redirect("back");
+    } catch (err) {
+      next(err);
+    }
+  };
 }
 
 module.exports = new evaluateController();

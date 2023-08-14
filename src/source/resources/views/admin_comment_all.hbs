@@ -3,7 +3,7 @@
     <div class='admin-sidebar col-2'>
       <div class='nav flex-column nav-pills nav-fill'>
         <div class='nav-item'>
-          <a class='nav-link' href='./admin_announcement'>
+          <a class='nav-link' href='../announcement'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='32'
@@ -23,7 +23,7 @@
           </a>
         </div>
         <div class='nav-item'>
-          <a class='nav-link' href='./admin_account_all'>
+          <a class='nav-link' href='../account/all'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='32'
@@ -43,7 +43,7 @@
           </a>
         </div>
         <div class='nav-item'>
-          <a class='nav-link' href='./admin_product_all'>
+          <a class='nav-link' href='../product/full'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='32'
@@ -63,7 +63,7 @@
           <a
             class='nav-link active'
             aria-current='page'
-            href='./admin_comment_all'
+            href='../evaluate/all'
           >
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -88,15 +88,46 @@
           <a
             class='nav-link active'
             aria-current='page'
-            href='./admin_comment_all'
+            href='#'
           >All comments</a>
         </div>
         <div class='nav-item'>
-          <a class='nav-link' href='./admin_comment_reported'>Reported</a>
+          <a class='nav-link' href='./reported'>Reported</a>
         </div>
       </div>
       <div class='admin-content'>
-        <p>AAAAA</p>
+        {{#if _numberOfItems}}
+        <div class='admin-announce'>
+          {{#each evaluate}}
+          <div class='admin-announce-box'>
+            <a class='title' href="../product/specific-product/{{this.idProduct._id}}">{{this.idAccount.firstName}} {{this.idAccount.lastName}} &raquo; {{this.idProduct.idAccount.shopName}}: {{this.idProduct.name}}</a>
+            <div class='d-flex justify-content-between'>
+              <p>Time: {{this.date}} </p>
+              <p>{{this.rating}} <span class="fa fa-star checked" style="color: orange;"></span> / 5 <span class="fa fa-star checked" style="color: orange;"></span></p>
+            </div>
+            <div class='d-flex'>
+              <p class='text-truncate content'>Content: {{this.content}}</p>
+            </div>
+            <form class='d-flex justify-content-between' method="post">
+              <p class='text-truncate content'>Reply: {{#if this.reply}} {{this.reply}} {{else}} None {{/if}}</p>
+              <button type="submit" class="btn btn-danger" style="--bs-btn-font-size: 1.2rem;"
+                formaction="./remove?id={{this._id}}"
+              >Remove</button>
+            </form>
+          </div>
+          {{/each}}
+          
+        </div>
+        <script>
+          let numberOfItems = {{_numberOfItems}};
+          let limit = {{_limit}};
+          let currentPage = {{_currentPage}};
+          let leftMost = currentPage - ((currentPage - 1) % 3);
+        </script>
+        {{>pagination}}
+        {{else}}
+          <div class="alert alert-info text-center" role="alert">There are no comments in the system.</div>
+        {{/if}}
       </div>
     </div>
   </div>

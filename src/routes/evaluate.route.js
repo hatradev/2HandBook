@@ -17,8 +17,8 @@ router.post("/review/:id/reply", evaluateController.replyEvaluate);
 // #########################################################
 router.use(acccountController.isAdmin);
 // ######################### ADMIN ##########################
-// router.get('/all', evaluateController.getAllEvaluate);
-// router.get('/reported', evaluateController.getReportedEvaluate);
-// router.post('/remove', evaluateController.deleteEvaluate);
+router.get("/all", evaluateController.getAllEvaluate);
+router.get("/reported", evaluateController.getReportedEvaluate);
+router.post("/remove", evaluateController.deleteEvaluate);
 
 module.exports = router;
