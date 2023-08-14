@@ -2,7 +2,9 @@
   min-height: 100vh;
 
   .delivery-addr {
-    @extend .container-ext;
+    background-color: $color-white;
+    margin-top: 17rem;
+    padding: 1rem 2rem;
 
     .title {
       display: flex;

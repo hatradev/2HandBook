@@ -19,12 +19,15 @@ class orderController {
     try {
       // const aOrder = await Account.findOne();
       // const accountId = aOrder._id
-      let page = isNaN(req.query.page) ? 1 : Math.max(1, parseInt(req.query.page));
+      let page = isNaN(req.query.page)
+        ? 1
+        : Math.max(1, parseInt(req.query.page));
       const limit = 8;
       const accountId = req.user._id;
       // console.log(accountId)
 
-      const orders = await Order.find({ idSeller: accountId }).sort({ date: -1 })
+      const orders = await Order.find({ idSeller: accountId })
+        .sort({ date: -1 })
         .populate("idAccount")
         .populate("detail.idProduct")
         .skip((page - 1) * limit)
@@ -43,8 +46,9 @@ class orderController {
         }
       }
       res.locals._numberOfItems = await Order.find({ idSeller: accountId })
-      .populate("idAccount")
-      .populate("detail.idProduct").countDocuments();
+        .populate("idAccount")
+        .populate("detail.idProduct")
+        .countDocuments();
       res.locals._limit = limit;
       res.locals._currentPage = page;
 
@@ -64,9 +68,9 @@ class orderController {
   getQuantity = async (req, res, next) => {
     try {
       const orderId = req.body.id;
-      const order = await Order.find({_id: orderId})
+      const order = await Order.find({ _id: orderId });
       // console.log(order)
-      res.json(order)
+      res.json(order);
     } catch (error) {
       res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 3" });
     }
@@ -111,7 +115,6 @@ class orderController {
       res.locals.product = mongooseToObject(product);
       res.locals.quantity = req.query.quantity;
 
-      // console.log(res.locals.product);
       res.render("payment");
     } catch (error) {
       res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 1" });

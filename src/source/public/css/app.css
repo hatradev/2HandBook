@@ -845,7 +845,7 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
       color: #fff;
       background-color: #337ab7; }
 
-.container-ext, .manage-product, .edit-product, .dashboard, .payment .delivery-addr {
+.container-ext, .manage-product, .edit-product, .dashboard {
   background-color: #fff;
   margin-top: 2rem;
   padding: 1rem 2rem; }
@@ -2013,29 +2013,33 @@ section article.skills {
 
 .payment {
   min-height: 100vh; }
-  .payment .delivery-addr .title {
-    display: flex;
-    align-items: center; }
-    .payment .delivery-addr .title svg {
-      display: inline-block;
-      line-height: 3.6rem;
-      margin-right: 1rem; }
-    .payment .delivery-addr .title p {
-      color: #000;
-      text-align: center;
+  .payment .delivery-addr {
+    background-color: #fff;
+    margin-top: 17rem;
+    padding: 1rem 2rem; }
+    .payment .delivery-addr .title {
+      display: flex;
+      align-items: center; }
+      .payment .delivery-addr .title svg {
+        display: inline-block;
+        line-height: 3.6rem;
+        margin-right: 1rem; }
+      .payment .delivery-addr .title p {
+        color: #000;
+        text-align: center;
+        font-family: Inter;
+        font-size: 2.4rem;
+        font-weight: 700;
+        display: inline-block; }
+    .payment .delivery-addr .del-info {
       font-family: Inter;
-      font-size: 2.4rem;
-      font-weight: 700;
-      display: inline-block; }
-  .payment .delivery-addr .del-info {
-    font-family: Inter;
-    font-size: 1.6rem; }
-    .payment .delivery-addr .del-info .del-first {
-      color: #000;
-      font-weight: 700;
-      display: block; }
-    .payment .delivery-addr .del-info .del-second {
-      line-height: 2.4rem; }
+      font-size: 1.6rem; }
+      .payment .delivery-addr .del-info .del-first {
+        color: #000;
+        font-weight: 700;
+        display: block; }
+      .payment .delivery-addr .del-info .del-second {
+        line-height: 2.4rem; }
   .payment .delivery-box {
     background-color: #f6f6f6;
     padding: 2rem 4rem;
