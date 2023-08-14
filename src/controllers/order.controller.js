@@ -65,7 +65,7 @@ class orderController {
     try {
       const orderId = req.body.id;
       const order = await Order.find({_id: orderId})
-      console.log(order)
+      // console.log(order)
       res.json(order)
     } catch (error) {
       res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 3" });

@@ -57,11 +57,14 @@ class evaluateController {
       const idAccount = req.user._id //***
       const evaluates = await Evaluate.find({
         reply: "",
-      }).sort({ date: -1 })
+      })
+      .populate('idAccount')
       .populate({
         path: "idProduct",
         match: { idAccount: idAccount } // Điều kiện kiểm tra trên idProduct
-      }).skip((page - 1) * limit).limit(limit);
+      })
+      .sort({ date: -1 })
+      .skip((page - 1) * limit).limit(limit);
       
       res.locals._numberOfItems = await Product.find().countDocuments();
       res.locals._limit = limit;
