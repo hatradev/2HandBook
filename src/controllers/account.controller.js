@@ -111,16 +111,16 @@ class acccountController {
       return next();
     }
     res.status(404).render("error", {
-      message: "You don't have permission!",
+      message: "File not found!",
     });
   };
 
   isSeller = (req, res, next) => {
-    if (req.user.role == "Seller") {
+    if (req.user.role == "Seller" || req.user.role == "Admin") {
       return next();
     }
     res.status(404).render("error", {
-      message: "You don't have permission!",
+      message: "File not found!",
     });
   };
 
@@ -288,17 +288,17 @@ class acccountController {
   //       return res.render("profile_updating-admin", {
   //         user: mongooseToObject(user),
   //       });
-  //     } 
+  //     }
   //     else if (user.role === "Buyer") {
   //       return res.render("profile_updating", {
   //         user: mongooseToObject(user),
   //       });
-  //     } 
+  //     }
   //     else {
   //       return res.render("profile_updating-seller", {
   //         user: mongooseToObject(user),
   //       });
-  //     } 
+  //     }
   //   } catch (err) {
   //     next(err);
   //   }
@@ -309,17 +309,15 @@ class acccountController {
       const user = await Account.findById(req.params._id);
       const idUser = user._id;
       res.locals.user = mongooseToObject(user);
-      if(user.role === "Admin"){
-        res.locals.switchRole = "Admin"
-        res.locals.switchLink = "announcement"
-      }
-      else if(user.role === "Buyer"){
-        res.locals.switchRole = "Become seller"       
-        res.locals.switchLink = "account/become-seller/" + idUser
-      }
-      else{
-        res.locals.switchRole = "Sale management"
-        res.locals.switchLink = "product/dashboard"
+      if (user.role === "Admin") {
+        res.locals.switchRole = "Admin";
+        res.locals.switchLink = "announcement";
+      } else if (user.role === "Buyer") {
+        res.locals.switchRole = "Become seller";
+        res.locals.switchLink = "account/become-seller/" + idUser;
+      } else {
+        res.locals.switchRole = "Sale management";
+        res.locals.switchLink = "product/dashboard";
       }
 
       res.render("profile_updating");
@@ -385,17 +383,15 @@ class acccountController {
       const orderObject = mutipleMongooseToObject(orders);
 
       res.locals.user = mongooseToObject(user);
-      if(user.role === "Admin"){
-        res.locals.switchRole = "Admin"
-        res.locals.switchLink = "announcement"
-      }
-      else if(user.role === "Buyer"){
-        res.locals.switchRole = "Become seller"       
-        res.locals.switchLink = "account/become-seller/" + accountId
-      }
-      else{
-        res.locals.switchRole = "Sale management"
-        res.locals.switchLink = "product/dashboard"
+      if (user.role === "Admin") {
+        res.locals.switchRole = "Admin";
+        res.locals.switchLink = "announcement";
+      } else if (user.role === "Buyer") {
+        res.locals.switchRole = "Become seller";
+        res.locals.switchLink = "account/become-seller/" + accountId;
+      } else {
+        res.locals.switchRole = "Sale management";
+        res.locals.switchLink = "product/dashboard";
       }
       // var products = [];
       // var sellers = [];
@@ -443,17 +439,15 @@ class acccountController {
         }
       }
 
-      if(user.role === "Admin"){
-        res.locals.switchRole = "Admin"
-        res.locals.switchLink = "announcement"
-      }
-      else if(user.role === "Buyer"){
-        res.locals.switchRole = "Become seller"       
-        res.locals.switchLink = "account/become-seller/" + accountId
-      }
-      else{
-        res.locals.switchRole = "Sale management"
-        res.locals.switchLink = "product/dashboard"
+      if (user.role === "Admin") {
+        res.locals.switchRole = "Admin";
+        res.locals.switchLink = "announcement";
+      } else if (user.role === "Buyer") {
+        res.locals.switchRole = "Become seller";
+        res.locals.switchLink = "account/become-seller/" + accountId;
+      } else {
+        res.locals.switchRole = "Sale management";
+        res.locals.switchLink = "product/dashboard";
       }
       res.locals.orders = orderObject;
       res.locals.products = products;
@@ -491,17 +485,15 @@ class acccountController {
       res.locals.products = products;
       res.locals.user = mongooseToObject(user);
 
-      if(user.role === "Admin"){
-        res.locals.switchRole = "Admin"
-        res.locals.switchLink = "announcement"
-      }
-      else if(user.role === "Buyer"){
-        res.locals.switchRole = "Become seller"       
-        res.locals.switchLink = "account/become-seller/" + accountId
-      }
-      else{
-        res.locals.switchRole = "Sale management"
-        res.locals.switchLink = "product/dashboard"
+      if (user.role === "Admin") {
+        res.locals.switchRole = "Admin";
+        res.locals.switchLink = "announcement";
+      } else if (user.role === "Buyer") {
+        res.locals.switchRole = "Become seller";
+        res.locals.switchLink = "account/become-seller/" + accountId;
+      } else {
+        res.locals.switchRole = "Sale management";
+        res.locals.switchLink = "product/dashboard";
       }
 
       res.render("my_order-cancelled");
@@ -516,8 +508,8 @@ class acccountController {
       const user = await Account.findById(accountId);
       // console.log(user);
       res.locals.user = mongooseToObject(user);
-      res.locals.switchRole = "Become seller"       
-      res.locals.switchLink = "account/become-seller/" + accountId
+      res.locals.switchRole = "Become seller";
+      res.locals.switchLink = "account/become-seller/" + accountId;
 
       if (user.accountStatus === "Pending") {
         res.render("become_seller-pending");
@@ -525,7 +517,6 @@ class acccountController {
         // Yêu cầu trở thành người bán đã gửi và tài khoản đã được chấp thuận
         res.render("become_seller");
       }
-      
     } catch (err) {
       next(err);
     }

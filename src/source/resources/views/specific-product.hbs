@@ -111,7 +111,7 @@
 
       <div class="comment-main mt-3" data-id="{{@index}}">
         {{#each evaluates}}
-          <div class="comment-user">
+          <div class="comment-user mb-4">
             <form
               class="report-section"
               method="POST"
@@ -152,10 +152,12 @@
               {{this.content}}
             </div>
           </div>
-          <div class="reply-from-seller mt-3">
-            Seller:
-            {{this.reply}}
-          </div>
+          {{#if this.reply}}
+            <div class="reply-from-seller mb-4">
+              Seller:
+              {{this.reply}}
+            </div>
+          {{/if}}
         {{/each}}
       </div>
     </div>
