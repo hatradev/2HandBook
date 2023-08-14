@@ -294,9 +294,7 @@ class productController {
   // [GET] product/all-product
   showAllProduct = async (req, res, next) => {
     try {
-      let page = isNaN(req.query.page)
-        ? 1
-        : Math.max(1, parseInt(req.query.page));
+      let page = isNaN(req.query.page) ? 1 : Math.max(1, parseInt(req.query.page));
       const limit = 8;
       const products = await Product.find({})
         .skip((page - 1) * limit)
@@ -315,6 +313,7 @@ class productController {
       res.locals._numberOfItems = await Product.find().countDocuments();
       res.locals._limit = limit;
       res.locals._currentPage = page;
+
       res.locals.categories = categories;
       res.locals.products = mutipleMongooseToObject(products);
       res.render("all-product");
@@ -326,8 +325,13 @@ class productController {
   // [GET] product/all-product/category
   filterProduct = async (req, res, next) => {
     try {
+      let page = isNaN(req.query.page) ? 1 : Math.max(1, parseInt(req.query.page));
+      console.log(page)
+      const limit = 8;
+
       const type = req.query.category; //? req.query.category : 0
-      const products = await Product.find({ category: type });
+      const products = await Product.find({ category: type }).skip((page - 1) * limit)
+        .limit(limit)
       const categories = await Product.aggregate([
         {
           $group: {
@@ -339,6 +343,10 @@ class productController {
           $sort: { _id: 1 }, // Sắp xếp giảm dần dựa trên trường 'count'
         },
       ]);
+      res.locals._numberOfItems = await Product.find({ category: type }).countDocuments();
+      res.locals._limit = limit;
+      res.locals._currentPage = page;
+
       res.locals.categories = categories;
       res.locals.products = mutipleMongooseToObject(products);
 
@@ -351,6 +359,10 @@ class productController {
   // [GET] product/all-product/sort
   sortProduct = async (req, res, next) => {
     try {
+      let page = isNaN(req.query.page) ? 1 : Math.max(1, parseInt(req.query.page));
+      console.log(page)
+      const limit = 8;
+
       const type = req.query.sort;
       const order = req.query.order;
       let options = {};
@@ -363,7 +375,9 @@ class productController {
         options.name = regex;
       }
 
-      const products = await Product.find(options).sort({ [type]: order });
+      const products = await Product.find(options).sort({ [type]: order })
+        .skip((page - 1) * limit)
+        .limit(limit)
       const categories = await Product.aggregate([
         {
           $group: {
@@ -375,6 +389,10 @@ class productController {
           $sort: { _id: 1 },
         },
       ]);
+
+      res.locals._numberOfItems = await Product.find(options).countDocuments();
+      res.locals._limit = limit;
+      res.locals._currentPage = page;
       res.locals.categories = categories;
       res.locals.products = mutipleMongooseToObject(products);
 
@@ -387,10 +405,16 @@ class productController {
   // [GET] product/all-product/search
   searchProduct = async (req, res, next) => {
     try {
+      let page = isNaN(req.query.page) ? 1 : Math.max(1, parseInt(req.query.page));
+      console.log(page)
+      const limit = 8;
+
       const keyword = req.query.keyword || "";
       if (keyword.trim() != "") {
         const regex = new RegExp(keyword, "i");
-        const products = await Product.find({ name: regex });
+        const products = await Product.find({ name: regex })
+          .skip((page - 1) * limit)
+          .limit(limit)
 
         const categories = await Product.aggregate([
           {
@@ -403,6 +427,9 @@ class productController {
             $sort: { _id: 1 },
           },
         ]);
+        res.locals._numberOfItems = await Product.find({ name: regex }).countDocuments();
+        res.locals._limit = limit;
+        res.locals._currentPage = page;
 
         res.locals.categories = categories;
         res.locals.products = mutipleMongooseToObject(products);
@@ -427,10 +454,20 @@ class productController {
         })
         .sort({ date: -1 });
 
+      const evaNumber = await Evaluate.find({ idProduct: productId })
+      .populate({
+        path: "idAccount",
+        select: "firstName lastName avatar",
+      })
+      .sort({ date: -1 }).countDocuments();
+
+      // console.log(evaNumber)
+
       const stars = await Evaluate.aggregate([
         {
           $match: {
             idProduct: productId,
+            rating: { $ne: 0 }
           },
         },
         {
@@ -449,6 +486,7 @@ class productController {
         { $limit: 6 },
       ]);
 
+      res.locals.evaNumber = evaNumber;
       res.locals.details = details;
       res.locals.product = mongooseToObject(product);
       res.locals.stars = stars[0];

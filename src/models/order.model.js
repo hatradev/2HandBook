@@ -26,7 +26,7 @@ const orderSchema = new mongoose.Schema({
       },
       isEvaluated: {
         type: Boolean,
-        required: true,
+        required: false,
       },
     },
   ],

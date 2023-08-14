@@ -50,11 +50,23 @@ class evaluateController {
   // [GET] /sales-page/review
   showEvaluate = async (req, res, next) => {
     try {
-      const idAccount = await Account.findOne({}); //***
+      // const idAccount = await Account.findOne({}); //***
+      let page = isNaN(req.query.page) ? 1 : Math.max(1, parseInt(req.query.page));
+      const limit = 4;
+
+      const idAccount = req.user._id //***
       const evaluates = await Evaluate.find({
-        idAccount: idAccount,
         reply: "",
-      }).populate("idProduct");
+      }).sort({ date: -1 })
+      .populate({
+        path: "idProduct",
+        match: { idAccount: idAccount } // Điều kiện kiểm tra trên idProduct
+      }).skip((page - 1) * limit).limit(limit);
+      
+      res.locals._numberOfItems = await Product.find().countDocuments();
+      res.locals._limit = limit;
+      res.locals._currentPage = page;
+
       res.locals.evaluates = mutipleMongooseToObject(evaluates);
       res.render("review-shop");
     } catch (error) {
@@ -62,16 +74,20 @@ class evaluateController {
     }
   };
 
-  // [POST] /sales-page/:id/reply
+  // [POST] /evaluate/review/:id/reply
   replyEvaluate = async (req, res, next) => {
     try {
       const idEvaluate = req.params.id;
+      console.log(idEvaluate)
       const replyShop = req.body.reply;
-      await Evaluate.updateOne(
-        { _id: idEvaluate },
-        { $set: { reply: replyShop } }
-      );
-      res.redirect("back");
+      console.log(replyShop)
+      // await Evaluate.updateOne(
+      //   { _id: idEvaluate },
+      //   { $set: { reply: replyShop } }
+      // );
+      // res.redirect("back");
+      res.json({idEvaluate, replyShop})
+      
     } catch (error) {
       res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 1" });
     }

@@ -57,6 +57,5 @@ module.exports = {
     }
     return objectId;
   },
-  increaseIndex: (index, i) => index + i,
-  // originUrl: () => window.location.origin,
+  increaseIndex: (page, limit, index) => (page - 1)*limit + index + 1,
 };

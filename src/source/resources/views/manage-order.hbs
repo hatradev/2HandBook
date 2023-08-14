@@ -19,7 +19,7 @@
         <tbody>
           {{#each orders}}
           <tr class="item-order" data-id="{{this._id}}">
-            <th scope='row'>{{increaseIndex @index 1}}</th>
+            <th scope='row'>{{increaseIndex ../_currentPage ../_limit @index}}</th>
             <td>{{this.idAccount.lastName}} {{this.idAccount.firstName}}</td>
             <td>{{this.idAccount.email}}</td>
             <td>{{this.idAccount.phone}}</td>
@@ -41,10 +41,10 @@
           {{/each}}
         </tbody>
       </table>
-       <script>
-        let numberOfItems = {{_numberOfItems}};
-        let limit = {{_limit}};
-        let currentPage = {{_currentPage}};
+      <script>
+        let numberOfItems = {{ _numberOfItems }};
+        let limit = {{ _limit }};
+        let currentPage = {{ _currentPage }};
         let leftMost = currentPage - ((currentPage - 1) % 3);
       </script>
       {{>pagination}}
@@ -73,6 +73,8 @@
                     </thead>
                     <tbody>
                       {{#each products}}
+                      {{#if this.idProduct}}
+                      <!-- Xử lý khi điều kiện đúng -->
                       <tr class="item-modal" data-id="{{this.idOrder}}">
                         <td>
                           <div class='img'>
@@ -86,6 +88,9 @@
                         <td>{{this.quantity}}</td>
                         <td>{{this.idProduct.price}}</td>
                       </tr>
+                      {{else}}
+                      <!-- Xử lý khi điều kiện sai -->
+                      {{/if}}
                       {{/each}}
                     </tbody>
                   </table>
@@ -101,10 +106,10 @@
               </div>
             </div>
             <div class='modal-footer'>
-              <button class='btn btn-success btn-accept' data-status="">
+              <button class='btn btn-success btn-accept' data-status="" data-id="{{this._id}}">
                 ACCEPT
               </button>
-              <button class='btn btn-danger btn-delete' data-status="">
+              <button class='btn btn-danger btn-delete' data-status="" data-id="{{this._id}}">
                 REJECT
               </button>
 
