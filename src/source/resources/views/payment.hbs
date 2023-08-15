@@ -118,7 +118,7 @@
     </div>
   </div>
 
-  <form method="POST" action="/order/payment-placeOrder/{{product._id}}">
+  <form method="POST" action="/order/payment-placeOrder/{{product._id}}?quantity={{quantity}}">
     <div class="delivery-box">
       <label for="mes" class="message">Message</label>
       <textarea
