@@ -844,6 +844,10 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
       color: #fff;
       background-color: #337ab7; }
 
+.far-from-head {
+  margin-top: 17rem;
+  margin-bottom: 3rem; }
+
 .container-ext, .manage-product, .edit-product, .dashboard {
   background-color: #fff;
   margin-top: 2rem;

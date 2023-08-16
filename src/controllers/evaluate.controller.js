@@ -206,8 +206,10 @@ class evaluateController {
 
   deleteEvaluate = async (req, res, next) => {
     try {
-      const idEvaluate = req.body.id;
-      const remove = await Evaluate.findByIdAndDelete(idEvaluate);
+      const idEvaluate = req.query.id;
+      console.log(idEvaluate);
+      const evaluate = await Evaluate.findById(idEvaluate);
+      const remove = await Evaluate.deleteOne({ _id: idEvaluate });
       console.log(remove);
       res.redirect("back");
     } catch (err) {
