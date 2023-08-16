@@ -4,7 +4,6 @@ const { mongooseToObject } = require("../utils/mongoose");
 async function initCart(req, res, next) {
   try {
     // Nếu người dùng đã đăng nhập thì đồng nhất giỏ hàng ở trong session với lại giỏ hàng ở trong user sau đó update DB
-    // console.log(req.user.cart, req.session.cart);
     if (req.user) {
       // Tạo deep copy
       reqUserCart = JSON.parse(JSON.stringify(req.user.cart));
@@ -48,11 +47,11 @@ async function initCart(req, res, next) {
             _id: eleSess._id,
             quantity: eleSess.quantity,
           });
-          await Account.findOneAndUpdate(
-            { _id: req.user._id },
-            { cart: req.user.cart }
-          );
         }
+        await Account.findOneAndUpdate(
+          { _id: req.user._id },
+          { cart: req.user.cart }
+        );
       });
       let cart = req.session.cart;
       res.locals._cartNumber = cart.reduce(
