@@ -1212,7 +1212,7 @@ section article.skills {
           cursor: pointer; }
           .specific-product .payment-section .details-item .intro .report-section button {
             display: none;
-            background-color: rgba(59, 153, 215, 0.7);
+            background-color: #3b99d7;
             border-radius: 5px;
             width: 8.5rem;
             height: 3.3rem;
@@ -1224,7 +1224,7 @@ section article.skills {
             display: none;
             font-size: 1.5rem;
             width: 8.5rem;
-            background-color: rgba(59, 153, 215, 0.7);
+            background-color: #3b99d7;
             padding: 0.5rem 0.5rem;
             border-radius: 6px;
             transition: all 0.3s; }

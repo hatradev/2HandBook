@@ -25,7 +25,8 @@
           <h3
             class="score m-0"
             style="font-family: 'Inter', sans-serif;"
-          >{{showStar stars.avgRating}}/5 (độ yêu thích)
+          >{{showStar stars.avgRating}} <i class="fa-solid fa-star"></i>
+          /5 <i class="fa-solid fa-star"></i>
           </h3>
           <h3
             class="number mb-0"
@@ -142,7 +143,8 @@
                   <h3
                     class="score m-0"
                     style="font-family: 'Inter', sans-serif; font-size: 1.5rem;"
-                  >{{showStar this.rating}}/5 (độ yêu thích)</h3>
+                  >{{showStar this.rating}} <i class="fa-solid fa-star"></i>
+                  /5 <i class="fa-solid fa-star"></i></h3>
                 {{else}}
                   {{! Nội dung khi điều kiện sai }}
                 {{/if}}
