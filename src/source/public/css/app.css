@@ -1597,33 +1597,35 @@ section article.skills {
       padding: 2rem 0;
       font-size: 2rem;
       font-weight: 500; }
-    .sales-page .manage-order .table {
-      margin-top: 1rem; }
-      .sales-page .manage-order .table thead tr {
-        text-align: center; }
-      .sales-page .manage-order .table tr th:first-child {
-        text-align: center; }
-      .sales-page .manage-order .table tr .details,
-      .sales-page .manage-order .table tr .details-btn {
-        text-align: center; }
-      .sales-page .manage-order .table tr .accept,
-      .sales-page .manage-order .table tr .accept-btn {
-        text-align: center; }
-      .sales-page .manage-order .table tr .cancel,
-      .sales-page .manage-order .table tr .cancel-btn {
-        text-align: center; }
-      .sales-page .manage-order .table tr td a i {
-        font-size: 1.8rem;
-        cursor: pointer;
-        padding: 0.2rem 1rem; }
-      .sales-page .manage-order .table tr .details-btn a {
-        color: #000; }
-      .sales-page .manage-order .table tr .accept-btn a {
-        color: #1a9781; }
-      .sales-page .manage-order .table tr .cancel-btn a {
-        color: #e05e5e; }
-    .sales-page .manage-order .pagination-container {
-      margin: 3rem auto; }
+    .sales-page .manage-order .table-order-section {
+      min-height: 80rem; }
+      .sales-page .manage-order .table-order-section .table {
+        margin-top: 1rem; }
+        .sales-page .manage-order .table-order-section .table thead tr {
+          text-align: center; }
+        .sales-page .manage-order .table-order-section .table tr th:first-child {
+          text-align: center; }
+        .sales-page .manage-order .table-order-section .table tr .details,
+        .sales-page .manage-order .table-order-section .table tr .details-btn {
+          text-align: center; }
+        .sales-page .manage-order .table-order-section .table tr .accept,
+        .sales-page .manage-order .table-order-section .table tr .accept-btn {
+          text-align: center; }
+        .sales-page .manage-order .table-order-section .table tr .cancel,
+        .sales-page .manage-order .table-order-section .table tr .cancel-btn {
+          text-align: center; }
+        .sales-page .manage-order .table-order-section .table tr td a i {
+          font-size: 1.8rem;
+          cursor: pointer;
+          padding: 0.2rem 1rem; }
+        .sales-page .manage-order .table-order-section .table tr .details-btn a {
+          color: #000; }
+        .sales-page .manage-order .table-order-section .table tr .accept-btn a {
+          color: #1a9781; }
+        .sales-page .manage-order .table-order-section .table tr .cancel-btn a {
+          color: #e05e5e; }
+      .sales-page .manage-order .table-order-section .pagination-container {
+        margin: 3rem auto; }
     .sales-page .manage-order .modal.product-details .modal-dialog {
       display: flex;
       align-items: center;

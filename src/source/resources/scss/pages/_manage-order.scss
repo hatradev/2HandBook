@@ -10,57 +10,60 @@
       font-weight: 500;
     }
 
-    .table {
-      // height: 32rem;
-      margin-top: 1rem;
-
-      thead tr {
-        text-align: center;
+    .table-order-section{
+      min-height: 80rem;
+      .table {
+        margin-top: 1rem;
+  
+        thead tr {
+          text-align: center;
+        }
+  
+        tr {
+          th:first-child {
+            text-align: center;
+          }
+  
+          .details,
+          .details-btn {
+            text-align: center;
+          }
+  
+          .accept,
+          .accept-btn {
+            text-align: center;
+          }
+  
+          .cancel,
+          .cancel-btn {
+            text-align: center;
+          }
+  
+          td a i {
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 0.2rem 1rem;
+          }
+  
+          .details-btn a {
+            color: #000;
+          }
+  
+          .accept-btn a {
+            color: #1a9781;
+          }
+  
+          .cancel-btn a {
+            color: #e05e5e;
+          }
+        }
       }
-
-      tr {
-        th:first-child {
-          text-align: center;
-        }
-
-        .details,
-        .details-btn {
-          text-align: center;
-        }
-
-        .accept,
-        .accept-btn {
-          text-align: center;
-        }
-
-        .cancel,
-        .cancel-btn {
-          text-align: center;
-        }
-
-        td a i {
-          font-size: 1.8rem;
-          cursor: pointer;
-          padding: 0.2rem 1rem;
-        }
-
-        .details-btn a {
-          color: #000;
-        }
-
-        .accept-btn a {
-          color: #1a9781;
-        }
-
-        .cancel-btn a {
-          color: #e05e5e;
-        }
+  
+      .pagination-container {
+        margin: 3rem auto;
       }
     }
 
-    .pagination-container {
-      margin: 3rem auto;
-    }
 
     .modal.product-details {
       .modal-dialog {
