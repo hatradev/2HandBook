@@ -95,9 +95,8 @@
   }
   .trend-card-img {
     background-color: #fff;
-    height: 100%;
+    height: 30rem;
     .trend-prod-img {
-      float: left;
       height: 100%;
       object-fit: contain;
     }
@@ -149,4 +148,9 @@
       background-color: #337ab7;
     }
   }
+}
+
+.far-from-head {
+  margin-top: 17rem;
+  margin-bottom: 3rem;
 }

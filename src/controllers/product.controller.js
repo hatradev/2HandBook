@@ -540,17 +540,12 @@ class productController {
 
       const limit = 10;
       const product1 = await Product.find()
+        .populate("idAccount")
         .sort({ time: -1 })
         .skip((page - 1) * limit)
         .limit(limit);
       const allProducts = mutipleMongooseToObject(product1);
-      for (const each of allProducts) {
-        const account = await Account.findOne(
-          { _id: each.idAccount },
-          "shopName"
-        );
-        each.shopName = account.shopName;
-      }
+
       res.locals._numberOfItems = await Product.find().countDocuments();
       res.locals._limit = limit;
       res.locals._currentPage = page;
@@ -572,19 +567,14 @@ class productController {
 
       const limit = 10;
       const product1 = await Product.find({ status: "Banned" })
+        .populate("idAccount")
         .sort({ time: -1 })
         .skip((page - 1) * limit)
         .limit(limit);
       const allProducts = mutipleMongooseToObject(product1);
-      for (const each of allProducts) {
-        const account = await Account.findOne(
-          { _id: each.idAccount },
-          "shopName"
-        );
-        each.shopName = account.shopName;
-      }
+
       res.locals._numberOfItems = await Product.find({
-        status: "banned",
+        status: "Banned",
       }).countDocuments();
       res.locals._limit = limit;
       res.locals._currentPage = page;
@@ -606,17 +596,11 @@ class productController {
 
       const limit = 10;
       const product1 = await Product.find({ status: "Pending" })
+        .populate("idAccount")
         .sort({ time: -1 })
         .skip((page - 1) * limit)
         .limit(limit);
       const allProducts = mutipleMongooseToObject(product1);
-      for (const each of allProducts) {
-        const account = await Account.findOne(
-          { _id: each.idAccount },
-          "shopName"
-        );
-        each.shopName = account.shopName;
-      }
       res.locals._numberOfItems = await Product.find({
         status: "Pending",
       }).countDocuments();
@@ -640,17 +624,11 @@ class productController {
 
       const limit = 10;
       const product1 = await Product.find({ status: "Reported" })
+        .populate("idAccount")
         .sort({ time: -1 })
         .skip((page - 1) * limit)
         .limit(limit);
       const allProducts = mutipleMongooseToObject(product1);
-      for (const each of allProducts) {
-        const account = await Account.findOne(
-          { _id: each.idAccount },
-          "shopName"
-        );
-        each.shopName = account.shopName;
-      }
       res.locals._numberOfItems = await Product.find({
         status: "Reported",
       }).countDocuments();
@@ -674,17 +652,11 @@ class productController {
 
       const limit = 10;
       const product1 = await Product.find({ status: "Trending" })
+        .populate("idAccount")
         .sort({ time: -1 })
         .skip((page - 1) * limit)
         .limit(limit);
       const allProducts = mutipleMongooseToObject(product1);
-      for (const each of allProducts) {
-        const account = await Account.findOne(
-          { _id: each.idAccount },
-          "shopName"
-        );
-        each.shopName = account.shopName;
-      }
       res.locals._numberOfItems = await Product.find({
         status: "Trending",
       }).countDocuments();

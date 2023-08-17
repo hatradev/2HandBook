@@ -802,9 +802,8 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
     padding: 0 0; }
   .trend .trend-card-img {
     background-color: #fff;
-    height: 100%; }
+    height: 30rem; }
     .trend .trend-card-img .trend-prod-img {
-      float: left;
       height: 100%;
       object-fit: contain; }
   .trend .trend-card-title {
@@ -844,6 +843,10 @@ a.btn:hover, a.btn:active, a.btn:first-child:active,
     .trend .see-more-btn .trend-btn:hover {
       color: #fff;
       background-color: #337ab7; }
+
+.far-from-head {
+  margin-top: 17rem;
+  margin-bottom: 3rem; }
 
 .container-ext, .manage-product, .edit-product, .dashboard {
   background-color: #fff;

@@ -25,6 +25,13 @@ class siteController {
       next(err);
     }
   };
+  getSupport = (req, res, next) => {
+    try {
+      res.render("support");
+    } catch (err) {
+      next(err);
+    }
+  };
 }
 
 module.exports = new siteController();
