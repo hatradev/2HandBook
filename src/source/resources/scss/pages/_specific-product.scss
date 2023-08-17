@@ -61,10 +61,14 @@
             display: none;
             font-size: 1.5rem;
             width: 8.5rem;
-            background-color: $color-primary;
+            background-color: $color-primary-tint;
             padding: 0.5rem 0.5rem;
             border-radius: 6px;
             transition: all 0.3s;
+            a {
+              color: #000;
+              white-space: nowrap;
+            }
           }
 
           &:hover button,

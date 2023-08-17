@@ -207,14 +207,15 @@ class productController {
       const product = await Product.findById(req.params.id);
       if (req.file) {
         if (product.image != "/img/products/default.png") {
-          // fs.unlinkSync(`./source/public${product.image}`);
+          fs.unlinkSync(`./source/public${product.image}`);
         }
         formData.image = req.file.path.replace("source/public", "");
       } else if (product.image == "/img/products/default.png") {
         formData.image = "/img/products/default.png";
       }
+      formData.status = "Pending";
       await Product.updateOne({ _id: req.params.id }, formData);
-      res.redirect("/product/manage");
+      res.render("message/processing-request");
     } catch (err) {
       next(err);
     }
@@ -301,10 +302,17 @@ class productController {
         ? 1
         : Math.max(1, parseInt(req.query.page));
       const limit = 8;
-      const products = await Product.find({$or: [{ status: 'available' }, { status: 'reported' }]})
+      const products = await Product.find({
+        $or: [{ status: "Available" }, { status: "Reported" }],
+      })
         .skip((page - 1) * limit)
         .limit(limit);
       const categories = await Product.aggregate([
+        {
+          $match: {
+            status: { $in: ["Available", "Reported"] },
+          },
+        },
         {
           $group: {
             _id: "$category",
@@ -315,7 +323,9 @@ class productController {
           $sort: { _id: 1 },
         },
       ]);
-      res.locals._numberOfItems = await Product.find().countDocuments();
+      res.locals._numberOfItems = await Product.find({
+        $or: [{ status: "Available" }, { status: "Reported" }],
+      }).countDocuments();
       res.locals._limit = limit;
       res.locals._currentPage = page;
 
@@ -337,10 +347,18 @@ class productController {
       const limit = 8;
 
       const type = req.query.category; //? req.query.category : 0
-      const products = await Product.find({ category: type })
+      const products = await Product.find({
+        category: type,
+        $or: [{ status: "Available" }, { status: "Reported" }],
+      })
         .skip((page - 1) * limit)
         .limit(limit);
       const categories = await Product.aggregate([
+        {
+          $match: {
+            status: { $in: ["Available", "Reported"] },
+          },
+        },
         {
           $group: {
             _id: "$category",
@@ -353,6 +371,7 @@ class productController {
       ]);
       res.locals._numberOfItems = await Product.find({
         category: type,
+        $or: [{ status: "Available" }, { status: "Reported" }],
       }).countDocuments();
       res.locals._limit = limit;
       res.locals._currentPage = page;
@@ -387,11 +406,18 @@ class productController {
         options.name = regex;
       }
 
+      options.$or = [{ status: "Available" }, { status: "Reported" }];
+
       const products = await Product.find(options)
         .sort({ [type]: order })
         .skip((page - 1) * limit)
         .limit(limit);
       const categories = await Product.aggregate([
+        {
+          $match: {
+            status: { $in: ["Available", "Reported"] },
+          },
+        },
         {
           $group: {
             _id: "$category",
@@ -427,11 +453,19 @@ class productController {
       const keyword = req.query.keyword || "";
       if (keyword.trim() != "") {
         const regex = new RegExp(keyword, "i");
-        const products = await Product.find({ name: regex })
+        const products = await Product.find({
+          name: regex,
+          $or: [{ status: "Available" }, { status: "Reported" }],
+        })
           .skip((page - 1) * limit)
           .limit(limit);
 
         const categories = await Product.aggregate([
+          {
+            $match: {
+              status: { $in: ["Available", "Reported"] },
+            },
+          },
           {
             $group: {
               _id: "$category",
@@ -444,6 +478,7 @@ class productController {
         ]);
         res.locals._numberOfItems = await Product.find({
           name: regex,
+          $or: [{ status: "Available" }, { status: "Reported" }],
         }).countDocuments();
         res.locals._limit = limit;
         res.locals._currentPage = page;
@@ -478,9 +513,6 @@ class productController {
         })
         .sort({ date: -1 })
         .countDocuments();
-
-      // console.log(evaNumber)
-
       const stars = await Evaluate.aggregate([
         {
           $match: {
@@ -651,7 +683,9 @@ class productController {
         : Math.max(1, parseInt(req.query.page));
 
       const limit = 10;
-      const product1 = await Product.find({ status: "Trending" })
+      const product1 = await Product.find({
+        $or: [{ status: "Available", isTrend: true }, { status: "Trending" }],
+      })
         .populate("idAccount")
         .sort({ time: -1 })
         .skip((page - 1) * limit)

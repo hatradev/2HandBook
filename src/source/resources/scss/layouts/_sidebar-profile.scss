@@ -4,8 +4,6 @@
     padding-left: 0%;
     padding-right: 0%;
     height: 100%;
-    // width: 18%;
-    // background-color: rgba(187, 223, 253, 0.96);
     background-color: #c8dae4;
 
     .avatar {
@@ -19,24 +17,11 @@
         width: 40%;
         height: 90%;
         cursor: pointer;
-        // max-height: 8rem;
-        img{
+        img {
           height: 8.2rem;
           width: 8.2rem;
           border-radius: 0.5rem;
         }
-        // padding-bottom: 2rem;
-        // i {
-        //   // padding: 1rem;
-        //   padding-top: 0.5rem;
-        //   font-size: 7.9rem;
-        //   padding-bottom: 0.6rem;
-        //   // background-color: white;
-        // }
-
-        // display: flex;
-        // align-items: center;
-        // justify-content: center;
       }
 
       .avatar-right {
@@ -54,27 +39,16 @@
             font-weight: 100;
           }
         }
-
-        // .info span{
-        //     font-size: 1rem;
-        // }
-
         .signup-btn {
-          // margin-top: 1.5rem;
-          // background-color: white;
           height: 80%;
           width: 100%;
 
           button {
-            // font-size: smaller;
-            // width: 70%;
-            // height: 70%;
             width: 70%;
             display: block;
             background-color: azure;
             height: 50%;
             color: rgba(0, 0, 0, 0.58);
-            // font-weight: bold;
             font-weight: 600;
             font-size: 1.5rem;
 
@@ -91,7 +65,6 @@
     .my-account {
       width: 100%;
       height: 7%;
-      // padding-left: 2rem;
       display: flex;
 
       a {
@@ -107,7 +80,6 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        // justify-content:left;
         padding-left: 3.5rem;
 
         i {
@@ -116,8 +88,9 @@
         }
 
         span {
-          font-size: 2rem;
+          font-size: 1.6rem;
           font-weight: 600;
+          text-transform: capitalize;
         }
       }
     }
@@ -125,7 +98,6 @@
     .my-order {
       width: 100%;
       height: 7%;
-      // padding-left: 2rem;
       display: flex;
 
       a {
@@ -150,8 +122,9 @@
         }
 
         span {
-          font-size: 2rem;
+          font-size: 1.6rem;
           font-weight: 600;
+          text-transform: capitalize;
         }
       }
     }
@@ -159,7 +132,6 @@
     .become-seller {
       width: 100%;
       height: 7%;
-      // padding-left: 2rem;
       display: flex;
 
       a {
@@ -185,8 +157,9 @@
         }
 
         span {
-          font-size: 2rem;
+          font-size: 1.8rem;
           font-weight: 600;
+          text-transform: capitalize;
         }
       }
     }

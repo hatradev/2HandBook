@@ -192,8 +192,12 @@ class acccountController {
         const limit = 8;
         const productAll = await Product.find({
           idAccount: account._id,
+          $or: [{ status: "Available" }, { status: "Reported" }],
         });
-        const products = await Product.find({ idAccount: account._id })
+        const products = await Product.find({
+          idAccount: account._id,
+          $or: [{ status: "Available" }, { status: "Reported" }],
+        })
           .skip((page - 1) * limit)
           .limit(limit);
         let options = [];
@@ -230,14 +234,11 @@ class acccountController {
           res.locals._avgOfRating = 0;
         }
       } else {
-        const orders = await Order.find({ idAccount: req.params.id });
+        const orders = await Order.find({
+          idAccount: req.params.id,
+          status: "successful",
+        });
         let totalPay = 0;
-        // await orders.forEach(async (order) => {
-        //   await order.detail.forEach(async (product) => {
-        //     const productInfo = await Product.findById(product.idProduct);
-        //     totalPay += product.quantity * productInfo.price;
-        //   });
-        // });
         for (const order of orders) {
           for (const product of order.detail) {
             const productInfo = await Product.findById(product.idProduct);
@@ -265,44 +266,6 @@ class acccountController {
       next(err);
     }
   };
-
-  // [GET] account/my-profile
-  // getMyProfile(req, res, next) {
-  //   // res.send('my account');
-  //   Account.findOne({ _id: req.params._id })
-  //     .then((user) => {
-  //       res.render("profile_updating", {
-  //         user: mongooseToObject(user),
-  //       });
-  //     })
-  //     .catch(next);
-  // }
-
-  // getMyProfile = async (req, res, next) => {
-  //   try {
-  //     const accountId = req.params._id;
-  //     const user = await Account.findById(accountId);
-  //     // console.log(user);
-
-  //     if (user.role === "Admin") {
-  //       return res.render("profile_updating-admin", {
-  //         user: mongooseToObject(user),
-  //       });
-  //     }
-  //     else if (user.role === "Buyer") {
-  //       return res.render("profile_updating", {
-  //         user: mongooseToObject(user),
-  //       });
-  //     }
-  //     else {
-  //       return res.render("profile_updating-seller", {
-  //         user: mongooseToObject(user),
-  //       });
-  //     }
-  //   } catch (err) {
-  //     next(err);
-  //   }
-  // };
 
   getMyProfile = async (req, res, next) => {
     try {

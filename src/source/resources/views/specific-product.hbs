@@ -15,7 +15,7 @@
           <i class="fa-solid fa-ellipsis"></i>
           <button>Report</button>
           <div class="view-shop">
-            <a href="../../account/page/{{product.idAccount}}">View shop</a>
+            <a href="../../account/page/{{product.idAccount}}">View Shop</a>
           </div>
         </form>
 
@@ -26,9 +26,9 @@
             class="score m-0"
             style="font-family: 'Inter', sans-serif;"
           >{{showStar stars.avgRating}}
-            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star" style="color: #f9a410;"></i>
             /5
-            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star" style="color: #f9a410;"></i>
           </h3>
           <h3
             class="number mb-0"
@@ -97,6 +97,7 @@
         class="write-cmt d-flex mt-3 align-items-center"
         method="POST"
         action="/evaluate/specific-product/{{product._id}}/create"
+        id="form-comment"
       >
         <textarea
           name="cmtInput"
@@ -146,9 +147,12 @@
                     class="score m-0"
                     style="font-family: 'Inter', sans-serif; font-size: 1.5rem;"
                   >{{showStar this.rating}}
-                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star" style="color: #f9a410;"></i>
                     /5
-                    <i class="fa-solid fa-star"></i></h3>
+                    <i
+                      class="fa-solid fa-star"
+                      style="color: #f9a410;"
+                    ></i></h3>
                 {{else}}
                   {{! Nội dung khi điều kiện sai }}
                 {{/if}}
@@ -212,11 +216,11 @@
   document.getElementById('buy-now-btn'); const quantitySpan =
   document.querySelector('.quantity-number');
   buyNowBtn.addEventListener('click', function (event) { event.preventDefault();
-  // Ngăn chặn hành vi mặc định khi click vào nút const productID = '{{product._id}}';
-  // ID của sản phẩm const quantity = parseInt(quantitySpan.textContent); // Lấy
-  giá trị số lượng từ span // Tạo URL mới với tham số số lượng const newURL =
-  `/order/payment/${productID}?quantity=${quantity}`; // Chuyển hướng trình
-  duyệt tới URL mới window.location.href = newURL; }); });
+  const productID = '{{product._id}}'; const quantity =
+  parseInt(quantitySpan.textContent); const newURL =
+  `/order/payment/${productID}?quantity=${quantity}`; window.location.href =
+  newURL; }); });
+
 </script>
 
 {{! <script src="/js/specific-product-getQuantity.js"></script> }}

@@ -7,7 +7,10 @@ class siteController {
   // [GET] /
   getHome = async (req, res, next) => {
     try {
-      const products = await Product.find({ isTrend: true })
+      const products = await Product.find({
+        isTrend: true,
+        $or: [{ status: "Available" }, { status: "Reported" }],
+      })
         .limit(6)
         .sort("timestamps: -1");
       res.render("home", {

@@ -32,19 +32,28 @@ const $$ = document.querySelectorAll.bind(document);
 var plusBtn = $(".plus-btn");
 var minusBtn = $(".minus-btn");
 var quantity = $(".quantity-number");
-var availabelNumber = $('.available-product span')
+var availabelNumber = $(".available-product span");
 
-plusBtn.onclick = function () {
-  let temp = Number(quantity.innerText) + 1
-  let fixedNumber = Number(availabelNumber.innerText)
-  if (temp <= fixedNumber){
-    quantity.innerText = temp
+plusBtn.onclick = function (e) {
+  e.preventDefault();
+  let temp = Number(quantity.innerText) + 1;
+  let fixedNumber = Number(availabelNumber.innerText);
+  if (temp <= fixedNumber) {
+    quantity.innerText = temp;
   }
 };
 
-minusBtn.onclick = function () {
+minusBtn.onclick = function (e) {
+  e.preventDefault();
   var temp = Number(quantity.innerText) - 1;
   temp = temp >= 1 ? temp : 1;
   quantity.innerText = temp;
 };
 
+document
+  .getElementById("write-cmt-input")
+  .addEventListener("keydown", (event) => {
+    if (event.key == "Enter") {
+      document.querySelector("#form-comment").submit();
+    }
+  });
