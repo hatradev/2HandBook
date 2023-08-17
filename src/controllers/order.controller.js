@@ -22,7 +22,7 @@ class orderController {
       let page = isNaN(req.query.page)
         ? 1
         : Math.max(1, parseInt(req.query.page));
-      const limit = 8;
+      const limit = 18;
       const accountId = req.user._id;
       // console.log(accountId)
 

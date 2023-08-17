@@ -301,7 +301,7 @@ class productController {
         ? 1
         : Math.max(1, parseInt(req.query.page));
       const limit = 8;
-      const products = await Product.find({})
+      const products = await Product.find({$or: [{ status: 'available' }, { status: 'reported' }]})
         .skip((page - 1) * limit)
         .limit(limit);
       const categories = await Product.aggregate([
