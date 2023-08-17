@@ -104,7 +104,8 @@ else {
         newUrl = newUrl[0] + `page=${currentPage}` + newUrl[1];
       } else {
         if (newUrl[0]?.includes("?") || newUrl[1]?.includes("?")) {
-          newUrl = newUrl[0] + `&page=${currentPage}` + newUrl[1];
+          newUrl =
+            newUrl[0] + `&page=${currentPage}` + (newUrl[1] ? newUrl[1] : "");
         } else newUrl = newUrl[0] + `?page=${currentPage}`;
       }
       console.log("New URL: ", newUrl);
