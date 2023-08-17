@@ -99,7 +99,13 @@
                                 <div class="card-footer evaluate-product">
                                     <button id="evaluateButton_{{this.idProduct._id}}" type="button"
                                         class="btn btn-secondary text-uppercase btn-related-evaluation {{booleanToString this.isEvaluated}} evaluate-button"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" data-product-id="{{this.idProduct._id}}">EVALUATE</button>
+                                        data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" data-product-id="{{this.idProduct._id}}">
+                                        {{#if this.isEvaluated}}
+                                        EVALUATED
+                                        {{else}}
+                                        EVALUATE
+                                        {{/if}}
+                                    </button>
 
 
                                     
