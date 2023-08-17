@@ -1417,6 +1417,8 @@ section article.skills {
     margin-bottom: 6rem; }
     .specific-product .trend .main-heading {
       width: 18vw; }
+    .specific-product .trend .trend-card-img {
+      height: unset; }
     .specific-product .trend .trend-row {
       margin-top: 3rem; }
       .specific-product .trend .trend-row .trend-card {
@@ -1427,7 +1429,7 @@ section article.skills {
           overflow: hidden;
           text-overflow: ellipsis; }
         .specific-product .trend .trend-row .trend-card .trend-prod-img {
-          height: 22rem; }
+          height: 22rem !important; }
         .specific-product .trend .trend-row .trend-card .trend-card-price {
           margin-bottom: 0.5rem; }
 

@@ -210,7 +210,7 @@
           right: 0.5%;
           top: 41%;
           padding: 1rem;
-          button{
+          button {
             background: transparent;
           }
 
@@ -250,8 +250,6 @@
               margin-bottom: 0.2rem;
             }
 
-
-
             &:hover button {
               display: block;
             }
@@ -275,7 +273,8 @@
                 font-weight: 600;
               }
 
-              .date {}
+              .date {
+              }
             }
           }
 
@@ -379,6 +378,10 @@
       width: 18vw;
     }
 
+    .trend-card-img {
+      height: unset;
+    }
+
     .trend-row {
       margin-top: 3rem;
 
@@ -393,7 +396,7 @@
         }
 
         .trend-prod-img {
-          height: 22rem;
+          height: 22rem !important;
         }
 
         .trend-card-price {

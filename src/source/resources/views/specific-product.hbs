@@ -25,8 +25,10 @@
           <h3
             class="score m-0"
             style="font-family: 'Inter', sans-serif;"
-          >{{showStar stars.avgRating}} <i class="fa-solid fa-star"></i>
-          /5 <i class="fa-solid fa-star"></i>
+          >{{showStar stars.avgRating}}
+            <i class="fa-solid fa-star"></i>
+            /5
+            <i class="fa-solid fa-star"></i>
           </h3>
           <h3
             class="number mb-0"
@@ -143,8 +145,10 @@
                   <h3
                     class="score m-0"
                     style="font-family: 'Inter', sans-serif; font-size: 1.5rem;"
-                  >{{showStar this.rating}} <i class="fa-solid fa-star"></i>
-                  /5 <i class="fa-solid fa-star"></i></h3>
+                  >{{showStar this.rating}}
+                    <i class="fa-solid fa-star"></i>
+                    /5
+                    <i class="fa-solid fa-star"></i></h3>
                 {{else}}
                   {{! Nội dung khi điều kiện sai }}
                 {{/if}}
@@ -192,7 +196,10 @@
             </a>
             <p class="trend-card-title">{{this.name}}</p>
             <p class="trend-card-price">{{this.price}} VND</p>
-            <a href="#" class="btn trend-card-btn">Buy now</a>
+            <a
+              href="/product/specific-product/{{this._id}}"
+              class="btn trend-card-btn"
+            >Buy now</a>
           </figure>
         </div>
       {{/each}}
@@ -200,24 +207,17 @@
   </section>
 </div>
 
-
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const buyNowBtn = document.getElementById('buy-now-btn'); 
-    const quantitySpan = document.querySelector('.quantity-number');
-    buyNowBtn.addEventListener('click', function (event) {
-        event.preventDefault();
-        // Ngăn chặn hành vi mặc định khi click vào nút 
-        const productID = '{{product._id}}';
-        // ID của sản phẩm 
-        const quantity = parseInt(quantitySpan.textContent); 
-        // Lấy giá trị số lượng từ span 
-        // Tạo URL mới với tham số số lượng 
-        const newURL = `/order/payment/${productID}?quantity=${quantity}`; // Chuyển hướng trình duyệt tới URL mới 
-        window.location.href = newURL;
-    });
-});
+  document.addEventListener('DOMContentLoaded', function () { const buyNowBtn =
+  document.getElementById('buy-now-btn'); const quantitySpan =
+  document.querySelector('.quantity-number');
+  buyNowBtn.addEventListener('click', function (event) { event.preventDefault();
+  // Ngăn chặn hành vi mặc định khi click vào nút const productID = '{{product._id}}';
+  // ID của sản phẩm const quantity = parseInt(quantitySpan.textContent); // Lấy
+  giá trị số lượng từ span // Tạo URL mới với tham số số lượng const newURL =
+  `/order/payment/${productID}?quantity=${quantity}`; // Chuyển hướng trình
+  duyệt tới URL mới window.location.href = newURL; }); });
 </script>
 
-{{!-- <script src="/js/specific-product-getQuantity.js"></script> --}}
+{{! <script src="/js/specific-product-getQuantity.js"></script> }}
 <script src="/js/specific-product.js"></script>
