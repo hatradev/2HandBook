@@ -379,7 +379,8 @@ class acccountController {
       })
         .populate("idAccount")
         .populate("detail.idProduct")
-        .populate("idSeller");
+        .populate("idSeller")
+        .sort({ date: -1 });
       const orderObject = mutipleMongooseToObject(orders);
 
       res.locals.user = mongooseToObject(user);
@@ -426,7 +427,8 @@ class acccountController {
       })
         .populate("idAccount")
         .populate("detail.idProduct")
-        .populate("idSeller");
+        .populate("idSeller")
+        .sort({ date: -1 });
       const orderObject = mutipleMongooseToObject(orders);
 
       var products = [];
@@ -469,7 +471,8 @@ class acccountController {
       })
         .populate("idAccount")
         .populate("detail.idProduct")
-        .populate("idSeller");
+        .populate("idSeller")
+        .sort({ date: -1 });
       const orderObject = mutipleMongooseToObject(orders);
 
       var products = [];
