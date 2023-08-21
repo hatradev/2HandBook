@@ -267,6 +267,19 @@ class acccountController {
     }
   };
 
+  reportUser = async (req, res, next) => {
+    try {
+      const accountId = req.params.idUser;
+      const user = await Account.findById(accountId);
+      user.accountStatus = "Reported";
+      await user.save();
+      
+      res.redirect(`/account/page/${req.params.idUser}`);
+    } catch (err) {
+      next(err);
+    }
+  };
+
   getMyProfile = async (req, res, next) => {
     try {
       const user = await Account.findById(req.params._id);

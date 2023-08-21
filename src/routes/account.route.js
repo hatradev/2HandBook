@@ -42,6 +42,8 @@ router.post(
   accountController.registerSeller
 );
 router.get("/become-seller/:_id", accountController.getBecomeSeller);
+router.get("/page/report/:idUser", accountController.reportUser);
+
 // ######################################################
 router.use(accountController.isAdmin);
 // ######################### ADMIN ########################

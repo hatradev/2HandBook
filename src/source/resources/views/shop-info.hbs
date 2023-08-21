@@ -9,7 +9,14 @@
         {{else}}
         <h1 class="shop-name">{{account.firstName}} {{account.lastName}}</h1>
         {{/if}}
-        <button id="report-button" class="button">Report</button>
+        <a href="http://localhost:3000/account/page/report/{{account._id}}">
+          {{!-- <button id="report-button" class="button">Report</button> --}}
+          {{#if (isAccountReported account.accountStatus)}}
+          <button id="report-button" class="button" disabled>Reported</button>
+          {{else}}
+          <button id="report-button" class="button">Report</button>
+          {{/if}}
+        </a>
       </div>
     </div>
   </div>
