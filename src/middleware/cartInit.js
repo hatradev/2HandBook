@@ -32,8 +32,6 @@ async function initCart(req, res, next) {
         }
       });
 
-      // console.log("CART session: ", req.session.cart);
-
       reqSessionCart.forEach(async (eleSess, idxSess) => {
         let isFound = false;
         reqUserCart.forEach((eleUser, idxUser) => {
@@ -58,7 +56,6 @@ async function initCart(req, res, next) {
         (accum, product) => accum + product.quantity,
         0
       );
-      // console.log("CART user: ", req.user.cart);
     }
   } catch (err) {
     next(err);

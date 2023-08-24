@@ -30,7 +30,6 @@ class announceController {
 
       await newAnnouncement.save();
 
-      console.log(req.body);
       res.redirect("/announcement/all");
     } catch (err) {
       next(err);

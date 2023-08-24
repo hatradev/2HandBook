@@ -108,7 +108,6 @@ else {
             newUrl[0] + `&page=${currentPage}` + (newUrl[1] ? newUrl[1] : "");
         } else newUrl = newUrl[0] + `?page=${currentPage}`;
       }
-      console.log("New URL: ", newUrl);
       fetch(newUrl, {
         method: "GET",
         redirect: "follow",

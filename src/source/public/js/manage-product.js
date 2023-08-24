@@ -9,7 +9,6 @@ if (numberOfItems === 0) {
   );
 } else {
   window.onload = () => {
-    console.log("Hi");
     if (!document.querySelector(".manage-product-item")) {
       // Không có sản phẩm nào ở trang hiện tại nên load về trang đầu tiên
       // Xử lí tạo đường dẫn mới chỉ thay ?page=currentPage
@@ -21,10 +20,6 @@ if (numberOfItems === 0) {
       } else {
         newUrl = newUrl[0] + `?page=1`;
       }
-      console.log(newUrl);
-      // fetch(newUrl, {
-      //   method: "GET",
-      // });
       window.location.href = newUrl;
     }
   };
@@ -59,7 +54,6 @@ if (numberOfItems === 0) {
           redirect: "follow",
         })
           .then((res) => {
-            console.log(res);
             if (res.redirected) {
               window.location.href = res.url;
             }

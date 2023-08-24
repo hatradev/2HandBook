@@ -108,9 +108,7 @@ async function getCart() {
     let products = await res.json();
     await buildCartScreen(products);
     turnOnCartScreen();
-  } catch (err) {
-    console.log(err);
-  }
+  } catch (err) {}
 }
 
 async function deleteFromCart(id) {
@@ -126,7 +124,5 @@ async function deleteFromCart(id) {
       0
     );
     document.getElementById("lblCartCount").innerText = `${cartNumber}`;
-  } catch (err) {
-    console.log(err);
-  }
+  } catch (err) {}
 }

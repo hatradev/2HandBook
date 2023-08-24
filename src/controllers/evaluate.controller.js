@@ -29,7 +29,6 @@ class evaluateController {
     try {
       // const account = await Account.findOne({}); //***
       const idAccount = req.user._id; //***
-      console.log(idAccount);
       const cmtInput = req.body.cmtInput;
       const idProduct = req.params.id;
 
@@ -84,9 +83,7 @@ class evaluateController {
   replyEvaluate = async (req, res, next) => {
     try {
       const idEvaluate = req.params.id;
-      console.log(idEvaluate);
       const replyShop = req.body.reply;
-      console.log(replyShop);
       await Evaluate.updateOne(
         { _id: idEvaluate },
         { $set: { reply: replyShop } }
@@ -102,7 +99,6 @@ class evaluateController {
       // const { idAccount, idProduct, status, message, quantity } = req.body; // Giả sử dữ liệu được gửi qua body
       const accBuyer = await Account.findOne({ _id: req.user.id });
       const product = await Product.findOne({ _id: req.params._id });
-      console.log(req.params._id);
       //   const order = await Order.findOne({ 'detail.idProduct': product._id })
       const order = await Order.findOne({
         idAccount: accBuyer._id,
@@ -121,7 +117,6 @@ class evaluateController {
           detailItem.isEvaluated = true;
         }
       });
-      //   console.log(newEvaluate);
       await newEvaluate.save(); // Lưu order mới vào MongoDB
       await order.save();
       res.redirect(`/account/my-order/${req.user.id}`);
@@ -207,10 +202,8 @@ class evaluateController {
   deleteEvaluate = async (req, res, next) => {
     try {
       const idEvaluate = req.query.id;
-      console.log(idEvaluate);
       const evaluate = await Evaluate.findById(idEvaluate);
       const remove = await Evaluate.deleteOne({ _id: idEvaluate });
-      console.log(remove);
       res.redirect("back");
     } catch (err) {
       next(err);

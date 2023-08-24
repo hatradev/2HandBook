@@ -24,7 +24,6 @@ class orderController {
         : Math.max(1, parseInt(req.query.page));
       const limit = 18;
       const accountId = req.user._id;
-      // console.log(accountId)
 
       const orders = await Order.find({ idSeller: accountId })
         .sort({ date: -1 })
@@ -55,7 +54,6 @@ class orderController {
       res.locals.orders = orderObject;
       res.locals.products = products;
       res.locals.messages = messages;
-      // console.log(products)
       // res.json({products})
 
       res.render("manage-order");
@@ -69,7 +67,6 @@ class orderController {
     try {
       const orderId = req.body.id;
       const order = await Order.find({ _id: orderId });
-      // console.log(order)
       res.json(order);
     } catch (error) {
       res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 3" });
@@ -124,12 +121,11 @@ class orderController {
   getPayForCart = async (req, res, next) => {
     try {
       // const productId = req.params.id;
-      const accBuyer = await Account.findOne({ _id: req.user.id })
-      .populate({
+      const accBuyer = await Account.findOne({ _id: req.user.id }).populate({
         path: "cart._id",
         populate: {
-          path: "idAccount"
-        }
+          path: "idAccount",
+        },
       });
       // .populate(
       //   "cart._id"
@@ -141,7 +137,6 @@ class orderController {
       res.locals.accBuyer = mongooseToObject(accBuyer);
       // res.locals.product = mongooseToObject(product);
 
-      // console.log(res.locals.product);
       res.render("payment-for-cart");
     } catch (error) {
       res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 1" });
@@ -158,7 +153,6 @@ class orderController {
       // const idProduct = req.params._id;
       // const message = req.body.message;
       // const quantity = 1;
-      // console.log(idProduct)
 
       // const product = await Product.findById(idProduct);
       const idSeller = product.idAccount;
@@ -177,7 +171,6 @@ class orderController {
         message: req.body.message,
       });
 
-      console.log(newOrder);
       await newOrder.save(); // Lưu order mới vào MongoDB
       res.redirect(`/account/my-order-pending/${req.user.id}`);
       // res.status(201).json({ message: 'Đơn hàng đã được tạo thành công', order: savedOrder });
@@ -189,10 +182,8 @@ class orderController {
   placeOrderForCart = async (req, res, next) => {
     try {
       const accBuyer = await Account.findOne({ _id: req.user.id })
-      .populate(
-        "cart._id"
-      )
-      .populate("cart._id.idAccount");
+        .populate("cart._id")
+        .populate("cart._id.idAccount");
 
       const orders = accBuyer.cart.map((cartItem) => {
         const idSeller = cartItem._id.idAccount;

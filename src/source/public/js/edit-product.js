@@ -1,18 +1,17 @@
-const btnUpdateImage = document.querySelector('.product-image-preview .btn');
+const btnUpdateImage = document.querySelector(".product-image-preview .btn");
 const productImagePreview = document.querySelector(
-  '.product-image.product-image-preview '
+  ".product-image.product-image-preview "
 );
-const requiredFields = document.querySelectorAll('input[required]');
-const editForm = document.getElementById('edit-form');
-const saveBtn = document.querySelector('.js-save-btn');
-console.log(saveBtn);
-console.log(editForm);
+const requiredFields = document.querySelectorAll("input[required]");
+const editForm = document.getElementById("edit-form");
+const saveBtn = document.querySelector(".js-save-btn");
+
 function removeRequiredMessage() {
   requiredFields.forEach((field) => {
-    field.addEventListener('input', () => {
+    field.addEventListener("input", () => {
       if (
         !field.nextElementSibling ||
-        field.nextElementSibling.textContent == 'This field is required !'
+        field.nextElementSibling.textContent == "This field is required !"
       ) {
         field.nextElementSibling.remove();
       }
@@ -23,14 +22,13 @@ function removeRequiredMessage() {
 function validateRequiredForm() {
   let flag = true;
   for (const field of requiredFields) {
-    console.log(field);
-    if (field.value === '') {
+    if (field.value === "") {
       if (
         !field.nextElementSibling ||
-        field.nextElementSibling.textContent != 'This field is required !'
+        field.nextElementSibling.textContent != "This field is required !"
       ) {
         field.insertAdjacentHTML(
-          'afterend',
+          "afterend",
           '<p style="color:red;">This field is required !</p>'
         );
       }
@@ -41,8 +39,7 @@ function validateRequiredForm() {
   return flag;
 }
 
-saveBtn.addEventListener('click', () => {
-  console.log(validateRequiredForm());
+saveBtn.addEventListener("click", () => {
   if (validateRequiredForm()) {
     editForm.submit();
   }
@@ -50,6 +47,6 @@ saveBtn.addEventListener('click', () => {
 
 removeRequiredMessage();
 
-btnUpdateImage?.addEventListener('click', () => {
-  productImagePreview.style.display = 'none';
+btnUpdateImage?.addEventListener("click", () => {
+  productImagePreview.style.display = "none";
 });

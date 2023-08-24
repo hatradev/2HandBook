@@ -343,7 +343,6 @@ class productController {
       let page = isNaN(req.query.page)
         ? 1
         : Math.max(1, parseInt(req.query.page));
-      console.log(page);
       const limit = 8;
 
       const type = req.query.category; //? req.query.category : 0
@@ -391,7 +390,6 @@ class productController {
       let page = isNaN(req.query.page)
         ? 1
         : Math.max(1, parseInt(req.query.page));
-      console.log(page);
       const limit = 8;
 
       const type = req.query.sort;
@@ -447,7 +445,6 @@ class productController {
       let page = isNaN(req.query.page)
         ? 1
         : Math.max(1, parseInt(req.query.page));
-      console.log(page);
       const limit = 8;
 
       const keyword = req.query.keyword || "";
@@ -707,7 +704,6 @@ class productController {
 
   // [POST] account/exec-product
   executeProduct = async (req, res, next) => {
-    console.log(req.query.id);
     try {
       const product = await Product.findById(req.query.id);
       const type = req.query.type;
