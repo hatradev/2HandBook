@@ -59,11 +59,12 @@ class evaluateController {
       const evaluates = await Evaluate.find({
         reply: "",
       })
-        .populate("idAccount")
         .populate({
           path: "idProduct",
           match: { idAccount: idAccount }, // Điều kiện kiểm tra trên idProduct
         })
+        .populate("idAccount")
+
         .sort({ date: -1 })
         .skip((page - 1) * limit)
         .limit(limit);
