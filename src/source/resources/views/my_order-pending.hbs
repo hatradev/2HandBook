@@ -13,8 +13,12 @@
                             <span class='avatar-name'>{{user.firstName}} {{user.lastName}}</span>
                             <span class='avatar-mail mail'>{{user.email}}</span>
                         </div>
-                        <div class='signup-btn'>
+                        {{!-- <div class='signup-btn'>
                             <button type="button" class="btn btn-outline-secondary">SIGN OUT</button>
+                        </div> --}}
+                        <div class='signup-btn'>
+                            <button type='button' class='btn btn-outline-secondary' onclick="window.location.href='/account/sign-out';">SIGN
+                                OUT</button>
                         </div>
                     </div>
                 </div>
