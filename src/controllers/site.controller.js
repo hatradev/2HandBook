@@ -7,7 +7,10 @@ class siteController {
   // [GET] /
   getHome = async (req, res, next) => {
     try {
-      const products = await Product.find({ isTrend: true })
+      const products = await Product.find({
+        isTrend: true,
+        $or: [{ status: "Available" }, { status: "Reported" }],
+      })
         .limit(6)
         .sort("timestamps: -1");
       res.render("home", {
@@ -21,6 +24,13 @@ class siteController {
   getAboutUs = (req, res, next) => {
     try {
       res.render("about-us");
+    } catch (err) {
+      next(err);
+    }
+  };
+  getSupport = (req, res, next) => {
+    try {
+      res.render("support");
     } catch (err) {
       next(err);
     }

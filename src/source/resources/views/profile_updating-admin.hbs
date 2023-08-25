@@ -1,0 +1,146 @@
+<div class='container'>
+  <div class='account-profile-main container-fluid'>
+    <div class='row'>
+      <div class='col-3'>
+        <div class='avatar'>
+          {{!-- <div class='avatar-left'>
+            <i class='fa-solid fa-user'></i>
+          </div> --}}
+          <div class='avatar-left'>
+            <input type='file' id='avatar-input' accept='image/*' style='display: none;' />
+            <img id='avatar-image' src='{{user.avatar}}' alt='Avatar' />
+          </div>
+
+
+          <div class='avatar-right'>
+            <div class='info-avatar'>
+              <span class='avatar-name'>{{user.firstName}} {{user.lastName}}</span>
+              <span class='avatar-mail mail'>{{user.email}}</span>
+            </div>
+            <div class='signup-btn'>
+              <button type='button' class='btn btn-outline-secondary'
+                onclick="window.location.href='/account/sign-out';">SIGN OUT</button>
+            </div>
+          </div>
+        </div>
+        <div class='my-account'>
+          <a href='http://localhost:3000/account/my-profile/{{user._id}}'>
+            <button type='button' class='btn btn-outline-secondary bg-blue'>
+              <i class='fa-solid fa-pen-to-square color-white'></i>
+              <span class='page-link color-white'>My account</span>
+            </button>
+          </a>
+        </div>
+        <div class='my-order'>
+          <a href='http://localhost:3000/account/my-order/{{user._id}}'>
+            <button type='button' class='btn btn-outline-secondary'>
+              <i class='fa-solid fa-cart-shopping'></i>
+              <span class='page-link'>My order</span>
+            </button>
+          </a>
+        </div>
+        <div class='become-seller'>
+          <a href='http://localhost:3000/announcement'>
+            <button type='button' class='btn btn-outline-secondary'>
+              <i class='fa-solid fa-user'></i>
+              <span class='page-link'>Admin</span>
+            </button>
+          </a>
+        </div>
+        <div class='remain'></div>
+      </div>
+      <div class='col-9'>
+        <form class='row g-3' id='form-1' method="POST" action="/account/my-profile/{{user._id}}/update">
+          <div class='col-md-6'>
+            <label class='form-label fw-bold'>First name*</label>
+            <input id='firstName' type='text' class='form-control input-size shadow' name="firstName"
+              value="{{user.firstName}}" />
+
+          </div>
+          <div class='col-md-6'>
+
+            <label class='form-label fw-bold'>Last name*</label>
+            <input id='lastName' type='text' class='form-control input-size shadow' name="lastName"
+              value="{{user.lastName}}" />
+          </div>
+          <div class='col-12'>
+            <label class='form-label fw-bold'>Address</label>
+            <input id='address' type='text' class='form-control input-size shadow' placeholder='' name="address"
+              value="{{user.address}}" />
+          </div>
+          <div class='col-12'>
+            <label class='form-label fw-bold'>Email*</label>
+            <input id='email' type='text' class='form-control input-size shadow' placeholder='' name="email"
+              value="{{user.email}}" />
+          </div>
+          <input type='hidden' id='avatarPath' name='avatarPath' value='{{user.avatar}}'>
+          {{!-- <img id='avatar-image' src='{{user.avatar}}' alt='Avatar' /> --}}
+          <div class='col-md-6'>
+            <label class='form-label fw-bold'>Phone number*</label>
+            <input id='phone' type='text' class='form-control input-size shadow' name="phone" value="{{user.phone}}"
+             />
+          </div>
+          <div class='col-md-6'>
+            <label class='form-label fw-bold'>Job</label>
+            <input id='job' type='text' class='form-control input-size shadow' name="job" value="{{user.job}}"
+             />
+          </div>
+          <div class='col-12 change-password fw-bold'>
+            CHANGE PASSWORD
+          </div>
+          <div class='col-12'>
+            <label class='form-label fw-bold'>Present password*</label>
+            <input id='present-password' type='password' class='form-control input-size shadow' placeholder=''
+            name="presentPassword" />
+          </div>
+
+          <div class='col-12'>
+            <label class='form-label fw-bold'>New password*</label>
+            <input id='new-password' type='password' class='form-control input-size shadow' placeholder='' 
+            name="newPassword"/>
+          </div>
+
+          <div class='col-12 save-changes'>
+            <button type="submit" class='form-submit btn btn-outline-secondary shadow'>SAVE
+              CHANGES</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{!-- <script src='/js/profile.js'></script>
+<script src='/js/validation.js'></script> --}}
+<script src='/js/testValidation.js'></script>
+<!-- Your existing HTML code -->
+
+{{!-- Include the changePassword.js script --}}
+{{!-- <script src="/js/changePassword.js"></script> --}}
+
+<script>
+  const avatarInput = document.getElementById('avatar-input');
+  const avatarImage = document.getElementById('avatar-image');
+  const avatarLeft = document.querySelector('.avatar-left');
+
+  avatarInput.addEventListener('change', (event) => {
+  const selectedFile = event.target.files[0];
+  if (selectedFile) {
+    const reader = new FileReader();
+    reader.onload = function() {
+      // Lưu đường dẫn ảnh vào trường ẩn
+      avatarImage.src = reader.result;
+      const avatarPathInput = document.getElementById('avatarPath');
+      //const localImagePath = URL.createObjectURL(selectedFile);
+      avatarPathInput.value = '/img/avatar/' + selectedFile.name;
+    };
+    reader.readAsDataURL(selectedFile);
+  }
+});
+
+
+  avatarLeft.addEventListener('click', () => {
+    avatarInput.click();
+  });
+</script>
+

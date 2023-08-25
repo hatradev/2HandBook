@@ -13,8 +13,12 @@
                             <span class='avatar-name'>{{user.firstName}} {{user.lastName}}</span>
                             <span class='avatar-mail mail'>{{user.email}}</span>
                         </div>
-                        <div class='signup-btn'>
+                        {{!-- <div class='signup-btn'>
                             <button type="button" class="btn btn-outline-secondary">SIGN OUT</button>
+                        </div> --}}
+                        <div class='signup-btn'>
+                            <button type='button' class='btn btn-outline-secondary' onclick="window.location.href='/account/sign-out';">SIGN
+                                OUT</button>
                         </div>
                     </div>
                 </div>
@@ -35,10 +39,10 @@
                     </a>
                 </div>
                 <div class='become-seller'>
-                    <a href='http://localhost:3000/account/become-seller/{{user._id}}'>
+                    <a href='http://localhost:3000/{{switchLink}}'>
                         <button type='button' class='btn btn-outline-secondary'>
                             <i class='fa-solid fa-user'></i>
-                            <span class='page-link'>Become seller</span>
+                            <span class='page-link'>{{switchRole}}</span>
                         </button>
                     </a>
                 </div>
@@ -68,26 +72,28 @@
                         <i class="fa-solid fa-bag-shopping"></i>
                         {{../this.idSeller.shopName}}
                     </div>
-                    <div class="card-body">
-                        <div class="contain position-relative">
-                            <div class="left">
-                                <img src="{{this.idProduct.image}}" class="img-fluid rounded-start" alt="...">
-                            </div>
-                            <div class="middle position-relative">
-                                <div class="card-body">
-                                    <h2 class="card-title fw-bold">{{this.idProduct.name}}</h2>
-                                    <p class="card-text"><small class="text-muted fw-bolder">Price: {{formatCurrency this.idProduct.price}}</small></p>
-                                    <p class="card-text"><small class="text-muted fw-bolder">Quantity:  x{{this.quantity}}</small></p>
-                                    <p class="card-text position-absolute bottom-0 end-0">
-                                        <small class="text-muted fs-2 fw-bold">TOTAL: {{formatCurrency (calculateTotalPrice this.idProduct.price this.quantity)}}</small></p>
-                                    <p class="card-text position-absolute bottom-0 start-0">
-                                        <small class="text-muted order-date">Date:
-                                            {{dateOfOrder ../this.date}}
-                                        </small></p>
+                    <a href="http://localhost:3000/product/specific-product/{{this.idProduct._id}}">
+                        <div class="card-body">
+                            <div class="contain position-relative">
+                                <div class="left">
+                                    <img src="{{this.idProduct.image}}" class="img-fluid rounded-start" alt="...">
+                                </div>
+                                <div class="middle position-relative">
+                                    <div class="card-body">
+                                        <h2 class="card-title fw-bold">{{this.idProduct.name}}</h2>
+                                        <p class="card-text"><small class="text-muted fw-bolder">Price: {{formatCurrency this.idProduct.price}}</small></p>
+                                        <p class="card-text"><small class="text-muted fw-bolder">Quantity:  x{{this.quantity}}</small></p>
+                                        <p class="card-text position-absolute bottom-0 end-0">
+                                            <small class="text-muted fs-2 fw-bold">TOTAL: {{formatCurrency (calculateTotalPrice this.idProduct.price this.quantity)}}</small></p>
+                                        <p class="card-text position-absolute bottom-0 start-0">
+                                            <small class="text-muted order-date">Date:
+                                                {{dateOfOrder ../this.date}}
+                                            </small></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
 
                 </div>
                     {{/each}}

@@ -29,12 +29,11 @@ convertDate = (str) => {
 
 // API
 async function checkHasAnnounce() {
-  console.log("check has");
   const res = await fetch("/announcement/list", {
     method: "GET",
   });
   let { announcements, readArr } = await res.json();
-  if (readArr.reduce((partialSum, a) => partialSum + a, 0) > 0) {
+  if (readArr?.reduce((partialSum, a) => partialSum + a, 0) > 0) {
     // User has some new notifications
     announceBtn.classList.add("has-noti");
   }
@@ -46,7 +45,6 @@ async function getListAnnouncement() {
       method: "GET",
     });
     let { announcements, readArr } = await res.json();
-    console.log(announcements, readArr);
     const announceList = document.querySelector(".announce-list");
     if (announceList.hasChildNodes()) announceList.innerHTML = "";
     announcements.forEach((annouce, idx) => {

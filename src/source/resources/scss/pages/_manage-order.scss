@@ -2,7 +2,7 @@
   margin-top: 14rem;
 
   .manage-order {
-    min-height: 65rem;
+    // height: 65rem;
     padding: 1rem 2rem;
     .page-title {
       padding: 2rem 0;
@@ -10,63 +10,67 @@
       font-weight: 500;
     }
 
-    .table {
-      margin-top: 1rem;
-
-      thead tr {
-        text-align: center;
+    .table-order-section{
+      min-height: 80rem;
+      .table {
+        margin-top: 1rem;
+  
+        thead tr {
+          text-align: center;
+        }
+  
+        tr {
+          th:first-child {
+            text-align: center;
+          }
+  
+          .details,
+          .details-btn {
+            text-align: center;
+          }
+  
+          .accept,
+          .accept-btn {
+            text-align: center;
+          }
+  
+          .cancel,
+          .cancel-btn {
+            text-align: center;
+          }
+  
+          td a i {
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 0.2rem 1rem;
+          }
+  
+          .details-btn a {
+            color: #000;
+          }
+  
+          .accept-btn a {
+            color: #1a9781;
+          }
+  
+          .cancel-btn a {
+            color: #e05e5e;
+          }
+        }
       }
-
-      tr {
-        th:first-child {
-          text-align: center;
-        }
-
-        .details,
-        .details-btn {
-          text-align: center;
-        }
-
-        .accept,
-        .accept-btn {
-          text-align: center;
-        }
-
-        .cancel,
-        .cancel-btn {
-          text-align: center;
-        }
-
-        td a i {
-          font-size: 1.8rem;
-          cursor: pointer;
-          padding: 0.2rem 1rem;
-        }
-
-        .details-btn a {
-          color: #000;
-        }
-
-        .accept-btn a {
-          color: #1a9781;
-        }
-
-        .cancel-btn a {
-          color: #e05e5e;
-        }
+  
+      .pagination-container {
+        margin: 3rem auto;
       }
     }
 
-    .pagination-container {
-      margin: 3rem auto;
-    }
 
     .modal.product-details {
       .modal-dialog {
         display: flex;
         align-items: center;
         justify-content: center;
-        min-height: 60vh;
+        max-height: 40rem;
 
         .modal-content {
           .modal-header {

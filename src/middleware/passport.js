@@ -35,7 +35,6 @@ passport.use(
         if (!req.user) {
           // Người dùng chưa đăng nhập
           let user = await Account.findOne({ email: email }).exec();
-          console.log(user);
           // Email chưa tồn tại
           if (!user) {
             return done(
@@ -95,7 +94,6 @@ passport.use(
       }
       try {
         let user = await Account.findOne({ email: email }).exec();
-        console.log(user);
         if (user) {
           // Nếu email đã tồn tại
           return done(

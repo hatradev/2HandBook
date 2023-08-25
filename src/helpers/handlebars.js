@@ -42,12 +42,24 @@ module.exports = {
     return value ? "isEvaluated" : "not";
   },
 
+  isAccountReported(accountStatus) {
+    return accountStatus === "Reported";
+  },
+
+  getCurrentDate: () => {
+    const currentDate = new Date();
+    const day = currentDate.getDate().toString().padStart(2, '0');
+    const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+    const year = currentDate.getFullYear();
+
+    return `${day}/${month}/${year}`;
+  },
+
   objectIdToString: (objectId) => {
     if (mongoose.isValidObjectId(objectId)) {
       return objectId.toString();
     }
     return objectId;
   },
-  increaseIndex: (index, i) => index + i,
-  // originUrl: () => window.location.origin,
+  increaseIndex: (page, limit, index) => (page - 1)*limit + index + 1,
 };

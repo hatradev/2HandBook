@@ -19,11 +19,18 @@ class orderController {
     try {
       // const aOrder = await Account.findOne();
       // const accountId = aOrder._id
+      let page = isNaN(req.query.page)
+        ? 1
+        : Math.max(1, parseInt(req.query.page));
+      const limit = 18;
       const accountId = req.user._id;
 
       const orders = await Order.find({ idSeller: accountId })
+        .sort({ date: -1 })
         .populate("idAccount")
-        .populate("detail.idProduct");
+        .populate("detail.idProduct")
+        .skip((page - 1) * limit)
+        .limit(limit);
       const orderObject = mutipleMongooseToObject(orders);
 
       var products = [];
@@ -32,18 +39,37 @@ class orderController {
         messages.push({ idOrder: i._id, message: i.message });
         for (var j of i.detail) {
           Object.assign(j, { idOrder: i._id });
-          var temp = [];
-          temp.push(j);
+          // var temp = [];
+          // temp.push(j);
           products.push(j);
         }
       }
+      res.locals._numberOfItems = await Order.find({ idSeller: accountId })
+        .populate("idAccount")
+        .populate("detail.idProduct")
+        .countDocuments();
+      res.locals._limit = limit;
+      res.locals._currentPage = page;
+
       res.locals.orders = orderObject;
       res.locals.products = products;
       res.locals.messages = messages;
+      // res.json({products})
 
       res.render("manage-order");
     } catch (error) {
       res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 1" });
+    }
+  };
+
+  // [POST] product/quantity
+  getQuantity = async (req, res, next) => {
+    try {
+      const orderId = req.body.id;
+      const order = await Order.find({ _id: orderId });
+      res.json(order);
+    } catch (error) {
+      res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 3" });
     }
   };
 
@@ -84,8 +110,8 @@ class orderController {
 
       res.locals.accBuyer = mongooseToObject(accBuyer);
       res.locals.product = mongooseToObject(product);
+      res.locals.quantity = req.query.quantity;
 
-      // console.log(res.locals.product);
       res.render("payment");
     } catch (error) {
       res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 1" });
@@ -95,9 +121,15 @@ class orderController {
   getPayForCart = async (req, res, next) => {
     try {
       // const productId = req.params.id;
-      const accBuyer = await Account.findOne({ _id: req.user.id }).populate(
-        "cart._id"
-      );
+      const accBuyer = await Account.findOne({ _id: req.user.id }).populate({
+        path: "cart._id",
+        populate: {
+          path: "idAccount",
+        },
+      });
+      // .populate(
+      //   "cart._id"
+      // );
       // const product = await Product.findOne({ _id: req.params._id })
       // .populate('idAccount')
       // res.json(accBuyer)
@@ -105,7 +137,6 @@ class orderController {
       res.locals.accBuyer = mongooseToObject(accBuyer);
       // res.locals.product = mongooseToObject(product);
 
-      // console.log(res.locals.product);
       res.render("payment-for-cart");
     } catch (error) {
       res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 1" });
@@ -122,7 +153,6 @@ class orderController {
       // const idProduct = req.params._id;
       // const message = req.body.message;
       // const quantity = 1;
-      // console.log(idProduct)
 
       // const product = await Product.findById(idProduct);
       const idSeller = product.idAccount;
@@ -133,7 +163,7 @@ class orderController {
         detail: [
           {
             idProduct: product._id,
-            quantity: 1,
+            quantity: req.query.quantity,
             isEvaluated: false,
           },
         ],
@@ -141,7 +171,6 @@ class orderController {
         message: req.body.message,
       });
 
-      console.log(newOrder);
       await newOrder.save(); // Lưu order mới vào MongoDB
       res.redirect(`/account/my-order-pending/${req.user.id}`);
       // res.status(201).json({ message: 'Đơn hàng đã được tạo thành công', order: savedOrder });
@@ -152,9 +181,9 @@ class orderController {
 
   placeOrderForCart = async (req, res, next) => {
     try {
-      const accBuyer = await Account.findOne({ _id: req.user.id }).populate(
-        "cart._id"
-      );
+      const accBuyer = await Account.findOne({ _id: req.user.id })
+        .populate("cart._id")
+        .populate("cart._id.idAccount");
 
       const orders = accBuyer.cart.map((cartItem) => {
         const idSeller = cartItem._id.idAccount;

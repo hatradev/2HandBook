@@ -24,8 +24,6 @@
 
         .img-product {
           width: 35rem;
-          // vertical-align: middle;
-          // object-fit:scale-down;
         }
       }
     }
@@ -34,6 +32,7 @@
       font-family: "Inter", sans-serif;
       .intro {
         position: relative;
+
         .report-section {
           position: absolute;
           font-size: 2.6rem;
@@ -48,16 +47,34 @@
 
           button {
             display: none;
-            background-color: rgba($color: #3b99d7, $alpha: 0.7);
+            background-color: $color-primary;
             border-radius: 5px;
-            width: 6.8rem;
+            width: 8.5rem;
             height: 3.3rem;
             font-size: 1.5rem;
             transition: all 0.6s ease;
+            margin-bottom: 0.3rem;
+            transition: all 0.3s;
           }
 
-          &:hover button {
+          .view-shop {
+            display: none;
+            font-size: 1.5rem;
+            width: 8.5rem;
+            background-color: $color-primary-tint;
+            padding: 0.5rem 0.5rem;
+            border-radius: 6px;
+            transition: all 0.3s;
+            a {
+              color: #000;
+              white-space: nowrap;
+            }
+          }
+
+          &:hover button,
+          &:hover .view-shop {
             display: block;
+            transition: all 0.3s;
           }
         }
 
@@ -96,7 +113,7 @@
         margin-top: 2rem;
 
         span {
-          font-size: 1.8rem;
+          font-size: 1.6rem;
         }
 
         .details-list {
@@ -188,7 +205,7 @@
           border-radius: 1rem;
           padding: 1rem;
           width: 100%;
-          font-family: Inter;
+          font-family: "Inter", sans-serif;
         }
 
         .send-btn {
@@ -197,6 +214,9 @@
           right: 0.5%;
           top: 41%;
           padding: 1rem;
+          button {
+            background: transparent;
+          }
 
           &:hover i {
             opacity: 0.6;
@@ -227,10 +247,11 @@
               display: none;
               background-color: rgba($color: #3b99d7, $alpha: 0.7);
               border-radius: 5px;
-              width: 6.8rem;
               height: 3.3rem;
               font-size: 1.5rem;
               transition: all 0.6s ease;
+              width: 8.5rem;
+              margin-bottom: 0.2rem;
             }
 
             &:hover button {
@@ -361,6 +382,10 @@
       width: 18vw;
     }
 
+    .trend-card-img {
+      height: unset;
+    }
+
     .trend-row {
       margin-top: 3rem;
 
@@ -375,7 +400,7 @@
         }
 
         .trend-prod-img {
-          height: 22rem;
+          height: 22rem !important;
         }
 
         .trend-card-price {

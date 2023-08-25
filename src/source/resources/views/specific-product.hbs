@@ -14,20 +14,28 @@
         >
           <i class="fa-solid fa-ellipsis"></i>
           <button>Report</button>
+          <div class="view-shop">
+            <a href="../../account/page/{{product.idAccount}}">View Shop</a>
+          </div>
         </form>
 
         <h1 class="product-name">{{product.name}}</h1>
         <h2 class="product-price">{{product.price}}đ</h2>
         <div class="rating d-flex align-items-center mt-4">
-          <h3 class="score m-0">{{showStar stars.avgRating}}</h3>
-          <div class="rating-star ms-3">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-          </div>
-          <h3 class="number mb-0">12 comments</h3>
+          <h3
+            class="score m-0"
+            style="font-family: 'Inter', sans-serif;"
+          >{{showStar stars.avgRating}}
+            <i class="fa-solid fa-star" style="color: #f9a410;"></i>
+            /5
+            <i class="fa-solid fa-star" style="color: #f9a410;"></i>
+          </h3>
+          <h3
+            class="number mb-0"
+            style="margin-left: 3rem; font-family: 'Inter', sans-serif;"
+          >{{evaNumber}}
+            comments
+          </h3>
         </div>
       </div>
       <div class="details-product">
@@ -44,7 +52,8 @@
           <span
             class="quantity-number"
             style="display: inline-block; width: 2rem;"
-          >1</span></div>
+          >1</span>
+        </div>
         <div class="adjust-icon ms-5">
           <a href="#" class="plus-btn btn">
             <i class="fa-sharp fa-solid fa-plus"></i>
@@ -53,7 +62,7 @@
             <i class="fa-solid fa-minus"></i>
           </a>
         </div>
-        <div class="available-product ms-5">{{product.stock}}
+        <div class="available-product ms-5"><span>{{product.stock}}</span>
           available products</div>
       </div>
 
@@ -64,7 +73,11 @@
           id="js-add-cart-btn"
           onclick="addCart('{{product._id}}', document.querySelector('.quantity-number').textContent);"
         >Add to cart</a>
-        <a href="/order/payment/{{product._id}}" class="payment-btn btn">BUY NOW</a>
+        <a
+          href="/order/payment/{{product._id}}"
+          class="payment-btn btn"
+          id="buy-now-btn"
+        >BUY NOW</a>
       </div>
     </div>
     <hr />
@@ -84,6 +97,7 @@
         class="write-cmt d-flex mt-3 align-items-center"
         method="POST"
         action="/evaluate/specific-product/{{product._id}}/create"
+        id="form-comment"
       >
         <textarea
           name="cmtInput"
@@ -101,7 +115,7 @@
 
       <div class="comment-main mt-3" data-id="{{@index}}">
         {{#each evaluates}}
-          <div class="comment-user">
+          <div class="comment-user mb-4">
             <form
               class="report-section"
               method="POST"
@@ -127,21 +141,33 @@
                 <div class="date mt-1">{{convertDate this.date}}</div>
               </div>
               <div class="stars ms-4">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
+                {{#if this.rating}}
+                  {{! Nội dung khi điều kiện đúng }}
+                  <h3
+                    class="score m-0"
+                    style="font-family: 'Inter', sans-serif; font-size: 1.5rem;"
+                  >{{showStar this.rating}}
+                    <i class="fa-solid fa-star" style="color: #f9a410;"></i>
+                    /5
+                    <i
+                      class="fa-solid fa-star"
+                      style="color: #f9a410;"
+                    ></i></h3>
+                {{else}}
+                  {{! Nội dung khi điều kiện sai }}
+                {{/if}}
               </div>
             </div>
             <div class="comment-info">
               {{this.content}}
             </div>
           </div>
-          <div class="reply-from-seller mt-3">
-            Seller:
-            {{this.reply}}
-          </div>
+          {{#if this.reply}}
+            <div class="reply-from-seller mb-4">
+              Seller:
+              {{this.reply}}
+            </div>
+          {{/if}}
         {{/each}}
       </div>
     </div>
@@ -174,11 +200,28 @@
             </a>
             <p class="trend-card-title">{{this.name}}</p>
             <p class="trend-card-price">{{this.price}} VND</p>
-            <a href="#" class="btn trend-card-btn">Buy now</a>
+            <a
+              href="/product/specific-product/{{this._id}}"
+              class="btn trend-card-btn"
+            >Buy now</a>
           </figure>
         </div>
       {{/each}}
     </div>
   </section>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () { const buyNowBtn =
+  document.getElementById('buy-now-btn'); const quantitySpan =
+  document.querySelector('.quantity-number');
+  buyNowBtn.addEventListener('click', function (event) { event.preventDefault();
+  const productID = '{{product._id}}'; const quantity =
+  parseInt(quantitySpan.textContent); const newURL =
+  `/order/payment/${productID}?quantity=${quantity}`; window.location.href =
+  newURL; }); });
+
+</script>
+
+{{! <script src="/js/specific-product-getQuantity.js"></script> }}
 <script src="/js/specific-product.js"></script>

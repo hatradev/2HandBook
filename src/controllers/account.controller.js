@@ -88,15 +88,17 @@ class acccountController {
         // Get the account ID from the logged-in user
         const accountId = user._id; // Adjust this to match your account model field name
         req.session.cart = cart;
-
         // Append the account ID as a slug to the "reqUrl"
-        const redirectUrl = `${reqUrl}/${accountId}`;
+        if (reqUrl == "/account/my-profile") {
+          reqUrl = `${reqUrl}/${accountId}`;
+        }
         req.session.cookie.maxAge = keepSignedIn ? 24 * 60 * 60 * 1000 : null;
-        return res.redirect(redirectUrl);
+        return res.redirect(reqUrl);
       });
     })(req, res, next);
   };
 
+  // Authentication and Authorization
   isLoggedIn = (req, res, next) => {
     if (req.isAuthenticated()) {
       return next();
@@ -108,7 +110,18 @@ class acccountController {
     if (req.user.role == "Admin") {
       return next();
     }
-    // res.locals
+    res.status(404).render("error", {
+      message: "File not found!",
+    });
+  };
+
+  isSeller = (req, res, next) => {
+    if (req.user.role == "Seller" || req.user.role == "Admin") {
+      return next();
+    }
+    res.status(404).render("error", {
+      message: "File not found!",
+    });
   };
 
   // [GET] account/sign-out
@@ -153,7 +166,6 @@ class acccountController {
           return res.render("forgot-password", { done: true });
         })
         .catch((error) => {
-          console.log(error.statusCode);
           return res.render("forgot-password", {
             message:
               "An error has occured when sending to your email address. Please check your email address!",
@@ -179,8 +191,12 @@ class acccountController {
         const limit = 8;
         const productAll = await Product.find({
           idAccount: account._id,
+          $or: [{ status: "Available" }, { status: "Reported" }],
         });
-        const products = await Product.find({ idAccount: account._id })
+        const products = await Product.find({
+          idAccount: account._id,
+          $or: [{ status: "Available" }, { status: "Reported" }],
+        })
           .skip((page - 1) * limit)
           .limit(limit);
         let options = [];
@@ -217,14 +233,11 @@ class acccountController {
           res.locals._avgOfRating = 0;
         }
       } else {
-        const orders = await Order.find({ idAccount: req.params.id });
+        const orders = await Order.find({
+          idAccount: req.params.id,
+          status: "successful",
+        });
         let totalPay = 0;
-        // await orders.forEach(async (order) => {
-        //   await order.detail.forEach(async (product) => {
-        //     const productInfo = await Product.findById(product.idProduct);
-        //     totalPay += product.quantity * productInfo.price;
-        //   });
-        // });
         for (const order of orders) {
           for (const product of order.detail) {
             const productInfo = await Product.findById(product.idProduct);
@@ -253,22 +266,44 @@ class acccountController {
     }
   };
 
-  // [GET] account/my-profile
-  getMyProfile(req, res, next) {
-    // res.send('my account');
-    Account.findOne({ _id: req.params._id })
-      .then((user) => {
-        res.render("profile_updating", {
-          user: mongooseToObject(user),
-        });
-      })
-      .catch(next);
-  }
+  reportUser = async (req, res, next) => {
+    try {
+      const accountId = req.params.idUser;
+      const user = await Account.findById(accountId);
+      user.accountStatus = "Reported";
+      await user.save();
+
+      res.redirect(`/account/page/${req.params.idUser}`);
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  getMyProfile = async (req, res, next) => {
+    try {
+      const user = await Account.findById(req.params._id);
+      const idUser = user._id;
+      res.locals.user = mongooseToObject(user);
+      if (user.role === "Admin") {
+        res.locals.switchRole = "Admin";
+        res.locals.switchLink = "announcement";
+      } else if (user.role === "Buyer") {
+        res.locals.switchRole = "Become seller";
+        res.locals.switchLink = "account/become-seller/" + idUser;
+      } else {
+        res.locals.switchRole = "Sale management";
+        res.locals.switchLink = "product/dashboard";
+      }
+
+      res.render("profile_updating");
+    } catch (err) {
+      next(err);
+    }
+  };
 
   updateMyProfile = async (req, res, next) => {
     // res.json(req.body);
     // Account.updateOne({_id: req.params._id}, req.body);
-    console.log(req.body);
     const accountId = req.params._id;
     const user = await Account.findById(accountId);
 
@@ -279,8 +314,6 @@ class acccountController {
     user.phone = req.body.phone;
     user.job = req.body.job;
     user.avatar = req.body.avatarPath;
-    // console.log(req.body);
-    // res.json(req.body);
     await user.save();
     try {
       // Check if the present password matches the one in the database
@@ -296,7 +329,6 @@ class acccountController {
       // Hash the new password and update it in the database
       const hashedNewPassword = await bcrypt.hash(req.body.newPassword, 10);
       user.password = hashedNewPassword;
-      // console.log(user);
 
       // Save the updated user data to the database
       await user.save();
@@ -318,9 +350,21 @@ class acccountController {
       })
         .populate("idAccount")
         .populate("detail.idProduct")
-        .populate("idSeller");
+        .populate("idSeller")
+        .sort({ date: -1 });
       const orderObject = mutipleMongooseToObject(orders);
 
+      res.locals.user = mongooseToObject(user);
+      if (user.role === "Admin") {
+        res.locals.switchRole = "Admin";
+        res.locals.switchLink = "announcement";
+      } else if (user.role === "Buyer") {
+        res.locals.switchRole = "Become seller";
+        res.locals.switchLink = "account/become-seller/" + accountId;
+      } else {
+        res.locals.switchRole = "Sale management";
+        res.locals.switchLink = "product/dashboard";
+      }
       // var products = [];
       // var sellers = [];
       // for (var i of orderObject) {
@@ -337,7 +381,6 @@ class acccountController {
       res.locals.orders = orderObject;
       // res.locals.products = products;
       // res.locals.sellers = sellers;
-      res.locals.user = mongooseToObject(user);
 
       res.render("my_order");
     } catch (err) {
@@ -355,7 +398,8 @@ class acccountController {
       })
         .populate("idAccount")
         .populate("detail.idProduct")
-        .populate("idSeller");
+        .populate("idSeller")
+        .sort({ date: -1 });
       const orderObject = mutipleMongooseToObject(orders);
 
       var products = [];
@@ -366,6 +410,17 @@ class acccountController {
           temp.push(j);
           products.push(j);
         }
+      }
+
+      if (user.role === "Admin") {
+        res.locals.switchRole = "Admin";
+        res.locals.switchLink = "announcement";
+      } else if (user.role === "Buyer") {
+        res.locals.switchRole = "Become seller";
+        res.locals.switchLink = "account/become-seller/" + accountId;
+      } else {
+        res.locals.switchRole = "Sale management";
+        res.locals.switchLink = "product/dashboard";
       }
       res.locals.orders = orderObject;
       res.locals.products = products;
@@ -387,7 +442,8 @@ class acccountController {
       })
         .populate("idAccount")
         .populate("detail.idProduct")
-        .populate("idSeller");
+        .populate("idSeller")
+        .sort({ date: -1 });
       const orderObject = mutipleMongooseToObject(orders);
 
       var products = [];
@@ -403,6 +459,17 @@ class acccountController {
       res.locals.products = products;
       res.locals.user = mongooseToObject(user);
 
+      if (user.role === "Admin") {
+        res.locals.switchRole = "Admin";
+        res.locals.switchLink = "announcement";
+      } else if (user.role === "Buyer") {
+        res.locals.switchRole = "Become seller";
+        res.locals.switchLink = "account/become-seller/" + accountId;
+      } else {
+        res.locals.switchRole = "Sale management";
+        res.locals.switchLink = "product/dashboard";
+      }
+
       res.render("my_order-cancelled");
     } catch (err) {
       next(err);
@@ -413,29 +480,16 @@ class acccountController {
     try {
       const accountId = req.params._id;
       const user = await Account.findById(accountId);
-      // console.log(user);
+      res.locals.user = mongooseToObject(user);
+      res.locals.switchRole = "Become seller";
+      res.locals.switchLink = "account/become-seller/" + accountId;
 
-      if (user.requestStatus === "Become-seller") {
-        if (user.accountStatus === "Pending") {
-          // Yêu cầu trở thành người bán đã gửi và tài khoản chưa được chấp thuận
-          return res.render("become_seller-pending", {
-            user: mongooseToObject(user),
-            // processingMessage: 'Your request is being processed. Please wait for approval.',
-          });
-        } else {
-          // Yêu cầu trở thành người bán đã gửi và tài khoản đã được chấp thuận
-          return res.render("become_seller", {
-            user: mongooseToObject(user),
-            approvedMessage:
-              "Congratulations! You have been approved as a seller.",
-          });
-        }
+      if (user.accountStatus === "Pending") {
+        res.render("become_seller-pending");
+      } else {
+        // Yêu cầu trở thành người bán đã gửi và tài khoản đã được chấp thuận
+        res.render("become_seller");
       }
-
-      // Ngược lại, hiển thị trang trở thành người bán với thông tin hồ sơ của người dùng để cập nhật thông tin và yêu cầu trở thành người bán
-      res.render("become_seller", {
-        user: mongooseToObject(user),
-      });
     } catch (err) {
       next(err);
     }
@@ -563,7 +617,6 @@ class acccountController {
 
   // [POST] account/exec-account
   executeAccount = async (req, res, next) => {
-    console.log(req.query.id);
     try {
       const user = await Account.findById(req.query.id);
       const type = req.query.type;

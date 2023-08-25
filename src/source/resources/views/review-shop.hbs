@@ -2,9 +2,9 @@
 	<div class="row">
 		{{>sales-page}}
 		<div class="col review-shop">
-			<h1 class='page-title'>
-        Reviews
-      </h1>
+			<h1 class='page-title' style="text-transform: uppercase;">
+				Reviews
+			</h1>
 			<div class="row">
 				<div class="col-12 review-section">
 					{{#each evaluates}}
@@ -16,7 +16,7 @@
 							<div class='information d-flex align-items-center'>
 								<div class='avatar'>
 									<a href='#'>
-										<img class='img-avatar' src='/img/SachKTLT.jpg' alt='error' />
+										<img class='img-avatar' src="{{this.idAccount.avatar}}" alt='error' />
 									</a>
 								</div>
 								<div class='infor-span ms-3'>
@@ -32,30 +32,32 @@
 
 						<div class="card-footer reply-cmt">
 							<button type="button" class="btn btn-secondary text-uppercase" data-bs-toggle="modal"
-								data-bs-target="#exampleModal" data-bs-whatever="@mdo">REPLY</button>
+								data-bs-target="#{{this._id}}" data-bs-whatever="@mdo">REPLY</button>
 
-							<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+							<div class="modal fade" id="{{this._id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
 								aria-hidden="true">
 								<div class="modal-dialog">
 									<div class="modal-content">
 										<div class="modal-header">
 											<h2 class="modal-title" id="exampleModalLabel">Evaluate the product</h2>
-											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+											<button type="button" class="btn-close" data-bs-dismiss="modal"
+												aria-label="Close"></button>
 										</div>
-										<div class="modal-body evaluate-body">
-											<form method='POST' class="reply-form" id="{{this._id}}"
-												action='/evaluate/review/{{this._id}}/reply'>
-												<div class="mb-3 review">
-													<label for="message-text" class="col-form-label fw-bold">Comment:</label>
-													<textarea class="form-control input-size" cols='60' rows='10' id="message-text" name='reply'
-														placeholder="Write to review..."></textarea>
-												</div>
-											</form>
-										</div>
-										<div class="modal-footer">
-											<button class="btn btn-secondary" data-bs-dismiss="modal">CLOSE</button>
-											<button class="btn btn-primary submit-btn" form="{{this._id}}">SUBMIT</button>
-										</div>
+										<form method='POST' class="reply-form" id="{{this._id}}" action="/evaluate/review/{{this._id}}/reply">
+											<div class="modal-body evaluate-body">
+													<div class="mb-3 review">
+														<label for="message-text"
+															class="col-form-label fw-bold">Comment:</label>
+														<textarea class="form-control input-size" cols='60' rows='10'
+															id="message-text" name='reply'
+															placeholder="Write to review..."></textarea>
+													</div>
+											</div>
+											<div class="modal-footer">
+												<button class="btn btn-secondary" data-bs-dismiss="modal">CLOSE</button>
+												<button class="btn btn-primary submit-btn" onclick="submitForm('{{this._id}}')">SUBMIT</button>
+											</div>
+										</form>
 									</div>
 								</div>
 							</div>
@@ -71,9 +73,9 @@
 				</div>
 				<div class="col">
 					<script>
-						let numberOfItems = {{_numberOfItems}};
-						let limit = {{_limit}};
-						let currentPage = {{_currentPage}};
+						let numberOfItems = {{ _numberOfItems }};
+						let limit = {{ _limit }};
+						let currentPage = {{ _currentPage }};
 						let leftMost = currentPage - ((currentPage - 1) % 3);
 					</script>
 					{{>pagination}}

@@ -2,116 +2,124 @@
   <div class='row'>
     {{>sales-page}}
     <div class='col manage-order'>
-      <h1 class='page-title'>
+      <h1 class='page-title' style="text-transform: uppercase;">
         Orders
       </h1>
-      <table class='table-order table table-bordered'>
-        <thead>
-          <tr>
-            <th scope='col' class='#' width='5%'>#</th>
-            <th scope='col' class='customer-name'>Customer name</th>
-            <th scope='col' class='email' width='25%'>Email</th>
-            <th scope='col' class='phone-number' width='20%'>Phone number</th>
-            <th scope='col' class='status' width='15%'>Status</th>
-            <th scope='col' class='details' width='5%'>Details</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{#each orders}}
-          <tr class="item-order" data-id="{{this._id}}">
-            <th scope='row'>{{increaseIndex @index 1}}</th>
-            <td>{{this.idAccount.lastName}} {{this.idAccount.firstName}}</td>
-            <td>{{this.idAccount.email}}</td>
-            <td>{{this.idAccount.phone}}</td>
-            <td class="d-flex justify-content-center">
-              <span class="badge rounded-pill bg-success sign-btn">{{this.status}}</span>
-            </td>
-            <td class='details-btn' data-id="{{this._id}}" data-status="{{this.status}}">
-              <a href='' data-bs-toggle='modal' data-bs-target='#product-details'>
-                <i class="fa-solid fa-ellipsis"></i>
-              </a>
-            </td>
-          </tr>
-          {{else}}
-          <tr class="item-order">
-            <th scope='row' colspan="6" style="padding: 1rem;">
-              Không có đơn đặt hàng từ khách hàng
-            </th>
-          </tr>
-          {{/each}}
-        </tbody>
-      </table>
-       <script>
-        let numberOfItems = {{_numberOfItems}};
-        let limit = {{_limit}};
-        let currentPage = {{_currentPage}};
-        let leftMost = currentPage - ((currentPage - 1) % 3);
-      </script>
-      {{>pagination}}
+      <div class="table-order-section">
+        <table class='table-order table table-bordered'>
+          <thead>
+            <tr>
+              <th scope='col' class='#' width='5%'>#</th>
+              <th scope='col' class='customer-name'>Customer name</th>
+              <th scope='col' class='email' width='25%'>Email</th>
+              <th scope='col' class='phone-number' width='20%'>Phone number</th>
+              <th scope='col' class='status' width='15%'>Status</th>
+              <th scope='col' class='details' width='5%'>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each orders}}
+            <tr class="item-order" data-id="{{this._id}}">
+              <th scope='row'>{{increaseIndex ../_currentPage ../_limit @index}}</th>
+              <td>{{this.idAccount.lastName}} {{this.idAccount.firstName}}</td>
+              <td>{{this.idAccount.email}}</td>
+              <td>{{this.idAccount.phone}}</td>
+              <td class="d-flex justify-content-center">
+                <span class="badge rounded-pill bg-success sign-btn">{{this.status}}</span>
+              </td>
+              <td class='details-btn' data-id="{{this._id}}" data-status="{{this.status}}">
+                <a href='' data-bs-toggle='modal' data-bs-target='#product-details'>
+                  <i class="fa-solid fa-ellipsis"></i>
+                </a>
+              </td>
+            </tr>
+            {{else}}
+            <tr class="item-order">
+              <th scope='row' colspan="6" style="padding: 1rem;">
+                Không có đơn đặt hàng từ khách hàng
+              </th>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+        <script>
+          let numberOfItems = {{ _numberOfItems }};
+          let limit = {{ _limit }};
+          let currentPage = {{ _currentPage }};
+          let leftMost = currentPage - ((currentPage - 1) % 3);
+        </script>
+        {{>pagination}}
 
-      {{! modal product details }}
-      <div class='modal product-details fade' id='product-details' tabindex='-1' aria-labelledby='exampleModalLabel'
-        aria-hidden='true'>
-        <div class='modal-dialog modal-lg'>
-          <div class='modal-content'>
-            <div class='modal-header'>
-              <h1 class='modal-title fs-5' id='exampleModalLabel'>Order details</h1>
-              <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-            </div>
-            <div class='modal-body'>
-              <div class='row'>
-                <div class='col manage-order'>
-                  <table class='table table-bordered table-fixed'>
-                    <thead>
-                      <tr>
-                        <th scope='col' class='image' width='10%'>Image</th>
-                        <th scope='col' class='name'>Name</th>
-                        <th scope='col' class='category' width='15%'>Category</th>
-                        <th scope='col' class='quantity' width='15%'>Quantity</th>
-                        <th scope='col' class='price' width='15%'>Price</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {{#each products}}
-                      <tr class="item-modal" data-id="{{this.idOrder}}">
-                        <td>
-                          <div class='img'>
-                            <a href='#'>
-                              <img class='img-product' src='{{this.idProduct.image}}' alt='error' />
-                            </a>
-                          </div>
-                        </td>
-                        <td>{{this.idProduct.name}}</td>
-                        <td>{{this.idProduct.category}}</td>
-                        <td>{{this.quantity}}</td>
-                        <td>{{this.idProduct.price}}</td>
-                      </tr>
-                      {{/each}}
-                    </tbody>
-                  </table>
-                  {{#each messages}}
-                  <div class="message" data-id="{{this.idOrder}}">
-                    <strong>Message:</strong>
-                    <p>
-                      {{this.message}}
-                    </p>
+        {{! modal product details }}
+        <div class='modal product-details fade' id='product-details' tabindex='-1' aria-labelledby='exampleModalLabel'
+          aria-hidden='true'>
+          <div class='modal-dialog modal-lg'>
+            <div class='modal-content'>
+              <div class='modal-header'>
+                <h1 class='modal-title fs-5' id='exampleModalLabel'>Order details</h1>
+                <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+              </div>
+              <div class='modal-body'>
+                <div class='row'>
+                  <div class='col manage-order'>
+                    <table class='table table-bordered table-fixed'>
+                      <thead>
+                        <tr>
+                          <th scope='col' class='image' width='10%'>Image</th>
+                          <th scope='col' class='name'>Name</th>
+                          <th scope='col' class='category' width='15%'>Category</th>
+                          <th scope='col' class='quantity' width='15%'>Quantity</th>
+                          <th scope='col' class='price' width='15%'>Price</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {{#each products}}
+                        {{#if this.idProduct}}
+                        <!-- Xử lý khi điều kiện đúng -->
+                        <tr class="item-modal" data-id="{{this.idOrder}}">
+                          <td>
+                            <div class='img'>
+                              <a href='#'>
+                                <img class='img-product' src='{{this.idProduct.image}}' alt='error' />
+                              </a>
+                            </div>
+                          </td>
+                          <td>{{this.idProduct.name}}</td>
+                          <td>{{this.idProduct.category}}</td>
+                          <td>{{this.quantity}}</td>
+                          <td>{{this.idProduct.price}}</td>
+                        </tr>
+                        {{else}}
+                        <!-- Xử lý khi điều kiện sai -->
+                        {{/if}}
+                        {{/each}}
+                      </tbody>
+                    </table>
+                    {{#each messages}}
+                    <div class="message" data-id="{{this.idOrder}}">
+                      <strong>Message:</strong>
+                      <p>
+                        {{this.message}}
+                      </p>
+                    </div>
+                    {{/each}}
                   </div>
-                  {{/each}}
                 </div>
               </div>
-            </div>
-            <div class='modal-footer'>
-              <button class='btn btn-success btn-accept' data-status="">
-                ACCEPT
-              </button>
-              <button class='btn btn-danger btn-delete' data-status="">
-                REJECT
-              </button>
+              <div class='modal-footer'>
+                <button class='btn btn-success btn-accept' data-status="" data-id="{{this._id}}">
+                  ACCEPT
+                </button>
+                <button class='btn btn-danger btn-delete' data-status="" data-id="{{this._id}}">
+                  REJECT
+                </button>
 
-              <a href='#' type='button' class='btn btn-secondary' data-bs-dismiss='modal'>CLOSE</a>
+                <a href='#' type='button' class='btn btn-secondary' data-bs-dismiss='modal'>CLOSE</a>
+              </div>
             </div>
           </div>
         </div>
+
       </div>
 
     </div>
