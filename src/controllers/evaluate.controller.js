@@ -55,26 +55,38 @@ class evaluateController {
         : Math.max(1, parseInt(req.query.page));
       const limit = 4;
 
-      const idAccount = req.user._id; //***
-      const evaluates = await Evaluate.find({
-        reply: "",
-      })
+      const _idAccount = req.user._id; //***
+      console.log(_idAccount)
+      const evaluates = await Evaluate.find({reply: ""})
         .populate({
           path: "idProduct",
-          match: { idAccount: idAccount }, // Điều kiện kiểm tra trên idProduct
+          // match: { idAccount: _idAccount }, // Điều kiện kiểm tra trên idProduct
+          populate: { path: "idAccount",
+        match: {_id: _idAccount} },
         })
-        .populate("idAccount")
+        .populate("idAccount");
 
-        .sort({ date: -1 })
-        .skip((page - 1) * limit)
-        .limit(limit);
+      const filteredPopulatedData = evaluates.filter(item => {
+        // Kiểm tra điều kiện ở đây, ví dụ:
+        return item.idProduct.idAccount !== null;
+      });
+        
+        
+        // evaluates = await evaluates.find({idProduct: {idAccount: {_id: _idAccount}}})
+      // filteredPopulatedData.sort({ date: -1 })
+      // .skip((page - 1) * limit)
+      // .limit(limit);
+      const sortedAndLimitedData = filteredPopulatedData
+      .sort((a, b) => b.date - a.date) // Sắp xếp theo ngày giảm dần
+      .slice((page - 1) * limit, page * limit); // Lấy phần giới hạn theo trang
 
       res.locals._numberOfItems = await Product.find().countDocuments();
       res.locals._limit = limit;
       res.locals._currentPage = page;
 
-      res.locals.evaluates = mutipleMongooseToObject(evaluates);
+      res.locals.evaluates = mutipleMongooseToObject(sortedAndLimitedData);
       res.render("review-shop");
+      // res.json(sortedAndLimitedData)
     } catch (error) {
       res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 1" });
     }
