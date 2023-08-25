@@ -519,20 +519,22 @@ class productController {
         })
         .sort({ date: -1 })
         .countDocuments();
-      const stars = await Evaluate.aggregate([
-        {
-          $match: {
-            idProduct: productId,
-            rating: { $ne: 0 },
-          },
-        },
-        {
-          $group: {
-            _id: null,
-            avgRating: { $avg: "$rating" },
-          },
-        },
-      ]);
+      // const stars = await Evaluate.aggregate([
+      //   {
+      //     $match: {
+      //       idProduct: productId,
+      //       // rating: { $ne: 0 },
+      //     },
+      //   }
+      // ]);
+      const ratings = await Evaluate.find({
+        idProduct: productId,
+        rating: { $ne: 0 }
+      }).select('rating');
+      const totalRatings = ratings.length;
+      const sumRatings = ratings.reduce((sum, rating) => sum + rating.rating, 0);
+      const avgRating = sumRatings / totalRatings;
+
       const related = await Product.aggregate([
         {
           $match: {
@@ -545,11 +547,13 @@ class productController {
       res.locals.evaNumber = evaNumber;
       res.locals.details = details;
       res.locals.product = mongooseToObject(product);
-      res.locals.stars = stars[0];
+      res.locals.stars = avgRating;
       res.locals.related = related;
       res.locals.evaluates = mutipleMongooseToObject(evaluates);
 
       res.render("specific-product");
+      // console.log(productId)
+      // res.json(avgRating)
     } catch (error) {
       res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 3" });
     }
