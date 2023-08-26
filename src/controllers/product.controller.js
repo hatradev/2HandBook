@@ -11,6 +11,7 @@ const {
   mutipleMongooseToObject,
   mongooseToObject,
 } = require("../utils/mongoose");
+const { formatCurrency } = require("../helpers/handlebars");
 
 var allProducts;
 
@@ -290,11 +291,11 @@ class productController {
       await req.session.cart.forEach(async (product, idx) => {
         if (product._id == req.params.id) {
           req.session.cart.splice(idx, 1);
+          req.user.cart = JSON.parse(JSON.stringify(req.session.cart));
           if (req.user) {
-            await Account.updateOne(
-              { _id: req.user._id },
-              { cart: req.session.cart }
-            );
+            let account = await Account.findById(req.user._id);
+            account.cart = req.user.cart;
+            await account.save();
           }
         }
       });
@@ -342,7 +343,7 @@ class productController {
       res.locals.products = mutipleMongooseToObject(products);
       res.render("all-product");
     } catch (error) {
-      res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 1" });
+      next(error);
     }
   };
 
@@ -389,7 +390,7 @@ class productController {
 
       res.render("all-product");
     } catch (error) {
-      res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 2" });
+      next(error);
     }
   };
 
@@ -444,7 +445,7 @@ class productController {
 
       res.render("all-product");
     } catch (error) {
-      res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 2" });
+      next(error);
     }
   };
 
@@ -494,7 +495,7 @@ class productController {
         res.render("all-product");
       } else res.redirect("back");
     } catch (error) {
-      res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 2" });
+      next(error);
     }
   };
 
@@ -519,20 +520,15 @@ class productController {
         })
         .sort({ date: -1 })
         .countDocuments();
-      // const stars = await Evaluate.aggregate([
-      //   {
-      //     $match: {
-      //       idProduct: productId,
-      //       // rating: { $ne: 0 },
-      //     },
-      //   }
-      // ]);
       const ratings = await Evaluate.find({
         idProduct: productId,
-        rating: { $ne: 0 }
-      }).select('rating');
+        rating: { $ne: 0 },
+      }).select("rating");
       const totalRatings = ratings.length;
-      const sumRatings = ratings.reduce((sum, rating) => sum + rating.rating, 0);
+      const sumRatings = ratings.reduce(
+        (sum, rating) => sum + rating.rating,
+        0
+      );
       const avgRating = sumRatings / totalRatings;
 
       const related = await Product.aggregate([
@@ -551,11 +547,11 @@ class productController {
       res.locals.related = related;
       res.locals.evaluates = mutipleMongooseToObject(evaluates);
 
-      res.render("specific-product");
-      // console.log(productId)
-      // res.json(avgRating)
+      res.render("specific-product", {
+        formatCurrency: formatCurrency,
+      });
     } catch (error) {
-      res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 3" });
+      next(error);
     }
   };
 
@@ -569,7 +565,7 @@ class productController {
       );
       res.redirect("back");
     } catch (error) {
-      res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 3" });
+      next(error);
     }
   };
 

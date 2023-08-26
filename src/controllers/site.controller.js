@@ -1,3 +1,4 @@
+const { formatCurrency } = require("../helpers/handlebars");
 const Product = require("../models/product.model");
 const {
   mutipleMongooseToObject,
@@ -14,6 +15,7 @@ class siteController {
         .limit(6)
         .sort("timestamps: -1");
       res.render("home", {
+        formatCurrency: formatCurrency,
         products: mutipleMongooseToObject(products),
       });
     } catch (err) {

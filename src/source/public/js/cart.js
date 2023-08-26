@@ -124,5 +124,7 @@ async function deleteFromCart(id) {
       0
     );
     document.getElementById("lblCartCount").innerText = `${cartNumber}`;
-  } catch (err) {}
+  } catch (err) {
+    console.log(err);
+  }
 }

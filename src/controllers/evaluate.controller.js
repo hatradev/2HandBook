@@ -8,6 +8,7 @@ const {
   mutipleMongooseToObject,
   mongooseToObject,
 } = require("../utils/mongoose");
+const { convertDate } = require("../helpers/handlebars");
 
 class evaluateController {
   // [PUT] /specific-product/:id/report
@@ -42,7 +43,7 @@ class evaluateController {
       await newEvaluate.save();
       res.redirect("back");
     } catch (error) {
-      res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 1" });
+      next(error);
     }
   };
 
@@ -56,29 +57,26 @@ class evaluateController {
       const limit = 4;
 
       const _idAccount = req.user._id; //***
-      console.log(_idAccount)
-      const evaluates = await Evaluate.find({reply: ""})
+      const evaluates = await Evaluate.find({ reply: "" })
         .populate({
           path: "idProduct",
           // match: { idAccount: _idAccount }, // Điều kiện kiểm tra trên idProduct
-          populate: { path: "idAccount",
-        match: {_id: _idAccount} },
+          populate: { path: "idAccount", match: { _id: _idAccount } },
         })
         .populate("idAccount");
 
-      const filteredPopulatedData = evaluates.filter(item => {
+      const filteredPopulatedData = evaluates.filter((item) => {
         // Kiểm tra điều kiện ở đây, ví dụ:
         return item.idProduct.idAccount !== null;
       });
-        
-        
-        // evaluates = await evaluates.find({idProduct: {idAccount: {_id: _idAccount}}})
+
+      // evaluates = await evaluates.find({idProduct: {idAccount: {_id: _idAccount}}})
       // filteredPopulatedData.sort({ date: -1 })
       // .skip((page - 1) * limit)
       // .limit(limit);
       const sortedAndLimitedData = filteredPopulatedData
-      .sort((a, b) => b.date - a.date) // Sắp xếp theo ngày giảm dần
-      .slice((page - 1) * limit, page * limit); // Lấy phần giới hạn theo trang
+        .sort((a, b) => b.date - a.date) // Sắp xếp theo ngày giảm dần
+        .slice((page - 1) * limit, page * limit); // Lấy phần giới hạn theo trang
 
       res.locals._numberOfItems = await Product.find().countDocuments();
       res.locals._limit = limit;
@@ -88,7 +86,7 @@ class evaluateController {
       res.render("review-shop");
       // res.json(sortedAndLimitedData)
     } catch (error) {
-      res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 1" });
+      next(error);
     }
   };
 
@@ -103,7 +101,7 @@ class evaluateController {
       );
       res.redirect("back");
     } catch (error) {
-      res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 1" });
+      next(error);
     }
   };
 
@@ -175,6 +173,7 @@ class evaluateController {
       res.locals._limit = limit;
       res.locals._currentPage = page;
       res.render("admin_comment_all", {
+        convertDate: convertDate,
         evaluate: allEvaluate,
       });
     } catch (error) {
@@ -205,6 +204,7 @@ class evaluateController {
       res.locals._limit = limit;
       res.locals._currentPage = page;
       res.render("admin_comment_reported", {
+        convertDate: convertDate,
         evaluate: allEvaluate,
       });
     } catch (error) {

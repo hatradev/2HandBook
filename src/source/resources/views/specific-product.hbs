@@ -20,7 +20,7 @@
         </form>
 
         <h1 class="product-name">{{product.name}}</h1>
-        <h2 class="product-price">{{product.price}}đ</h2>
+        <h2 class="product-price">{{formatCurrency product.price}}</h2>
         <div class="rating d-flex align-items-center mt-4">
           <h3
             class="score m-0"
@@ -199,7 +199,7 @@
               />
             </a>
             <p class="trend-card-title">{{this.name}}</p>
-            <p class="trend-card-price">{{this.price}} VND</p>
+            <p class="trend-card-price">{{formatCurrency this.price}}</p>
             <a
               href="/product/specific-product/{{this._id}}"
               class="btn trend-card-btn"

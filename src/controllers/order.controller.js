@@ -58,7 +58,7 @@ class orderController {
 
       res.render("manage-order");
     } catch (error) {
-      res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 1" });
+      next(error);
     }
   };
 
@@ -69,7 +69,7 @@ class orderController {
       const order = await Order.find({ _id: orderId });
       res.json(order);
     } catch (error) {
-      res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 3" });
+      next(error);
     }
   };
 
@@ -83,20 +83,28 @@ class orderController {
       );
       res.redirect("back");
     } catch (error) {
-      res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 1" });
+      next(error);
     }
   };
 
   acceptOrder = async (req, res, next) => {
     try {
       const orderId = req.params.id;
+      const order = await Order.findById(orderId);
+      // console.log(order);
+      await order.detail.forEach(async (product) => {
+        const productInfo = await Product.findById(product.idProduct);
+        productInfo.stock -= product.quantity;
+        await productInfo.save();
+        console.log(productInfo);
+      });
       await Order.updateOne(
         { _id: orderId },
         { $set: { status: "successful" } }
       );
       res.redirect("back");
     } catch (error) {
-      res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 1" });
+      next(error);
     }
   };
 
@@ -114,7 +122,7 @@ class orderController {
 
       res.render("payment");
     } catch (error) {
-      res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 1" });
+      next(error);
     }
   };
 
@@ -127,34 +135,21 @@ class orderController {
           path: "idAccount",
         },
       });
-      // .populate(
-      //   "cart._id"
-      // );
-      // const product = await Product.findOne({ _id: req.params._id })
-      // .populate('idAccount')
-      // res.json(accBuyer)
 
       res.locals.accBuyer = mongooseToObject(accBuyer);
-      // res.locals.product = mongooseToObject(product);
 
       res.render("payment-for-cart");
     } catch (error) {
-      res.status(500).json({ error: "Lỗi khi lấy tất cả sản phẩm 1" });
+      next(error);
     }
   };
 
   placeOrder = async (req, res, next) => {
     try {
-      // const { idAccount, idProduct, status, message, quantity } = req.body; // Giả sử dữ liệu được gửi qua body
       const accBuyer = await Account.findOne({ _id: req.user.id });
       const product = await Product.findOne({ _id: req.params._id }).populate(
         "idAccount"
       );
-      // const idProduct = req.params._id;
-      // const message = req.body.message;
-      // const quantity = 1;
-
-      // const product = await Product.findById(idProduct);
       const idSeller = product.idAccount;
 
       const newOrder = new Order({
@@ -173,9 +168,8 @@ class orderController {
 
       await newOrder.save(); // Lưu order mới vào MongoDB
       res.redirect(`/account/my-order-pending/${req.user.id}`);
-      // res.status(201).json({ message: 'Đơn hàng đã được tạo thành công', order: savedOrder });
     } catch (err) {
-      next(err);
+      next(error);
     }
   };
 
@@ -216,7 +210,7 @@ class orderController {
 
       res.redirect(`/account/my-order-pending/${req.user.id}`);
     } catch (error) {
-      res.status(500).json({ error: "Lỗi khi đặt hàng từ giỏ hàng" });
+      next(error);
     }
   };
 }
