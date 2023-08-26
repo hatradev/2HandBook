@@ -486,6 +486,7 @@ class acccountController {
 
       user.requestStatus = "Become-seller";
       user.accountStatus = "Pending";
+      user.shopName = req.body.shopName;
       user.address = req.body.address;
       user.job = req.body.job;
       await user.save();

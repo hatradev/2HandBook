@@ -177,8 +177,8 @@ class productController {
       formData.keyword = formData.keyword.map((str) => str.trim());
       if (formData.isTrend) {
         formData.status = "Trending";
-        isTrend = 0;
       }
+      formData.isTrend = false;
       if (req.file && !req.fileValidationError) {
         formData.image = req.file.path.replace("source/public", "");
       } else {
@@ -698,7 +698,7 @@ class productController {
         .limit(limit);
       const allProducts = mutipleMongooseToObject(product1);
       res.locals._numberOfItems = await Product.find({
-        status: "Trending",
+        $or: [{ status: "Available", isTrend: true }, { status: "Trending" }],
       }).countDocuments();
       res.locals._limit = limit;
       res.locals._currentPage = page;
