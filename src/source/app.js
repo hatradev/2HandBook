@@ -58,7 +58,7 @@ app.use(
     saveUninitialized: false,
     cookie: {
       httpOnly: true,
-      maxAge: 20 * 5 * 1000, // Cookie của người dùng sẽ tự expire
+      maxAge: 20 * 60 * 1000, // Cookie của người dùng sẽ tự expire sau 20 phút
     },
   })
 );

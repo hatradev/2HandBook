@@ -1,3 +1,4 @@
+const { convertDate } = require("../helpers/handlebars");
 const Account = require("../models/account.model");
 const Announcement = require("../models/announcement.model");
 const {
@@ -53,6 +54,7 @@ class announceController {
       res.locals._limit = limit;
       res.locals._currentPage = page;
       res.render("admin_all_announcement", {
+        convertDate: convertDate,
         announcements: mutipleMongooseToObject(announcements),
       });
     } catch (err) {
